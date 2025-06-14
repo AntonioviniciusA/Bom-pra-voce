@@ -48,22 +48,6 @@ const BannerHome = () => {
         aria-label="Próximo slide">
         &gt;
       </button>
-
-      {/* Indicadores de slide */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-        {bannerImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full ${
-              currentSlide === index
-                ? "bg-white"
-                : "backdrop-blur-xl bg-white/5 border border-white/10"
-            }`}
-            aria-label={`Ir para slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 };
