@@ -4,7 +4,7 @@ import BannerHome from "../Components/BannerHome/BannerHome";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-yellow-500 flex flex-col items-center ">
+    <main className="min-h-screen  flex flex-col items-center ">
       <NavBar />
       <BannerHome />
     </main>
