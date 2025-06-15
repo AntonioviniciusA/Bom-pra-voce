@@ -6,7 +6,7 @@ const BannerHome = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-    }, 5000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -22,14 +22,16 @@ const BannerHome = () => {
 
   return (
     <div className="w-full h-screen relative overflow-hidden">
-      <div className="flex h-full transition-transform duration-500 style={{transform: `trasnlateX(-${currentSlide * 100}%)`}}">
+      <div
+        className="flex h-full transition-transform duration-500"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
         {bannerImages.map((image) => (
           <div key={image.id} className=" w-full h-full flex-shrink-0 relative">
             <a href={image.link} className="block w-full h-full">
               <img
-                src={image.src}
-                alt={image.src}
-                className="w-full h-full object-cover hidden "
+                src={image.desktop}
+                alt={image.alt}
+                className="w-full h-full object-cover  "
               />
             </a>
           </div>

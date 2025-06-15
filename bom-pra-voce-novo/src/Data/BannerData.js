@@ -1,14 +1,17 @@
+import bannerExemple from "../images/bannerexemple.png";
+import bannerExemple2 from "../images/bannerexemple2.png";
+
 export const bannerImages = [
   {
     id: 1,
-    desktop: "",
+    desktop: bannerExemple,
     mobile: "",
-    alt: " ",
-    link: "",
+    alt: "aa",
+    link: "#",
   },
   {
     id: 2,
-    desktop: "",
+    desktop: bannerExemple2,
     mobile: "",
     alt: " ",
     link: "",
