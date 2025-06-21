@@ -7,7 +7,7 @@ const BannerHome = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-    }, 2000);
+    }, 7500);
     return () => clearInterval(interval);
   }, []);
 
