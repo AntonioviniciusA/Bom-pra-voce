@@ -1,12 +1,13 @@
 import React from "react";
 import NavBar from "../Components/NavBar/NavBar";
 import BannerHome from "../Components/BannerHome/BannerHome";
-
+import Cards from "../Components/Cards/Cards";
 export default function Home() {
   return (
     <main className="min-h-screen  flex flex-col items-center ">
       <NavBar />
       <BannerHome />
+      <Cards />
     </main>
   );
 }
