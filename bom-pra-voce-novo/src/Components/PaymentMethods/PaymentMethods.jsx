@@ -4,12 +4,13 @@ export default function PaymentsMethods() {
   return (
     <>
       <div
-        className="bg-yellow-400 flex items-center justify-center w-full h-[100px]"
+        className="bg-yellow-400 flex items-center justify-center w-full h-[70px]"
+        xopk
         style={{
-          clipPath: "ellipse(100% 60% at 50% 100%)",
+          clipPath: "ellipse(50% 60% at 50% 100%)",
         }}>
         <div className="">
-          <div className="flex items-center flex-col mt-10 text-center">
+          <div className="flex items-center flex-col mt-[15%] text-center">
             <h1 className="text-4xl font-extrabold text-white">
               Escolha a Melhor Forma de Pagar!!
             </h1>
