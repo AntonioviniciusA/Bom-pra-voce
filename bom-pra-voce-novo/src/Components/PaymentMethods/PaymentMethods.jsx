@@ -1,4 +1,5 @@
 import React from "react";
+import CardPayments from "../CardPayments/CardPayments";
 
 export default function PaymentsMethods() {
   return (
@@ -19,7 +20,9 @@ export default function PaymentsMethods() {
       </div>
       <div className="bg-yellow-400 flex items-center justify-center w-full h-[400px]">
         <div className="p-4">
-          <div className="flex gap-4">sss</div>
+          <div className="flex gap-4">
+            <CardPayments />
+          </div>
         </div>
       </div>
     </>
