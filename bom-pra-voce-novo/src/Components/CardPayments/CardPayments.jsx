@@ -11,7 +11,7 @@ export default function CardPayments() {
           <img
             src={method.image}
             alt={method.name}
-            className="max-w-[80%] max-h-[60%] object-contain"
+            className="max-w-[80%] max-h-[80%] object-contain"
           />
         </div>
       ))}

@@ -18,7 +18,7 @@ export default function PaymentsMethods() {
           </div>
         </div>
       </div>
-      <div className="bg-yellow-400 flex items-center justify-center w-full h-[400px]">
+      <div className="bg-yellow-400 flex items-center justify-center w-full p-14">
         <div className="p-4">
           <div className="flex gap-4">
             <CardPayments />
