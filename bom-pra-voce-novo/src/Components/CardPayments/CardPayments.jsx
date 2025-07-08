@@ -7,7 +7,7 @@ export default function CardPayments() {
       {PaymentMethodsImages.map((method, index) => (
         <div
           key={index}
-          className="w-full aspect-square flex flex-col items-center justify-center bg-gray-50 rounded-lg p-1 shadow-sm">
+          className="payment-card relative z-[1] text-white w-full aspect-square flex flex-col items-center justify-center  rounded-[12px] shadow-[0_0_30px_rgba(68,68,68,0.5)] overflow-hidden">
           <img
             src={method.image}
             alt={method.name}
