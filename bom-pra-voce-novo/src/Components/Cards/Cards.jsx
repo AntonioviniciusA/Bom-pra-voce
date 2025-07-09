@@ -1,60 +1,65 @@
 import { useState } from "react";
-import imamges from "../../images/Setores/unnamed.webp";
+import Hortifrut from "../../images/Setores/Hortifrut.png";
+import Bebidas from "../../images/Setores/Bebidas.png";
+import Padaria from "../../images/Setores/Padaria.png";
+import Adega from "../../images/Setores/Adega.png";
+import Freezer from "../../images/Setores/Freezer.png";
+
 const sectors = [
   {
     id: 0,
     name: "Bebidas",
-    mainImage: imamges,
-    images: [
-      imamges,
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-    ],
+    mainImage: Bebidas,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
   },
   {
     id: 0,
-    name: "Bebidas",
-    mainImage: imamges,
-    images: [
-      imamges,
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-    ],
+    name: "Hortifrut",
+    mainImage: Hortifrut,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
   },
   {
     id: 0,
-    name: "Bebidas",
-    mainImage: imamges,
-    images: [
-      imamges,
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-    ],
+    name: "Padaria",
+    mainImage: Padaria,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
   },
   {
     id: 0,
-    name: "Bebidas",
-    mainImage: imamges,
-    images: [
-      imamges,
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-    ],
+    name: "Adega",
+    mainImage: Adega,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
   },
   {
     id: 0,
-    name: "Bebidas",
-    mainImage: imamges,
-    images: [
-      imamges,
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-      "https://via.placeholder.com/600x400",
-    ],
+    name: "Freezer",
+    mainImage: Freezer,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
   },
 ];
 
@@ -88,9 +93,9 @@ export default function Card() {
       className="w-full flex flex-col items-center justify-center"
       style={{
         background:
-          "linear-gradient(to bottom, #FFDD00 50%,rgb(255, 255, 255) 50%)",
+          "linear-gradient(to bottom, #FFDD00 60%,rgb(255, 255, 255) 50%)",
       }}>
-      <div className="relative z-10 ma-12">
+      <div className="relative z-10 m-12">
         <h1 className="text-4xl font-bold text-center text-white">
           Conheça Nosso Setores
         </h1>
@@ -102,13 +107,16 @@ export default function Card() {
             key={sector.id}
             className="group cursor-pointer relative"
             onClick={() => openModal(sector)}>
-            <div className="w-[220px] h-[340px] relative overflow-hidden rounded-xl md:rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+            <div className="w-[220px] relative overflow-hidden rounded-xl md:rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
               <div className="relative overflow-hidden w-full h-full">
                 <img
                   src={sector.mainImage}
                   alt={sector.name}
                   className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
                 />
+                <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center py-4 z-20">
+                  <h2 className="text-sm font-medium">{sector.name}</h2>
+                </div>
               </div>
             </div>
           </div>
