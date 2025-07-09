@@ -6,7 +6,7 @@ import Tabloide from "../Components/Tabloide/Tabloide";
 import PaymentsMethods from "../Components/PaymentMethods/PaymentMethods";
 export default function Home() {
   return (
-    <main className="min-h-screen  flex flex-col items-center ">
+    <main className="min-h-screen bg-black  flex flex-col items-center ">
       <NavBar />
       <BannerHome />
       <Tabloide />
