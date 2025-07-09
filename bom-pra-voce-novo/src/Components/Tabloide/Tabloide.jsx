@@ -1,4 +1,5 @@
 import React from "react";
+import FOTOTESTEE from "../../images/TabloidCard/Quarta.png";
 
 export default function Tabloide() {
   return (
@@ -17,7 +18,7 @@ export default function Tabloide() {
           {/* primeiro panfleto */}
           <div className="relative h-32 lg:h-40 overflow-hidden rounded-lg bg-yellow-400">
             <img
-              src="#"
+              src={FOTOTESTEE}
               alt=""
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
             />
@@ -25,7 +26,7 @@ export default function Tabloide() {
           {/* segundo panfleto */}
           <div className="relative h-32 lg:h-40 overflow-hidden rounded-lg bg-yellow-400">
             <img
-              src="#"
+              src={FOTOTESTEE}
               alt=""
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
             />
