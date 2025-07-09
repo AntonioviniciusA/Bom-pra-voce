@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { bannerImages } from "../../Data/BannerData";
-import BouncingScroll from "../BouncingScroll /BouncingScroll ";
+import BouncingScroll from "../BouncingScroll/BouncingScroll";
 
 const BannerHome = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,7 +23,7 @@ const BannerHome = () => {
 
   return (
     <>
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full  relative overflow-hidden">
         <div
           className="flex h-full transition-transform duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -35,11 +35,12 @@ const BannerHome = () => {
                 <img
                   src={image.desktop}
                   alt={image.alt}
-                  className="w-full h-full object-cover  "
+                  className="w-full h-full object-contain  "
                 />
               </a>
             </div>
           ))}
+          <BouncingScroll />
         </div>
 
         <button
@@ -55,7 +56,6 @@ const BannerHome = () => {
           &gt;
         </button>
       </div>
-      <BouncingScroll />
     </>
   );
 };
