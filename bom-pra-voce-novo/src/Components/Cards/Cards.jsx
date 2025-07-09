@@ -52,7 +52,7 @@ const sectors = [
   },
   {
     id: 0,
-    name: "Freezer",
+    name: "Congelados",
     mainImage: Freezer,
     // images: [
     //   Hortifrut,
