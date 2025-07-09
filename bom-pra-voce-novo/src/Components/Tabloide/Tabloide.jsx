@@ -3,7 +3,7 @@ import FOTOTESTEE from "../../images/TabloidCard/Quarta.png";
 
 export default function Tabloide() {
   return (
-    <div className="bg-black flex items-center justify-center w-full h-full">
+    <div className="bg-black flex items-center justify-center w-full h-full p-8">
       <div className="p-4">
         <div className="flex items-center flex-col mb-4 text-center">
           <h1 className="text-4xl font-extrabold text-yellow-400">

@@ -12,6 +12,50 @@ const sectors = [
       "https://via.placeholder.com/600x400",
     ],
   },
+  {
+    id: 0,
+    name: "Bebidas",
+    mainImage: imamges,
+    images: [
+      imamges,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
+  },
+  {
+    id: 0,
+    name: "Bebidas",
+    mainImage: imamges,
+    images: [
+      imamges,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
+  },
+  {
+    id: 0,
+    name: "Bebidas",
+    mainImage: imamges,
+    images: [
+      imamges,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
+  },
+  {
+    id: 0,
+    name: "Bebidas",
+    mainImage: imamges,
+    images: [
+      imamges,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
+  },
 ];
 
 export default function Card() {
@@ -40,31 +84,31 @@ export default function Card() {
   };
 
   return (
-    <div className="bg-yellow-300">
-      <div className="relative z-10">
-        <h1 className="text-4xl font-bold text-center mb-12 text-white">
+    <div
+      className="w-full flex flex-col items-center justify-center"
+      style={{
+        background:
+          "linear-gradient(to bottom, #FFDD00 50%,rgb(255, 255, 255) 50%)",
+      }}>
+      <div className="relative z-10 ma-12">
+        <h1 className="text-4xl font-bold text-center text-white">
           Conheça Nosso Setores
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6 px-4">
         {sectors.map((sector) => (
           <div
             key={sector.id}
             className="group cursor-pointer relative"
             onClick={() => openModal(sector)}>
-            <div className="relative overflow-hidden rounded-xl md:rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
-              <div className="aspect-[3/4] relative overflow-hidden">
+            <div className="w-[220px] h-[340px] relative overflow-hidden rounded-xl md:rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+              <div className="relative overflow-hidden w-full h-full">
                 <img
                   src={sector.mainImage}
                   alt={sector.name}
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                  className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
                 />
-                <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-white border-t border-white/20 p-2 md:p-3">
-                  <h3 className="text-xs md:text-sm font-bold text-yellow-500 text-center drop-shadow-md">
-                    {sector.name}
-                  </h3>
-                </div>
               </div>
             </div>
           </div>
