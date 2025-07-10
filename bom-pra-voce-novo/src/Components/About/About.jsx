@@ -1,0 +1,120 @@
+import { useState } from "react";
+import Hortifrut from "../../images/Setores/Hortifrut.png";
+import Bebidas from "../../images/Setores/Bebidas.png";
+import Padaria from "../../images/Setores/Padaria.png";
+import Adega from "../../images/Setores/Adega.png";
+import Freezer from "../../images/Setores/Freezer.png";
+
+const sectors = [
+  {
+    id: 0,
+    name: "Bebidas",
+    mainImage: Bebidas,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
+  },
+  {
+    id: 0,
+    name: "Hortifrut",
+    mainImage: Hortifrut,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
+  },
+  {
+    id: 0,
+    name: "Padaria",
+    mainImage: Padaria,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
+  },
+  {
+    id: 0,
+    name: "Adega",
+    mainImage: Adega,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
+  },
+  {
+    id: 0,
+    name: "Congelados",
+    mainImage: Freezer,
+    // images: [
+    //   Hortifrut,
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    //   "https://via.placeholder.com/600x400",
+    // ],
+  },
+];
+
+export default function Card() {
+  const [selectedSector, setSelectedSector] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openModal = (sector) => {
+    setSelectedSector(sector);
+    setCurrentImageIndex(0);
+  };
+
+  const closeModal = () => {
+    setSelectedSector(null);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev < selectedSector.images.length - 1 ? prev + 1 : 0
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev > 0 ? prev - 1 : selectedSector.images.length - 1
+    );
+  };
+
+  return (
+    <div className="w-full flex flex-col items-center justify-center py-14">
+      <div className="flex flex-col lg:flex-row w-full max-w-7xl bg-blue-500 p-8 rounded-2xl shadow-lg gap-14">
+        <div className="text-white max-w-xl flex flex-col justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Sobre o Bom Pra Você{" "}
+            <span className=" text-yellow-400">Supermercado</span>
+          </h1>
+          <p className="text-lg md:text-xl leading-relaxed">
+            O Bom Pra Você Supermercado nasceu com o objetivo de oferecer
+            produtos de qualidade, bons preços e um atendimento próximo e
+            humano. Desde a nossa fundação, buscamos ser mais do que um mercado
+            — queremos fazer parte da rotina das famílias, com um ambiente
+            acolhedor e setores completos: hortifrúti, padaria, açougue,
+            freezer, bebidas e muito mais. Aqui, cada detalhe é pensado para
+            garantir praticidade, economia e confiança para o seu dia a dia.
+          </p>
+        </div>
+
+        <div className="relative h-[220px] lg:h-[520px] w-full max-w-[520px] mx-auto overflow-hidden rounded-lg bg-yellow-400">
+          <img
+            src={Freezer}
+            alt="Imagem da Seção de Freezer"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
