@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Hortifrut from "../../images/Setores/Hortifrut.png";
-import Bebidas from "../../images/Setores/Bebidas.png";
-import Padaria from "../../images/Setores/Padaria.png";
-import Adega from "../../images/Setores/Adega.png";
-import Freezer from "../../images/Setores/Freezer.png";
+import Hortifrut from "../../images/Setores/Hortifrut.webp";
+import Bebidas from "../../images/Setores/Bebidas.webp";
+import Padaria from "../../images/Setores/Padaria.webp";
+import Adega from "../../images/Setores/Adega.webp";
+import Freezer from "../../images/Setores/Freezer.webp";
 
 const sectors = [
   {
