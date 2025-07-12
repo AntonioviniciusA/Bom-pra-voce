@@ -9,7 +9,7 @@ export default function Tabloide() {
           <h1 className="text-4xl font-extrabold text-yellow-400">
             Corre que dá tempo!
           </h1>
-          <p className="text-lg text-white font-bold mt-2 ">
+          <p className="text-lg text-white font-bold mt-2  text-black">
             As melhores ofertas da semana te esperam aqui.
           </p>
         </div>
