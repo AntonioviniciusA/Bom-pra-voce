@@ -5,6 +5,7 @@ import Cards from "../Components/Cards/Cards";
 import Tabloide from "../Components/Tabloide/Tabloide";
 import PaymentsMethods from "../Components/PaymentMethods/PaymentMethods";
 import About from "../Components/About/About";
+import TourVirtual from "../Components/TourVirtual/TourVirtual";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <BannerHome />
       <Tabloide />
       <Cards />
+      <TourVirtual />
       <About />
       <PaymentsMethods />
     </main>

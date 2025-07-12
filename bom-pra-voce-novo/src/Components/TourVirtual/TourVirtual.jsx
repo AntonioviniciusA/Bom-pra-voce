@@ -1,37 +1,37 @@
 import React from "react";
-import Freezer from "../../images/Setores/Freezer.webp";
+import Freezer from "../../images/SupermarketAreasImages/VitualImage.png";
 
-export default function About() {
+export default function TourVirtual() {
   return (
     <div className="w-full flex flex-col items-center justify-center pt-[5%]">
       <div
-        className="flex flex-col lg:flex-row w-full max-w-7xl bg-blue-500 p-8 rounded-2xl gap-14"
+        className="flex items-center justify-center lg:w-full bg-yellow-400 p-8 rounded-2xl "
         style={{
           boxShadow:
             "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         }}>
-        <div className="text-white max-w-xl flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Sobre o Bom Pra Você{" "}
-            <span className=" text-yellow-400">Supermercado</span>
-          </h1>
-          <p className="text-lg md:text-xl leading-relaxed">
-            O Bom Pra Você Supermercado nasceu com o objetivo de oferecer
-            produtos de qualidade, bons preços e um atendimento próximo e
-            humano. Desde a nossa fundação, buscamos ser mais do que um mercado
-            — queremos fazer parte da rotina das famílias, com um ambiente
-            acolhedor e setores completos: hortifrúti, padaria, açougue,
-            freezer, bebidas e muito mais. Aqui, cada detalhe é pensado para
-            garantir praticidade, economia e confiança para o seu dia a dia.
-          </p>
-        </div>
+        <div className="flex w-full  items-center justify-center text-center lg:text-left gap-[5%] ">
+          <div className="text-white max-w-xl flex flex-col justify-center">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
+              Faça um tour virtual pelo nosso supermercado!
+            </h1>
 
-        <div className="relative h-[220px] lg:h-[520px] w-full max-w-[520px] mx-auto overflow-hidden rounded-lg bg-yellow-400">
-          <img
-            src={Freezer}
-            alt="Imagem da Seção de Freezer"
-            className="w-full h-full object-cover"
-          />
+            <p className="text-lg md:text-2xl leading-relaxed mb-6">
+              Conheça nosso espaço, veja de perto nossos produtos e sinta-se em
+              casa antes mesmo de nos visitar. Venha viver essa experiência
+              interativa!
+            </p>
+            <button className="w-[200px] bg-blue-400 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
+              Iniciar o Tour
+            </button>
+          </div>
+          <div className="relative w-full max-w-[520px] aspect-[4/4] overflow-hidden rounded-lg ">
+            <img
+              src={Freezer}
+              alt="Imagem da Seção de Freezer"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
