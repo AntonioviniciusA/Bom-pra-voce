@@ -91,12 +91,13 @@ export default function Card() {
   return (
     <div
       className="w-full flex flex-col items-center justify-center"
-      style={{
-        background:
-          "linear-gradient(to bottom,rgb(0, 174, 255) 60%,rgb(255, 255, 255) 50%)",
-      }}>
+      // style={{
+      //   background:
+      //     "linear-gradient(to bottom,rgb(0, 174, 255) 60%,rgb(255, 255, 255) 50%)",
+      // }}
+    >
       <div className="relative z-10 m-12">
-        <h1 className="text-4xl font-bold text-center text-white">
+        <h1 className="text-4xl font-bold text-center text-black">
           Conheça Nosso Setores
         </h1>
       </div>
