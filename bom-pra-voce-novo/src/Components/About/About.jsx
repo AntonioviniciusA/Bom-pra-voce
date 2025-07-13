@@ -24,6 +24,25 @@ export default function About() {
             freezer, bebidas e muito mais. Aqui, cada detalhe é pensado para
             garantir praticidade, economia e confiança para o seu dia a dia.
           </p>
+          <div className="mt-6 flex gap-4">
+            <div className="w-[170px] h-[50px] bg-white flex items-center justify-center rounded shadow">
+              <p className="text-black">+20 anos no mercado</p>
+            </div>
+            <div className="w-[170px] h-[50px] bg-white flex items-center justify-center rounded shadow">
+              <p className="text-black">Atendimento personalizado</p>
+            </div>
+            <div className="w-[170px] h-[50px] bg-white flex items-center justify-center rounded shadow">
+              <p className="text-black">Garantia de qualidade</p>
+            </div>
+          </div>
+          <div className="mt-6 flex gap-4">
+            <div className="w-[170px] h-[50px] bg-white flex items-center justify-center rounded shadow">
+              <p className="text-black">Entrega rápida</p>
+            </div>
+            <div className="w-[170px] h-[50px] bg-white flex items-center justify-center rounded shadow">
+              <p className="text-black">Clientes satisfeitos</p>
+            </div>
+          </div>
         </div>
 
         <div className="relative h-[220px] lg:h-[520px] w-full max-w-[520px] mx-auto overflow-hidden rounded-lg bg-yellow-400">

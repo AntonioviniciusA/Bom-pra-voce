@@ -16,7 +16,7 @@ export default function Home() {
       <Cards />
       <TourVirtual />
       <About />
-      <PaymentsMethods />
+      {/* <PaymentsMethods /> */}
     </main>
   );
 }
