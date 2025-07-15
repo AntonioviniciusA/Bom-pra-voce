@@ -29,7 +29,8 @@
 }
 
 .payment-card {
-  background-color: rgba(255, 255, 255, 0.205);
+  position: relative;
+  background-color: rgba(0, 255, 191, 0.205);
 }
 
 .payment-card::before {
@@ -40,9 +41,9 @@
   padding: 3px;
   background: linear-gradient(
     to right,
-    rgb(219, 219, 219) 0%,
+    rgb(0, 255, 34) 0%,
     rgba(255, 255, 255, 0.233) 50%,
-    rgb(255, 255, 255) 100%
+    rgb(255, 0, 0) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;

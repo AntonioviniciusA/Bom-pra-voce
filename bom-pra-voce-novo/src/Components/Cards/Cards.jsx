@@ -66,6 +66,15 @@ const sectors = [
 export default function Card() {
   const [selectedSector, setSelectedSector] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextCard = () => {
+    setCurrentIndex((prev) => (prev + 1) % sectors.length);
+  };
+
+  const prevCard = () => {
+    setCurrentIndex((prev) => (prev - 1 + sectors.length) % sectors.length);
+  };
 
   const openModal = (sector) => {
     setSelectedSector(sector);
@@ -102,26 +111,59 @@ export default function Card() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6 px-4">
+      {/* Desktop: grid */}
+      <div className="hidden sm:grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6 px-4">
         {sectors.map((sector) => (
           <div
-            key={sector.id}
+            key={sector.name}
             className="group cursor-pointer relative"
             onClick={() => openModal(sector)}>
             <div className="w-[220px] relative overflow-hidden rounded-xl md:rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
-              <div className="relative overflow-hidden w-full h-full">
-                <img
-                  src={sector.mainImage}
-                  alt={sector.name}
-                  className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
-                />
-                <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center py-4 z-20">
-                  <h2 className="text-sm font-medium">{sector.name}</h2>
-                </div>
+              <img
+                src={sector.mainImage}
+                alt={sector.name}
+                className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center py-4 z-20">
+                <h2 className="text-sm font-medium">{sector.name}</h2>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Mobile carrossel */}
+      <div className="flex flex-col items-center sm:hidden relative w-full">
+        <div
+          className="group cursor-pointer"
+          onClick={() => openModal(sectors[currentIndex])}>
+          <div className="w-[220px] mx-auto relative overflow-hidden rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+            <img
+              src={sectors[currentIndex].mainImage}
+              alt={sectors[currentIndex].name}
+              className="w-full h-full object-contain"
+            />
+            <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center py-4 z-20">
+              <h2 className="text-sm font-medium">
+                {sectors[currentIndex].name}
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        {/* Botões do carrossel */}
+        <div className="flex justify-center w-full gap-6 mt-4">
+          <button
+            onClick={prevCard}
+            className="bg-pink-400/30 text-white px-4 py-2 rounded-full hover:bg-pink-400/50">
+            &lt;
+          </button>
+          <button
+            onClick={nextCard}
+            className="bg-pink-400/30 text-white px-4 py-2 rounded-full hover:bg-pink-400/50">
+            &gt;
+          </button>
+        </div>
       </div>
 
       {/* Modal  */}
