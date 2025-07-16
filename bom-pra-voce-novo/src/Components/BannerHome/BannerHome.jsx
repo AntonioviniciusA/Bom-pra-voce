@@ -31,13 +31,11 @@ const BannerHome = () => {
             <div
               key={image.id}
               className=" w-full h-full flex-shrink-0 relative">
-              <a href={image.link} className="block w-full h-full">
-                <img
-                  src={image.desktop}
-                  alt={image.alt}
-                  className="w-full h-full object-contain  "
-                />
-              </a>
+              <img
+                src={image.desktop}
+                alt={image.alt}
+                className="w-full h-full object-contain  "
+              />
             </div>
           ))}
           <BouncingScroll />

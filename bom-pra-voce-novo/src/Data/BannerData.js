@@ -7,7 +7,6 @@ export const bannerImages = [
     desktop: PrecoBaixo,
     mobile: "",
     alt: " ",
-    link: "",
   },
   {
     id: 2,
@@ -22,6 +21,6 @@ export const bannerImages = [
   //   desktop: "",
   //   mobile: "",
   //   alt: " ",
-  //   link: "",
+  //
   // },
 ];
