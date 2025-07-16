@@ -65,7 +65,10 @@ export default function Tabloide() {
                 </button>
               </div>
               <div className="flex-grow overflow-auto">
-                <TabloideView pdfUrl={selectedPdf} />
+                <TabloideView
+                  pdfUrl={selectedPdf}
+                  onClose={handleCloseViewer}
+                />
               </div>
             </div>
           </div>
