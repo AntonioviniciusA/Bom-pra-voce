@@ -6,6 +6,7 @@ import Tabloide from "../Components/Tabloide/Tabloide";
 import PaymentsMethods from "../Components/PaymentMethods/PaymentMethods";
 import About from "../Components/About/About";
 import TourVirtual from "../Components/TourVirtual/TourVirtual";
+import FaqSection from "../Components/Faq/Faq";
 import Footer from "../Components/Footer/Footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Cards />
       <TourVirtual />
       <About />
+      <FaqSection />
       <Footer />
       {/* <PaymentsMethods /> */}
     </main>

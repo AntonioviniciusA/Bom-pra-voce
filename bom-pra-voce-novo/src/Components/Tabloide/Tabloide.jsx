@@ -45,9 +45,14 @@ export default function Tabloide() {
                 />
               </div>
               <button
-                className="mt-6 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-lg transition"
+                className="mt-8 backdrop-blur-sm bg-yellow-300/30 border-[2px] border-yellow-300 rounded-full px-8 py-2 shadow-2xl shadow-white/10"
+                style={{ boxShadow: "rgba(255, 238, 0, 0.68) 0px 2px 30px" }}
                 onClick={() => handleOpenPdf(tabloide.pdfUrl)}>
-                Visualizar
+                <p
+                  className="flex-1 flex justify-center text-black font-semibold"
+                  style={{ textShadow: "0 1px 1px rgb(255, 255, 255)" }}>
+                  Visualizar
+                </p>
               </button>
             </div>
           ))}
