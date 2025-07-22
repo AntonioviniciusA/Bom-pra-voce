@@ -1,4 +1,5 @@
 import React from "react";
+import faqData from "../../Data/FaqData.js";
 
 export default function FaqSection() {
   return (
