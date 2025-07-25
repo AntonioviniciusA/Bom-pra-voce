@@ -3,7 +3,7 @@ import faqData from "../../Data/FaqData.js";
 
 export default function FaqSection() {
   return (
-    <section className="w-full max-w-3xl mx-auto p-4">
+    <section className="w-full max-w-3xl mx-auto p-4 mt-8">
       <h2 className="text-3xl font-bold text-center mb-6 text-yellow-500">
         Perguntas Frequentes
       </h2>

@@ -58,23 +58,11 @@ export default function Tabloide() {
           ))}
         </div>
 
+        {/* Modal */}
         {isViewerOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-lg max-w-6xl w-full max-h-screen h-full flex flex-col">
-              <div className="flex justify-between items-center p-4 border-b">
-                <h2 className="text-xl font-bold">Visualizador de PDF</h2>
-                <button
-                  onClick={handleCloseViewer}
-                  className="text-gray-500 hover:text-gray-700">
-                  <span className="text-2xl">&times;</span>
-                </button>
-              </div>
-              <div className="flex-grow overflow-auto">
-                <TabloideView
-                  pdfUrl={selectedPdf}
-                  onClose={handleCloseViewer}
-                />
-              </div>
+              <TabloideView pdfUrl={selectedPdf} onClose={handleCloseViewer} />
             </div>
           </div>
         )}

@@ -7,6 +7,7 @@ import PaymentsMethods from "../Components/PaymentMethods/PaymentMethods";
 import About from "../Components/About/About";
 import TourVirtual from "../Components/TourVirtual/TourVirtual";
 import FaqSection from "../Components/Faq/Faq";
+import TrabalheConosco from "../Components/WorkWithUs/TrabalheConosco";
 import Footer from "../Components/Footer/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Cards />
       <TourVirtual />
       <About />
+      <TrabalheConosco />
       <FaqSection />
       <Footer />
       {/* <PaymentsMethods /> */}
