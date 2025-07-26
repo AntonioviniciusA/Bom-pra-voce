@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import VagasList from "./VagasList";
 import VagaDetalhes from "./VagaDetalhes";
 import CandidaturaForm from "./CandidaturaForm";
+import Jobs from "../../images/Jobs/Jobs.png";
 
 const vagasDisponiveis = [
   {
@@ -107,71 +108,88 @@ export default function TrabalheConosco() {
                 Faça parte de uma equipe inovadora e apaixonada por tecnologia
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="h-16 w-16 mx-auto mb-4 text-yellow-600">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Ambiente Colaborativo
-                </h3>
-                <p className="text-gray-600">
-                  Trabalhe com profissionais talentosos em um ambiente dinâmico
-                </p>
+            <div className="flex items-center justify-center">
+              <div className="relative w-full max-w-[460px]  aspect-square overflow-hidden rounded-lg mb-6 lg:mb-0 lg:mr-[5%]">
+                <img
+                  src={Jobs}
+                  alt="Imagem da Seção de Freezer"
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <div>
+                <div className="  mb-12">
+                  <div className="bg-white/40 border-[2px] p-6 rounded-lg shadow-lg">
+                    <div className="h-16 w-16 mx-auto mb-4 text-yellow-600">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Ambiente Colaborativo
+                    </h3>
+                    <p className="text-gray-600">
+                      Trabalhe com profissionais talentosos em um ambiente
+                      dinâmico
+                    </p>
+                  </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="h-16 w-16 mx-auto mb-4 text-green-600">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <div className="h-16 w-16 mx-auto mb-4 text-green-600">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Crescimento Profissional
+                    </h3>
+                    <p className="text-gray-600">
+                      Oportunidades de desenvolvimento e progressão na carreira
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Crescimento Profissional
-                </h3>
-                <p className="text-gray-600">
-                  Oportunidades de desenvolvimento e progressão na carreira
-                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setView("vagas")}
+                    className="px-8 py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    Ver Vagas
+                  </button>
+
+                  <button
+                    onClick={() => handleOpenForm()}
+                    className="px-8 py-3 bg-white border-2 border-yellow-600 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors">
+                    Candidatura Espontânea
+                  </button>
+                </div>
               </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setView("vagas")}
-                className="px-8 py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Ver Vagas
-              </button>
-
-              <button
-                onClick={() => handleOpenForm()}
-                className="px-8 py-3 bg-white border-2 border-yellow-600 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors">
-                Candidatura Espontânea
-              </button>
             </div>
           </div>
         )}
