@@ -9,7 +9,7 @@ export default function VagasList({
       <div className="flex items-center gap-4 mb-8">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+          className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border  ">
           <svg
             className="w-4 h-4"
             fill="none"
@@ -47,11 +47,15 @@ export default function VagasList({
           {vagas.map((vaga) => (
             <div
               key={vaga.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              className="bg-white/35 border-[2px] rounded-lg  overflow-hidden "
+              style={{
+                boxShadow:
+                  "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
+              }}>
               <div className="p-6">
                 <div className="flex justify-between items-start">
                   <h3 className="text-xl font-bold">{vaga.titulo}</h3>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                  <span className="px-3 py-1 bg-yellow-100 border text-blue-800 text-sm rounded-full">
                     {vaga.tipo}
                   </span>
                 </div>
@@ -104,7 +108,12 @@ export default function VagasList({
         </div>
       )}
 
-      <div className="mt-8 bg-white p-6 rounded-lg border-2 border-dashed border-gray-300 text-center">
+      <div
+        className="mt-8 bg-white/35 p-6 rounded-lg border-[2px] border-dashed  text-center"
+        style={{
+          boxShadow:
+            "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
+        }}>
         <h3 className="text-lg font-semibold mb-2">
           Não encontrou o que procura?
         </h3>
