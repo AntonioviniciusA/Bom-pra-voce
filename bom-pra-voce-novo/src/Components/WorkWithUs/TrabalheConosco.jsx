@@ -90,7 +90,12 @@ export default function TrabalheConosco() {
   };
 
   return (
-    <div className="py-10 flex items-center justify-center w-full h-full p-8 bg-yellow-400 mt-12">
+    <div
+      className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-yellow-400 p-8 rounded-3xl"
+      style={{
+        boxShadow:
+          "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+      }}>
       <div className="p-4 w-full max-w-6xl">
         {view === "inicial" && (
           <div className="text-center">

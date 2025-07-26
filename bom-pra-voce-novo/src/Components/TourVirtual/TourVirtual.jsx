@@ -5,7 +5,7 @@ export default function TourVirtual() {
   return (
     <div className="w-full flex flex-col items-center justify-center pt-[5%]">
       <div
-        className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-yellow-400 p-8 rounded-2xl"
+        className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-yellow-400 p-8 rounded-3xl"
         style={{
           boxShadow:
             "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
