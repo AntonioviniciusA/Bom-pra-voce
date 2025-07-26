@@ -137,10 +137,12 @@ export default function TrabalheConosco() {
                         />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">
+                    <h3
+                      className="text-xl font-semibold mb-2 text-white "
+                      style={{ textShadow: "0 1px 1px rgba(0, 0, 0, 0.9)" }}>
                       Ambiente Colaborativo
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 font-semibold">
                       Trabalhe com profissionais talentosos em um ambiente
                       dinâmico
                     </p>
