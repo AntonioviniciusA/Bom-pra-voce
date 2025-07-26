@@ -68,7 +68,12 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
         </div>
       )}
 
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div
+        className="bg-white/35 border-[2px] rounded-lg p-6"
+        style={{
+          boxShadow:
+            "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
+        }}>
         <h2 className="text-2xl font-bold mb-2">
           {vaga ? `Candidatar-se: ${vaga.titulo}` : "Candidatura Espontânea"}
         </h2>
