@@ -117,8 +117,13 @@ export default function TrabalheConosco() {
                 />
               </div>
               <div>
-                <div className="  mb-12">
-                  <div className="bg-white/40 border-[2px] p-6 rounded-lg shadow-lg">
+                <div className="flex flex-col gap-6 mb-8">
+                  <div
+                    className="bg-white/35 border-[2px] p-6 rounded-lg "
+                    style={{
+                      boxShadow:
+                        "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
+                    }}>
                     <div className="h-16 w-16 mx-auto mb-4 text-yellow-600">
                       <svg
                         fill="none"
