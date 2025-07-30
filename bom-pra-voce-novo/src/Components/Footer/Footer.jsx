@@ -1,7 +1,118 @@
 import React from "react";
 
 const Footer = () => {
-  return <div></div>;
+  return (
+    <div
+      className=" w-full bg-yellow-400 p-8 rounded-3xl"
+      style={{
+        boxShadow:
+          "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+      }}>
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-2 space-y-6">
+            <div className="flex items-center space-x-3">
+              {/* logo aqui dentroo */}
+            </div>
+
+            <p className="text-white/80 max-w-md">adadsadasda</p>
+
+            <div className="bg-white/10 rounded-2xl p-6">
+              <h3 className="font-semibold text-lg mb-3">aaaaaaaaaaaa</h3>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Seu melhor e-mail"
+                  className="flex-1 px-4 py-3 rounded-xl border-2 border-white/20 focus:border-white focus:outline-none bg-white/90"
+                />
+                <button className="bg-white text-yellow-400 px-6 py-3 rounded-xl font-semibold hover:bg-white/80 transition-colors">
+                  Inscrever
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-bold text-lg border-b-2 border-white pb-2">
+              Links Rápidos
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="hover:underline font-medium"></a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline font-medium"></a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline font-medium"></a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline font-medium"></a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline font-medium"></a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-bold text-lg border-b-2 border-white pb-2">
+              Contato
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <span className="font-medium">(</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="font-medium"></span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="font-medium"></span>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <h4 className="font-semibold mb-3">Siga-nos</h4>
+              <div className="flex space-x-3">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"></a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative">
+        <svg viewBox="0 0 1200 120" className="w-full h-8 fill-white/10">
+          <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z"></path>
+        </svg>
+      </div>
+
+      <div className="bg-white/10 py-6">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-wrap items-center gap-6 text-sm font-medium">
+              <span>© 2025 Bom Pra Você</span>
+              <a href="#" className="hover:underline">
+                Política de Privacidade
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-4">
+              <span className="text-sm font-medium">Pagamento seguro:</span>
+              <div className="flex space-x-2">
+                <button>Visualizar Metodos de Pagamento </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Footer;
