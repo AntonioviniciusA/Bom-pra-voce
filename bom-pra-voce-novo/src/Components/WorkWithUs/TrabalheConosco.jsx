@@ -114,7 +114,7 @@ export default function TrabalheConosco() {
               </div>
               <div>
                 <div className="flex flex-col gap-6 mb-8">
-                  <div
+                  {/* <div
                     className="bg-white/35 border-[2px] p-6 rounded-lg "
                     style={{
                       boxShadow:
@@ -132,7 +132,7 @@ export default function TrabalheConosco() {
                       Trabalhe com profissionais talentosos em um ambiente
                       dinâmico
                     </p>
-                  </div>
+                  </div> */}
 
                   <div
                     className="bg-white/35 border-[2px] p-6 rounded-lg "
