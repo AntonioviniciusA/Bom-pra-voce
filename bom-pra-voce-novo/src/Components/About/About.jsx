@@ -3,7 +3,7 @@ import AboutImage from "../../images/About.webp";
 
 export default function About() {
   return (
-    <div className="w-full flex flex-col items-center justify-center pt-[5%]">
+    <div className="w-full flex flex-col items-center justify-center pt-[5%] pb-[5%]">
       <div
         className="flex flex-col lg:flex-row w-full max-w-7xl  p-8 rounded-2xl gap-14"
         // style={{
@@ -27,7 +27,7 @@ export default function About() {
           </p>
           <div className="mt-6 flex gap-4">
             <div
-              className=" w-[200px] h-[50px] bg-yellow-300/50 flex items-center justify-center rounded-xl"
+              className=" w-[200px] h-[50px] border-2 border-yellow-400 m-[1%] flex items-center justify-center rounded-xl"
               style={{
                 boxShadow:
                   "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px",
@@ -36,7 +36,7 @@ export default function About() {
             </div>
 
             <div
-              className="w-[200px] h-[50px] bg-yellow-300/50 flex items-center justify-center rounded-xl"
+              className="w-[200px] h-[50px] border-2 border-yellow-400 m-[1%] flex items-center justify-center rounded-xl"
               style={{
                 boxShadow:
                   "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px",
@@ -49,7 +49,7 @@ export default function About() {
 
           <div className="mt-6 flex gap-4">
             <div
-              className="w-[200px] h-[50px] bg-yellow-300/50 flex items-center justify-center rounded-xl"
+              className="w-[200px] h-[50px] border-2 border-yellow-400 m-[1%] flex items-center justify-center rounded-xl"
               style={{
                 boxShadow:
                   "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px",
@@ -60,12 +60,12 @@ export default function About() {
             </div>
 
             <div
-              className="w-[200px] h-[50px] bg-yellow-300/50 flex items-center justify-center rounded-xl"
+              className="w-[200px] h-[50px] border-2 border-yellow-400 m-[1%] flex items-center justify-center rounded-xl"
               style={{
                 boxShadow:
                   "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px",
               }}>
-              <p className="text-black p-4  text-center text-bold">
+              <p className="text-black   text-center text-bold">
                 Clientes satisfeitos
               </p>
             </div>

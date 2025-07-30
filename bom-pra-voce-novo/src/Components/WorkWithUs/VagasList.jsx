@@ -24,7 +24,7 @@ export default function VagasList({
           </svg>
           Voltar
         </button>
-        <h2 className="text-3xl font-bold text-gray-800">Vagas Disponíveis</h2>
+        <h2 className="text-3xl font-bold text-white">Vagas Disponíveis</h2>
       </div>
 
       {vagas.length === 0 ? (
@@ -38,7 +38,7 @@ export default function VagasList({
           </p>
           <button
             onClick={onCandidaturaEspontanea}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            className="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors">
             Candidatura Espontânea
           </button>
         </div>
@@ -54,13 +54,15 @@ export default function VagasList({
               }}>
               <div className="p-6">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-bold">{vaga.titulo}</h3>
-                  <span className="px-3 py-1 bg-yellow-100 border text-blue-800 text-sm rounded-full">
+                  <h3 className="text-xl font-bold text-white">
+                    {vaga.titulo}
+                  </h3>
+                  <span className="px-3 py-1 bg-yellow-100 border text-yellow-800 text-sm rounded-full">
                     {vaga.tipo}
                   </span>
                 </div>
                 <p className="text-gray-600 mt-2">{vaga.departamento}</p>
-
+                {/* 
                 <div className="flex items-center gap-2 mt-4 text-sm text-gray-500">
                   <svg
                     className="w-4 h-4"
@@ -81,7 +83,7 @@ export default function VagasList({
                     />
                   </svg>
                   {vaga.localizacao}
-                </div>
+                </div> */}
 
                 <p className="text-gray-700 mt-4 line-clamp-2">
                   {vaga.descricao}
@@ -90,7 +92,7 @@ export default function VagasList({
                 <div className="flex gap-3 mt-6">
                   <button
                     onClick={() => onSelect(vaga)}
-                    className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    className="flex-1 py-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 transition-colors">
                     Ver Detalhes
                   </button>
                   <button
@@ -98,7 +100,7 @@ export default function VagasList({
                       onSelect(vaga);
                       onCandidaturaEspontanea();
                     }}
-                    className="flex-1 py-2 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                    className="flex-1 py-2 bg-white border border-yellow-400 text-yellow-400 rounded-lg hover:bg-yellow-50 transition-colors">
                     Candidatar-se
                   </button>
                 </div>
@@ -114,16 +116,16 @@ export default function VagasList({
           boxShadow:
             "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
         }}>
-        <h3 className="text-lg font-semibold mb-2">
+        <h3 className="text-lg font-semibold mb-2 text-white">
           Não encontrou o que procura?
         </h3>
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-800 mb-4">
           Envie uma candidatura espontânea e entraremos em conto quando surgir
           uma vaga adequada.
         </p>
         <button
           onClick={onCandidaturaEspontanea}
-          className="px-6 py-2 bg-white border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+          className="px-6 py-2 bg-white border-2 border-yellow-400 text-yellow-400 rounded-lg hover:bg-yellow-50 transition-colors">
           Candidatura Espontânea
         </button>
       </div>

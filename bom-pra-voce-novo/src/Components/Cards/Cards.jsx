@@ -10,56 +10,56 @@ const sectors = [
     id: 0,
     name: "Bebidas",
     mainImage: Bebidas,
-    // images: [
-    //   Hortifrut,
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    // ],
+    images: [
+      Hortifrut,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
   },
   {
     id: 0,
     name: "Hortifrut",
     mainImage: Hortifrut,
-    // images: [
-    //   Hortifrut,
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    // ],
+    images: [
+      Hortifrut,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
   },
   {
     id: 0,
     name: "Padaria",
     mainImage: Padaria,
-    // images: [
-    //   Hortifrut,
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    // ],
+    images: [
+      Hortifrut,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
   },
   {
     id: 0,
     name: "Adega",
     mainImage: Adega,
-    // images: [
-    //   Hortifrut,
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    // ],
+    images: [
+      Hortifrut,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
   },
   {
     id: 0,
     name: "Congelados",
     mainImage: Freezer,
-    // images: [
-    //   Hortifrut,
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    //   "https://via.placeholder.com/600x400",
-    // ],
+    images: [
+      Hortifrut,
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+      "https://via.placeholder.com/600x400",
+    ],
   },
 ];
 
@@ -168,8 +168,8 @@ export default function Card() {
 
       {/* Modal  */}
       {selectedSector && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-sm">
-          <div className="relative w-full max-w-md sm:max-w-xl lg:max-w-4xl bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-xl overflow-hidden">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-sm ">
+          <div className="relative w-full max-w-md sm:max-w-xl lg:max-w-4xl bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-xl overflow-hidden border-2 border-yellow-400">
             <div className="p-2 sm:p-2">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-white">
                 {selectedSector.name}

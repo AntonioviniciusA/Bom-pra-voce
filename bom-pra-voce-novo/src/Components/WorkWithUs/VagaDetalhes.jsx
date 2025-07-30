@@ -26,7 +26,7 @@ export default function VagaDetalhes({ vaga, onBack, onCandidatar }) {
               <h2 className="text-2xl font-bold">{vaga.titulo}</h2>
               <p className="text-lg text-gray-600 mt-2">{vaga.departamento}</p>
             </div>
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+            <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">
               {vaga.tipo}
             </span>
           </div>
@@ -66,7 +66,7 @@ export default function VagaDetalhes({ vaga, onBack, onCandidatar }) {
               <ul className="space-y-2">
                 {vaga.requisitos.map((requisito, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></span>
                     <span className="text-gray-700">{requisito}</span>
                   </li>
                 ))}
@@ -88,7 +88,7 @@ export default function VagaDetalhes({ vaga, onBack, onCandidatar }) {
             <div className="pt-4">
               <button
                 onClick={onCandidatar}
-                className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold">
+                className="w-full py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors font-bold">
                 Candidatar-se para esta Vaga
               </button>
             </div>

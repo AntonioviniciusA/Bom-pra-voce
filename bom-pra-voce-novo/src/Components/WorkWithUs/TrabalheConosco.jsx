@@ -11,7 +11,6 @@ const vagasDisponiveis = [
     id: 1,
     titulo: "Atendente de Loja",
     departamento: "Vendas",
-    localizacao: "Rio de Janeiro, RJ",
     tipo: "CLT",
     descricao:
       "Responsável pelo atendimento ao cliente, organização da loja e reposição de produtos.",
@@ -30,7 +29,6 @@ const vagasDisponiveis = [
     id: 2,
     titulo: "Repositor de Mercadorias",
     departamento: "Estoque",
-    localizacao: "Belo Horizonte, MG",
     tipo: "CLT",
     descricao:
       "Auxiliar na organização das prateleiras e reposição de mercadorias.",
@@ -45,7 +43,6 @@ const vagasDisponiveis = [
     id: 3,
     titulo: "Operador de Caixa",
     departamento: "Financeiro",
-    localizacao: "Curitiba, PR",
     tipo: "CLT",
     descricao:
       "Realizar atendimento ao cliente e operação de caixa em supermercado.",
@@ -60,7 +57,6 @@ const vagasDisponiveis = [
     id: 4,
     titulo: "Auxiliar de Limpeza",
     departamento: "Serviços Gerais",
-    localizacao: "Fortaleza, CE",
     tipo: "CLT",
     descricao: "Responsável pela limpeza e conservação dos ambientes da loja.",
     requisitos: ["Ensino fundamental", "Experiência na função", "Proatividade"],
@@ -92,7 +88,7 @@ export default function TrabalheConosco() {
 
   return (
     <div
-      className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-yellow-400 p-8 rounded-3xl"
+      className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-blue-400 p-8 rounded-3xl"
       style={{
         boxShadow:
           "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
@@ -162,7 +158,7 @@ export default function TrabalheConosco() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => setView("vagas")}
-                    className="px-8 py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
+                    className="px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
                     <svg
                       className="w-5 h-5 mr-2"
                       fill="none"
@@ -180,7 +176,7 @@ export default function TrabalheConosco() {
 
                   <button
                     onClick={() => handleOpenForm()}
-                    className="px-8 py-3 bg-white border-2 border-yellow-600 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors">
+                    className="px-8 py-3 bg-white border-2 border-yellow-400 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors">
                     Candidatura Espontânea
                   </button>
                 </div>

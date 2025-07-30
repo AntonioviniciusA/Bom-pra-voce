@@ -9,18 +9,33 @@ const RoutesNavBar = () => {
       <a
         href="#produtos"
         className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
-        Produtos
+        Promoções
       </a>
       <a
         href="#servicos"
         className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
-        Serviços
+        Setores
       </a>
       <a
         href="#contato"
         className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
-        Contato
+        Tour
       </a>
+      <a
+        href="#contato"
+        className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
+        Sobre
+      </a>
+      <a
+        href="#contato"
+        className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
+        Vagas
+      </a>
+      {/* <a
+        href="#contato"
+        className="text-white font-bold hover:text-yellow-400 transition-colors text-2xl">
+        Contato
+      </a> */}
     </div>
   );
 };

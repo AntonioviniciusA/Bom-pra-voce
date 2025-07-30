@@ -80,7 +80,7 @@ export default function SupermarketTour() {
             current.hotspots.map((hotspot, index) => (
               <button
                 key={index}
-                className="absolute w-6 h-6 bg-blue-500 rounded-full border-2 border-white shadow-lg hover:bg-blue-600 hover:scale-110 transition-all duration-200 flex items-center justify-center group"
+                className="absolute w-6 h-6 bg-yellow-500 rounded-full border-2 border-white shadow-lg hover:bg-yellow-600 hover:scale-110 transition-all duration-200 flex items-center justify-center group"
                 style={{
                   left: `${hotspot.x}%`,
                   top: `${hotspot.y}%`,
@@ -104,7 +104,7 @@ export default function SupermarketTour() {
 
       <div className="absolute top-4 left-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600 max-w-xs">
         <div className="flex items-center space-x-2 mb-2">
-          <span className="text-blue-400">📍</span>
+          <span className="text-yellow-400">📍</span>
           <h2 className="text-lg font-bold">{current.name}</h2>
         </div>
         <p className="text-sm text-gray-300 mb-2">{current.description}</p>
@@ -199,9 +199,9 @@ export default function SupermarketTour() {
                 key={area.id}
                 className={`absolute w-2 h-2 rounded-full border-2 ${
                   area.id === currentArea
-                    ? "bg-blue-500 border-white"
+                    ? "bg-yellow-500 border-white"
                     : "bg-gray-600 border-gray-400"
-                } hover:bg-blue-500 transition-colors`}
+                } hover:bg-yellow-500 transition-colors`}
                 style={{
                   left: `${area.position.x}%`,
                   top: `${area.position.y}%`,

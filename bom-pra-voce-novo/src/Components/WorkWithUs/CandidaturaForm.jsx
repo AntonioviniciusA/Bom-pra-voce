@@ -46,10 +46,10 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
       </button>
 
       {vaga && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
           <div className="flex items-center gap-3">
             <svg
-              className="h-5 w-5 text-blue-600"
+              className="h-5 w-5 text-yellow-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -61,8 +61,8 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
               />
             </svg>
             <div>
-              <p className="font-medium text-blue-900">Candidatura para:</p>
-              <p className="text-blue-700">{vaga.titulo}</p>
+              <p className="font-medium text-yellow-900">Candidatura para:</p>
+              <p className="text-yellow-700">{vaga.titulo}</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
                 type="text"
                 value={formData.nome}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 required
               />
             </div>
@@ -112,7 +112,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 required
               />
             </div>
@@ -131,7 +131,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
                 type="tel"
                 value={formData.telefone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 required
               />
             </div>
@@ -146,7 +146,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
                 type="url"
                 value={formData.linkedin}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
                 placeholder="https://linkedin.com/in/seuperfil"
               />
             </div> */}
@@ -164,7 +164,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
               value={formData.experiencia}
               onChange={handleChange}
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
               required></textarea>
           </div>
 
@@ -183,7 +183,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
               value={formData.motivacao}
               onChange={handleChange}
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500"
               required></textarea>
           </div>
 
@@ -203,8 +203,8 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
                   file:mr-4 file:py-2 file:px-4
                   file:rounded-lg file:border-0
                   file:text-sm file:font-semibold
-                  file:bg-blue-50 file:text-blue-700
-                  hover:file:bg-blue-100"
+                  file:bg-yellow-50 file:text-yellow-700
+                  hover:file:bg-yellow-100"
                 accept=".pdf,.doc,.docx"
                 required
               />
@@ -247,7 +247,7 @@ export default function CandidaturaForm({ vaga, onBack, onSubmit }) {
             </button>
             <button
               type="submit"
-              className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold">
+              className="flex-1 px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors font-bold">
               Enviar Candidatura
             </button>
           </div>
