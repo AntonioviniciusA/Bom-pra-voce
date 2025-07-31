@@ -1,7 +1,27 @@
-import {} from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
-export const iconComponents = {};
+export const iconComponents = {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  // Adicione outros ícones conforme necessário
+};
 
+// O resto do seu código (Icon e getIcon) permanece igual
 export const Icon = ({
   name,
   size = 24,

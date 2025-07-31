@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../Logo/Logo";
+import { Icon } from "../../Lib/Ultils/Icons/icons";
 
 const Footer = () => {
   return (
@@ -40,49 +41,49 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-bold text-lg border-b-2 border-white pb-2 ">
+            <h3 className="font-bold text-lg border-b-2 text-white pb-2 ">
               Links Rápidos
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#home"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors">
+                  className="text-white font-bold hover:text-black transition-colors">
                   Início
                 </a>
               </li>
               <li>
                 <a
                   href="#produtos"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors ">
+                  className="text-white font-bold hover:text-black transition-colors ">
                   Promoções
                 </a>
               </li>
               <li>
                 <a
                   href="#servicos"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors">
+                  className="text-white font-bold hover:text-black transition-colors">
                   Setores
                 </a>
               </li>
               <li>
                 <a
                   href="#contato"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors">
+                  className="text-white font-bold hover:text-black transition-colors">
                   Tour
                 </a>
               </li>
               <li>
                 <a
                   href="#contato"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors">
+                  className="text-white font-bold hover:text-black transition-colors">
                   Sobre
                 </a>
               </li>
               <li>
                 <a
                   href="#contato"
-                  className="text-white font-bold hover:text-yellow-400 transition-colors">
+                  className="text-white font-bold hover:text-black transition-colors">
                   Vagas
                 </a>
               </li>
@@ -90,32 +91,59 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-bold text-lg border-b-2 border-white pb-2">
+            <h3 className="font-bold text-lg border-b-2 text-white pb-2">
               Contato
             </h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
+                <Icon name="Phone" color="white" size={20} />
                 <span className="font-medium text-white font-bold">
                   (61) 99374-2005
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <span className="font-medium"></span>
+                <Icon name="Mail" color="white" size={20} />
+                <span className="font-medium text-white">
+                  contato@bompravocê.com
+                </span>
               </div>
               <div className="flex items-center space-x-3">
-                <span className="font-medium"></span>
+                <Icon name="MapPin" color="white" size={20} />
+                <span className="font-medium text-white">Brasília - DF</span>
               </div>
             </div>
 
             <div className="pt-4">
-              <h4 className="font-semibold mb-3">Siga-nos</h4>
+              <h4 className="font-semibold mb-3 text-white">Siga-nos</h4>
               <div className="flex space-x-3">
                 <a
                   href="#"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"></a>
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  aria-label="Facebook">
+                  <Icon name="Facebook" className="text-yellow-500" size={20} />
+                </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"></a>
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  aria-label="Instagram">
+                  <Icon
+                    name="Instagram"
+                    className="text-yellow-500"
+                    size={20}
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  aria-label="Twitter">
+                  <Icon name="Twitter" className="text-yellow-500" size={20} />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  aria-label="Youtube">
+                  <Icon name="Youtube" className="text-yellow-500" size={20} />
+                </a>
               </div>
             </div>
           </div>
