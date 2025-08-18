@@ -90,6 +90,7 @@ export default function TrabalheConosco() {
 
   return (
     <div
+      id="vagas"
       className="flex flex-col lg:flex-row items-center justify-center lg:w-full bg-blue-400 p-8 rounded-3xl"
       style={{
         boxShadow:

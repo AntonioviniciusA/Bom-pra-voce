@@ -3,7 +3,9 @@ import AboutImage from "../../images/About.webp";
 
 export default function About() {
   return (
-    <div className="w-full flex flex-col items-center justify-center pt-[5%] pb-[5%]">
+    <div
+      id="sobre"
+      className="w-full flex flex-col items-center justify-center pt-[5%] pb-[5%]">
       <div
         className="flex flex-col lg:flex-row w-full max-w-7xl  p-8 rounded-2xl gap-14"
         // style={{

@@ -23,7 +23,7 @@ const BannerHome = () => {
 
   return (
     <>
-      <div className="w-full  relative overflow-hidden">
+      <div id="home" className="w-full  relative overflow-hidden">
         <div
           className="flex h-full transition-transform duration-500"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}>

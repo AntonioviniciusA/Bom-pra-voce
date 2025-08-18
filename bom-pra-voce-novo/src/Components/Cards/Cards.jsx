@@ -99,6 +99,7 @@ export default function Card() {
 
   return (
     <div
+      id="setores"
       className="w-full flex flex-col items-center justify-center"
       // style={{
       //   background:
