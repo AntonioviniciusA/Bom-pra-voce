@@ -5,6 +5,8 @@ import VagasList from "./VagasList";
 import VagaDetalhes from "./VagaDetalhes";
 import CandidaturaForm from "./CandidaturaForm";
 import Jobs from "../../images/Jobs/Jobs.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 
 const vagasDisponiveis = [
   {
@@ -114,34 +116,17 @@ export default function TrabalheConosco() {
               </div>
               <div>
                 <div className="flex flex-col gap-6 mb-8">
-                  {/* <div
-                    className="bg-white/35 border-[2px] p-6 rounded-lg "
-                    style={{
-                      boxShadow:
-                        "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
-                    }}>
-                    <div className="h-16 w-16 mx-auto mb-4 text-yellow-600">
-                      <p>icon</p>
-                    </div>
-                    <h3
-                      className="text-xl font-semibold mb-2 text-white "
-                      style={{ textShadow: "0 1px 1px rgba(0, 0, 0, 0.9)" }}>
-                      Ambiente Colaborativo
-                    </h3>
-                    <p className="text-gray-600 font-semibold">
-                      Trabalhe com profissionais talentosos em um ambiente
-                      dinâmico
-                    </p>
-                  </div> */}
-
                   <div
                     className="bg-white/35 border-[2px] p-6 rounded-lg "
                     style={{
                       boxShadow:
                         "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
                     }}>
-                    <div className="h-16 w-16 mx-auto mb-4 text-yellow-600">
-                      <p>icon</p>
+                    <div className="h-16 w-16 mx-auto mb-4 text-yellow-400">
+                      <FontAwesomeIcon
+                        icon={faPeopleGroup}
+                        className="w-16 h-16"
+                      />
                     </div>
                     <h3
                       className="text-xl font-semibold mb-2 text-white "
@@ -158,7 +143,7 @@ export default function TrabalheConosco() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => setView("vagas")}
-                    className="px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
+                    className="px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center">
                     <svg
                       className="w-5 h-5 mr-2"
                       fill="none"
