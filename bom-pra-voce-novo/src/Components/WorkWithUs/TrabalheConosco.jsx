@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import VagasList from "./VagasList";
 import VagaDetalhes from "./VagaDetalhes";
 import CandidaturaForm from "./CandidaturaForm";
-import Jobs from "../../images/Jobs/Jobs.png";
+import Jobs from "../../images/Jobs/jobs2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 
@@ -95,7 +95,8 @@ export default function TrabalheConosco() {
       style={{
         boxShadow:
           "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
-      }}>
+      }}
+    >
       <div className="p-4 w-full max-w-6xl">
         {view === "inicial" && (
           <div className="text-center">
@@ -122,7 +123,8 @@ export default function TrabalheConosco() {
                     style={{
                       boxShadow:
                         "rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px",
-                    }}>
+                    }}
+                  >
                     <div className="h-16 w-16 mx-auto mb-4 text-yellow-400">
                       <FontAwesomeIcon
                         icon={faPeopleGroup}
@@ -131,7 +133,8 @@ export default function TrabalheConosco() {
                     </div>
                     <h3
                       className="text-xl font-semibold mb-2 text-white "
-                      style={{ textShadow: "0 1px 1px rgba(0, 0, 0, 0.9)" }}>
+                      style={{ textShadow: "0 1px 1px rgba(0, 0, 0, 0.9)" }}
+                    >
                       Ambiente Colaborativo
                     </h3>
                     <p className="text-gray-600 font-semibold">
@@ -144,12 +147,14 @@ export default function TrabalheConosco() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => setView("vagas")}
-                    className="px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center">
+                    className="px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center"
+                  >
                     <svg
                       className="w-5 h-5 mr-2"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24">
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -162,7 +167,8 @@ export default function TrabalheConosco() {
 
                   <button
                     onClick={() => handleOpenForm()}
-                    className="px-8 py-3 bg-white border-2 border-yellow-400 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors">
+                    className="px-8 py-3 bg-white border-2 border-yellow-400 text-yellow-600 font-bold rounded-lg hover:bg-yellow-50 transition-colors"
+                  >
                     Candidatura Espontânea
                   </button>
                 </div>
