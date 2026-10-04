@@ -1,7 +1,6 @@
 import CandidaturaForm from "../Components/WorkWithUs/CandidaturaForm";
 import { applicationReady } from "../services/applications";
 import { Link } from "react-router-dom";
-import Logo from "../Components/Logo/Logo";
 import Jobs from "../images/Jobs/equipe-bom-pra-voce.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHeart, faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
@@ -17,10 +16,11 @@ export default function Careers() {
   return <section className="careers-page" aria-labelledby="careers-page-title">
     <div className="careers-page__layout">
       <div className="careers-page__intro">
-        <Logo />
         <p className="careers-page__eyebrow">Trabalhe conosco</p>
         <h1 id="careers-page-title">Venha fazer<br />parte da<br /><mark>nossa equipe!</mark></h1>
-        <p className="careers-page__lead">Preencha o formulário ao lado e envie seu currículo. Estamos sempre em busca de pessoas comprometidas e que queiram crescer com a gente.</p>
+        <p className="careers-page__lead">{ready
+          ? "Preencha o formulário e envie seu currículo. Estamos sempre em busca de pessoas comprometidas e que queiram crescer com a gente."
+          : "Estamos sempre em busca de pessoas comprometidas e que queiram crescer com a gente. O envio de currículos pelo site será liberado assim que o canal seguro estiver disponível."}</p>
         <ul className="careers-page__benefits" aria-label="Benefícios de trabalhar conosco">
           {benefits.map(({ icon, label }, index) => <li key={index}><span><FontAwesomeIcon icon={icon} aria-hidden="true" /></span>{label}</li>)}
         </ul>
