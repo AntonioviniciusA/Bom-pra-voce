@@ -1,56 +1,12 @@
-const faqData = [
-  {
-    title: "Posso fazer compras pelo site?",
-    content: [
-      "Atualmente, nosso site é apenas informativo.",
-      "Todas as compras devem ser realizadas presencialmente em nossa loja física.",
-    ],
-  },
-  {
-    title: "Onde fica localizado o supermercado?",
-    content: [
-      "Estamos localizados na Qs 118 s n cj 6 lt 2, Brasília - DF, 72302-576.",
-      ,
-    ],
-  },
-  {
-    title: "Vocês fazem entregas?",
-    content: [
-      "No momento, não realizamos entregas.",
-      "Todos os produtos devem ser retirados pessoalmente na loja.",
-    ],
-  },
-  {
-    title: "Quais são os horários de funcionamento?",
-    content: ["Funcionamos de segunda a sábado, das 8h às 21h."],
-  },
-  {
-    title: "Quais formas de pagamento são aceitas?",
-    content: [
-      "Aceitamos dinheiro, cartões de débito e crédito, além de Pix.",
-      'Você pode conferir o mapa na seção "Localização" do nosso site',
-    ],
-  },
-  {
-    title: "Vocês têm promoções semanais?",
-    content: [
-      "Sim! Toda semana divulgamos nossas promoções na seção de Tabloide de Ofertas.",
-      "Fique de olho para aproveitar os melhores preços.",
-    ],
-  },
-  {
-    title: "Posso reservar produtos pelo telefone ou pelo site?",
-    content: [
-      "Infelizmente, não realizamos reservas.",
-      "Os produtos estão disponíveis por ordem de chegada.",
-    ],
-  },
-  {
-    title: "Os preços do site são os mesmos da loja?",
-    content: [
-      "Sim, os preços informados no site são os mesmos praticados na loja, enquanto durarem os estoques.",
-    ],
-  },
-];
-
-export default faqData;
+import { paymentsDescription, storeConfig } from "./storeConfig";
+export function getFaqData() {
+  return [
+    { title: "Posso fazer compras pelo site?", content: "O site é informativo. As compras são realizadas presencialmente na loja." },
+    { title: "Onde encontro as promoções?", content: "Na seção Ofertas, consulte os panfletos disponíveis e confira a validade e as condições de cada campanha.", href: "/#promocoes", link: "Ver ofertas" },
+    { title: "Onde fica o supermercado?", content: storeConfig.address || "O endereço será disponibilizado após confirmação pela loja.", href: "/#localizacao", link: "Ver localização e horários" },
+    { title: "Quais são os horários de funcionamento?", content: storeConfig.hours.length ? storeConfig.hours.map(row => row.day + ": " + row.time).join(". ") : "Os horários estão em atualização. Confirme também o atendimento aos domingos e feriados.", href: "/#localizacao", link: "Planejar visita" },
+    { title: "Quais formas de pagamento são aceitas?", content: paymentsDescription(), href: "/#pagamentos", link: "Ver pagamentos na loja" },
+    { title: "Como envio meu currículo?", content: "A página Trabalhe conosco informa a disponibilidade do recebimento e as orientações para envio de PDF.", href: "/trabalhe-conosco", link: "Trabalhe conosco" },
+    { title: "Posso consultar meu currículo pelo protocolo?", content: "Não há consulta de currículo ou de andamento pelo site. O comprovante confirma apenas o recebimento e não garante contratação." },
+  ];
+}

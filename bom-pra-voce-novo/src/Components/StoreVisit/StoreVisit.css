@@ -1,0 +1,209 @@
+.store-visit { background:#fcf5df; padding:30px 0 24px; color:#190d30; scroll-margin-top:90px; }
+.visit-shell { width:min(1494px,calc(100% - 80px)); }
+.visit-heading { text-align:center; }
+.visit-heading .eyebrow { color:#76378b; font-size:17px; letter-spacing:.075em; margin-bottom:10px; }
+.visit-heading h2 { font-size:clamp(32px,3.2vw,54px); margin-bottom:12px; }
+.visit-intro { color:#4b4852; font-size:23px; line-height:1.35; margin:0 auto 24px; }
+.visit-grid { display:grid; grid-template-columns:1.31fr 1fr; gap:21px; }
+.visit-card { min-width:0; background:#fff; border-radius:16px; padding:22px; box-shadow:0 5px 18px #37251505; }
+.visit-card-heading { display:flex; align-items:center; gap:28px; }
+.visit-icon { display:flex; align-items:center; justify-content:center; flex:0 0 68px; width:68px; height:68px; border-radius:50%; background:#ffe58b; color:#11120d; }
+.visit-icon svg { width:36px; height:36px; stroke-width:2.3; }
+.visit-card h3 { font-size:27px; margin:0 0 6px; }
+.visit-card address { max-width:560px; font-size:23px; line-height:1.35; color:#4b4852; margin:0; }
+.visit-location .visit-card-heading { align-items:flex-start; margin-bottom:14px; }
+.visit-map { position:relative; height:192px; overflow:hidden; border-radius:12px; background:#efeee8; }
+.visit-map iframe { width:100%; height:100%; border:0; }
+.visit-map-link { position:absolute; bottom:8px; left:10px; display:flex; align-items:center; gap:14px; border-radius:10px; padding:11px 18px; background:white; color:#111; font-size:16px; font-weight:700; text-decoration:none; box-shadow:0 2px 10px #0001; }
+.visit-map-link:hover { background:#fff4c3; }
+.visit-schedule .visit-card-heading { gap:22px; margin-bottom:12px; }
+.visit-schedule h3 { margin:0; }
+.visit-hours { margin:0; }
+.visit-hours > div { display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid #f0eef1; padding:19px 20px; font-size:21px; }
+.visit-hours dt { display:flex; align-items:center; gap:21px; }
+.visit-hours svg,.visit-holiday svg { flex-shrink:0; color:#111; }
+.visit-hours dd { margin:0; font-weight:800; white-space:nowrap; }
+.visit-holiday { display:flex; align-items:center; gap:21px; border-top:1px solid #f0eef1; padding:20px 20px 8px; margin:0; font-size:20px; line-height:1.4; }
+.store-visit .payments-inline { display:flex; align-items:center; flex-wrap:nowrap; gap:38px; border:1px solid #ffce35; border-radius:16px; background:#fcf1d2; margin-top:23px; padding:14px 24px; }
+.payment-icon { background:#ffda43; width:76px; height:76px; flex-basis:76px; }
+.store-visit .payments-inline h3 { font-size:22px; margin:0 0 4px; }
+.store-visit .payments-inline p { font-size:20px; color:#4b4852; line-height:1.4; }
+#duvidas { background:#fffcf5; text-align:center; padding-top:10px; color:#190d30; }
+#duvidas .eyebrow { font-size:16px; color:#76378b; margin-bottom:10px; }
+#duvidas h2 { margin-bottom:28px; }
+#duvidas h2::after { content:""; display:block; width:96px; height:5px; background:#ffda43; margin:16px auto 0; }
+#duvidas .faq-item { text-align:left; }
+.site-header { width:91%; max-width:1572px; top:0; margin:0 auto; border-color:#ffd13d; background:#fffcf5; box-shadow:none; }
+.site-header .header-row { width:calc(100% - 88px); min-height:82px; }
+.site-header .brand-logo { width:226px; height:62px; }
+.site-nav { gap:28px; font-size:20px; color:#111; }
+.site-nav a { padding:7px 14px; border-radius:28px; }
+.site-nav a[aria-current="location"] { background:#ffda43; }
+.site-nav .nav-jobs { border:0; padding:7px 14px; }
+@media(max-width:1100px) { .visit-grid { grid-template-columns:1.15fr 1fr; } .visit-card-heading { gap:16px; } .visit-card h3 { font-size:23px; } .visit-card address,.visit-intro { font-size:20px; } .visit-hours > div,.visit-holiday { padding:16px 0; font-size:18px; } .site-nav { gap:6px; font-size:16px; } }
+@media(max-width:900px) { .visit-grid { grid-template-columns:1fr; } .visit-shell { width:calc(100% - 40px); } .visit-card address { max-width:none; } .site-header .header-row { width:calc(100% - 40px); } .site-header .brand-logo { width:174px; height:54px; } .site-nav { align-items:stretch; } }
+@media(max-width:600px) { .store-visit { padding:28px 0 24px; } .visit-heading .eyebrow { font-size:13px; } .visit-heading h2 { font-size:32px; } .visit-intro { font-size:18px; } .visit-desktop-break { display:none; } .visit-card { padding:18px; } .visit-icon { width:50px; height:50px; flex-basis:50px; } .visit-icon svg { width:28px; height:28px; } .visit-card h3 { font-size:21px; } .visit-card address { font-size:17px; } .visit-map { height:210px; } .visit-map-link { gap:8px; font-size:14px; padding:10px; } .visit-hours > div { font-size:16px; gap:10px; } .visit-hours dt { gap:10px; } .visit-holiday { font-size:16px; gap:10px; } .store-visit .payments-inline { align-items:flex-start; gap:16px; padding:18px; } .store-visit .payments-inline h3 { font-size:19px; } .store-visit .payments-inline p { font-size:16px; } #duvidas { padding-top:24px; } .site-header .header-row { min-height:74px; } }
+.site-nav .nav-search { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border:0; background:transparent; color:#111; border-radius:50%; }
+.site-nav .nav-search:hover { background:#fff0b1; }
+.site-search { padding:20px 28px; background:#fffcf5; border-top:1px solid #eddfb1; border-radius:0 0 40px 40px; }
+.site-search label { display:block; font-weight:700; }
+.site-search input { width:100%; padding:10px 14px; border:1px solid #807268; border-radius:8px; }
+.site-search ul { display:flex; flex-wrap:wrap; gap:12px 24px; list-style:none; padding:0; }
+.site-search .small { margin-bottom:0; }
+/* Keep the anchored section aligned directly below the sticky navigation. */
+#localizacao { scroll-margin-top:90px; }
+.store-visit, .store-visit h2, .store-visit h3, #duvidas, #duvidas h2, .site-header { font-family:Arial, "Segoe UI", sans-serif; }
+.visit-card address { max-width:520px; }
+@font-face { font-family:VisitInter; font-style:normal; font-weight:400; font-display:swap; src:url('../../fonts/inter-regular.ttf') format('truetype'); }
+@font-face { font-family:VisitInter; font-style:normal; font-weight:700; font-display:swap; src:url('../../fonts/inter-bold.ttf') format('truetype'); }
+@font-face { font-family:VisitInter; font-style:normal; font-weight:800; font-display:swap; src:url('../../fonts/inter-extrabold.ttf') format('truetype'); }
+.store-visit, .store-visit h2, .store-visit h3, #duvidas, #duvidas h2, .site-header { font-family:VisitInter, Arial, sans-serif; }
+.visit-heading h2 { font-weight:800; }
+.visit-card h3, .store-visit .payments-inline h3 { font-weight:700; }
+
+@media(max-width:420px) { .visit-hours > div { flex-wrap:wrap; gap:6px; } .visit-hours dt { flex-basis:100%; } .visit-hours dd { margin-left:35px; } }
+
+/* The header starts as a solid full-width bar, then becomes the floating pill. */
+.site-header:not(.is-scrolled) {
+  top: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-bottom: 3px solid #ffd13d;
+  border-radius: 0;
+  background: #fffcf5;
+  box-shadow: none;
+}
+.site-header.is-scrolled {
+  top: 12px;
+  width: 90%;
+  max-width: 1280px;
+  margin: 12px auto;
+  border: 3px solid #facc15;
+  border-radius: 50px;
+  background: rgba(253, 224, 71, .3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: rgba(255, 238, 0, .45) 0 10px 30px;
+}
+.site-header {
+  transition: width .2s ease, max-width .2s ease, margin .2s ease,
+    border-radius .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.menu-toggle {
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: #211044;
+  background: #ffda43;
+}
+.menu-toggle svg {
+  width: 21px;
+  height: 21px;
+}
+
+@media(max-width:1400px) {
+  .site-header .header-row {
+    width: calc(100% - 48px);
+  }
+  .site-header .brand-logo {
+    width: 184px;
+    height: 54px;
+  }
+  .site-nav {
+    gap: 8px;
+    font-size: 16px;
+  }
+  .site-nav a,
+  .site-nav .nav-jobs {
+    padding: 7px 9px;
+    white-space: nowrap;
+  }
+  .careers-spotlight__inner {
+    width: min(100% - 48px, 1320px);
+    grid-template-columns: minmax(0, .92fr) minmax(540px, 1.08fr);
+    gap: 34px;
+  }
+  .careers-spotlight__content h2 {
+    font-size: clamp(3.2rem, 5vw, 4.8rem);
+  }
+  .careers-benefits {
+    width: 100%;
+  }
+  .careers-benefits li {
+    gap: 10px;
+    padding-inline: 14px;
+    font-size: .95rem;
+  }
+  .careers-benefits__icon {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+    font-size: 1.55rem;
+  }
+}
+
+@media(max-width:1180px) {
+  .site-header.is-scrolled {
+    top: 8px;
+    width: calc(100% - 24px);
+    margin: 8px auto;
+    border-radius: 28px;
+  }
+  .menu-toggle {
+    display: inline-flex;
+  }
+  .site-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 18px;
+  }
+  .header-row {
+    flex-wrap: wrap;
+    gap: 0;
+    padding-block: 8px;
+  }
+  .menu-toggle {
+    display: inline-flex;
+  }
+  .site-nav {
+    display: none;
+    width: 100%;
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    align-items: stretch;
+    gap: 2px;
+    padding-top: 12px;
+  }
+  .site-nav a,
+  .site-nav .nav-jobs {
+    padding: 11px 12px;
+  }
+  .site-nav .nav-search {
+    align-self: flex-start;
+    margin-left: 8px;
+  }
+  .careers-spotlight__inner {
+    width: min(100% - 40px, 760px);
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:600px) {
+  .site-header .header-row {
+    width: calc(100% - 28px);
+  }
+  .site-header .brand-logo {
+    width: 142px;
+    height: 48px;
+  }
+  .menu-toggle span {
+    display: none;
+  }
+  .menu-toggle {
+    width: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+}

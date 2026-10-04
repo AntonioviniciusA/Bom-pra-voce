@@ -1,74 +1,86 @@
-import React, { useState } from "react";
-import { tabloidesData } from "../../Data/TabloideData";
-import TabloideView from "./TabloideView";
+import { useEffect, useState } from "react";
+import { Baby, CalendarDays, Droplets, ExternalLink, PackageOpen, Percent, ShoppingCart, Snowflake, Sparkles, Star, Tag } from "lucide-react";
+import usePromotions from "../../hooks/usePromotions";
+
+const dateFormat = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeZone: "America/Sao_Paulo" });
+const categoryMeta = {
+  "meat-frozen": { label: "Açougue e congelados", icon: Snowflake },
+  "home-baby": { label: "Utilidades e bebê", icon: Baby },
+  "grocery-drinks": { label: "Mercearia e bebidas", icon: ShoppingCart },
+  "cleaning-beauty": { label: "Limpeza e beleza", icon: Droplets },
+  other: { label: "Outras ofertas", icon: PackageOpen },
+};
+const inferCategory = campaign => {
+  if (campaign.category_key && campaign.category_key !== "other") return campaign.category_key;
+  const title = campaign.title.toLocaleLowerCase("pt-BR");
+  if (title.includes("açougue") || title.includes("congelado")) return "meat-frozen";
+  if (title.includes("bebê") || title.includes("utilidade")) return "home-baby";
+  if (title.includes("mercearia") || title.includes("bebida")) return "grocery-drinks";
+  if (title.includes("limpeza") || title.includes("higiene") || title.includes("beleza")) return "cleaning-beauty";
+  return "other";
+};
 
 export default function Tabloide() {
-  const [selectedPdf, setSelectedPdf] = useState(null);
-  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const { status, campaigns, reload } = usePromotions();
+  const [active, setActive] = useState(0);
+  useEffect(() => { setActive(current => Math.min(current, Math.max(0, campaigns.length - 1))); }, [campaigns.length]);
 
-  const handleOpenPdf = (pdfUrl) => {
-    setSelectedPdf(pdfUrl);
-    setIsViewerOpen(true);
+  const select = index => {
+    if (!campaigns.length) return;
+    setActive((index + campaigns.length) % campaigns.length);
   };
-
-  const handleCloseViewer = () => {
-    setIsViewerOpen(false);
-    setSelectedPdf(null);
+  const onKeyDown = event => {
+    if (event.key === "ArrowLeft") { event.preventDefault(); select(active - 1); }
+    if (event.key === "ArrowRight") { event.preventDefault(); select(active + 1); }
+    if (event.key === "Home") { event.preventDefault(); select(0); }
+    if (event.key === "End") { event.preventDefault(); select(campaigns.length - 1); }
   };
+  const item = campaigns[active];
 
-  return (
-    <div
-      id="promocoes"
-      className="py-10 flex items-center justify-center w-full h-full p-8">
-      <div className="p-4">
-        <div className="flex items-center flex-col mb-4 text-center">
-          <h1 className="text-4xl font-extrabold text-yellow-400">
-            Corre que dá tempo!
-          </h1>
-          <p className="text-lg font-bold mt-2 text-black">
-            As melhores ofertas da semana te esperam aqui.
-          </p>
+  return <section id="promocoes" className="offers-showcase" aria-labelledby="offers-title">
+    <div className="offers-showcase__shell">
+      {status === "loading" && <p role="status" className="notice">Consultando ofertas…</p>}
+      {status === "unavailable" && <div className="notice"><h3>Panfletos indisponíveis no momento</h3><p>Volte mais tarde para conferir as promoções da loja.</p></div>}
+      {status === "error" && <div className="notice" role="alert"><h3>Não conseguimos consultar as ofertas</h3><p>Verifique a conexão e tente novamente.</p><button type="button" className="button button-outline" onClick={reload}>Tentar novamente</button></div>}
+      {status === "ready" && !campaigns.length && <p className="notice" role="status">Nenhum panfleto vigente disponível no momento.</p>}
+      {item && <div className="offers-stage" role="region" aria-roledescription="carrossel" aria-label="Panfletos vigentes" onKeyDown={onKeyDown}>
+        <p className="sr-only" aria-live="polite">Panfleto {active + 1} de {campaigns.length}: {item.title}</p>
+        <div className="offers-intro">
+          <span className="offers-intro__badge"><Tag size={20} aria-hidden="true" /> Ofertas</span>
+          <h2 id="offers-title">Ofertas da loja</h2>
+          <p className="offers-intro__lead">Qualidade e economia para o seu final de semana!</p>
+          <ul className="offers-benefits">
+            <li><span><ShoppingCart aria-hidden="true" /></span><div><strong>Produtos fresquinhos</strong><small>Açougue, mercearia e muito mais</small></div></li>
+            <li><span><Percent aria-hidden="true" /></span><div><strong>Preços especiais</strong><small>Economia de verdade</small></div></li>
+            <li><span><Star aria-hidden="true" /></span><div><strong>Qualidade que você confia</strong><small>As melhores marcas para sua família</small></div></li>
+          </ul>
         </div>
 
-        <div className="flex gap-4 flex-wrap justify-center">
-          {tabloidesData.map((tabloide) => (
-            <div key={tabloide.id} className="flex flex-col items-center">
-              <div
-                className="relative h-32 lg:h-40 overflow-hidden rounded-lg bg-yellow-400 cursor-pointer"
-                style={{
-                  boxShadow:
-                    "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px",
-                }}
-                onClick={() => handleOpenPdf(tabloide.pdfUrl)}>
-                <img
-                  src={tabloide.thumbnail}
-                  alt={tabloide.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.05]"
-                />
-              </div>
-              <button
-                className="mt-8 backdrop-blur-sm bg-yellow-300/30 border-[2px] border-yellow-300 rounded-full px-8 py-2 shadow-2xl shadow-white/10"
-                style={{ boxShadow: "rgba(255, 238, 0, 0.68) 0px 2px 30px" }}
-                onClick={() => handleOpenPdf(tabloide.pdfUrl)}>
-                <p
-                  className="flex-1 flex justify-center text-black font-semibold"
-                  style={{ textShadow: "0 1px 1px rgb(255, 255, 255)" }}>
-                  Visualizar
-                </p>
-              </button>
-            </div>
-          ))}
-        </div>
+        <a id="offers-active-flyer" className="offers-flyer" href={item.file_url} target="_blank" rel="noopener noreferrer" aria-label={`Ver panfleto completo: ${item.title} (nova aba)`}>
+          {item.mime_type.startsWith("image/")
+            ? <img key={item.id} src={item.file_url} alt={`Panfleto ${item.title}`} loading={active === 0 ? "eager" : "lazy"} decoding="async" />
+            : <div className="offers-flyer__pdf"><strong>Panfleto em PDF</strong><span>Abra para visualizar o conteúdo completo.</span></div>}
+        </a>
 
-        {/* Modal */}
-        {isViewerOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-lg max-w-6xl w-full max-h-screen h-full flex flex-col">
-              <TabloideView pdfUrl={selectedPdf} onClose={handleCloseViewer} />
-            </div>
-          </div>
-        )}
-      </div>
+        <article className="offers-details">
+          <p className="offers-details__date"><CalendarDays size={20} aria-hidden="true" /> Válido de <time dateTime={item.starts_at}>{dateFormat.format(item.starts)}</time> a <time dateTime={item.ends_at}>{dateFormat.format(item.ends - 1)}</time></p>
+          <h3>Ofertas de<br />final de semana</h3>
+          <span className="offers-details__stroke" aria-hidden="true" />
+          <p>{item.summary} Qualidade e economia para a sua família!</p>
+          <a className="offers-details__cta" href={item.file_url} target="_blank" rel="noopener noreferrer">Ver panfleto completo <ExternalLink size={20} aria-hidden="true" /></a>
+          <p className="offers-details__conditions"><Sparkles size={18} aria-hidden="true" /> {item.conditions}</p>
+        </article>
+
+        {campaigns.length > 1 && <div className="offers-hud" role="tablist" aria-label="Escolha o setor do panfleto">
+          {campaigns.map((campaign, index) => {
+            const meta = categoryMeta[inferCategory(campaign)];
+            const Icon = meta.icon;
+            return <button key={campaign.id} type="button" role="tab" aria-selected={index === active} aria-controls="offers-active-flyer" className={index === active ? "is-active" : ""} onClick={() => select(index)}>
+              <Icon size={22} aria-hidden="true" /><span>{meta.label}</span>
+            </button>;
+          })}
+        </div>}
+      </div>}
     </div>
-  );
+  </section>;
 }

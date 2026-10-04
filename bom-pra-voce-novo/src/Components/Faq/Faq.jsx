@@ -1,29 +1,70 @@
-import React from "react";
-import faqData from "../../Data/FaqData.js";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Clock3,
+  CreditCard,
+  FileText,
+  MapPin,
+  Minus,
+  Plus,
+  ShoppingCart,
+  Tag,
+  UserRound,
+} from "lucide-react";
+import { getFaqData } from "../../Data/FaqData";
+
+const faqIcons = [ShoppingCart, Tag, MapPin, Clock3, CreditCard, FileText, UserRound];
 
 export default function FaqSection() {
-  return (
-    <section className="w-full max-w-3xl mx-auto p-4 pb-[5%] mt-8">
-      <h2 className="text-3xl font-bold text-center mb-6 text-yellow-500">
-        Perguntas Frequentes
-      </h2>
-      {faqData.map((item, index) => (
-        <details
-          key={index}
-          className="mb-4 rounded-xl backdrop-blur-md bg-yellow-200/30 border border-yellow-300 shadow-lg overflow-hidden transition-all duration-300">
-          <summary className="cursor-pointer select-none py-3 px-6 text-lg font-semibold text-yellow-800 relative flex items-center">
-            <span className="mr-2 transition-transform duration-300 group-open:rotate-90">
-              ▶
-            </span>
-            {item.title}
-          </summary>
-          <ul className="pl-10 pr-6 pb-4 text-yellow-900 list-disc">
-            {item.content.map((line, idx) => (
-              <li key={idx}>{line}</li>
-            ))}
-          </ul>
-        </details>
-      ))}
-    </section>
-  );
+  const [openItem, setOpenItem] = useState(1);
+  const items = getFaqData();
+  const columns = [items.slice(0, 3), items.slice(3)];
+
+  return <section id="duvidas" className="section section-tint faq-section" aria-labelledby="faq-title">
+    <div className="shell">
+      <header className="faq-heading">
+        <p className="eyebrow"><span>Podemos ajudar?</span></p>
+        <h2 id="faq-title">Dúvidas frequentes</h2>
+        <p>Encontre respostas rápidas para as principais dúvidas sobre o Bom Pra Você.</p>
+      </header>
+
+      <div className="faq-grid">
+        {columns.map((column, columnIndex) => <div className="faq-column" key={columnIndex}>
+          {column.map((item, itemIndex) => {
+            const index = columnIndex === 0 ? itemIndex : itemIndex + 3;
+            const isOpen = openItem === index;
+            const ItemIcon = faqIcons[index];
+            const panelId = `faq-panel-${index}`;
+            return <article className={`faq-item${isOpen ? " is-open" : ""}`} key={item.title}>
+              <button
+                className="faq-question"
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpenItem(isOpen ? null : index)}
+              >
+                <span className="faq-icon" aria-hidden="true"><ItemIcon size={26} strokeWidth={2.4} /></span>
+                <span>{item.title}</span>
+                <span className="faq-toggle" aria-hidden="true">{isOpen ? <Minus /> : <Plus />}</span>
+              </button>
+              <div className="faq-answer" id={panelId} hidden={!isOpen}>
+                <p>{item.content}</p>
+                {item.href && <Link to={item.href}>{item.link}<ArrowRight size={17} aria-hidden="true" /></Link>}
+              </div>
+            </article>;
+          })}
+        </div>)}
+      </div>
+
+      <aside className="faq-help" aria-label="Ainda precisa de ajuda?">
+        <span className="faq-help__icon" aria-hidden="true"><MapPin size={34} /></span>
+        <div>
+          <h3>Ainda ficou com alguma dúvida?</h3>
+          <p>Consulte o endereço e os horários para planejar sua visita à loja.</p>
+        </div>
+        <Link className="faq-help__button" to="/#localizacao">Planejar visita <ArrowRight size={19} aria-hidden="true" /></Link>
+      </aside>
+    </div>
+  </section>;
 }

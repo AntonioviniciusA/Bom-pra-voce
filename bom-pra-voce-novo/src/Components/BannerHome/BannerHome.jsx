@@ -1,61 +1,72 @@
-import React, { useEffect, useState } from "react";
-import { bannerImages } from "../../Data/BannerData";
-import BouncingScroll from "../BouncingScroll/BouncingScroll";
-
-const BannerHome = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+import PrecoBaixo from "../../images/PrecoBaixo.png";
+import Compras from "../../images/banner-compras.png";
+import Padaria from "../../images/banner-padaria.png";
+import { useEffect, useState } from "react";
+const slides = [
+  {
+    image: PrecoBaixo,
+    alt: "Preço baixo todo dia. Venha conferir no Bom Pra Você Supermercado.",
+  },
+  { image: Compras, alt: "Tudo para o seu dia a dia. Bom pra você." },
+  { image: Padaria, alt: "Sua próxima parada: a padaria. Bom pra você." },
+];
+export default function BannerHome() {
+  const [slide, setSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-    }, 7500);
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + bannerImages.length) % bannerImages.length
-    );
-  };
-
+    if (
+      paused ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+    )
+      return undefined;
+    const timer = setInterval(() => {
+      if (!document.hidden) setSlide((value) => (value + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [paused]);
   return (
-    <>
-      <div id="home" className="w-full  relative overflow-hidden">
-        <div
-          className="flex h-full transition-transform duration-500"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-          {bannerImages.map((image) => (
-            <div
-              key={image.id}
-              className=" w-full h-full flex-shrink-0 relative">
-              <img
-                src={image.desktop}
-                alt={image.alt}
-                className="w-full h-full object-contain  "
-              />
-            </div>
-          ))}
-          <BouncingScroll />
-        </div>
-
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 backdrop-blur-xl bg-white/10 border border-white/45 text-white p-2 rounded-full z-10"
-          aria-label="Slide anterior">
-          &lt;
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 backdrop-blur-xl bg-white/10 border border-white/45 text-white p-2 rounded-full z-10"
-          aria-label="Próximo slide">
-          &gt;
-        </button>
+    <section
+      id="home"
+      className="original-banner"
+      aria-labelledby="hero-title"
+      onFocusCapture={(event) => {
+        if (event.target !== event.currentTarget) setPaused(true);
+      }}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setPaused(false);
+      }}
+    >
+      <h1 id="hero-title" className="sr-only">
+        Bom Pra Você Supermercado
+      </h1>
+      <div
+        className="carousel-slide"
+        aria-roledescription="carrossel"
+        aria-label="Destaques da loja"
+      >
+        <img
+          src={slides[slide].image}
+          alt={slides[slide].alt}
+          width="1913"
+          height="765"
+          fetchPriority="high"
+        />
       </div>
-    </>
+      <div className="carousel-controls">
+        <div className="carousel-dots">
+          {slides.map((item, index) => (
+            <button
+              key={item.image}
+              aria-label={`Mostrar imagem ${index + 1}`}
+              aria-pressed={index === slide}
+              onClick={() => setSlide(index)}
+            >
+              <span className="sr-only">Imagem {index + 1}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default BannerHome;
+}
