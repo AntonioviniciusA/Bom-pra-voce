@@ -1,0 +1,8 @@
+[
+  {
+    "level": "error",
+    "message": "Error: Cannot use the same canvas during multiple render() operations. Use different canvas or ensure previous operations were cancelled or completed.\n    at InternalRenderTask.initializeGraphics (http://127.0.0.1:3000/static/js/bundle.js:12599:25)\n    at http://127.0.0.1:3000/static/js/bundle.js:11406:34",
+    "timestamp": "2026-10-01T01:15:57.473Z",
+    "url": "http://127.0.0.1:3000/static/js/bundle.js"
+  }
+]
