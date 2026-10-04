@@ -1,0 +1,22 @@
+project_id = "bom-pra-voce"
+
+[api]
+enabled = true
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+
+[functions.public-promotions]
+verify_jwt = false
+
+[functions.application-init]
+verify_jwt = false
+
+[functions.application-submit]
+verify_jwt = false
+
+[functions.promotion-admin]
+verify_jwt = false
+
+[functions.rh-applications]
+verify_jwt = false
+
