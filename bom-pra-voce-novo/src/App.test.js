@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { SiteRoutes } from "./Routes";
 beforeAll(() => { Element.prototype.scrollIntoView = jest.fn(); });
@@ -9,7 +9,7 @@ test("real mounted routes show informative home, navigation and no fake actions"
   renderRoute();
   expect(await screen.findByRole("heading", { level: 1 })).toHaveTextContent("Bom Pra Você Supermercado");
   expect(screen.getByRole("heading", { name: "Pagamentos na loja" })).toBeInTheDocument();
-  expect(await screen.findByRole("heading", { name: /Panfletos indisponíveis no momento|Não conseguimos consultar as ofertas/ })).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: /Ofertas da loja|Panfletos indisponíveis no momento|Não conseguimos consultar as ofertas/ })).toBeInTheDocument();
   const menu = screen.getByRole("button", { name: "Menu" });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
@@ -23,6 +23,9 @@ test("real mounted routes show informative home, navigation and no fake actions"
 test("career route fails closed until receiving and privacy are ready", async () => {
   renderRoute("/trabalhe-conosco");
   expect(await screen.findByRole("heading", { name: "Envio de currículos indisponível no momento" })).toBeInTheDocument();
+  expect(document.querySelector(".site-header")).toBeInTheDocument();
+  expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+  expect(within(screen.getByRole("navigation", { name: "Principal" })).getByRole("link", { name: "Trabalhe conosco" })).toHaveAttribute("aria-current", "location");
   expect(screen.queryByLabelText("Currículo em PDF")).not.toBeInTheDocument();
   expect(screen.queryByRole("button", { name: "Enviar currículo" })).not.toBeInTheDocument();
 });

@@ -102,7 +102,12 @@ export default function NavBar() {
             <Link
               key={item.href}
               to={item.href}
-              aria-current={location.pathname === "/" && activeSection === item.href.split("#")[1] ? "location" : undefined}
+              aria-current={
+                (location.pathname === "/" && activeSection === item.href.split("#")[1]) ||
+                (location.pathname === "/trabalhe-conosco" && item.href === "/#trabalhe-conosco")
+                  ? "location"
+                  : undefined
+              }
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
