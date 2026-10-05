@@ -1,12 +1,28 @@
-import { CreditCard } from "lucide-react";
 import { paymentsDescription, storeConfig } from "../../Data/storeConfig";
+import acceptedPayments from "../../images/PaymentsImage/cartoes-aceitos-bom-pra-voce.jpg";
+
 export default function PaymentMethods() {
-  return <div id="pagamentos" className="payments-inline" tabIndex="-1">
-    <span className="visit-icon payment-icon"><CreditCard aria-hidden="true" /></span>
-    <div><h3 id="payments-title">Pagamentos na loja</h3>
-      {storeConfig.payments.length ? <ul className="payment-list">{storeConfig.payments.map(payment =>
-        <li key={payment}>{payment}</li>)}</ul> : <p>{paymentsDescription()}</p>}
-      {storeConfig.paymentConditions && <p>{storeConfig.paymentConditions}</p>}
-    </div>
-  </div>;
+  return (
+    <section id="pagamentos" className="payments-showcase" tabIndex="-1" aria-labelledby="payments-title">
+      <div className="payments-copy">
+        <p className="eyebrow">FACILIDADE PARA VOCÊ</p>
+        <h2 id="payments-title">Formas de pagamento aceitas</h2>
+        <p>Na loja, você pode pagar com Pix, carteiras digitais, cartões de crédito, débito e benefícios.</p>
+      </div>
+
+      <img
+        className="payments-artwork"
+        src={acceptedPayments}
+        alt="Cartões e pagamentos aceitos no Bom Pra Você Supermercado"
+      />
+
+      {storeConfig.payments.length ? (
+        <ul className="payment-list" aria-label="Bandeiras e formas de pagamento aceitas">
+          {storeConfig.payments.map((payment) => <li key={payment}>{payment}</li>)}
+        </ul>
+      ) : <p className="payments-unconfirmed">{paymentsDescription()}</p>}
+
+      {storeConfig.paymentConditions && <p className="payment-conditions">{storeConfig.paymentConditions}</p>}
+    </section>
+  );
 }

@@ -24,10 +24,15 @@
 .visit-hours svg,.visit-holiday svg { flex-shrink:0; color:#111; }
 .visit-hours dd { margin:0; font-weight:800; white-space:nowrap; }
 .visit-holiday { display:flex; align-items:center; gap:21px; border-top:1px solid #f0eef1; padding:20px 20px 8px; margin:0; font-size:20px; line-height:1.4; }
-.store-visit .payments-inline { display:flex; align-items:center; flex-wrap:nowrap; gap:38px; border:1px solid #ffce35; border-radius:16px; background:#fcf1d2; margin-top:23px; padding:14px 24px; }
-.payment-icon { background:#ffda43; width:76px; height:76px; flex-basis:76px; }
-.store-visit .payments-inline h3 { font-size:22px; margin:0 0 4px; }
-.store-visit .payments-inline p { font-size:20px; color:#4b4852; line-height:1.4; }
+.payments-showcase { overflow:hidden; border:1px solid #e8bd20; border-radius:22px; background:#fff; margin-top:23px; padding:28px; scroll-margin-top:120px; box-shadow:0 8px 28px rgba(46,31,0,.08); }
+.payments-copy { max-width:820px; margin:0 auto 24px; text-align:center; }
+.payments-copy .eyebrow { margin:0 0 8px; color:#76378b; font-size:15px; font-weight:800; letter-spacing:.08em; }
+.payments-copy h2 { margin:0 0 10px; color:#190d30; font-size:clamp(28px,3vw,44px); }
+.payments-copy > p:last-child { margin:0; color:#4b4852; font-size:19px; line-height:1.5; }
+.payments-artwork { display:block; width:100%; max-width:1120px; height:auto; margin:0 auto; border-radius:16px; }
+.store-visit .payment-list { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin:20px auto 0; padding:0; list-style:none; max-width:1120px; }
+.store-visit .payment-list li { display:flex; align-items:center; justify-content:center; min-height:48px; padding:9px 12px; border:1px solid #eadfbd; border-radius:10px; background:#fffdf7; color:#261238; font-size:14px; font-weight:800; text-align:center; }
+.payment-conditions,.payments-unconfirmed { margin:16px auto 0; color:#625b66; font-size:14px; line-height:1.5; text-align:center; }
 #duvidas { background:#fffcf5; text-align:center; padding-top:10px; color:#190d30; }
 #duvidas .eyebrow { font-size:16px; color:#76378b; margin-bottom:10px; }
 #duvidas h2 { margin-bottom:28px; }
@@ -42,7 +47,8 @@
 .site-nav .nav-jobs { border:0; padding:7px 14px; }
 @media(max-width:1100px) { .visit-grid { grid-template-columns:1.15fr 1fr; } .visit-card-heading { gap:16px; } .visit-card h3 { font-size:23px; } .visit-card address,.visit-intro { font-size:20px; } .visit-hours > div,.visit-holiday { padding:16px 0; font-size:18px; } .site-nav { gap:6px; font-size:16px; } }
 @media(max-width:900px) { .visit-grid { grid-template-columns:1fr; } .visit-shell { width:calc(100% - 40px); } .visit-card address { max-width:none; } .site-header .header-row { width:calc(100% - 40px); } .site-header .brand-logo { width:174px; height:54px; } .site-nav { align-items:stretch; } }
-@media(max-width:600px) { .store-visit { padding:28px 0 24px; } .visit-heading .eyebrow { font-size:13px; } .visit-heading h2 { font-size:32px; } .visit-intro { font-size:18px; } .visit-desktop-break { display:none; } .visit-card { padding:18px; } .visit-icon { width:50px; height:50px; flex-basis:50px; } .visit-icon svg { width:28px; height:28px; } .visit-card h3 { font-size:21px; } .visit-card address { font-size:17px; } .visit-map { height:210px; } .visit-map-link { gap:8px; font-size:14px; padding:10px; } .visit-hours > div { font-size:16px; gap:10px; } .visit-hours dt { gap:10px; } .visit-holiday { font-size:16px; gap:10px; } .store-visit .payments-inline { align-items:flex-start; gap:16px; padding:18px; } .store-visit .payments-inline h3 { font-size:19px; } .store-visit .payments-inline p { font-size:16px; } #duvidas { padding-top:24px; } .site-header .header-row { min-height:74px; } }
+@media(max-width:900px) { .store-visit .payment-list { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(max-width:600px) { .store-visit { padding:28px 0 24px; } .visit-heading .eyebrow { font-size:13px; } .visit-heading h2 { font-size:32px; } .visit-intro { font-size:18px; } .visit-desktop-break { display:none; } .visit-card { padding:18px; } .visit-icon { width:50px; height:50px; flex-basis:50px; } .visit-icon svg { width:28px; height:28px; } .visit-card h3 { font-size:21px; } .visit-card address { font-size:17px; } .visit-map { height:210px; } .visit-map-link { gap:8px; font-size:14px; padding:10px; } .visit-hours > div { font-size:16px; gap:10px; } .visit-hours dt { gap:10px; } .visit-holiday { font-size:16px; gap:10px; } .payments-showcase { padding:20px 16px; border-radius:16px; } .payments-copy { margin-bottom:16px; } .payments-copy .eyebrow { font-size:12px; } .payments-copy h2 { font-size:27px; } .payments-copy > p:last-child { font-size:16px; } .payments-artwork { border-radius:10px; } .store-visit .payment-list { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:14px; } .store-visit .payment-list li { min-height:44px; padding:8px; font-size:13px; } #duvidas { padding-top:24px; } .site-header .header-row { min-height:74px; } }
 .site-nav .nav-search { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border:0; background:transparent; color:#111; border-radius:50%; }
 .site-nav .nav-search:hover { background:#fff0b1; }
 .site-search { padding:20px 28px; background:#fffcf5; border-top:1px solid #eddfb1; border-radius:0 0 40px 40px; }

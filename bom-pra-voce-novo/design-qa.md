@@ -38,6 +38,37 @@ final result: passed
 
 ---
 
+# Revisão visual — formas de pagamento
+
+Data: 2026-10-05.
+
+- Referência visual: imagem enviada pelo usuário, `1-Imagem-colada-1.jpg` (1280 × 853 px).
+- Implementação: `http://localhost:3000/#pagamentos`, conferida no navegador integrado.
+- Viewports comparados: 1366 × 768, 1024 × 768 e 390 × 844 CSS px.
+- Conteúdo: pagamento presencial; nenhuma integração de checkout foi criada ou anunciada.
+
+## Comparação e adaptação
+
+- A arte original foi preservada como ativo principal, sem redesenhar ou aproximar as marcas.
+- A seção recebeu título e descrição compatíveis com a hierarquia visual do site, além de lista textual das quinze formas mostradas na referência.
+- No desktop, a arte permanece em destaque dentro de um cartão branco com borda amarela. No celular, reduz sem corte e é complementada por uma grade textual de duas colunas para manter a leitura.
+- A FAQ passa a obter a mesma lista da configuração central, evitando divergência de conteúdo.
+
+## Validação
+
+- Seção e imagem possuem nomes acessíveis; a lista expõe as bandeiras em marcação semântica.
+- Não houve rolagem horizontal em 390 px nem em 1024 px.
+- Console do navegador sem erros ou avisos na página verificada.
+- `src/App.test.js`: 3 testes aprovados. O jsdom registrou o erro externo já conhecido ao consultar promoções, sem falha de asserção.
+- Build de produção concluído com sucesso.
+- `git diff --check` sem erros.
+
+Não restam achados P0, P1 ou P2 no escopo da seção de pagamentos.
+
+final result: passed
+
+---
+
 # Revisão visual — carrossel de panfletos com HUD
 
 Data: 2026-10-04.
