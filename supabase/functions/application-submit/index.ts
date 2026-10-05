@@ -23,7 +23,7 @@ Deno.serve(async (req) => {
     validateEmail(email);
     const phone = text(form.get("phone"), 24);
     const birthDate = validateBirthDate(text(form.get("birth_date"), 10));
-    const city = text(form.get("city"), 100);
+    const address = text(form.get("address"), 200);
     const area = text(form.get("area"), 100);
     const privacyVersion = text(form.get("privacy_notice_version"), 80, true);
     if (!Deno.env.get("PRIVACY_NOTICE_VERSION") || privacyVersion !== Deno.env.get("PRIVACY_NOTICE_VERSION")) {
@@ -36,7 +36,7 @@ Deno.serve(async (req) => {
     if (bytes.length > MAX_RESUME_BYTES) throw new HttpError(413, "FILE_TOO_LARGE", "O PDF excede o limite de 5 MB.");
     validatePdf(bytes);
     const fileHash = await sha256(bytes);
-    const normalized = JSON.stringify({ name, email, phone, birth_date: birthDate ?? "", city, area, privacy_notice_version: privacyVersion, file_name: safeName, file_sha256: fileHash });
+    const normalized = JSON.stringify({ name, email, phone, birth_date: birthDate ?? "", address, area, privacy_notice_version: privacyVersion, file_name: safeName, file_sha256: fileHash });
     const payloadHash = await sha256(normalized);
     const tokenHash = await sha256(token);
     const intent = await rpc<{ object_path: string } | null>("bpv_get_application_intent_by_id", { p_intent_id: actualIntentId, p_token_hash: tokenHash });
@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
     }
     const receipt = await rpc("bpv_finalize_application", {
       p_intent_id: actualIntentId, p_token_hash: tokenHash, p_payload_hash: payloadHash,
-      p_name: name, p_email: email, p_phone: phone, p_birth_date: birthDate, p_city: city, p_area: area,
+      p_name: name, p_email: email, p_phone: phone, p_birth_date: birthDate, p_address: address, p_area: area,
       p_privacy_version: privacyVersion, p_object_path: uploadedPath, p_file_name: safeName,
       p_file_sha256: fileHash, p_file_size: bytes.length,
       p_protocol: `BPV-${new Date().getUTCFullYear()}-${randomToken(16)}`,

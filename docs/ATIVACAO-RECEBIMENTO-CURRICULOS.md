@@ -1,27 +1,29 @@
 # Ativação do recebimento de currículos
 
-Status em 04/10/2026: **implementado tecnicamente, mas deliberadamente desativado para o público**.
+Status em 05/10/2026: **aviso provisório aprovado pelo responsável, Turnstile de produção configurado e ativação técnica em andamento**.
 
 O site, as Edge Functions e o banco já possuem formulário, validação de PDF, limite de 5 MB, sessão idempotente, recibo, limitação de abuso, bucket privado e quarentena. A ativação foi adiada até a compra do domínio definitivo.
 
 ## Dados provisórios — não publicar como definitivos
 
-- Canal de privacidade de exemplo: `privacidade@example.com`.
-- Controlador: razão social e CNPJ ainda precisam ser informados.
+- Canal provisório de privacidade: `antoniovinicius_@outlook.com`. Confirmar que a caixa é monitorada e substituí-la por um canal institucional quando disponível.
+- Controlador pesquisado em 05/10/2026: Comercial de Produtos Alimenticios Bom Pra Voce LTDA - ME, CNPJ 05.428.120/0001-08, nome fantasia Bom Pra Voce Supermercado.
+- Endereço cadastral: QD QS 118, conjunto 6, lote 2, Samambaia Sul, Brasília–DF, CEP 72302-576.
+- Fontes públicas consultadas: Serasa Experian e CNPJ Biz. Os dados devem ser reconferidos em comprovante oficial da Receita Federal antes da aprovação final do aviso.
 - Finalidade proposta: receber e avaliar candidaturas para oportunidades de trabalho no Bom Pra Você.
 - Retenção proposta: até 6 meses após o recebimento.
 - Atenção: a adequação jurídica do prazo de 6 meses precisa ser verificada antes da ativação. O prazo não deve ser tratado como automaticamente válido apenas por constar neste documento.
 
-O arquivo `src/Data/storeConfig.js` mantém esses dados como rascunho com `approved: false`. Não alterar para `true` enquanto houver marcadores de exemplo ou pendências.
+O arquivo `src/Data/storeConfig.js` usa a versão `2026-10-05`, aprovada provisoriamente pelo responsável em 05/10/2026. A validação jurídica da retenção continua como ação externa registrada, sem impedir a transparência sobre o prazo adotado.
 
 ## O que fazer depois de comprar o domínio
 
-1. Configurar o domínio na hospedagem e confirmar HTTPS.
-2. Criar um widget Cloudflare Turnstile separado para produção, em modo `Managed`, aceitando somente o domínio definitivo.
-3. Colocar a `site key` em `REACT_APP_TURNSTILE_SITE_KEY` na Vercel. Essa chave é pública.
-4. Colocar a `secret key` em `TURNSTILE_SECRET_KEY` nos segredos do Supabase. Essa chave nunca deve ir para o React, Git ou Vercel como variável pública.
-5. Configurar `TURNSTILE_EXPECTED_HOSTNAME` com o domínio definitivo.
-6. Substituir o e-mail de exemplo, preencher a identidade oficial do controlador e revisar todo o aviso de privacidade.
+1. Configurar o domínio definitivo na hospedagem e confirmar HTTPS quando ele for adquirido.
+2. Turnstile provisório de produção criado em 05/10/2026 no modo `Managed`, limitado a `bom-pra-voce-vert.vercel.app`.
+3. `REACT_APP_TURNSTILE_SITE_KEY` configurada na produção da Vercel em 05/10/2026.
+4. `TURNSTILE_SECRET_KEY` configurada somente nos segredos do Supabase em 05/10/2026.
+5. `TURNSTILE_EXPECTED_HOSTNAME` configurado como `bom-pra-voce-vert.vercel.app`; substituir ao migrar para o domínio definitivo.
+6. Confirmar que `antoniovinicius_@outlook.com` é atendido pela empresa, planejar sua substituição por um canal institucional e revisar todo o aviso de privacidade.
 7. Definir e documentar quem acessará os currículos, como será feita a inspeção dos PDFs e quem executará pedidos de exclusão.
 8. Validar juridicamente a finalidade, a base legal e a retenção proposta de 6 meses.
 9. Versionar o aviso em `PRIVACY_NOTICE_VERSION` e no frontend.
@@ -43,6 +45,6 @@ O arquivo `src/Data/storeConfig.js` mantém esses dados como rascunho com `appro
 
 - não usar as chaves públicas de teste do Turnstile em produção;
 - não remover a verificação para “funcionar provisoriamente”;
-- não publicar `privacidade@example.com` como contato real;
+- não manter um canal sem monitoramento nem deixar solicitações dos titulares sem atendimento;
 - não ativar o recebimento enquanto `approved` estiver falso;
 - não guardar currículos indefinidamente.

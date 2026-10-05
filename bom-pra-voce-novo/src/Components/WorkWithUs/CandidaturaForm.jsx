@@ -7,7 +7,7 @@ import ApplicationReceipt from "./ApplicationReceipt";
 import TurnstileWidget from "./TurnstileWidget";
 
 export default function CandidaturaForm({ available = true }) {
-  const [values, setValues] = useState({ name: "", phone: "", email: "", birthDate: "", city: "", area: "" });
+  const [values, setValues] = useState({ name: "", phone: "", email: "", birthDate: "", address: "", area: "" });
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("editing");
@@ -89,8 +89,9 @@ export default function CandidaturaForm({ available = true }) {
           <input id="birthDate" name="birthDate" type="date" autoComplete="bday" value={values.birthDate} aria-invalid={Boolean(errors.birthDate)} aria-describedby={errors.birthDate ? "birthDate-error" : undefined} onChange={event => setValues({ ...values, birthDate: event.target.value })} />
           {errors.birthDate && <p id="birthDate-error" className="field-error">{errors.birthDate}</p>}
         </div>
-        <div className="form-field"><label htmlFor="city">Cidade</label>
-          <input id="city" name="city" type="text" maxLength="100" autoComplete="address-level2" placeholder="Sua cidade" value={values.city} onChange={event => setValues({ ...values, city: event.target.value })} />
+        <div className="form-field"><label htmlFor="address">Endereço</label>
+          <input id="address" name="address" type="text" maxLength="200" autoComplete="street-address" placeholder="Rua, número, complemento e cidade" value={values.address} aria-invalid={Boolean(errors.address)} aria-describedby={errors.address ? "address-error" : undefined} onChange={event => setValues({ ...values, address: event.target.value })} />
+          {errors.address && <p id="address-error" className="field-error">{errors.address}</p>}
         </div>
         <div className="form-field application-field--full"><label htmlFor="area">Área de interesse</label>
           <select id="area" name="area" value={values.area} onChange={event => setValues({ ...values, area: event.target.value })}>

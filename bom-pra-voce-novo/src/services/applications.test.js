@@ -19,6 +19,7 @@ test("validates type, size and required contact without trusting extension alone
   expect(validateApplication({ ...values, email: "bad" }, file).email).toBeTruthy();
   expect(validateApplication(values, { name: "file.pdf", type: "text/html", size: 10 }).file).toBeTruthy();
   expect(validateApplication(values, { name: "file.pdf", type: "application/pdf", size: 5000001 }).file).toBeTruthy();
+  expect(validateApplication({ ...values, address: "a".repeat(201) }, file).address).toBeTruthy();
 });
 test("lost response retries same intent, token, payload and returns one confirmed receipt", async () => {
   callPublicFunction.mockResolvedValueOnce(intent).mockRejectedValueOnce(new Error("lost")).mockResolvedValueOnce(receipt);
@@ -31,7 +32,8 @@ test("lost response retries same intent, token, payload and returns one confirme
   expect(first.headers).toEqual(second.headers);
   expect(first.body.get("intent_id")).toBe(second.body.get("intent_id"));
   expect(first.body.get("file")).toBe(second.body.get("file"));
-  expect(first.body.get("privacy_notice_version")).toBe("");
+  expect(first.body.get("privacy_notice_version")).toBe("2026-10-05");
+  expect(first.body.get("address")).toBe("");
   expect(JSON.parse(callPublicFunction.mock.calls[0][1].body).challenge_token).toBe("");
   expect(await session.submit()).toBe(result);
   expect(callPublicFunction).toHaveBeenCalledTimes(3);

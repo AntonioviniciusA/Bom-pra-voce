@@ -9,7 +9,7 @@ export function validateApplication(values, file) {
   if (!values.name?.trim() || values.name.trim().length > 120) errors.name = "Informe seu nome (até 120 caracteres).";
   if (!values.email?.trim() || values.email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = "Informe um e-mail válido para contato.";
   if ((values.phone || "").length > 24) errors.phone = "Use até 24 caracteres no telefone.";
-  if ((values.city || "").length > 100) errors.city = "Use até 100 caracteres na cidade.";
+  if ((values.address || "").length > 200) errors.address = "Use até 200 caracteres no endereço.";
   if ((values.area || "").length > 100) errors.area = "Use até 100 caracteres.";
   if (values.birthDate) {
     const parsed = new Date(values.birthDate + "T12:00:00Z");
@@ -38,7 +38,7 @@ function parseReceipt(data, intent, payload) {
 // A session belongs to exactly one immutable payload and lives only in memory.
 export function createApplicationSession(values, file, challengeToken = "") {
   const payload = { name: values.name.trim(), email: values.email.trim(), phone: (values.phone || "").trim(),
-    birth_date: values.birthDate || "", city: (values.city || "").trim(), area: (values.area || "").trim() };
+    birth_date: values.birthDate || "", address: (values.address || "").trim(), area: (values.area || "").trim() };
   const key = crypto.randomUUID();
   let intent = null;
   let busy = false;
@@ -70,7 +70,7 @@ export function createApplicationSession(values, file, challengeToken = "") {
         body.append("email", payload.email);
         body.append("phone", payload.phone);
         body.append("birth_date", payload.birth_date);
-        body.append("city", payload.city);
+        body.append("address", payload.address);
         body.append("area", payload.area);
         // Nunca envie a versão de um aviso ainda não aprovado, mesmo que o
         // formulário seja renderizado manualmente fora do fluxo normal.
