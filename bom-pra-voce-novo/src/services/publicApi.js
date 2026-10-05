@@ -8,7 +8,7 @@ export function apiConfig() {
   try { valid = new URL(url).protocol === "https:" && /^sb_publishable_[A-Za-z0-9_-]+$/.test(key); } catch {}
   return { url, key, ready: valid };
 }
-export async function callPublicFunction(name, { signal, body, headers = {} } = {}) {
+export async function callPublicFunction(name, { signal, body, headers = {}, query } = {}) {
   const config = apiConfig();
   if (!config.ready) throw new PublicApiError("UNAVAILABLE", "Serviço temporariamente indisponível.");
   const controller = new AbortController();
@@ -17,7 +17,8 @@ export async function callPublicFunction(name, { signal, body, headers = {} } = 
   signal?.addEventListener("abort", abort);
   const timeout = setTimeout(abort, 25000);
   try {
-    const response = await fetch(config.url + "/functions/v1/" + name, {
+    const suffix = query ? `?${new URLSearchParams(query)}` : "";
+    const response = await fetch(config.url + "/functions/v1/" + name + suffix, {
       method: body ? "POST" : "GET", body, signal: controller.signal,
       credentials: "omit", cache: "no-store", redirect: "error",
       headers: { apikey: config.key, ...headers },

@@ -6,6 +6,7 @@ export default function usePromotions() {
   const generation = useRef(0);
   const controller = useRef(null);
   const timer = useRef(null);
+  const poller = useRef(null);
   const invalidate = useCallback(() => { generation.current += 1; }, []);
   const reload = useCallback(async () => {
     const current = ++generation.current;
@@ -16,7 +17,7 @@ export default function usePromotions() {
       return;
     }
     controller.current = new AbortController();
-    setState({ status: "loading", campaigns: [] });
+    setState(previous => previous.status === "ready" ? previous : { status: "loading", campaigns: [] });
     const start = performance.now();
     try {
       const result = await getPromotions(controller.current.signal);
@@ -25,7 +26,7 @@ export default function usePromotions() {
       const now = result.serverTime + performance.now() - start;
       const campaigns = result.campaigns.filter(item => item.ends > now);
       setState({ status: "ready", campaigns });
-      const nextExpiry = Math.min(...campaigns.map(item => item.ends));
+      const nextExpiry = Math.min(result.nextChangeAt ?? Infinity, ...campaigns.map(item => item.ends));
       if (Number.isFinite(nextExpiry))
         timer.current = setTimeout(reload, Math.min(2147483647, Math.max(1, nextExpiry - now)));
     } catch {
@@ -34,6 +35,7 @@ export default function usePromotions() {
   }, []);
   useEffect(() => {
     reload();
+    poller.current = setInterval(reload, 60000);
     const focus = () => { if (!document.hidden) reload(); };
     const visibility = () => {
       if (!document.hidden) reload();
@@ -50,6 +52,7 @@ export default function usePromotions() {
       invalidate();
       controller.current?.abort();
       clearTimeout(timer.current);
+      clearInterval(poller.current);
       window.removeEventListener("focus", focus);
       document.removeEventListener("visibilitychange", visibility);
     };

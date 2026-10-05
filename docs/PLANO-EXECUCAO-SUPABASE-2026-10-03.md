@@ -54,6 +54,12 @@ Login administrativo por convite, MFA e permissão ativa verificada em cada oper
 
 Contrato preservado: `{ server_time, campaigns: [{ id, title, summary, conditions, starts_at, ends_at, file_url, mime_type, size_bytes, thumbnail_url? }] }`. URLs HTTPS do próprio projeto em `promotion-public`, sem query/hash. Resposta sem cache compartilhado no MVP; mídia imutável pode ter cache. Conferir agendamento, expiração com página aberta e falhas de rede.
 
+### Cache público de ofertas — implementado em 05/10/2026
+
+O navegador conserva a última resposta válida em `localStorage`, identificada por uma versão calculada no servidor a partir das campanhas publicadas e ativas. A página consulta somente o metadado leve de versão ao abrir, voltar ao foco e a cada 60 segundos. A lista completa e seus URLs só são baixados quando não há cache ou quando a versão muda.
+
+Publicar, substituir ou retirar uma oferta incrementa a revisão da campanha e altera a versão pública. O cliente elimina o cache anterior antes de armazenar a resposta nova. Inícios e términos programados entram em `next_change_at`, para que o cache também seja revalidado na mudança de vigência sem depender de uma edição manual. Respostas de metadados usam `Cache-Control: no-store`; o cache persistente é controlado pelo cliente e nunca inclui currículos, credenciais ou dados administrativos.
+
 ## 5. Currículos e recuperação de falhas
 
 1. Formulário obtém desafio antiabuso e chama `application-init` com UUID aleatório de idempotência. Validar desafio no servidor, limitar tentativas/bytes e ter chave geral de suspensão no backend. O flag React não protege a API.
