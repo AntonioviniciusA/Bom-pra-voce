@@ -12,13 +12,15 @@ export const storeConfig = {
   paymentConditions: null,
   sectors: ["Hortifrúti", "Padaria", "Bebidas", "Adega", "Congelados"],
   privacy: {
+    // Rascunho operacional: não publicar nem mudar approved para true antes
+    // de substituir os marcadores abaixo e validar juridicamente o prazo.
     approved: false,
-    version: "",
-    controller: "",
-    contact: "",
-    purpose: "",
-    retention: "",
-    rights: "",
+    version: "rascunho-2026-10-04",
+    controller: "PENDENTE: razão social e CNPJ do controlador",
+    contact: "privacidade@example.com (EXEMPLO — substituir pelo canal verdadeiro)",
+    purpose: "Receber e avaliar candidaturas para oportunidades de trabalho no Bom Pra Você.",
+    retention: "Proposta: conservar os dados e o currículo por até 6 meses após o recebimento. PRAZO PENDENTE DE VALIDAÇÃO JURÍDICA.",
+    rights: "O candidato poderá solicitar informações, acesso, correção ou eliminação pelos canais oficiais do controlador, observadas as hipóteses legais aplicáveis.",
   },
 };
 export const paymentsDescription = () => storeConfig.payments.length

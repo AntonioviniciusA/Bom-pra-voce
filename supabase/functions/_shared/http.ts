@@ -4,8 +4,11 @@ export class HttpError extends Error {
   }
 }
 
+const DEFAULT_ALLOWED_ORIGINS = ["https://bom-pra-voce-vert.vercel.app"];
+
 function allowedOrigins() {
-  return new Set((Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((v) => v.trim()).filter(Boolean));
+  const configured = (Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((v) => v.trim()).filter(Boolean);
+  return new Set([...DEFAULT_ALLOWED_ORIGINS, ...configured]);
 }
 
 export function cors(req: Request) {
@@ -30,7 +33,14 @@ export function json(req: Request, value: unknown, status = 200, extra: HeadersI
 
 export function failure(req: Request, error: unknown) {
   const known = error instanceof HttpError;
-  return json(req, { error: known ? error.code : "INTERNAL_ERROR", message: known ? error.message : "Serviço temporariamente indisponível." }, known ? error.status : 500);
+  const body = { error: known ? error.code : "INTERNAL_ERROR", message: known ? error.message : "Serviço temporariamente indisponível." };
+  if (known && error.code === "ORIGIN_NOT_ALLOWED") {
+    return new Response(JSON.stringify(body), {
+      status: error.status,
+      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
+    });
+  }
+  return json(req, body, known ? error.status : 500);
 }
 
 export function preflight(req: Request) {
@@ -47,4 +57,3 @@ export function requireUuid(value: string | null, label = "identificador") {
   }
   return value.toLowerCase();
 }
-

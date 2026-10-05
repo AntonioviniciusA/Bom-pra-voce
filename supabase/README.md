@@ -15,10 +15,11 @@ Implementação local dos fluxos de panfletos e candidaturas. Nada nesta pasta a
 
 1. Instalar a CLI oficial do Supabase e iniciar um ambiente local limpo.
 2. Copiar as variáveis de `.env.example` para um arquivo local não versionado. Gere `APPLICATION_TOKEN_SECRET_V1` com 32 bytes aleatórios ou mais.
-3. Criar widgets Turnstile distintos para homologação e produção, limitados aos respectivos domínios.
-4. Manter `APPLICATIONS_ENABLED=false` até o aviso de privacidade ser aprovado e o scanner privado estar operacional.
-5. Aplicar a migração apenas em ambiente local/homologação, executar `supabase/tests/database/001_foundation.sql` e os testes Deno.
-6. Conceder permissões a usuários convidados inserindo `staff_permissions` por um procedimento administrativo controlado. Não existe autocadastro nem autopromoção.
+3. Configurar `ALLOWED_ORIGINS` com as origens exatas dos ambientes. A origem pública `https://bom-pra-voce-vert.vercel.app` já é permitida por padrão; inclua aqui domínios adicionais de homologação e produção.
+4. Criar widgets Turnstile distintos para homologação e produção, limitados aos respectivos domínios.
+5. Manter `APPLICATIONS_ENABLED=false` até o aviso de privacidade ser aprovado e o scanner privado estar operacional.
+6. Aplicar a migração apenas em ambiente local/homologação, executar `supabase/tests/database/001_foundation.sql` e os testes Deno.
+7. Conceder permissões a usuários convidados inserindo `staff_permissions` por um procedimento administrativo controlado. Não existe autocadastro nem autopromoção.
 
 ## Segredos e rotação
 
@@ -32,3 +33,17 @@ O token de intent é derivado por HMAC. Ao rotacionar, crie `APPLICATION_TOKEN_S
 - identidade/canal do controlador, texto e versão do aviso de privacidade;
 - teste remoto com contas sem permissão, editor, RH, gestor e conta revogada.
 
+## Decisão temporária — 04/10/2026
+
+O recebimento de currículos permanece desativado até a compra/configuração do domínio definitivo. Não usar chaves de teste do Turnstile no site público e não remover a validação do servidor como atalho.
+
+Antes de ativar:
+
+1. comprar e apontar o domínio definitivo;
+2. criar um widget Cloudflare Turnstile em modo `Managed`, limitado ao domínio definitivo;
+3. configurar a `site key` no frontend e a `secret key` somente nos segredos das Edge Functions;
+4. substituir `privacidade@example.com` por um canal verdadeiro;
+5. preencher a razão social e o CNPJ do controlador;
+6. validar juridicamente se a retenção de currículos por 6 meses é adequada à finalidade e à operação da empresa;
+7. aprovar/versionar o aviso de privacidade e somente então definir `APPLICATIONS_ENABLED=true` no frontend e no Supabase;
+8. testar com PDF fictício, confirmar protocolo, quarentena privada, inspeção, acesso do RH e eliminação.

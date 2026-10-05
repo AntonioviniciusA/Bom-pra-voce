@@ -1026,6 +1026,11 @@ body .site-header.is-scrolled {
   display: flex;
   align-items: center;
   gap: 20px;
+  width: max-content;
+  max-width: 100%;
+  padding-right: 14px;
+  border-radius: 999px;
+  background: rgba(255, 253, 247, .9);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -1042,9 +1047,9 @@ body .site-header.is-scrolled {
 .careers-page__people {
   position: absolute;
   z-index: 1;
-  right: -70px;
-  bottom: -36px;
-  width: min(700px, 112%);
+  right: -16px;
+  bottom: -24px;
+  width: min(500px, 82%);
   max-width: none;
 }
 .application-card {
@@ -1206,7 +1211,7 @@ body .site-header.is-scrolled {
     display: none;
   }
   .careers-page__people {
-    right: -150px;
+    right: -90px;
   }
 }
 
@@ -1300,6 +1305,9 @@ body .site-header.is-scrolled {
     margin: 30px auto 0;
     text-align: left;
   }
+  .careers-page__benefits li {
+    background: transparent;
+  }
   .careers-page__people {
     position: relative;
     right: auto;
@@ -1359,8 +1367,9 @@ body .site-header.is-scrolled {
     font-size: 1.45rem;
   }
   .careers-page__people {
-    bottom: -34px;
-    width: min(630px, 104%);
+    right: -8px;
+    bottom: -20px;
+    width: min(400px, 76%);
   }
   .application-card {
     padding: clamp(28px, 3vw, 38px);

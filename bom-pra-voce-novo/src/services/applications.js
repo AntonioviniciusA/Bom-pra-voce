@@ -72,7 +72,9 @@ export function createApplicationSession(values, file, challengeToken = "") {
         body.append("birth_date", payload.birth_date);
         body.append("city", payload.city);
         body.append("area", payload.area);
-        body.append("privacy_notice_version", storeConfig.privacy.version);
+        // Nunca envie a versão de um aviso ainda não aprovado, mesmo que o
+        // formulário seja renderizado manualmente fora do fluxo normal.
+        body.append("privacy_notice_version", privacyReady() ? storeConfig.privacy.version : "");
         body.append("file", file);
         const data = await callPublicFunction("application-submit", {
           body, headers: { "X-Application-Token": intent.token, "Idempotency-Key": key },
