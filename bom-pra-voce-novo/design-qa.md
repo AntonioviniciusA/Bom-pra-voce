@@ -38,6 +38,34 @@ final result: passed
 
 ---
 
+# Revisão visual — ofertas, modal de setores e candidatura móvel
+
+Data: 2026-10-05.
+
+- Referências: quatro capturas móveis fornecidas pelo usuário, cobrindo a distância da HUD de ofertas, o modal de setores, a chamada Trabalhe conosco e o formulário de candidatura.
+- Implementação: `http://localhost:3000/` e `http://localhost:3000/trabalhe-conosco`, renderizadas no navegador integrado.
+- Viewport inspecionado no navegador: 1280 × 720 CSS px; regras móveis confrontadas com a referência de aproximadamente 390 CSS px.
+
+## Correções
+
+- A HUD de categorias passou de 38 px para 20 px de distância no desktop e de 28 px para 10 px no celular; o preenchimento móvel também foi reduzido para aproximar o controle do cartão sem prejudicar os alvos de toque.
+- O modal passou a calcular largura com `border-box`, bloqueando o overflow horizontal observado na primeira captura local.
+- Em até 600 px, o modal usa altura dinâmica (`dvh`), respeita áreas seguras, reduz imagem, tipografia, miniaturas e espaços, mantém botões de 44 px e preserva rolagem vertical contida.
+- A página de candidatura recebeu limites explícitos de largura nos filhos da grade e no formulário. Campos agora usam `border-box`; no celular, o cartão ocupa 100% da coluna e a página recorta apenas overflow lateral acidental.
+
+## Validação
+
+- Modal aberto e inspecionado: conteúdo completo visível em 1280 × 720, sem a barra horizontal encontrada antes da correção.
+- Página Trabalhe conosco inspecionada em 1280 × 720: documento sem overflow horizontal (`scrollWidth` útil igual à largura do conteúdo visível) e cartão dentro da grade.
+- Controles do modal preservam rótulos acessíveis; fechamento e navegação anterior/próximo continuam disponíveis.
+- Testes direcionados: 2 suítes e 4 testes aprovados (`App.test.js` e `CandidaturaForm.test.jsx`). O `AggregateError` conhecido da consulta externa apareceu no jsdom sem falhar testes.
+- Build de produção compilado com sucesso.
+- `git diff --check` sem erro de whitespace; permaneceram apenas avisos de conversão LF/CRLF em arquivos já modificados.
+
+final result: passed
+
+---
+
 # Revisão visual — formas de pagamento
 
 Data: 2026-10-05.
