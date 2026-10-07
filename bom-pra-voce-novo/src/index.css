@@ -2923,9 +2923,12 @@ body .site-header .nav-search {
 
 body .site-header,
 body .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.4) !important;
   -webkit-backdrop-filter: blur(12px) saturate(135%);
   backdrop-filter: blur(12px) saturate(135%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
 body .site-header .site-nav a,
@@ -2934,12 +2937,9 @@ body .site-header .nav-search {
 }
 
 body .site-header .site-nav a {
-  -webkit-text-stroke: 0.35px #e0b900;
-  text-shadow:
-    0.35px 0 #e0b900,
-    -0.35px 0 #e0b900,
-    0 0.35px #e0b900,
-    0 -0.35px #e0b900;
+  -webkit-text-stroke: 0.55px #e0b900;
+  paint-order: stroke fill;
+  text-shadow: none;
 }
 
 body .site-header .site-nav a[aria-current="location"] {
