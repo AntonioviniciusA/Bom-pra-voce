@@ -14,6 +14,11 @@ function allowedOrigins() {
 export function cors(req: Request) {
   const origin = req.headers.get("origin") ?? "";
   const allowed = allowedOrigins();
+  const administrative = /\/(promotion-admin|rh-applications)\/?$/.test(new URL(req.url).pathname);
+  if (administrative) {
+    // The local panel still needs a valid user JWT, AAL2 and operation permission.
+    for (const value of ["null", "http://127.0.0.1:5174", "http://localhost:5174"]) allowed.add(value);
+  }
   if (origin && !allowed.has(origin)) throw new HttpError(403, "ORIGIN_NOT_ALLOWED", "Origem não autorizada.");
   return {
     "Access-Control-Allow-Origin": origin || "null",

@@ -9,6 +9,9 @@ Deno.serve(async (req) => {
     if (req.method === "OPTIONS") return preflight(req);
     requireMethod(req, "POST");
     const user = await authenticatedUser(req);
+    if (!await rpc<boolean>("bpv_has_permission", { p_user_id: user.id, p_permission: "promotions.manage" })) {
+      throw new HttpError(403, "FORBIDDEN", "Sua conta não tem permissão para administrar promoções.");
+    }
     const type = req.headers.get("content-type") ?? "";
     if (type.includes("multipart/form-data")) {
       const form = await req.formData();
@@ -34,15 +37,21 @@ Deno.serve(async (req) => {
           if (await sha256(existing) !== expectedHash) throw error;
         }
       }
-      const result = await rpc("bpv_publish_campaign", {
+      const campaign = form.get("campaign");
+      const result = await rpc("bpv_publish_campaign_details", {
         p_actor: user.id, p_campaign_id: campaignId, p_expected_revision: expectedRevision,
         p_publication_key: publicationKey, p_draft_path: draftPath, p_public_path: publicPath,
         p_sha256: expectedHash, p_mime_type: file.type, p_size_bytes: bytes.length,
+        p_payload: typeof campaign === "string" ? JSON.parse(campaign) : null,
       });
       return json(req, result);
     }
     const body = await req.json();
     if (body?.action === "create") return json(req, await rpc("bpv_create_campaign", { p_actor: user.id, p_payload: body.campaign }), 201);
+    if (body?.action === "update") return json(req, await rpc("bpv_update_campaign", {
+      p_actor: user.id, p_campaign_id: requireUuid(body.campaign_id, "Campanha"),
+      p_expected_revision: body.expected_revision, p_payload: body.campaign,
+    }));
     if (body?.action === "withdraw") {
       return json(req, await rpc("bpv_withdraw_campaign", {
         p_actor: user.id, p_campaign_id: requireUuid(body.campaign_id, "Campanha"), p_expected_revision: body.expected_revision,
@@ -57,4 +66,3 @@ Deno.serve(async (req) => {
     return failure(req, error);
   }
 });
-

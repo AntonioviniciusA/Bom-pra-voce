@@ -14,7 +14,9 @@ Deno.serve(async (req) => {
     if (body?.action === "list") {
       const before = body.before == null ? null : new Date(body.before);
       if (before && Number.isNaN(before.valueOf())) throw new HttpError(400, "INVALID_CURSOR", "Cursor inválido.");
-      return json(req, { applications: await rpc("bpv_list_applications", { p_actor: user.id, p_before: before?.toISOString() ?? null, p_limit: body.limit ?? 50 }) });
+      const beforeId = body.before_id == null ? null : requireUuid(body.before_id, "Cursor");
+      if (beforeId && !before) throw new HttpError(400, "INVALID_CURSOR", "Cursor inválido.");
+      return json(req, { applications: await rpc("bpv_list_applications_page", { p_actor: user.id, p_before: before?.toISOString() ?? null, p_before_id: beforeId, p_limit: body.limit ?? 50 }) });
     }
     if (body?.action === "download") {
       const access = await rpc<{ path: string; file_name: string; mime_type: string }>("bpv_authorize_application_download", {
@@ -31,4 +33,3 @@ Deno.serve(async (req) => {
     return failure(req, error);
   }
 });
-
