@@ -951,7 +951,7 @@ body .site-header.is-scrolled {
   font-size: clamp(1.15rem, 1.55vw, 1.65rem);
   font-weight: 800;
 }
-.sectors-showcase .photo-sectors li > span {
+.sectors-showcase .photo-sectors .sector-card__accent {
   position: absolute;
   z-index: 3;
   bottom: 17px;
@@ -961,22 +961,40 @@ body .site-header.is-scrolled {
   border-radius: 999px;
   background: #ffe11f;
 }
+.sectors-showcase .photo-sectors .sector-card__status {
+  position: absolute;
+  z-index: 4;
+  top: 14px;
+  right: 14px;
+  padding: 6px 12px;
+  border: 1px solid rgba(17, 17, 17, .24);
+  border-radius: 999px;
+  background: #ffe11f;
+  color: #24134b;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+}
 
 body.sector-modal-open { overflow: hidden; }
 .photo-sectors li[role="button"] { cursor: pointer; }
 .photo-sectors li[role="button"]:focus-visible { outline: 4px solid #f9cf32; outline-offset: 4px; }
 .sector-modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 30px; background: rgba(24, 20, 18, .72); backdrop-filter: blur(6px); }
-.sector-modal { position: relative; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr); box-sizing: border-box; width: min(100%, 1390px); max-height: min(780px, calc(100vh - 60px)); overflow-x: hidden; overflow-y: auto; padding: 34px 36px; gap: 40px; border-radius: 22px; background: #fff; box-shadow: 0 22px 80px rgba(0,0,0,.3); }
+.sector-modal { position: relative; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr); box-sizing: border-box; width: min(100%, 1390px); max-height: calc(100vh - 48px); overflow-x: hidden; overflow-y: auto; padding: 34px 36px; gap: 40px; border-radius: 22px; background: #fff; box-shadow: 0 22px 80px rgba(0,0,0,.3); }
 .sector-modal__close { position: absolute; top: 16px; right: 18px; z-index: 2; border: 0; color: #5b6572; background: transparent; cursor: pointer; }
 .sector-modal__close:hover { color: #281039; }
 .sector-modal__gallery { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
-.sector-modal__main-image { width: 100%; height: 100%; min-height: 490px; max-height: 690px; object-fit: cover; border-radius: 22px; }
+.sector-modal__main-image { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; border-radius: 22px; }
 .sector-modal__dots { display: flex; justify-content: center; gap: 12px; }
 .sector-modal__dots button { width: 14px; height: 14px; padding: 0; border: 0; border-radius: 50%; background: #d6dde5; cursor: pointer; }
 .sector-modal__dots button.is-active { background: #f9cc31; }
 .sector-modal__content { display: flex; flex-direction: column; justify-content: center; padding: 12px 0; }
 .sector-modal__eyebrow { display: flex; align-items: center; gap: 16px; margin: 0 0 12px; color: #697586; font-size: 1.1rem; text-transform: uppercase; letter-spacing: .02em; }
 .sector-modal__eyebrow::before { content: ""; width: 44px; height: 4px; background: #f7ca2f; }
+.sector-modal__eyebrow.is-upcoming { color: #5a3f00; font-weight: 900; }
 .sector-modal__content h3 { margin: 0 0 10px; color: #28104d; font-size: clamp(3rem, 5vw, 4.8rem); line-height: .98; }
 .sector-modal__description { max-width: 560px; margin: 0 0 26px; color: #586678; font-size: 1.25rem; line-height: 1.35; }
 .sector-modal__tags { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -995,7 +1013,7 @@ body.sector-modal-open { overflow: hidden; }
     padding: 24px;
   }
   .sector-modal__main-image {
-    height: clamp(210px, 42vh, 340px);
+    height: auto;
     min-height: 0;
   }
   .sector-modal__content { padding: 0; }
@@ -1028,7 +1046,10 @@ body.sector-modal-open { overflow: hidden; }
   }
   .sector-modal__gallery { gap: 10px; }
   .sector-modal__main-image {
-    height: clamp(180px, 32dvh, 250px);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #f3f0e8;
     border-radius: 14px;
   }
   .sector-modal__dots { gap: 9px; }
@@ -1217,6 +1238,8 @@ body.sector-modal-open { overflow: hidden; }
   gap: 18px 20px;
 }
 .application-card .form-field {
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
 }
 .application-field--full {
@@ -1242,6 +1265,19 @@ body.sector-modal-open { overflow: hidden; }
 }
 .application-card select {
   font: inherit;
+}
+.application-card input[type="date"] {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 16px;
+}
+.application-card input[type="date"]::-webkit-date-and-time-value {
+  min-width: 0;
+  margin: 0;
+  text-align: left;
 }
 .application-card input:focus,
 .application-card select:focus {
@@ -2877,5 +2913,58 @@ body .site-header .nav-search {
   }
   .site-header.is-scrolled {
     transform: translateY(-5px) scale(0.99);
+  }
+}
+
+/* Brand typography and translucent navigation requested from the logo reference. */
+:root {
+  --brand-display-font: "SiteInter", "Arial Black", Arial, sans-serif;
+}
+
+body .site-header,
+body .site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.3) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(135%);
+  backdrop-filter: blur(12px) saturate(135%);
+}
+
+body .site-header .site-nav a,
+body .site-header .nav-search {
+  color: #111;
+}
+
+body .site-header .site-nav a {
+  -webkit-text-stroke: 0.35px #e0b900;
+  text-shadow:
+    0.35px 0 #e0b900,
+    -0.35px 0 #e0b900,
+    0 0.35px #e0b900,
+    0 -0.35px #e0b900;
+}
+
+body .site-header .site-nav a[aria-current="location"] {
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+main h1,
+.offers-intro h2,
+.original-about h2,
+.about-showcase h2,
+.sectors-showcase .section-title,
+.careers-spotlight__content h2,
+.visit-heading h2,
+.payments-copy h2,
+.faq-heading h2,
+.careers-page h1 {
+  font-family: var(--brand-display-font);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+@media (max-width: 1180px) {
+  body .site-header .site-nav {
+    background: rgba(255, 255, 255, 0.94);
+    color: #111;
   }
 }

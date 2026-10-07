@@ -1,3 +1,52 @@
+# Revisão visual — Padaria em breve
+
+Data: 2026-10-06.
+
+- Implementação: `http://localhost:3001/#setores`, conferida no navegador integrado em viewport móvel.
+- O cartão da Padaria recebeu selo amarelo “Em breve” e nome acessível `Padaria — Em breve`.
+- O modal repete o estado “Em breve” e explica que o setor está em preparação, sem afirmar disponibilidade atual.
+- A estrutura, a navegação entre setores, o fechamento e o enquadramento responsivo da imagem foram preservados.
+- `src/App.test.js`: 3 testes aprovados. O `AggregateError` conhecido da consulta externa apareceu no jsdom sem falhar as asserções.
+- Build de produção compilado com sucesso e `git diff --check` sem erros.
+
+Não restam achados P0, P1 ou P2 no escopo solicitado.
+
+final result: passed
+
+---
+
+# Revisão visual — modal e data de nascimento no iPhone 13
+
+Data: 2026-10-06.
+
+- Referência: defeitos relatados pelo usuário no modal de setores e no campo nativo de data no iPhone 13.
+- Implementação: `http://localhost:3001/#setores` e uma prévia local isolada do formulário em `http://localhost:3002/trabalhe-conosco`.
+- Viewports CSS: 390 × 844 e 1366 × 768, densidade 1×.
+- Capturas: observadas diretamente no navegador integrado; a ferramenta não expôs caminho local para persistência.
+
+## Comparação e correções
+
+- Modal: a imagem horizontal era forçada para uma caixa alta com `object-fit: cover`, causando corte. A imagem agora preserva proporção 16:9; no celular usa `contain`, mostrando todo o enquadramento.
+- Em 390 × 844, a imagem ficou com 346 × 194,6 px e dimensões naturais 680 × 383 px, totalmente visível dentro do modal. O documento não apresentou overflow horizontal.
+- Em 1366 × 768, o modal ficou com 1306 × 666,9 px e a imagem com 668,6 × 376,1 px, sem distorção ou overflow.
+- Formulário: o campo de data e seu contêiner passaram a aceitar `min-width: 0` e `max-width: 100%`; o controle nativo recebeu aparência e tamanho de fonte estáveis para Safari/iOS.
+- Em 390 × 844, o campo e seu contêiner mediram exatamente 305 px. O limite direito ficou em 340 px dentro do cartão, sem deslocamento lateral e com `scrollX = 0`.
+
+## Validação
+
+- Modal aberto, imagem conferida, navegação e fechamento preservados.
+- Campo de data focado e inspecionado na posição real do formulário móvel.
+- A prévia isolada do formulário usou configuração fictícia apenas para renderização; por isso o Turnstile registrou o aviso esperado `400020`. Nenhum dado foi enviado.
+- Testes direcionados: 2 suítes e 4 testes aprovados. O `AggregateError` conhecido da consulta externa apareceu no jsdom sem falhar as asserções.
+- Build de produção compilado com sucesso.
+- `git diff --check` sem erros de whitespace; apenas avisos de conversão LF/CRLF em arquivos já modificados.
+
+Não restam achados P0, P1 ou P2 no escopo solicitado.
+
+final result: passed
+
+---
+
 # Revisão visual — busca do cabeçalho
 
 Data: 2026-10-03.
@@ -33,6 +82,44 @@ Data: 2026-10-03.
 - `git diff --check` sem erros.
 
 Não há achados P0, P1 ou P2 restantes no escopo da busca do cabeçalho. O menu móvel permanece deliberadamente expansível, conforme a arquitetura atual do site.
+
+final result: passed
+
+---
+
+# Revisão visual — navegação translúcida e tipografia da marca
+
+Data: 2026-10-06.
+
+- Verdade visual de origem: `C:/Users/anton/AppData/Local/Temp/codex-clipboard-b0333796-d3d5-46b6-ba84-f32b20ff0be0.png` (1223 × 297 px, densidade 1×), usada como referência tipográfica da logo.
+- Implementação: `http://localhost:3001/`, renderizada no navegador integrado. As capturas desktop e móvel foram observadas diretamente; o navegador não expôs caminho de arquivo local para persistência.
+- Viewports CSS: 1366 × 768 e 390 × 844, densidade 1×.
+- Estados: cabeçalho rolado no desktop, topo no celular e menu móvel expandido.
+
+## Comparação e iterações
+
+1. A primeira inspeção detectou que uma regra anterior de cabeçalho preto ainda vencia na cascata e deixava a nova letra preta sem contraste.
+2. A camada de marca passou a fixar somente o fundo do cabeçalho em branco com 30% de opacidade, preservando borda amarela, desfoque e demais estados existentes.
+3. A captura pós-correção confirmou `rgba(255, 255, 255, 0.3)` no topo e no estado rolado, texto preto e contorno amarelo sutil nos links. O item ativo mantém o preenchimento amarelo sem contorno duplicado.
+4. No menu móvel aberto, a lista usa branco com 94% de opacidade para manter leitura e contraste, enquanto o invólucro do cabeçalho continua em 30%.
+
+## Superfícies obrigatórias
+
+- Tipografia: a busca pública não forneceu identificação confiável da fonte proprietária da logo. Foi usada a família local `SiteInter` em peso 900, com espaçamento mais fechado e fallback `Arial Black`, aplicada somente aos títulos principais.
+- Espaçamento e ritmo: dimensões, posição fixa, raio, logo e alvos de toque da navegação foram preservados.
+- Cores: fundo branco a 30%, letras `#111`, borda amarela existente e contorno tipográfico amarelo discreto.
+- Imagens: a logo rasterizada original foi preservada, sem reconstrução ou alteração.
+- Conteúdo: rótulos, destinos e hierarquia semântica foram mantidos.
+
+## Validação
+
+- Desktop e celular sem transbordamento horizontal.
+- Menu móvel abriu e exibiu todos os destinos; cabeçalho superior e estado rolado foram conferidos.
+- Console do navegador sem erros ou avisos.
+- `src/App.test.js`: 3 testes aprovados. O `AggregateError` conhecido da consulta externa apareceu no jsdom sem falha de asserção.
+- Build de produção concluído com sucesso e `git diff --check` sem erros.
+
+Não restam achados P0, P1 ou P2 no escopo solicitado.
 
 final result: passed
 
