@@ -2,6 +2,8 @@
 
 Implementação local dos fluxos de panfletos e candidaturas. Nada nesta pasta aplica mudanças ao projeto remoto automaticamente.
 
+Estado atualizado: a migração de personalização e as funções administrativas foram publicadas em 06–07/10/2026. Consulte [Publicação do painel — 07/10/2026](../docs/PUBLICACAO-PAINEL-2026-10-07.md) para evidências, versões e pendências. As decisões históricas abaixo não devem ser confundidas com o valor atual dos ambientes: o backend respondeu como habilitado em 07/10, enquanto o checkout local mantém o envio desativado.
+
 ## Componentes
 
 - `migrations/`: schema privado `bpv`, buckets, restrições, índices e RPCs acessíveis somente pela chave secreta do servidor.

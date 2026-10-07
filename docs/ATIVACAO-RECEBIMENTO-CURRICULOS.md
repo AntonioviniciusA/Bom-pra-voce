@@ -1,5 +1,7 @@
 # Ativação do recebimento de currículos
 
+Atualização em 07/10/2026: painel e funções administrativas publicados; conta administrativa com acesso RH e um TOTP verificado. O backend respondeu `CHALLENGE_REQUIRED` para uma tentativa sem Turnstile e o navegador confirmou o formulário ativo no site público. As flags locais continuam falsas e não representam a produção. A inspeção de PDFs e o teste completo ainda precisam de evidência. Veja [o registro atual de publicação](PUBLICACAO-PAINEL-2026-10-07.md) antes de seguir os estados históricos abaixo.
+
 Status em 05/10/2026: **aviso provisório aprovado pelo responsável, Turnstile de produção configurado e ativação técnica em andamento**.
 
 O site, as Edge Functions e o banco já possuem formulário, validação de PDF, limite de 5 MB, sessão idempotente, recibo, limitação de abuso, bucket privado e quarentena. A ativação foi adiada até a compra do domínio definitivo.
