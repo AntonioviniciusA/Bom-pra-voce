@@ -21,3 +21,17 @@ test("renders flyer images and navigates the carousel", () => {
   fireEvent.keyDown(screen.getByRole("region", { name: "Panfletos vigentes" }), { key: "ArrowLeft" });
   expect(screen.getByRole("img", { name: "Panfleto Primeiro" })).toBeInTheDocument();
 });
+
+test("uses the configured campaign title, HUD name, icon and theme", () => {
+  usePromotions.mockReturnValue({ status: "ready", campaigns: [{ ...campaign("one", "Semana de economia"), hud_label: "Seleção especial", icon_key: "star", theme_key: "green" }, campaign("two", "Segundo")], reload: jest.fn() });
+  render(<Tabloide />);
+  expect(screen.getByRole("heading", { name: "Semana de economia" })).toBeInTheDocument();
+  expect(screen.getByRole("region", { name: "Panfletos vigentes" })).toHaveAttribute("data-theme", "green");
+  expect(screen.getByRole("tab", { name: "Seleção especial" }).querySelector(".lucide-star")).toBeTruthy();
+});
+
+test("shows the configured HUD even when only one campaign is active", () => {
+  usePromotions.mockReturnValue({ status: "ready", campaigns: [{ ...campaign("one", "Oferta"), hud_label: "Seleção única" }], reload: jest.fn() });
+  render(<Tabloide />);
+  expect(screen.getByRole("tab", { name: "Seleção única" })).toHaveAttribute("aria-selected", "true");
+});

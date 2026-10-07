@@ -1,0 +1,36 @@
+import { useEffect, useState } from "react";
+import { BriefcaseBusiness, FileText, LogOut, ShieldCheck } from "lucide-react";
+import { clearAdminToken, enrollMfa, getAuthState, signIn, updatePassword, verifyMfa } from "./services/adminApi";
+import "./AdminPanel.css";
+import "./controls.css";
+import Offers from "./Offers";
+import Resumes from "./Resumes";
+
+function ErrorBox({ message }) { return message ? <div className="admin-alert" role="alert">{message}</div> : null; }
+
+function Login({ onAuthenticated }) {
+  const [values, setValues] = useState({ email: "", password: "" }); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
+  async function submit(event) { event.preventDefault(); setBusy(true); setError(""); try { onAuthenticated(await signIn(values.email, values.password)); } catch (e) { setError(e.message); } finally { setBusy(false); } }
+  return <main className="admin-login"><div className="admin-login-card"><span className="admin-kicker">Bom Pra Você · gestão</span><h1>Painel local</h1><p>Entre para administrar as ofertas e consultar os currículos recebidos.</p><ErrorBox message={error} /><form onSubmit={submit}><label>E-mail<input type="email" required value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} /></label><label>Senha<input type="password" required value={values.password} onChange={e => setValues({ ...values, password: e.target.value })} /></label><button className="admin-primary" disabled={busy}>{busy ? "Entrando…" : "Entrar no painel"}</button></form><small>Acesso restrito a contas com permissão administrativa.</small></div></main>;
+}
+
+function MfaGate({ authState, onReady, onLogout }) {
+  const [setup, setSetup] = useState(null); const [code, setCode] = useState(""); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
+  const factorId = setup?.factorId || authState.factors?.[0]?.id;
+  async function startEnrollment() { setBusy(true); setError(""); try { setSetup(await enrollMfa()); } catch (e) { setError(e.message); } finally { setBusy(false); } }
+  async function confirm(event) { event.preventDefault(); if (!factorId) return; setBusy(true); setError(""); try { onReady(await verifyMfa(factorId, code.replace(/\s/g, ""))); } catch (e) { setError(e.message); } finally { setBusy(false); } }
+  const enrolling = authState.step === "enroll";
+  return <main className="admin-login"><div className="admin-login-card mfa-card"><ShieldCheck size={38} className="mfa-icon" /><span className="admin-kicker">Verificação em duas etapas</span><h1>{enrolling ? "Proteja sua conta" : "Confirme seu acesso"}</h1><p>{enrolling ? "Configure um aplicativo autenticador para liberar as funções administrativas." : "Digite o código atual exibido no seu aplicativo autenticador."}</p><ErrorBox message={error} />{enrolling && !setup ? <button className="admin-primary" disabled={busy} onClick={startEnrollment}>{busy ? "Preparando…" : "Configurar autenticador"}</button> : <form onSubmit={confirm}>{setup && <><img className="mfa-qr" src={setup.qrCode} alt="QR Code para configurar o aplicativo autenticador" /><p className="mfa-help">Escaneie o QR Code com Google Authenticator, Microsoft Authenticator, Authy ou outro aplicativo TOTP.</p><details><summary>Não consegue escanear?</summary><code className="mfa-secret">{setup.secret}</code></details></>}<label>Código de 6 dígitos<input className="mfa-code" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength="6" required value={code} onChange={e => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} /></label><button className="admin-primary" disabled={busy || code.length !== 6}>{busy ? "Confirmando…" : enrolling ? "Ativar e entrar" : "Confirmar e entrar"}</button></form>}<button className="admin-link" onClick={onLogout}>Voltar ao login</button></div></main>;
+}
+
+export default function AdminPanel() {
+  const [authState, setAuthState] = useState({ step: "loading", factors: [] }); const [tab, setTab] = useState(window.location.hash === "#curriculos" ? "resumes" : "offers"); const [notice, setNotice] = useState(""); const [passwordForm, setPasswordForm] = useState({ password: "", confirm: "" }); const [showPasswordForm, setShowPasswordForm] = useState(false); const [passwordBusy, setPasswordBusy] = useState(false);
+  useEffect(() => { let active = true; getAuthState().then(state => { if (active) setAuthState(state); }).catch(() => { if (active) setAuthState({ step: "login", factors: [] }); }); return () => { active = false; }; }, []);
+  async function logout() { try { await clearAdminToken(); } finally { setAuthState({ step: "login", factors: [] }); } }
+  if (authState.step === "loading") return <main className="admin-login"><div className="admin-login-card"><p role="status">Verificando sessão…</p></div></main>;
+  if (authState.step === "login") return <Login onAuthenticated={setAuthState} />;
+  if (authState.step !== "ready") return <MfaGate authState={authState} onReady={setAuthState} onLogout={logout} />;
+  async function changePassword(event) { event.preventDefault(); if (passwordForm.password.length < 8) return setNotice("A nova senha deve ter pelo menos 8 caracteres."); if (passwordForm.password !== passwordForm.confirm) return setNotice("A confirmação da senha não confere."); setPasswordBusy(true); setNotice(""); try { await updatePassword(passwordForm.password); setPasswordForm({ password: "", confirm: "" }); setShowPasswordForm(false); setNotice("Senha alterada com sucesso."); } catch (e) { setNotice(e.message); } finally { setPasswordBusy(false); } }
+  function selectTab(nextTab) { setTab(nextTab); window.location.hash = nextTab === "resumes" ? "curriculos" : "ofertas"; }
+  return <div className="admin-shell"><header className="admin-top"><div><span className="admin-mark">BPV</span><div><strong>Painel local</strong><small>Gestão protegida</small></div></div><div className="admin-top-actions"><button className="admin-quiet" onClick={() => { setShowPasswordForm(value => !value); setNotice(""); }}>Trocar senha</button><button className="admin-quiet" onClick={logout}><LogOut size={17} /> Sair</button></div></header>{showPasswordForm && <form className="admin-password-form" onSubmit={changePassword}><label>Nova senha<input type="password" minLength="8" required value={passwordForm.password} onChange={e => setPasswordForm({ ...passwordForm, password: e.target.value })} /></label><label>Confirmar nova senha<input type="password" minLength="8" required value={passwordForm.confirm} onChange={e => setPasswordForm({ ...passwordForm, confirm: e.target.value })} /></label><button className="admin-primary" disabled={passwordBusy}>{passwordBusy ? "Salvando…" : "Salvar nova senha"}</button></form>}<div className="admin-layout"><aside className="admin-sidebar"><button className={tab === "offers" ? "active" : ""} onClick={() => selectTab("offers")}><FileText size={19} /> Ofertas</button><button className={tab === "resumes" ? "active" : ""} onClick={() => selectTab("resumes")}><BriefcaseBusiness size={19} /> Currículos</button></aside>{tab === "offers" ? <Offers notice={notice} setNotice={setNotice} /> : <Resumes notice={notice} setNotice={setNotice} />}</div></div>;
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Baby, CalendarDays, Droplets, ExternalLink, PackageOpen, Percent, ShoppingCart, Snowflake, Sparkles, Star, Tag } from "lucide-react";
 import usePromotions from "../../hooks/usePromotions";
+import "./promotionThemes.css";
+
+const customIcons = { baby: Baby, droplets: Droplets, package: PackageOpen, cart: ShoppingCart, snowflake: Snowflake, tag: Tag, star: Star, sparkles: Sparkles };
 
 const dateFormat = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeZone: "America/Sao_Paulo" });
 const categoryMeta = {
@@ -43,7 +46,7 @@ export default function Tabloide() {
       {status === "unavailable" && <div className="notice"><h3>Panfletos indisponíveis no momento</h3><p>Volte mais tarde para conferir as promoções da loja.</p></div>}
       {status === "error" && <div className="notice" role="alert"><h3>Não conseguimos consultar as ofertas</h3><p>Verifique a conexão e tente novamente.</p><button type="button" className="button button-outline" onClick={reload}>Tentar novamente</button></div>}
       {status === "ready" && !campaigns.length && <p className="notice" role="status">Nenhum panfleto vigente disponível no momento.</p>}
-      {item && <div className="offers-stage" role="region" aria-roledescription="carrossel" aria-label="Panfletos vigentes" onKeyDown={onKeyDown}>
+      {item && <div className="offers-stage" data-theme={item.theme_key || undefined} role="region" aria-roledescription="carrossel" aria-label="Panfletos vigentes" onKeyDown={onKeyDown}>
         <p className="sr-only" aria-live="polite">Panfleto {active + 1} de {campaigns.length}: {item.title}</p>
         <div className="offers-intro">
           <span className="offers-intro__badge"><Tag size={20} aria-hidden="true" /> Ofertas</span>
@@ -64,19 +67,19 @@ export default function Tabloide() {
 
         <article className="offers-details">
           <p className="offers-details__date"><CalendarDays size={20} aria-hidden="true" /> Válido de <time dateTime={item.starts_at}>{dateFormat.format(item.starts)}</time> a <time dateTime={item.ends_at}>{dateFormat.format(item.ends - 1)}</time></p>
-          <h3>Ofertas de<br />final de semana</h3>
+          <h3>{item.title}</h3>
           <span className="offers-details__stroke" aria-hidden="true" />
           <p>{item.summary} Qualidade e economia para a sua família!</p>
           <a className="offers-details__cta" href={item.file_url} target="_blank" rel="noopener noreferrer">Ver panfleto completo <ExternalLink size={20} aria-hidden="true" /></a>
           <p className="offers-details__conditions"><Sparkles size={18} aria-hidden="true" /> {item.conditions}</p>
         </article>
 
-        {campaigns.length > 1 && <div className="offers-hud" role="tablist" aria-label="Escolha o setor do panfleto">
+        {campaigns.length > 0 && <div className="offers-hud" role="tablist" aria-label="Escolha o setor do panfleto">
           {campaigns.map((campaign, index) => {
             const meta = categoryMeta[inferCategory(campaign)];
-            const Icon = meta.icon;
+            const Icon = customIcons[campaign.icon_key] || meta.icon;
             return <button key={campaign.id} type="button" role="tab" aria-selected={index === active} aria-controls="offers-active-flyer" className={index === active ? "is-active" : ""} onClick={() => select(index)}>
-              <Icon size={22} aria-hidden="true" /><span>{meta.label}</span>
+              <Icon size={22} aria-hidden="true" /><span>{campaign.hud_label || meta.label}</span>
             </button>;
           })}
         </div>}

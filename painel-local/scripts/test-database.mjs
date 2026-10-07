@@ -1,0 +1,52 @@
+import { PGlite } from '@electric-sql/pglite';
+import { readFile, readdir } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+
+// PostgreSQL in memory: validates SQL/transactions, not hosted Auth, Storage or antivirus.
+const db = new PGlite();
+await db.exec(`create role anon; create role authenticated; create role service_role;
+  create schema auth; create table auth.users(id uuid primary key);
+  create schema storage; create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);`);
+const dir = new URL('../../supabase/migrations/', import.meta.url);
+for (const name of (await readdir(dir)).filter(name => name.endsWith('.sql')).sort()) await db.exec(await readFile(new URL(name, dir), 'utf8'));
+const actor = '10000000-0000-4000-8000-000000000001', other = '10000000-0000-4000-8000-000000000002';
+await db.query('insert into auth.users values ($1),($2)', [actor, other]);
+await db.query("insert into bpv.staff_permissions(user_id,permission) values($1,'promotions.manage'),($1,'applications.read')", [actor]);
+const payload = { title: 'Teste', summary: 'Resumo', conditions: 'Condições', starts_at: '2020-01-01T00:00:00Z', ends_at: '2090-01-01T00:00:00Z', hud_label: 'Seleção', theme_key: 'green', icon_key: 'star', category_key: 'home-baby', display_order: 7 };
+const rpc = async (sql, values) => (await db.query(sql, values)).rows[0].value;
+let campaign = await rpc('select public.bpv_create_campaign($1,$2) value', [actor, payload]);
+assert.equal(campaign.category_key, 'home-baby'); assert.equal(campaign.theme_key, 'green');
+await assert.rejects(rpc('select public.bpv_update_campaign($1,$2,$3,$4) value', [other,campaign.id,0,payload]), /FORBIDDEN/);
+await assert.rejects(rpc('select public.bpv_update_campaign($1,$2,$3,$4) value', [actor,campaign.id,9,payload]), /REVISION_CONFLICT/);
+const publish = 'select public.bpv_publish_campaign_details($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) value';
+const key = '20000000-0000-4000-8000-000000000001';
+const args = [actor,campaign.id,0,key,`${campaign.id}/${key}/source.png`,`${campaign.id}/${key}.png`,'a'.repeat(43),'image/png',100,payload];
+const published = await rpc(publish,args);
+const before = await rpc('select public.bpv_public_promotions_meta() value');
+assert.equal((await rpc('select public.bpv_public_promotions() value')).campaigns[0].hud_label,'Seleção');
+assert.equal((await rpc(publish,args)).version_id,published.version_id);
+const nextKey = '20000000-0000-4000-8000-000000000002';
+await assert.rejects(rpc(publish,[actor,campaign.id,published.revision,nextKey,`${campaign.id}/${nextKey}/source.png`,`${campaign.id}/${nextKey}.png`,'b'.repeat(43),'image/png',0,{...payload,title:'Should roll back'}]));
+campaign = await rpc('select public.bpv_list_campaigns($1) value',[actor]);
+assert.equal(campaign[0].title,'Teste'); assert.equal(campaign[0].revision,published.revision);
+await rpc('select public.bpv_update_campaign($1,$2,$3,$4) value',[actor,campaign[0].id,campaign[0].revision,{...payload,theme_key:'blue'}]);
+assert.notEqual((await rpc('select public.bpv_public_promotions_meta() value')).version,before.version);
+await assert.rejects(rpc('select public.bpv_list_applications_page($1) value',[other]), /FORBIDDEN/);
+assert.deepEqual(await rpc('select public.bpv_list_applications_page($1) value',[actor]), []);
+for (let i=1; i<=3; i++) {
+  const id = `30000000-0000-4000-8000-${String(i).padStart(12,'0')}`;
+  await db.query(`insert into bpv.application_intents(id,idempotency_hash,token_hash,token_key_version,object_path,expires_at) values($1,$2,$3,1,$4,'2090-01-01')`,[id,String(i).repeat(43),'t'.repeat(43),`${id}/${id}.pdf`]);
+  await db.query(`insert into bpv.applications(id,intent_id,candidate_name,email,privacy_notice_version,received_at,delete_after) values($1,$1,'Teste','teste@example.com','v1','2026-01-01','2090-01-01')`,[id]);
+  await db.query(`insert into bpv.application_files(application_id,object_path,original_name,mime_type,size_bytes,sha256,inspection_state) values($1,$2,'cv.pdf','application/pdf',100,$3,$4)`,[id,`${id}/${id}.pdf`,'f'.repeat(43),i === 1 ? 'pending' : 'clean']);
+}
+const first = await rpc('select public.bpv_list_applications_page($1,null,null,2) value',[actor]);
+const second = await rpc('select public.bpv_list_applications_page($1,$2,$3,2) value',[actor,first[1].received_at,first[1].id]);
+assert.equal(first.length,2); assert.equal(second.length,1); assert.equal(new Set([...first,...second].map(item=>item.id)).size,3);
+assert.equal(first[0].file_name,'cv.pdf');
+await assert.rejects(rpc('select public.bpv_authorize_application_download($1,$2) value',[actor,second[0].id]),/DOWNLOAD_BLOCKED/);
+assert.equal((await rpc('select public.bpv_authorize_application_download($1,$2) value',[actor,first[0].id])).file_name,'cv.pdf');
+await db.query("update bpv.applications set delete_after='2026-01-02' where id=$1",[first[0].id]);
+await assert.rejects(rpc('select public.bpv_authorize_application_download($1,$2) value',[actor,first[0].id]),/DOWNLOAD_BLOCKED/);
+assert.equal((await db.query("select has_function_privilege('anon','public.bpv_update_campaign(uuid,uuid,bigint,jsonb)','EXECUTE') allowed")).rows[0].allowed,false);
+console.log('PASS: migrations, permissions, atomic rollback, revision conflicts, cache invalidation, pagination with tied timestamps, quarantine/expiry download blocks and private RPC grants');
+await db.close();

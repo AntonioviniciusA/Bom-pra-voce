@@ -1,0 +1,37 @@
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs = require('node:fs');
+const path = require('node:path');
+(async () => {
+  const browser = await chromium.launch({ headless: true, channel: 'msedge' });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  const user = { id: '10000000-0000-4000-8000-000000000001', email: 'teste@example.com', factors: [] };
+  const token = [Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url'), Buffer.from(JSON.stringify({ sub: user.id, aal: 'aal2', exp: Math.floor(Date.now()/1000)+3600 })).toString('base64url'), Buffer.from('signature').toString('base64url')].join('.');
+  const campaign = { id: '20000000-0000-4000-8000-000000000001', title: 'Ofertas da semana', summary: 'Economia em todos os setores', conditions: 'Enquanto durarem os estoques.', starts_at: '2026-10-01T03:00:00Z', ends_at: '2026-10-12T03:00:00Z', revision: 2, active_version_id: 'version', state: 'published', hud_label: 'Mercearia', theme_key: 'green', icon_key: 'cart' };
+  await page.route('https://*.supabase.co/**', async route => {
+    const url = route.request().url();
+    let body = {};
+    if (url.includes('/auth/v1/token')) body = { access_token: token, refresh_token: 'test-refresh-token', expires_in: 3600, token_type: 'bearer', user };
+    else if (url.includes('/auth/v1/user')) body = user;
+    else if (url.includes('/functions/v1/promotion-admin')) body = [campaign];
+    else if (url.includes('/functions/v1/rh-applications')) body = { applications: [{ id: 'one', candidate_name: 'Candidatura de demonstração', email: 'teste@example.com', phone: '(61) 99999-0000', address: 'Endereço de demonstração', birth_date: '2000-01-01', area: 'Atendimento', received_at: '2026-10-06T12:00:00Z', delete_after: '2027-04-06T12:00:00Z', inspection_state: 'clean', file_name: 'curriculo-teste.pdf' }] };
+    await route.fulfill({ json: body });
+  });
+  await page.goto(process.env.PANEL_TEST_URL || 'http://127.0.0.1:5175');
+  await page.getByLabel('E-mail', { exact: true }).fill('teste@example.com');
+  await page.getByLabel('Senha', { exact: true }).fill('test-password');
+  await page.getByRole('button', { name: 'Entrar no painel' }).click();
+  await page.getByRole('button', { name: 'Editar / trocar panfleto' }).click().catch(async error => { console.error(await page.locator('body').innerText()); throw error; });
+  await page.getByRole('button', { name: 'Estrela', exact: true }).click();
+  const out = path.resolve(__dirname, '../artifacts'); fs.mkdirSync(out, { recursive: true });
+  await page.screenshot({ path: path.join(out, 'offers-desktop.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('Horizontal overflow on mobile');
+  await page.screenshot({ path: path.join(out, 'offers-mobile.png'), fullPage: true });
+  await page.getByRole('button', { name: 'Currículos', exact: true }).click();
+  await page.getByText('Ver dados da candidatura').click();
+  await page.screenshot({ path: path.join(out, 'resumes-mobile.png'), fullPage: true });
+  if (errors.length) throw new Error(errors.join('\n'));
+  console.log('PASS: desktop/mobile editor, candidate details, no horizontal overflow, no page errors (mocked API)');
+  await browser.close();
+})().catch(error => { console.error(error); process.exit(1); });

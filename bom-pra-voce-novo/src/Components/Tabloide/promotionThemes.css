@@ -1,0 +1,8 @@
+.offers-stage[data-theme]{--offer-accent:#4913b8;--offer-surface:#f5efff;border-radius:24px;padding:clamp(12px,2vw,28px);background:var(--offer-surface)}
+.offers-stage[data-theme="green"]{--offer-accent:#17633c;--offer-surface:#edf8ef}
+.offers-stage[data-theme="red"]{--offer-accent:#a51f32;--offer-surface:#fff0f1}
+.offers-stage[data-theme="blue"]{--offer-accent:#1854a0;--offer-surface:#edf5ff}
+.offers-stage[data-theme="orange"]{--offer-accent:#994400;--offer-surface:#fff4e5}
+.offers-stage[data-theme] .offers-intro__badge,.offers-stage[data-theme] .offers-details__cta,.offers-stage[data-theme] .offers-hud button.is-active{background:var(--offer-accent);color:#fff}
+.offers-stage[data-theme] .offers-details h3,.offers-stage[data-theme] .offers-details__date svg{color:var(--offer-accent)}
+.offers-stage[data-theme] .offers-details__stroke{background:var(--offer-accent)}
