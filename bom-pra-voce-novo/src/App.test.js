@@ -22,6 +22,14 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.queryByText("Inscrever")).not.toBeInTheDocument();
   expect(screen.queryByText("Iniciar o Tour")).not.toBeInTheDocument();
 });
+test("mobile navigation closes when clicking outside the header", async () => {
+  renderRoute("/trabalhe-conosco");
+  const menu = await screen.findByRole("button", { name: "Menu" }, { timeout: 10000 });
+  fireEvent.click(menu);
+  expect(menu).toHaveAttribute("aria-expanded", "true");
+  fireEvent.pointerDown(screen.getByRole("main"));
+  expect(menu).toHaveAttribute("aria-expanded", "false");
+});
 test("career route fails closed until receiving and privacy are ready", async () => {
   renderRoute("/trabalhe-conosco");
   expect(await screen.findByRole("heading", { name: "Envio de currículos indisponível no momento" })).toBeInTheDocument();

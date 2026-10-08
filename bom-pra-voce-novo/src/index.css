@@ -2964,7 +2964,7 @@ main h1,
 
 @media (max-width: 1180px) {
   body .site-header .site-nav {
-    background: rgba(255, 255, 255, 0.94);
+    background: transparent;
     color: #111;
   }
 }

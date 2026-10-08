@@ -4,8 +4,10 @@ Data: 2026-10-07.
 
 - Causa: branco com alfa `0.3` deixava 70% do conteúdo escuro atravessar, fazendo a nav parecer preta sobre banners escuros.
 - Correção final solicitada: fundo branco com 40% de opacidade (`rgba(255, 255, 255, 0.4)`), mantendo blur e borda amarela.
+- Paridade responsiva: o painel interno do menu móvel deixou de adicionar uma segunda camada branca de 94% e agora fica transparente, herdando somente os mesmos 40% do cabeçalho usados no desktop.
+- Interação móvel: ao tocar ou clicar fora do cabeçalho, o menu aberto fecha; interações dentro do próprio cabeçalho continuam disponíveis e o fechamento por `Escape` foi preservado.
 - Tipografia: removida a borda simulada por quatro sombras; aplicado contorno amarelo único de `0.55px`, com preenchimento preto.
-- `src/App.test.js`: 3 testes aprovados. A consulta externa registrou HTTP 403 no jsdom sem falhar as asserções.
+- `src/App.test.js`: teste isolado de fechamento ao clicar fora aprovado; a execução integral ficou bloqueada pela resposta HTTP 403 da consulta externa de ofertas.
 - Build de produção compilado com sucesso e `git diff --check` sem erros.
 - A captura pós-correção ficou bloqueada porque o navegador integrado não conseguiu iniciar o processo de inspeção nesta execução.
 

@@ -19,6 +19,7 @@ export default function NavBar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
   const [activeSection, setActiveSection] = useState(() => window.location.hash.slice(1) || "home");
   const [query, setQuery] = useState("");
+  const header = useRef(null);
   const menuButton = useRef(null);
   const searchButton = useRef(null);
   const location = useLocation();
@@ -62,6 +63,15 @@ export default function NavBar() {
     setSearchOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const closeMenuOnOutsidePointer = (event) => {
+      if (!header.current?.contains(event.target)) setMenuOpen(false);
+    };
+    document.addEventListener("pointerdown", closeMenuOnOutsidePointer);
+    return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
+  }, [menuOpen]);
+
   function closeOnEscape(event) {
     if (event.key !== "Escape") return;
     if (searchOpen) {
@@ -74,7 +84,7 @@ export default function NavBar() {
   }
 
   return (
-    <header className={scrolled ? "site-header is-scrolled" : "site-header"} onKeyDown={closeOnEscape}>
+    <header ref={header} className={scrolled ? "site-header is-scrolled" : "site-header"} onKeyDown={closeOnEscape}>
       <div className="shell header-row">
         <Link to="/#home" className="brand-link" aria-label="Bom Pra Você — início">
           <Logo />
