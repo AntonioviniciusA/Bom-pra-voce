@@ -1,0 +1,76 @@
+/* Institutional sector photos: preserve full framing in the detail dialog. */
+#setores .photo-sectors {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  padding: 0;
+  list-style: none;
+}
+#setores .photo-sectors li { min-width: 0; aspect-ratio: 4 / 5; }
+#setores .photo-sectors img { width: 100%; height: 100%; object-fit: cover; }
+#setores .photo-sectors h3 {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  padding: 16px 16px 26px;
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+#setores .photo-sectors .sector-card__accent { left: 16px; }
+#setores .photo-sectors .sector-card--upcoming img {
+  filter: none;
+  opacity: 1;
+  transform: none;
+  object-fit: cover;
+  background: #302b25;
+}
+#setores .photo-sectors img.sector-card__wine-art { position: absolute; inset: 0 0 0 auto; width: 50%; object-fit: cover; mask-image: linear-gradient(to right, transparent, black 25%); }
+#setores .sector-card__coming-soon { position: absolute; top: 14px; right: 12px; padding: 6px 12px; border-radius: 20px; background: #ffe11f; color: #241334; font-size: .8rem; font-weight: 800; text-transform: uppercase; }
+#setores .sector-gallery__counter { margin: 0; color: #68606a; font-size: .875rem; text-align: center; }
+#setores .sector-gallery__thumbnails { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+#setores .sector-gallery__thumbnails button { width: 110px; height: 76px; padding: 3px; border: 2px solid transparent; border-radius: 10px; background: #f4f0e8; cursor: pointer; overflow: hidden; }
+#setores .sector-gallery__thumbnails button[aria-pressed="true"] { border-color: #624219; background: #ffe11f; }
+#setores .sector-gallery__thumbnails img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+#setores .sector-modal__main-image.is-detail-crop { object-fit: cover; aspect-ratio: 4 / 3; }
+#setores .sector-gallery__thumbnails img.is-detail-crop { object-fit: cover; object-position: center; transform: scale(1.2); }
+#setores button:focus-visible { outline: 3px solid #6b3b91; outline-offset: 3px; }
+#setores .sector-modal { width: min(1100px, 100%); gap: 28px; padding: 56px 32px 30px; }
+#setores .sector-modal__main-image {
+  object-fit: contain;
+  height: auto;
+  max-height: 60dvh;
+  aspect-ratio: 4 / 3;
+  background: #f4f0e8;
+}
+#setores .sector-modal__content { min-width: 0; }
+#setores .sector-modal__content h3 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; }
+#setores .sector-modal__tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#setores .sector-modal__tags span { min-width: 0; min-height: 44px; padding: 8px 12px; font-size: .9rem; }
+#setores .sector-modal__arrow { width: 44px; height: 44px; top: 8px; transform: none; }
+#setores .sector-modal__arrow--prev { left: 16px; }
+#setores .sector-modal__arrow--next { left: 68px; right: auto; }
+#setores .sector-modal__close { top: 8px; right: 12px; width: 44px; height: 44px; }
+#setores .sector-modal__dots { gap: 0; }
+#setores .sector-modal__dots button { width: 44px; height: 44px; border: 15px solid white; box-sizing: border-box; }
+@media (max-width: 1100px) {
+  #setores .photo-sectors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #setores .photo-sectors li { aspect-ratio: 1 / 1; }
+}
+@media (max-width: 700px) {
+  #setores .sectors-showcase__inner { width: calc(100% - 32px); }
+  #setores .photo-sectors { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  #setores .photo-sectors li { aspect-ratio: 4 / 5; }
+  #setores .photo-sectors h3 { min-height: 80px; padding: 12px 12px 24px; font-size: 1.05rem; }
+  #setores .photo-sectors .sector-card__accent { left: 12px; bottom: 12px; }
+  #setores .sector-modal-backdrop { padding: 12px; }
+  #setores .sector-modal { grid-template-columns: minmax(0, 1fr); padding: 60px 16px 20px; gap: 12px; max-height: calc(100dvh - 24px); }
+  #setores .sector-modal__main-image { max-height: 36dvh; }
+  #setores .sector-modal__description { font-size: 1rem; line-height: 1.5; margin-bottom: 16px; }
+}
+@media (max-width: 359px) {
+  #setores .photo-sectors { grid-template-columns: minmax(0, 1fr); }
+  #setores .photo-sectors li { aspect-ratio: 4 / 3; }
+}
