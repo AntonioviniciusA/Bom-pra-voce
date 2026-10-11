@@ -22,6 +22,10 @@ const publish = 'select public.bpv_publish_campaign_details($1,$2,$3,$4,$5,$6,$7
 const key = '20000000-0000-4000-8000-000000000001';
 const args = [actor,campaign.id,0,key,`${campaign.id}/${key}/source.png`,`${campaign.id}/${key}.png`,'a'.repeat(43),'image/png',100,payload];
 const published = await rpc(publish,args);
+const listing = await rpc('select public.bpv_list_campaigns($1) value', [actor]);
+assert.equal(listing[0].public_path, args[5]); assert.equal(listing[0].mime_type, 'image/png');
+assert.deepEqual(await rpc('select public.bpv_list_social_publications($1) value', [actor]), []);
+await assert.rejects(rpc('select public.bpv_list_campaigns($1) value', [other]), /FORBIDDEN/);
 const before = await rpc('select public.bpv_public_promotions_meta() value');
 assert.equal((await rpc('select public.bpv_public_promotions() value')).campaigns[0].hud_label,'Seleção');
 assert.equal((await rpc(publish,args)).version_id,published.version_id);
@@ -48,5 +52,16 @@ assert.equal((await rpc('select public.bpv_authorize_application_download($1,$2)
 await db.query("update bpv.applications set delete_after='2026-01-02' where id=$1",[first[0].id]);
 await assert.rejects(rpc('select public.bpv_authorize_application_download($1,$2) value',[actor,first[0].id]),/DOWNLOAD_BLOCKED/);
 assert.equal((await db.query("select has_function_privilege('anon','public.bpv_update_campaign(uuid,uuid,bigint,jsonb)','EXECUTE') allowed")).rows[0].allowed,false);
+const instagramCampaign = await rpc('select public.bpv_create_campaign($1,$2) value', [actor, { ...payload, title: 'Instagram', instagram_feed_enabled: true, instagram_story_enabled: true, instagram_caption: 'Confira no site' }]);
+const instagramKey = '20000000-0000-4000-8000-000000000003';
+await rpc(publish, [actor, instagramCampaign.id, 0, instagramKey, `${instagramCampaign.id}/${instagramKey}/source.jpg`, `${instagramCampaign.id}/${instagramKey}.jpg`, 'c'.repeat(43), 'image/jpeg', 100, { ...payload, title: 'Instagram', instagram_feed_enabled: true, instagram_story_enabled: true, instagram_caption: 'Confira no site' }]);
+const social = await rpc('select public.bpv_list_social_publications($1) value', [actor]);
+assert.equal(social.length, 2); assert.deepEqual(new Set(social.map(item => item.surface)), new Set(['feed', 'story']));
+assert.ok(social.every(item => item.status === 'queued' && item.caption === 'Confira no site'));
+const claimed = await rpc('select public.bpv_claim_social_publications($1) value', [10]);
+assert.equal(claimed.length, 2); assert.ok(claimed.every(item => item.container_id === null));
+await db.query("update bpv.social_publications set status='failed', failure_code='META_REQUEST_FAILED' where id=$1", [social[0].id]);
+const retried = await rpc('select public.bpv_retry_social_publication($1,$2) value', [actor, social[0].id]);
+assert.equal(retried.status, 'queued');
 console.log('PASS: migrations, permissions, atomic rollback, revision conflicts, cache invalidation, pagination with tied timestamps, quarantine/expiry download blocks and private RPC grants');
 await db.close();

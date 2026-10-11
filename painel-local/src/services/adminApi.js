@@ -123,6 +123,14 @@ export async function withdrawCampaign(campaign) {
   const response = await request("/functions/v1/promotion-admin", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "withdraw", campaign_id: campaign.id, expected_revision: campaign.revision }) });
   return response.json();
 }
+export async function listSocialPublications() {
+  const response = await request("/functions/v1/promotion-admin", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "social_list" }) });
+  return (await response.json())?.publications || [];
+}
+export async function retrySocialPublication(publicationId) {
+  const response = await request("/functions/v1/promotion-admin", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "social_retry", publication_id: publicationId }) });
+  return response.json();
+}
 export async function listApplications(cursor = {}) {
   const response = await request("/functions/v1/rh-applications", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "list", limit: 50, ...cursor }) });
   return (await response.json())?.applications || [];

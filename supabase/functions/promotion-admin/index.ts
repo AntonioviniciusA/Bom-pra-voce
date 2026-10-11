@@ -58,6 +58,10 @@ Deno.serve(async (req) => {
       }));
     }
     if (body?.action === "list") return json(req, await rpc("bpv_list_campaigns", { p_actor: user.id }));
+    if (body?.action === "social_list") return json(req, { publications: await rpc("bpv_list_social_publications", { p_actor: user.id }) });
+    if (body?.action === "social_retry") return json(req, await rpc("bpv_retry_social_publication", {
+      p_actor: user.id, p_publication_id: requireUuid(body.publication_id, "Publicação"),
+    }));
     throw new HttpError(400, "INVALID_ACTION", "Ação inválida.");
   } catch (error) {
     for (const [bucket, path] of uploaded.reverse()) {

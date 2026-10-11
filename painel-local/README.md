@@ -40,3 +40,19 @@ O painel não transforma PDFs pendentes em seguros. A consulta remota confirmou 
 - `scripts/visual-check.cjs`: revisão automatizada em navegador com API simulada; requer Playwright disponível em `PLAYWRIGHT_MODULE`, Edge e servidor Vite em `127.0.0.1:5175` com variáveis públicas de teste. Capturas em `artifacts/` usam somente dados fictícios.
 
 Em 06/10/2026: sete testes do painel passaram, as verificações SQL passaram e as telas foram conferidas a 1440 e 390 pixels. O site compilou; sua suíte existente (29 testes) e o teste adicional de personalização passaram. As duas Edge Functions passaram em `deno check`. Esses resultados não substituem a validação de Auth, Storage, CORS e inspeção no Supabase hospedado.
+## Prévia durante a edição
+
+O painel importa o mesmo componente `PromotionShowcase` do site e seu CSS completo, fontes e temas. Um iframe isola esses estilos e aplica as media queries em 1440 px (computador) ou 390 px (celular). A escala indicada reduz somente a visualização para caber no editor. “Ampliar prévia” oferece uma área maior.
+
+Textos, tema, ícone, validade e arquivo selecionado atualizam sem salvar. Outras campanhas publicadas e vigentes aparecem na navegação, ordenadas como no site. A oferta em edição aparece mesmo vencida/agendada, com aviso. Links externos ficam inativos; navegação por setores e teclado funciona. PDFs usam o mesmo cartão de abertura do site.
+
+A migração `20261008142200_admin_preview_assets`, aplicada em 08/10/2026, acrescenta caminho público e tipo do arquivo ativo à RPC administrativa. Mantém promotions.manage e execução apenas pelo service_role. Consulta remota confirmou quatro campanhas com arquivo. Não altera validade, estado ou arquivos.
+
+A prévia cobre a seção Ofertas, sem cabeçalho/rodapé. A ferramenta de navegador falhou ao inicializar o ambiente: comparação visual pixel a pixel ainda não realizada. O compartilhamento elimina a implementação visual duplicada.
+
+Compiladores alinhados ao site: Tailwind 3.4.17 e Autoprefixer 10.4.21. Audit apontou sete avisos transitivos de desenvolvimento (cinco altos, dois moderados); a correção sugerida exige Tailwind 4, fora desta alteração. Não houve atualização major automática.
+
+A miniatura ajusta a escala pela largura e pela altura total da seção: no editor, ocupa no máximo 420 px de altura e fica centralizada. O iframe mantém 1440/390 px internos; fontes, quebras de linha e proporções não mudam. Na prévia ampliada, o limite acompanha a altura da janela.
+
+## Barra lateral
+O botão Abrir/Fechar menu recolhe a navegação e libera espaço para o editor. Após 10 segundos com o mouse fora da barra, ela fecha automaticamente. Voltar com o mouse reinicia a contagem; foco de teclado dentro da navegação pausa o fechamento. Escape fecha e devolve o foco ao botão de abertura. O formulário em edição permanece montado.

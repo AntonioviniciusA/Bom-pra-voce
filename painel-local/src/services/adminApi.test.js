@@ -3,7 +3,7 @@ import { beforeEach, expect, test, vi } from "vitest";
 const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({ auth }) }));
 vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message) { super(message); this.code = code; } } }));
-import { downloadApplication, enrollMfa, getAuthState, listCampaigns, publishCampaign, verifyMfa } from "./adminApi";
+import { downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, verifyMfa } from "./adminApi";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -49,4 +49,13 @@ test("downloads through the authorized endpoint and delays blob revocation", asy
   expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({ action: "download", application_id: "application-id" });
   expect(click).toHaveBeenCalledOnce(); expect(URL.revokeObjectURL).not.toHaveBeenCalled();
   vi.runAllTimers(); expect(URL.revokeObjectURL).toHaveBeenCalledWith("blob:resume"); vi.useRealTimers();
+});
+test("lists and retries Instagram publications through the protected admin endpoint", async () => {
+  global.fetch = vi.fn()
+    .mockResolvedValueOnce({ ok: true, json: async () => ({ publications: [{ id: "publication" }] }) })
+    .mockResolvedValueOnce({ ok: true, json: async () => ({ id: "publication", status: "queued" }) });
+  expect(await listSocialPublications()).toEqual([{ id: "publication" }]);
+  await retrySocialPublication("publication");
+  expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({ action: "social_list" });
+  expect(JSON.parse(fetch.mock.calls[1][1].body)).toEqual({ action: "social_retry", publication_id: "publication" });
 });
