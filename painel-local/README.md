@@ -14,6 +14,14 @@ Aplicativo administrativo separado do site público e executado em Electron.
 - Compilar e abrir no Electron: `npm start`
 - Apenas compilar a interface: `npm run build`
 
+## Instalador Windows
+
+Com as duas variáveis públicas de `.env.local` configuradas, execute `npm run dist:win`. O comando gera `release/Bom-Pra-Voce-Painel-Setup-<versão>-x64.exe`, um instalador NSIS por usuário, com seleção de pasta e atalhos no menu Iniciar e na área de trabalho. O arquivo não é publicado automaticamente. Execute-o no computador de destino para instalar o painel; ele não precisa de Node.js nem do repositório.
+
+O Vite incorpora a URL do Supabase e a chave **publicável** ao JavaScript gerado. Confira o projeto de destino antes de criar o instalador. O arquivo `.env.local` não entra no pacote; jamais use nele uma chave `service_role` ou outro segredo. Para mudar as variáveis públicas, gere outro instalador. A instalação mantém as sessões no perfil local do aplicativo e não configura atualização automática.
+
+O setup local ainda não tem assinatura digital; o Windows pode exibir um aviso de procedência. Antes de distribuir a terceiros, configure assinatura de código e teste instalação, login/MFA e atualização no computador de destino.
+
 ## Correção ortográfica no editor de ofertas
 
 Para usar o Grammarly neste aplicativo Electron, instale o [Grammarly para Windows](https://www.grammarly.com/desktop/windows) e entre na sua conta. A extensão instalada no Chrome não é carregada pelo painel local. Os campos de texto da oferta usam `textarea` e idioma `pt-BR`, conforme as orientações de compatibilidade do Grammarly; campos de senha e dados dos candidatos não foram adaptados. Após instalar, reinicie o painel e digite uma frase no título da oferta para conferir se o indicador do Grammarly aparece. A disponibilidade das sugestões em português depende da conta e das opções de idioma do Grammarly.

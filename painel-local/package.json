@@ -2,13 +2,15 @@
   "name": "bom-pra-voce-painel-local",
   "version": "0.1.0",
   "private": true,
+  "productName": "Bom Pra Você - Painel local",
   "main": "electron/main.cjs",
   "scripts": {
     "test": "vitest run",
     "test:database": "node scripts/test-database.mjs",
     "dev": "node scripts/dev.cjs",
     "build": "vite build",
-    "start": "npm run build && electron ."
+    "start": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win nsis --x64 --publish never"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.117.2",
@@ -22,9 +24,41 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "electron": "^44.5.1",
+    "electron-builder": "26.15.3",
     "jsdom": "26.1.0",
     "tailwindcss": "^3.4.17",
     "vite": "^6.1.0",
     "vitest": "4.1.11"
+  },
+  "build": {
+    "appId": "br.com.bompravocesupermercado.painellocal",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Bom-Pra-Voce-Painel-Setup-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false
+    }
   }
 }
