@@ -10,6 +10,11 @@ test("edits an existing promotion, selects a visual icon and theme, preserving i
   api.listCampaigns.mockResolvedValue([{ id: "offer", revision: 4, active_version_id: "v1", state: "published", title: "Oferta", summary: "Resumo", conditions: "Enquanto durar", starts_at: "2026-10-01T12:00:00Z", ends_at: "2026-10-20T12:00:00Z" }]);
   render(<Offers notice="" setNotice={vi.fn()} />);
   fireEvent.click(await screen.findByRole("button", { name: "Editar / trocar panfleto" }));
+  const title = screen.getByLabelText(/Título da oferta/);
+  expect(title.tagName).toBe("TEXTAREA");
+  expect(title.getAttribute("lang")).toBe("pt-BR");
+  fireEvent.change(title, { target: { value: "Oferta\nEspecial" } });
+  expect(title.value).toBe("Oferta Especial");
   fireEvent.change(screen.getByLabelText(/Nome no botão de setor/), { target: { value: "Só hoje" } });
   fireEvent.click(screen.getByRole("button", { name: "Estrela" }));
   fireEvent.click(screen.getByRole("button", { name: "Verde" }));

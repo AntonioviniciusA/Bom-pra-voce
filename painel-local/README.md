@@ -14,6 +14,10 @@ Aplicativo administrativo separado do site público e executado em Electron.
 - Compilar e abrir no Electron: `npm start`
 - Apenas compilar a interface: `npm run build`
 
+## Correção ortográfica no editor de ofertas
+
+Para usar o Grammarly neste aplicativo Electron, instale o [Grammarly para Windows](https://www.grammarly.com/desktop/windows) e entre na sua conta. A extensão instalada no Chrome não é carregada pelo painel local. Os campos de texto da oferta usam `textarea` e idioma `pt-BR`, conforme as orientações de compatibilidade do Grammarly; campos de senha e dados dos candidatos não foram adaptados. Após instalar, reinicie o painel e digite uma frase no título da oferta para conferir se o indicador do Grammarly aparece. A disponibilidade das sugestões em português depende da conta e das opções de idioma do Grammarly.
+
 O aplicativo usa estados internos `#ofertas` e `#curriculos`; nenhuma rota administrativa é adicionada ao site público.
 
 ## Controle de ofertas e currículos
