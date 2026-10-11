@@ -12,6 +12,9 @@ function supabase() {
 }
 
 function authError(error, fallback) {
+  if (error?.name === "AuthRetryableFetchError" || (error?.status === 0 && error?.message === "Failed to fetch")) {
+    return new AdminApiError("NETWORK", "Não foi possível conectar ao Supabase. Verifique a conexão com a internet e tente entrar novamente.");
+  }
   const messages = {
     mfa_totp_enroll_not_enabled: "A ativação por autenticador está desabilitada no projeto Supabase. Habilite TOTP nas configurações de autenticação.",
     mfa_verification_failed: "Código inválido ou expirado. Verifique o horário automático do celular e use o código atual.",

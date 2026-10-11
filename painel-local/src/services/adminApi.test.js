@@ -1,15 +1,20 @@
 import { beforeEach, expect, test, vi } from "vitest";
 
-const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
+const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), signInWithPassword: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({ auth }) }));
 vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message) { super(message); this.code = code; } } }));
-import { downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, verifyMfa } from "./adminApi";
+import { downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, signIn, verifyMfa } from "./adminApi";
 
 beforeEach(() => {
   vi.clearAllMocks();
   auth.getSession.mockResolvedValue({ data: { session: { access_token: "session-token" } } });
   auth.mfa.listFactors.mockResolvedValue({ data: { all: [], totp: [] } });
   auth.mfa.getAuthenticatorAssuranceLevel.mockResolvedValue({ data: { currentLevel: "aal1" } });
+});
+
+test("explains a network failure during sign in without treating it as an invalid password", async () => {
+  auth.signInWithPassword.mockResolvedValue({ data: {}, error: { name: "AuthRetryableFetchError", message: "Failed to fetch", status: 0 } });
+  await expect(signIn("user@example.com", "password")).rejects.toThrow("Não foi possível conectar ao Supabase");
 });
 test("offers enrollment when there is no verified factor and challenge when one exists", async () => {
   expect((await getAuthState()).step).toBe("enroll");
