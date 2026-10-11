@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
 import Logo from "../Logo/Logo";
 import { navigation } from "../../Data/navigation";
+import "./NavBar.css";
 
 const searchItems = [
   ...navigation,

@@ -6,3 +6,11 @@
 .offers-stage[data-theme] .offers-intro__badge,.offers-stage[data-theme] .offers-details__cta,.offers-stage[data-theme] .offers-hud button.is-active{background:var(--offer-accent);color:#fff}
 .offers-stage[data-theme] .offers-details h3,.offers-stage[data-theme] .offers-details__date svg{color:var(--offer-accent)}
 .offers-stage[data-theme] .offers-details__stroke{background:var(--offer-accent)}
+
+.offers-fallback{overflow:hidden;margin-bottom:clamp(32px,4vw,64px);border-radius:24px;background:#fff9de;box-shadow:0 16px 35px rgba(55,24,93,.12)}
+.offers-fallback__banner{display:block;width:100%;height:auto;aspect-ratio:2.5/1;object-fit:cover}
+.offers-fallback__message{padding:clamp(20px,3vw,36px);color:#321653}
+.offers-fallback__message h2{margin:0 0 8px;font-size:clamp(1.35rem,2.2vw,2rem)}
+.offers-fallback__message p{margin:0;line-height:1.5}
+.offers-fallback__message .button{margin-top:18px}
+@media(max-width:700px){.offers-fallback{border-radius:18px}.offers-fallback__banner{aspect-ratio:1.65/1;object-position:left center}}

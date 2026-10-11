@@ -964,19 +964,31 @@ body .site-header.is-scrolled {
 .sectors-showcase .photo-sectors .sector-card__status {
   position: absolute;
   z-index: 4;
-  top: 14px;
-  right: 14px;
+  top: 43%;
+  left: -18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 136%;
+  min-height: 36px;
   padding: 6px 12px;
-  border: 1px solid rgba(17, 17, 17, .24);
-  border-radius: 999px;
-  background: #ffe11f;
-  color: #24134b;
+  border-top: 4px solid #171717;
+  border-bottom: 4px solid #171717;
+  background: repeating-linear-gradient(135deg, #ffde18 0 18px, #171717 18px 24px, #ffde18 24px 42px);
+  color: #171717;
   font-size: .78rem;
   font-weight: 900;
   letter-spacing: .08em;
   line-height: 1;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, .28);
+  transform: rotate(-10deg);
+}
+.sectors-showcase .photo-sectors .sector-card--upcoming img {
+  filter: saturate(.56) brightness(.76) contrast(.9) blur(.7px);
+  opacity: .72;
+  transform: scale(1.025);
 }
 
 body.sector-modal-open { overflow: hidden; }

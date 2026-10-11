@@ -1,0 +1,14 @@
+/* Round the mobile menu surface and give it a discreet 2px raised edge. */
+@media (max-width: 1180px) {
+  body .site-header .site-nav.is-open {
+    box-sizing: border-box;
+    border-radius: 22px;
+    background: rgba(255, 252, 235, .88);
+    background-clip: padding-box;
+    border: 1px solid rgba(255, 221, 0, .45);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 2px 0 rgba(137, 105, 0, .3);
+    padding: 10px;
+    margin-bottom: 4px;
+    overflow-x: hidden;
+  }
+}

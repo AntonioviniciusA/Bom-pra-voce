@@ -11,7 +11,7 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.getByRole("heading", { name: "Formas de pagamento aceitas" })).toBeInTheDocument();
   expect(screen.getByRole("list", { name: "Bandeiras e formas de pagamento aceitas" })).toHaveTextContent("Pix");
   expect(screen.getByRole("img", { name: "Cartões e pagamentos aceitos no Bom Pra Você Supermercado" })).toBeInTheDocument();
-  expect(await screen.findByRole("heading", { name: /Ofertas da loja|Panfletos indisponíveis no momento|Não conseguimos consultar as ofertas/ })).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: /Ofertas da loja|Sem ofertas vigentes no momento|Panfletos indisponíveis no momento|Não conseguimos consultar as ofertas/ })).toBeInTheDocument();
   const menu = screen.getByRole("button", { name: "Menu" });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
