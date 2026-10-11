@@ -4,7 +4,7 @@ export class HttpError extends Error {
   }
 }
 
-const DEFAULT_ALLOWED_ORIGINS = ["https://bom-pra-voce-vert.vercel.app"];
+const DEFAULT_ALLOWED_ORIGINS = ["https://www.bompravocesupermercado.com.br"];
 
 function allowedOrigins() {
   const configured = (Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((v) => v.trim()).filter(Boolean);

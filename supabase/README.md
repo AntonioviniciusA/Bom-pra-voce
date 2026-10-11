@@ -17,7 +17,7 @@ Estado atualizado: a migração de personalização e as funções administrativ
 
 1. Instalar a CLI oficial do Supabase e iniciar um ambiente local limpo.
 2. Copiar as variáveis de `.env.example` para um arquivo local não versionado. Gere `APPLICATION_TOKEN_SECRET_V1` com 32 bytes aleatórios ou mais.
-3. Configurar `ALLOWED_ORIGINS` com as origens exatas dos ambientes. A origem pública `https://bom-pra-voce-vert.vercel.app` já é permitida por padrão; inclua aqui domínios adicionais de homologação e produção.
+3. Configurar `ALLOWED_ORIGINS` com as origens exatas dos ambientes. A origem pública `https://www.bompravocesupermercado.com.br` já é permitida por padrão; inclua aqui domínios adicionais de homologação.
 4. Criar widgets Turnstile distintos para homologação e produção, limitados aos respectivos domínios.
 5. Manter `APPLICATIONS_ENABLED=false` até o aviso de privacidade ser aprovado e o scanner privado estar operacional.
 6. Aplicar a migração apenas em ambiente local/homologação, executar `supabase/tests/database/001_foundation.sql` e os testes Deno.

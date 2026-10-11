@@ -8,8 +8,9 @@ const checks = [
   ['promotion-admin', 'POST', 'null', 401],
   ['rh-applications', 'POST', 'null', 401],
   ['promotion-admin', 'OPTIONS', 'https://untrusted.example', 403],
-  ['public-promotions?meta=1', 'GET', 'https://bom-pra-voce-vert.vercel.app', 200],
-  ['application-init', 'POST', 'https://bom-pra-voce-vert.vercel.app', [400,503]],
+  ['public-promotions?meta=1', 'GET', 'https://www.bompravocesupermercado.com.br', 200],
+  ['application-submit', 'OPTIONS', 'https://www.bompravocesupermercado.com.br', 204],
+  ['application-init', 'POST', 'https://www.bompravocesupermercado.com.br', [400,503]],
 ];
 const results = await Promise.all(checks.map(async ([name,method,origin,expected]) => {
   const response = await fetch(`${base}/functions/v1/${name}`, { method, headers: { apikey:key, Origin:origin, 'Content-Type':'application/json', ...(name === 'application-init' ? { 'Idempotency-Key':crypto.randomUUID() } : {}) }, ...(method === 'POST' ? { body:'{"action":"list"}' } : {}), signal:AbortSignal.timeout(20000) });

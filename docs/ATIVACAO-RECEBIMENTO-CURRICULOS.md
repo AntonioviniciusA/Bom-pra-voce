@@ -1,5 +1,7 @@
 # Ativação do recebimento de currículos
 
+Atualização em 10/10/2026: o endereço público redireciona para `https://www.bompravocesupermercado.com.br`. O widget existente da Cloudflare (`Bom Pra Você - Currículos`) foi atualizado para aceitar esse hostname, preservando a chave pública e o hostname antigo durante a transição. O segredo `TURNSTILE_EXPECTED_HOSTNAME` do Supabase foi substituído por `www.bompravocesupermercado.com.br`. As funções `application-init` (v7), `application-submit` (v7) e `public-promotions` (v8) foram publicadas com a nova origem padrão, preservando os demais arquivos da versão remota. No Chrome, o Turnstile concluiu com “Sucesso!” no domínio oficial. A checagem remota confirmou CORS e bloqueio de candidatura sem desafio válido; ainda não houve envio fictício ponta a ponta de PDF nesta atualização.
+
 Atualização em 07/10/2026: painel e funções administrativas publicados; conta administrativa com acesso RH e um TOTP verificado. O backend respondeu `CHALLENGE_REQUIRED` para uma tentativa sem Turnstile e o navegador confirmou o formulário ativo no site público. As flags locais continuam falsas e não representam a produção. A inspeção de PDFs e o teste completo ainda precisam de evidência. Veja [o registro atual de publicação](PUBLICACAO-PAINEL-2026-10-07.md) antes de seguir os estados históricos abaixo.
 
 Status em 05/10/2026: **aviso provisório aprovado pelo responsável, Turnstile de produção configurado e ativação técnica em andamento**.

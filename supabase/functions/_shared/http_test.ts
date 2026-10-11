@@ -19,13 +19,13 @@ Deno.test("allows Electron and local panel origins only on authenticated adminis
 Deno.test("allows preflight from the deployed public site", () => {
   const req = new Request("https://example.supabase.co/functions/v1/public-promotions", {
     method: "OPTIONS",
-    headers: { origin: "https://bom-pra-voce-vert.vercel.app" },
+    headers: { origin: "https://www.bompravocesupermercado.com.br" },
   });
 
   const response = preflight(req);
 
   assertEquals(response.status, 204);
-  assertEquals(response.headers.get("Access-Control-Allow-Origin"), "https://bom-pra-voce-vert.vercel.app");
+  assertEquals(response.headers.get("Access-Control-Allow-Origin"), "https://www.bompravocesupermercado.com.br");
 });
 
 Deno.test("returns a 403 for a disallowed origin without throwing a second CORS error", () => {
