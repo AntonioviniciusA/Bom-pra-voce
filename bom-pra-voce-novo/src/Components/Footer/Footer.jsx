@@ -29,6 +29,9 @@ export default function Footer() {
         {storeConfig.email && <a href={"mailto:" + storeConfig.email}><Mail aria-hidden="true" />{storeConfig.email}</a>}
       </div>}
     </div>
-    <div className="shell footer-bottom">© {new Date().getFullYear()} {storeConfig.name}</div>
+    <div className="shell footer-bottom">
+      <span>© {new Date().getFullYear()} {storeConfig.name}</span>
+      <span>{storeConfig.legalName} · CNPJ: {storeConfig.cnpj}</span>
+    </div>
   </footer>;
 }
