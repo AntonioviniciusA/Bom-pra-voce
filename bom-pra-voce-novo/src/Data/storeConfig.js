@@ -9,7 +9,7 @@ export const storeConfig = {
   hours: [{ day: "Segunda a sábado", time: "08:00–21:00" }, { day: "Domingo", time: "08:00–20:00" }],
   holidayHours: "Feriados: consulte a loja antes de sair.",
   phone: null,
-  email: null,
+  email: "roseanyleite75@gmail.com",
   whatsappUrl: null,
   payments: [
     "Alelo",
@@ -32,11 +32,11 @@ export const storeConfig = {
   sectors: ["Hortifrúti", "Padaria", "Bebidas", "Adega", "Congelados"],
   privacy: {
     approved: true,
-    version: "2026-10-05",
+    version: "2026-10-21",
     controller: "Comercial de Produtos Alimenticios Bom Pra Voce LTDA - ME — CNPJ 05.428.120/0001-08",
     controllerAddress: "QD QS 118, conjunto 6, lote 2, Samambaia Sul, Brasília–DF, CEP 72302-576",
     contact: "antoniovinicius_@outlook.com",
-    purpose: "Receber e avaliar candidaturas para oportunidades de trabalho no Bom Pra Você.",
+    purpose: "Receber e avaliar candidaturas para vagas abertas no Bom Pra Você e manter um banco de currículos para futuras oportunidades, durante o prazo de guarda informado neste aviso.",
     retention: "Os dados e o currículo serão conservados por até 6 meses após o recebimento e depois eliminados, salvo quando a conservação for necessária para cumprir obrigação legal ou exercer direitos.",
     rights: "O candidato poderá solicitar informações, acesso, correção ou eliminação pelos canais oficiais do controlador, observadas as hipóteses legais aplicáveis.",
   },

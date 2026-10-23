@@ -6,11 +6,13 @@ import {
   MapPin,
   ExternalLink,
 } from "lucide-react";
+import { usePrivacyPreferences } from "../PrivacyPreferences";
 import { storeConfig } from "../../Data/storeConfig";
 import PaymentMethods from "../PaymentMethods/PaymentMethods";
 import "./StoreVisit.css";
 
 export default function StoreVisit() {
+  const { mapsAllowed, openPreferences } = usePrivacyPreferences();
   return (
     <section
       id="localizacao"
@@ -46,12 +48,12 @@ export default function StoreVisit() {
             </div>
             {storeConfig.address && (
               <div className="visit-map">
-                <iframe
+                {mapsAllowed ? <iframe
                   title="Localização do supermercado Bom Pra Você"
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(`${storeConfig.name} Supermercado ${storeConfig.address}`)}&z=16&output=embed`}
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                  referrerPolicy="no-referrer"
+                /> : <div className="map-placeholder"><p>Mapa externo desativado para preservar sua escolha de privacidade.</p><button type="button" onClick={openPreferences}>Escolher se desejo carregar o mapa</button></div>}
                 {storeConfig.mapsUrl && (
                   <a
                     className="visit-map-link"

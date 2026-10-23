@@ -72,6 +72,7 @@ export default function CandidaturaForm({ available = true }) {
       {message && <p>{message}</p>}
       {Object.entries(errors).map(([key, value]) => <p key={key}><a href={"#" + key}>{value}</a></p>)}
     </div>}
+    <p>Campos com * são obrigatórios. Telefone, nascimento, endereço e área são opcionais. Não inclua CPF, RG, dados bancários, de saúde ou outros dados sensíveis no currículo.</p>
     <fieldset disabled={locked}>
       <div className="application-fields">
         <div className="form-field application-field--full"><label htmlFor="name">Nome completo <span aria-hidden="true">*</span></label>
@@ -79,8 +80,9 @@ export default function CandidaturaForm({ available = true }) {
           {errors.name && <p id="name-error" className="field-error">{errors.name}</p>}
         </div>
         <div className="form-field"><label htmlFor="phone">Telefone</label>
-          <input id="phone" name="phone" type="tel" maxLength="24" autoComplete="tel" placeholder="(00) 00000-0000" value={values.phone} onChange={event => setValues({ ...values, phone: event.target.value })} />
+          <input id="phone" name="phone" type="tel" maxLength="24" autoComplete="tel" placeholder="(00) 00000-0000" value={values.phone} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? "phone-error" : undefined} onChange={event => setValues({ ...values, phone: event.target.value })} />
         </div>
+        {errors.phone && <p id="phone-error" className="field-error">{errors.phone}</p>}
         <div className="form-field"><label htmlFor="email">E-mail <span aria-hidden="true">*</span></label>
           <input id="email" name="email" type="email" maxLength="254" autoComplete="email" required aria-label="E-mail" placeholder="seuemail@exemplo.com" value={values.email} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} onChange={event => setValues({ ...values, email: event.target.value })} />
           {errors.email && <p id="email-error" className="field-error">{errors.email}</p>}
@@ -89,8 +91,8 @@ export default function CandidaturaForm({ available = true }) {
           <input id="birthDate" name="birthDate" type="date" autoComplete="bday" value={values.birthDate} aria-invalid={Boolean(errors.birthDate)} aria-describedby={errors.birthDate ? "birthDate-error" : undefined} onChange={event => setValues({ ...values, birthDate: event.target.value })} />
           {errors.birthDate && <p id="birthDate-error" className="field-error">{errors.birthDate}</p>}
         </div>
-        <div className="form-field"><label htmlFor="address">Endereço</label>
-          <input id="address" name="address" type="text" maxLength="200" autoComplete="street-address" placeholder="Rua, número, complemento e cidade" value={values.address} aria-invalid={Boolean(errors.address)} aria-describedby={errors.address ? "address-error" : undefined} onChange={event => setValues({ ...values, address: event.target.value })} />
+        <div className="form-field"><label htmlFor="address">Cidade e bairro (opcional)</label>
+          <input id="address" name="address" type="text" maxLength="200" autoComplete="address-level2" placeholder="Informe apenas cidade e bairro" value={values.address} aria-invalid={Boolean(errors.address)} aria-describedby={errors.address ? "address-error" : undefined} onChange={event => setValues({ ...values, address: event.target.value })} />
           {errors.address && <p id="address-error" className="field-error">{errors.address}</p>}
         </div>
         <div className="form-field application-field--full"><label htmlFor="area">Área de interesse</label>
@@ -105,14 +107,14 @@ export default function CandidaturaForm({ available = true }) {
           <span><FontAwesomeIcon icon={faCloudArrowUp} aria-hidden="true" /></span>
           <strong>{file ? file.name : "Clique para anexar seu currículo"}</strong>
           <small id="file-help">PDF (máx. 5 MB)</small>
-          <small>{file ? "Clique para escolher outro arquivo" : "ou arraste o arquivo aqui"}</small>
+          <small>{file ? "Clique para escolher outro arquivo" : "Use este controle para selecionar o arquivo"}</small>
         </label>
         {errors.file && <p id="file-error" className="field-error">{errors.file}</p>}
       </div>
     </fieldset>
-    <TurnstileWidget ref={challenge} onToken={setChallengeToken} />
+    <div id="challenge" tabIndex="-1"><TurnstileWidget ref={challenge} onToken={setChallengeToken} /></div>
     {errors.challenge && <p className="field-error">{errors.challenge}</p>}
-    <p className="application-privacy">Ao enviar, você concorda com o <Link to="/privacidade" target="_blank" rel="noopener noreferrer">aviso de privacidade (nova aba)</Link>.</p>
+    <p className="application-privacy">Seus dados serão usados para avaliar sua candidatura. Antes de enviar, leia o <Link to="/privacidade" target="_blank" rel="noopener noreferrer">aviso de privacidade (nova aba)</Link>.</p>
     {status === "sending" && <p role="status">Enviando e aguardando confirmação. Aguarde nesta página.</p>}
     {locked && <p className="small">Os dados ficam preservados nesta sessão. Sair da página pode impedir a recuperação do comprovante; fechar a página não cancela um envio já recebido.</p>}
     <button type="submit" className="application-submit" disabled={["sending", "expired", "conflict"].includes(status) || !challengeToken}>

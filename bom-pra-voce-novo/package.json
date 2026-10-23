@@ -20,7 +20,7 @@
   "scripts": {
     "preview": "node scripts/preview.cjs",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/static-pages.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
