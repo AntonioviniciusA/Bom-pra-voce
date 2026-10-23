@@ -1,0 +1,200 @@
+[
+  {
+    "width": 1440,
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Supermercado em Samambaia Sul, Brasília–DF | Bom Pra Você"
+  },
+  {
+    "width": 1440,
+    "route": "/privacidade",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Privacidade | Bom Pra Você"
+  },
+  {
+    "width": 1440,
+    "route": "/termos",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Termos de uso | Bom Pra Você"
+  },
+  {
+    "width": 1440,
+    "route": "/trabalhe-conosco",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Trabalhe conosco | Bom Pra Você"
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Supermercado em Samambaia Sul, Brasília–DF | Bom Pra Você"
+  },
+  {
+    "width": 390,
+    "route": "/privacidade",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Privacidade | Bom Pra Você"
+  },
+  {
+    "width": 390,
+    "route": "/termos",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Termos de uso | Bom Pra Você"
+  },
+  {
+    "width": 390,
+    "route": "/trabalhe-conosco",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Trabalhe conosco | Bom Pra Você"
+  },
+  {
+    "width": 320,
+    "route": "/",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Supermercado em Samambaia Sul, Brasília–DF | Bom Pra Você"
+  },
+  {
+    "width": 320,
+    "route": "/privacidade",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Privacidade | Bom Pra Você"
+  },
+  {
+    "width": 320,
+    "route": "/termos",
+    "violations": [],
+    "incomplete": [],
+    "markedText": [],
+    "overflow": false,
+    "title": "Termos de uso | Bom Pra Você"
+  },
+  {
+    "width": 320,
+    "route": "/trabalhe-conosco",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "mark"
+          ]
+        ]
+      }
+    ],
+    "markedText": [
+      {
+        "text": "nossa equipe!",
+        "color": "rgb(33, 16, 68)",
+        "background": "rgb(255, 220, 61)"
+      }
+    ],
+    "overflow": false,
+    "title": "Trabalhe conosco | Bom Pra Você"
+  }
+]
