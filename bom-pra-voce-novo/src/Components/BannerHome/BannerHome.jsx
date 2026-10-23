@@ -2,20 +2,35 @@ import PrecoBaixo from "../../images/PrecoBaixo.png";
 import Compras from "../../images/banner-compras.png";
 import Padaria from "../../images/banner-padaria.png";
 import { useEffect, useState } from "react";
+import { Pause, Play } from "lucide-react";
+import { storeConfig } from "../../Data/storeConfig";
+
+export function storeExperience(today = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Sao_Paulo", year: "numeric", month: "numeric", day: "numeric",
+  }).formatToParts(today);
+  const value = (type) => Number(parts.find((part) => part.type === type).value);
+  const [year, month, day] = storeConfig.foundedOn.split("-").map(Number);
+  const months = (value("year") - year) * 12 + value("month") - month
+    - (value("day") < day ? 1 : 0);
+  const years = Math.floor(months / 12);
+  return months % 12 >= 9 ? `há quase ${years + 1} anos` : `há ${years} anos`;
+}
 const slides = [
   {
     image: PrecoBaixo,
     alt: "Preço baixo todo dia. Venha conferir no Bom Pra Você Supermercado.",
   },
   { image: Compras, alt: "Tudo para o seu dia a dia. Bom pra você." },
-  { image: Padaria, alt: "Sua próxima parada: a padaria. Bom pra você." },
+  { image: Padaria, alt: "Ilustração da padaria Bom Pra Você. Setor em reforma.", status: "Padaria em reforma para trazer a melhor qualidade para sua mesa." },
 ];
 export default function BannerHome() {
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [stopped, setStopped] = useState(false);
   useEffect(() => {
     if (
-      paused ||
+      paused || stopped ||
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
     )
       return undefined;
@@ -23,7 +38,7 @@ export default function BannerHome() {
       if (!document.hidden) setSlide((value) => (value + 1) % slides.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [paused]);
+  }, [paused, stopped]);
   return (
     <section
       id="home"
@@ -42,6 +57,7 @@ export default function BannerHome() {
       </h1>
       <div
         className="carousel-slide"
+        role="group"
         aria-roledescription="carrossel"
         aria-label="Destaques da loja"
       >
@@ -53,7 +69,9 @@ export default function BannerHome() {
           fetchPriority="high"
         />
       </div>
+      {slides[slide].status && <p className="hero-service-status">{slides[slide].status}</p>}
       <div className="carousel-controls">
+        <button type="button" className="carousel-pause" aria-label={stopped ? "Retomar destaques" : "Pausar destaques"} title={stopped ? "Retomar destaques" : "Pausar destaques"} onClick={() => setStopped(value => !value)}>{stopped ? <Play size={18} fill="currentColor" aria-hidden="true" /> : <Pause size={18} fill="currentColor" aria-hidden="true" />}</button>
         <div className="carousel-dots">
           {slides.map((item, index) => (
             <button
@@ -66,6 +84,10 @@ export default function BannerHome() {
             </button>
           ))}
         </div>
+      </div>
+      <div className="heritage-banner">
+        <span className="heritage-banner-since">Desde {storeConfig.foundedOn.slice(0, 4)}</span>
+        <p>Trazendo qualidade para sua mesa <strong>{storeExperience()}.</strong></p>
       </div>
     </section>
   );

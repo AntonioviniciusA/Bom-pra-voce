@@ -461,6 +461,34 @@ address {
   padding: 24px 0;
   font-size: 0.85rem;
 }
+.heritage-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 24px;
+  padding: 26px 20px;
+  background: var(--brand-purple);
+  color: #fff;
+  text-align: center;
+}
+.heritage-banner-since {
+  border: 1px solid var(--brand-yellow);
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: var(--brand-yellow);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.heritage-banner p {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.8rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+.heritage-banner strong {
+  color: var(--brand-yellow);
+}
 .offer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));

@@ -77,15 +77,15 @@ export default function PromotionShowcase({ campaigns, status = "ready", reload 
           <h3>{item.title}</h3>
           <span className="offers-details__stroke" aria-hidden="true" />
           <p>{item.summary} Qualidade e economia para a sua família!</p>
-          <a className="offers-details__cta" href={item.file_url} target="_blank" rel="noopener noreferrer">Ver panfleto completo <ExternalLink size={20} aria-hidden="true" /></a>
+          <a className="offers-details__cta" href={item.file_url} target="_blank" rel="noopener noreferrer">Ver panfleto completo <span className="sr-only">(nova aba)</span><ExternalLink size={20} aria-hidden="true" /></a>
           <p className="offers-details__conditions"><Sparkles size={18} aria-hidden="true" /> {item.conditions}</p>
         </article>
 
-        {campaigns.length > 0 && <div className="offers-hud" role="tablist" aria-label="Escolha o setor do panfleto">
+        {campaigns.length > 0 && <div className="offers-hud" role="group" aria-label="Escolha o setor do panfleto">
           {campaigns.map((campaign, index) => {
             const meta = categoryMeta[inferCategory(campaign)] || categoryMeta.other;
             const Icon = customIcons[campaign.icon_key] || meta.icon;
-            return <button key={campaign.id} type="button" role="tab" aria-selected={index === active} aria-controls="offers-active-flyer" className={index === active ? "is-active" : ""} onClick={() => select(index)}>
+            return <button key={campaign.id} type="button" aria-pressed={index === active} aria-controls="offers-active-flyer" className={index === active ? "is-active" : ""} onClick={() => select(index)}>
               <Icon size={22} aria-hidden="true" /><span>{campaign.hud_label || meta.label}</span>
             </button>;
           })}
