@@ -1,0 +1,126 @@
+/* Scoped to this section to preserve the other home-page layouts. */
+#sobre.about-showcase {
+  padding-block: clamp(40px, 4vw, 64px);
+  color: #080b30;
+  background: #fffdf8;
+}
+
+#sobre .about-showcase__inner {
+  width: min( calc(100% - 80px), 1540px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(32px, 3vw, 52px);
+  align-items: center;
+}
+
+#sobre .about-showcase__content {
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#sobre .about-showcase__eyebrow {
+  margin: 0 0 28px;
+  color: #5b6179;
+  letter-spacing: 0.1em;
+}
+
+#sobre h2 {
+  max-width: 18ch;
+  margin: 0 0 30px;
+  color: #080b30;
+  font-size: clamp(2.25rem, 4.1vw, 4.5rem);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+#sobre .about-showcase__content > p:not(.about-showcase__eyebrow) {
+  max-width: 55ch;
+  margin: 0 0 24px;
+  color: #5b6179;
+  font-size: clamp(1.0625rem, 1.65vw, 1.625rem);
+  line-height: 1.5;
+  text-align: left;
+}
+
+#sobre .about-showcase__actions {
+  margin-top: 40px;
+  gap: 16px;
+}
+
+#sobre .about-showcase__actions a {
+  min-height: 58px;
+  padding: 16px 24px;
+  color: #080b30;
+  font-size: clamp(0.9375rem, 1.2vw, 1.25rem);
+  text-align: center;
+  border-width: 1px;
+}
+
+#sobre .about-showcase__primary { background: #ffda00; }
+#sobre .about-showcase__actions a:focus-visible {
+  outline: 3px solid #080b30;
+  outline-offset: 4px;
+}
+
+#sobre .about-showcase__visual {
+  position: relative;
+  min-width: 0;
+}
+
+#sobre .about-showcase__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.27;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 30px;
+  box-shadow: 0 20px 44px #b98a001c;
+}
+
+#sobre .about-showcase__badge {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  max-width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  border-radius: 24px;
+  background: #fffdf8;
+  box-shadow: 0 8px 28px #080b3014;
+}
+
+#sobre .about-showcase__badge-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff09a;
+  color: #16833b;
+  font-size: 30px;
+}
+
+#sobre .about-showcase__badge strong,
+#sobre .about-showcase__badge div > span { display: block; }
+#sobre .about-showcase__badge strong { font-size: clamp(1rem, 1.3vw, 1.375rem); line-height: 1.35; }
+#sobre .about-showcase__badge div > span { margin-top: 4px; color: #5b6179; line-height: 1.5; }
+
+@media (max-width: 1000px) {
+  #sobre .about-showcase__inner { grid-template-columns: 1fr; max-width: 720px; gap: 32px; }
+  #sobre h2 { max-width: 22ch; }
+  #sobre .about-showcase__image { aspect-ratio: 1.5; }
+}
+
+@media (max-width: 600px) {
+  #sobre .about-showcase__inner { width: calc(100% - 40px); }
+  #sobre .about-showcase__eyebrow { margin-bottom: 20px; }
+  #sobre h2 { font-size: clamp(2rem, 8.5vw, 2.75rem); margin-bottom: 24px; }
+  #sobre .about-showcase__actions { display: grid; margin-top: 28px; gap: 12px; }
+  #sobre .about-showcase__image { aspect-ratio: 1.2; border-radius: 22px; }
+  #sobre .about-showcase__badge { position: relative; right: auto; bottom: auto; max-width: none; margin: -32px 12px 0; padding: 16px; gap: 12px; border-radius: 18px; }
+  #sobre .about-showcase__badge-icon { width: 44px; height: 44px; font-size: 24px; }
+  #sobre .about-showcase__badge div > span { font-size: 0.875rem; }
+}
