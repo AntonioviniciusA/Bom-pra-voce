@@ -5,12 +5,11 @@ import Bebidas from "../../images/Setores/bebidas-institucional.jpg";
 import PadariaEmReforma from "../../images/Setores/padaria-institucional.jpg";
 import Freezer from "../../images/Setores/congelados-institucional.jpg";
 import Laticinios from "../../images/Setores/laticinios-institucional.jpg";
-import ArteBebidas from "../../images/Setores/Bebidas.webp";
-import ArteAdega from "../../images/Setores/Adega.webp";
-import ArteHortifruti from "../../images/Setores/Hortifrut.webp";
-import ArteCongelados from "../../images/Setores/Freezer.webp";
-import ArtePadaria from "../../images/Setores/Padaria.webp";
-import ArteLaticinios from "../../images/Setores/laticinios-arte.jpg";
+import ArteBebidas from "../../images/Setores/ilustracoes/bebidas.webp";
+import ArteHortifruti from "../../images/Setores/ilustracoes/hortifruti.webp";
+import ArteCongelados from "../../images/Setores/ilustracoes/congelados.webp";
+import ArtePadaria from "../../images/Setores/ilustracoes/padaria.webp";
+import ArteLaticinios from "../../images/Setores/ilustracoes/laticinios.webp";
 import Bebidas2 from "../../images/Setores/bebidas-galeria-2.jpg";
 import Hortifruti2 from "../../images/Setores/hortifruti-galeria-2.jpg";
 import Congelados2 from "../../images/Setores/congelados-galeria-2.jpg";
@@ -22,7 +21,7 @@ const sectors = [
   { name: "Hortifrúti", image: Hortifrut, alt: "Bancas de frutas e legumes do mercado", description: "Frutas, verduras e legumes para suas compras do dia a dia. Conheça as bancas do nosso hortifrúti.", tags: ["Frutas", "Verduras", "Legumes"] },
   { name: "Laticínios e Frios", image: Laticinios, alt: "Balcão refrigerado de laticínios e frios", description: "Nosso balcão de laticínios foi reformado para melhor atender você. Encontre opções para o café da manhã, lanches e receitas.", tags: ["Iogurtes", "Queijos", "Requeijões", "Frios"] },
   { name: "Congelados", image: Freezer, alt: "Ilha de congelados no centro do mercado", description: "Conheça nossa ilha de congelados e confira na loja as opções para preparar suas refeições.", tags: ["Alimentos congelados", "Praticidade"] },
-  { name: "Padaria", status: "Em breve", image: PadariaEmReforma, alt: "Padaria em reforma, com faixa Em breve", description: "Nossa padaria está em reforma. Estamos preparando esse espaço para receber você. Em breve, novidades por aqui.", tags: ["Em reforma"] },
+  { name: "Padaria", status: "Em breve", image: PadariaEmReforma, alt: "Padaria em reforma, com faixa Em breve", description: "Padaria em reforma para trazer a melhor qualidade para sua mesa. Estamos preparando esse espaço para receber você.", tags: ["Em reforma"] },
 ];
 const tagIcons = [Wine, Apple, Milk, Snowflake, Croissant];
 const covers = [ArteBebidas, ArteHortifruti, ArteLaticinios, ArteCongelados, ArtePadaria];
@@ -39,6 +38,14 @@ export default function Cards() {
   const photoCount = photos.length;
   React.useEffect(() => {
     if (activeIndex === null) return undefined;
+    const muted = [];
+    let branch = dialogRef.current?.parentElement;
+    while (branch && branch !== document.body) {
+      for (const sibling of branch.parentElement.children) {
+        if (sibling !== branch && !sibling.hasAttribute("inert")) { sibling.setAttribute("inert", ""); muted.push(sibling); }
+      }
+      branch = branch.parentElement;
+    }
     dialogRef.current?.querySelector('button')?.focus();
     const onKeyDown = (event) => {
       if (event.key === "Escape") closeSector();
@@ -52,16 +59,21 @@ export default function Cards() {
     };
     document.addEventListener("keydown", onKeyDown);
     document.body.classList.add("sector-modal-open");
-    return () => { document.removeEventListener("keydown", onKeyDown); document.body.classList.remove("sector-modal-open"); };
+    return () => { muted.forEach(node => node.removeAttribute("inert")); document.removeEventListener("keydown", onKeyDown); document.body.classList.remove("sector-modal-open"); triggerRef.current?.focus(); };
   }, [activeIndex, closeSector, photoCount]);
   return <section id="setores" className="sectors-showcase" aria-labelledby="sectors-title">
     <div className="sectors-showcase__inner"><h2 id="sectors-title" className="section-title">Conheça nossos setores</h2>
       <p className="sectors-showcase__intro">Um passeio pelo mercado e pelos setores que fazem parte do seu dia a dia.</p>
-      <ul className="photo-sectors">{sectors.map(sector =>
-        <li key={sector.name} className={sector.status ? "sector-card--upcoming" : ""} role="button" tabIndex="0" onClick={() => openSector(sectors.indexOf(sector))} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openSector(sectors.indexOf(sector)); } }} aria-label={sector.status ? `${sector.name} — ${sector.status}` : `Conheça o setor ${sector.name}`}><img src={covers[sectors.indexOf(sector)]} alt="" loading="lazy" />
-          {sector.name === "Bebidas e Adega" && <img className="sector-card__wine-art" src={ArteAdega} alt="" loading="lazy" />}
-          {sector.status && <span className="sector-card__coming-soon">Em breve</span>}
-          <h3>{sector.name}</h3><span className="sector-card__accent" aria-hidden="true" /></li>)}</ul>
+      <ul className="photo-sectors">{sectors.map((sector, index) =>
+        <li key={sector.name}>
+          <button type="button" className="sector-card-trigger" onClick={() => openSector(index)} aria-label={sector.status ? `${sector.name} — ${sector.status}` : `Conheça o setor ${sector.name}`}>
+            <img src={covers[index]} alt="" width="720" height="720" loading="lazy" decoding="async" />
+            <span className="sector-card-copy"><span className="sector-card-title">{sector.name}</span>
+              <span className={sector.status ? "sector-card-status" : "sector-card-action"}>{sector.status ? "Em reforma · em breve" : "Conhecer o setor →"}</span>
+            </span>
+          </button>
+        </li>)}</ul>
+      <p className="sector-art-note">Ilustrações representativas dos setores. Selecione um cartão para ver os detalhes e as imagens do ambiente.</p>
     </div>
     {activeSector && <div className="sector-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeSector(); }}>
       <div ref={dialogRef} className="sector-modal" role="dialog" aria-modal="true" aria-labelledby="sector-modal-title">
