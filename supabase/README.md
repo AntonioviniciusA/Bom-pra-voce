@@ -49,3 +49,8 @@ Antes de ativar:
 6. validar juridicamente se a retenção de currículos por 6 meses é adequada à finalidade e à operação da empresa;
 7. aprovar/versionar o aviso de privacidade e somente então definir `APPLICATIONS_ENABLED=true` no frontend e no Supabase;
 8. testar com PDF fictício, confirmar protocolo, quarentena privada, inspeção, acesso do RH e eliminação.
+
+
+## Vitrine de produtos
+
+Consulte o [guia atual da vitrine e painel](../docs/vitrine-painel.md) para cadastro, revisão de fotos, publicação, retirada, contratos e resultados de validação.

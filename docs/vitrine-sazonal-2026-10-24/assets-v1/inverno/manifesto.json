@@ -1,0 +1,104 @@
+{
+  "id": "inverno",
+  "name": "Inverno",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1022941,
+      "sha256": "9c2c51cc80563c1889a37711c25cdd6a6df74ab3167d46f32db0a94dc4b6bcb4",
+      "alpha": true,
+      "transparentFraction": 0.6992
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 8054,
+      "sha256": "732cc5264e01eb99de9113da01a162d72b932b0fd8e7a4afcad48cd566ba1235",
+      "alpha": true,
+      "transparentFraction": 0.6741
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14834,
+      "sha256": "0f12460f1a4d4ef20dd53a2575b89a96b5fa61bae6e34ea44d488f82b610adb4",
+      "alpha": true,
+      "transparentFraction": 0.6861
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 37454,
+      "sha256": "f748524518dd705df7821c9e61678760514c6254b005f64034ece33906df285b",
+      "alpha": true,
+      "transparentFraction": 0.6978
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 50972,
+      "sha256": "62c1cd1e3d384e73a19df50762f32132491f024a524f119b049805f4477f9bfd",
+      "alpha": true,
+      "transparentFraction": 0.6989
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

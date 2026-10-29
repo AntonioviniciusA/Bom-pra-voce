@@ -8,11 +8,17 @@ Aplicativo administrativo separado do site público e executado em Electron.
 2. Preencha a URL e a chave publicável do projeto Supabase. Não use `service_role`.
 3. Execute `npm install`.
 
-## Execução
+## Vitrine de novembro de 2026
 
-- Desenvolvimento: `npm run dev`
-- Compilar e abrir no Electron: `npm start`
-- Apenas compilar a interface: `npm run build`
+Abra o painel com `npm start` na pasta `painel-local`. Em **Ofertas → Vitrine de produtos**, use **Preparar novembro** para obter Esquenta (1–22/11) e Semana Black Friday (23–29/11). O botão preserva rascunhos existentes. [Guia de cadastro e publicação](../docs/vitrine-novembro-2026.md).
+
+## Abrir o painel
+
+Na pasta `painel-local`, execute `npm start`. O comando compila a interface e abre o aplicativo. Mantenha o terminal aberto enquanto usa o painel.
+
+## Erros e diagnóstico
+
+Ao executar `npm start`, falhas do painel aparecem no mesmo terminal com o prefixo `[BPV]`. Cada registro informa horário, operação, categoria, código e status HTTP; quando disponível, inclui o identificador da requisição. Senhas, códigos do autenticador, tokens, dados de candidatos e conteúdo das campanhas não são enviados ao console. A tela mostra uma orientação curta: falha de conexão, credenciais recusadas, sessão expirada, falta de permissão, conflito de edição ou falha do servidor. Deixe o terminal aberto durante a tentativa e copie somente as linhas `[BPV]` para investigar um erro.
 
 ## Instalador Windows
 
@@ -68,3 +74,8 @@ A miniatura ajusta a escala pela largura e pela altura total da seção: no edit
 
 ## Barra lateral
 O botão Abrir/Fechar menu recolhe a navegação e libera espaço para o editor. Após 10 segundos com o mouse fora da barra, ela fecha automaticamente. Voltar com o mouse reinicia a contagem; foco de teclado dentro da navegação pausa o fechamento. Escape fecha e devolve o foco ao botão de abertura. O formulário em edição permanece montado.
+
+
+## Vitrine de produtos
+
+Consulte o [guia atual da vitrine e painel](../docs/vitrine-painel.md) para cadastro, revisão de fotos, publicação, retirada, contratos e resultados de validação.

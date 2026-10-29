@@ -1,0 +1,104 @@
+{
+  "id": "aniversario-loja",
+  "name": "Aniversário da loja",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 885496,
+      "sha256": "79878343f109e7195c46a3353d5cdfa84fd1f190037ee15c09c6be9f54a2a2c4",
+      "alpha": true,
+      "transparentFraction": 0.7327
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 7446,
+      "sha256": "1357aff73cedcaba737e9bd6760f0d043d2299c1c3b82dc0370526e01bd0e9f8",
+      "alpha": true,
+      "transparentFraction": 0.7026
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13722,
+      "sha256": "841420cfc8bb6b779eea0328ed01616117e5427a63825e308803f78eeae9904f",
+      "alpha": true,
+      "transparentFraction": 0.7158
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 32520,
+      "sha256": "a13a5e1b548eb2c6391b0076023823b0508b9bb52c341f630c1292598385984f",
+      "alpha": true,
+      "transparentFraction": 0.7301
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 44590,
+      "sha256": "47fcbf5aa6376d32467fe5bb3c60e7dd4239da2ec37927252fcd808ecfc07460",
+      "alpha": true,
+      "transparentFraction": 0.7319
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

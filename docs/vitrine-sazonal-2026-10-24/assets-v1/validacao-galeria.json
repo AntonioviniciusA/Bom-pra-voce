@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-25",
+  "combinations": 63,
+  "errors": [],
+  "broken": [],
+  "overflow": [],
+  "mobileOverflow": false,
+  "narrowOverflow": false,
+  "institutionalIntensityLocked": true
+}

@@ -1,0 +1,2197 @@
+{
+  "version": 1,
+  "date": "2026-10-25",
+  "purpose": "Decorações separadas para implementação futura",
+  "themes": [
+    {
+      "id": "padrao",
+      "name": "Padrão Bom pra você",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/padrao/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 982891,
+          "sha256": "49bd3fcf57ce8e2dbafce2a4ef57916596f1554eb7f7c80d3fa142d0341b24fb",
+          "alpha": true,
+          "transparentFraction": 0.722
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/padrao/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 9002,
+          "sha256": "d34a3bfec67de6a890f2a66781c9bd0b2de14f7d4eabe48413efe9384cfce7f0",
+          "alpha": true,
+          "transparentFraction": 0.681
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/padrao/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 14966,
+          "sha256": "ec9530775911a035679b0f639f2e04cdd29f5fc1aa69bd1de6d4e9af17effc83",
+          "alpha": true,
+          "transparentFraction": 0.7
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/padrao/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 36268,
+          "sha256": "87d0112a1fbf3af27a86cff65aab61cbd12f880a4b9a0b77d710f9e3de008ed0",
+          "alpha": true,
+          "transparentFraction": 0.7183
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/padrao/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 50522,
+          "sha256": "8230118c3b0670aeba342de0bde9fc42ba48dfda697c606a2851926e1ce6f18a",
+          "alpha": true,
+          "transparentFraction": 0.7205
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "verao",
+      "name": "Verão",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/verao/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 997486,
+          "sha256": "e1746ac032687deda84169bf9bbdb628cb2638773472e703c04704689e112681",
+          "alpha": true,
+          "transparentFraction": 0.7013
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/verao/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8250,
+          "sha256": "8e2be680a98395bb3219de8672fbefc40c23ad7562adba0186b00bbf7773b3f0",
+          "alpha": true,
+          "transparentFraction": 0.695
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/verao/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15558,
+          "sha256": "ed387e97a6649092232874b169e04275ea07fbd34739250ebc95883c5fabf85f",
+          "alpha": true,
+          "transparentFraction": 0.6967
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/verao/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 39636,
+          "sha256": "7b1747cd2b9a2b5933c491576efc49c703889d161c472c4e54b40501effe4760",
+          "alpha": true,
+          "transparentFraction": 0.7029
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/verao/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 55858,
+          "sha256": "5948bfaa148eedea05477c6c4a2612a238e32e552fc46d4c1045947fff2d40f9",
+          "alpha": true,
+          "transparentFraction": 0.7026
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "volta-a-rotina",
+      "name": "Volta à rotina",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1320181,
+          "sha256": "4c2a207ef26f3bcb74046e5b3b164b7eaa62dfb01877eb11a77c683bb3af2d0a",
+          "alpha": true,
+          "transparentFraction": 0.5782
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 6234,
+          "sha256": "2c09730a253cb09dfca7ffa5aacaa71ede97d9f74f6a04ac1f9533b18dcae951",
+          "alpha": true,
+          "transparentFraction": 0.5667
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 11532,
+          "sha256": "7465f17b498e417290a46335b67bd50e2b876fd1bb728823bc892f4006ae89fe",
+          "alpha": true,
+          "transparentFraction": 0.5738
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 30946,
+          "sha256": "bed0114138a66802781d5ee1f42099040cdeaa766acfcfd50970b432cd0e75e8",
+          "alpha": true,
+          "transparentFraction": 0.5788
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 43952,
+          "sha256": "60937ff0c8252384dec09acf60881e180eb87a40c1241b7dcc44798dc62e590e",
+          "alpha": true,
+          "transparentFraction": 0.5787
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "carnaval",
+      "name": "Carnaval",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 761618,
+          "sha256": "bc5d0047e7901c2d52022cb0c67e1e4ef8c7ab38502644aa32f92ad0473d1275",
+          "alpha": true,
+          "transparentFraction": 0.807
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 9302,
+          "sha256": "038974858877db3fd5c6a41cf353e317acdb6dd73cd9dde0cc14bd5d941a60eb",
+          "alpha": true,
+          "transparentFraction": 0.7581
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 16390,
+          "sha256": "825ef285e79276d4a556d77d3c89e604605c7535f38474be764dd319bdb8fece",
+          "alpha": true,
+          "transparentFraction": 0.7819
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 38816,
+          "sha256": "3878a4d05f3c9fadd047bd927508ca591cc2f89240fe257837a399a2572fe82f",
+          "alpha": true,
+          "transparentFraction": 0.8027
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 53228,
+          "sha256": "8d629d85242740cc4d45128a35461ddf38e11196218802832d9f18f043946c77",
+          "alpha": true,
+          "transparentFraction": 0.8051
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "volta-as-aulas",
+      "name": "Volta às aulas",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1072632,
+          "sha256": "9736730c27e70573ed3adb81adede40b0e48e77c516040c887ab138b88337f26",
+          "alpha": true,
+          "transparentFraction": 0.6544
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7076,
+          "sha256": "eb7cd171f1bbeb7ea034bd5c2cc997d3cc1581673c99fb5b6475eefc7add7ae4",
+          "alpha": true,
+          "transparentFraction": 0.6352
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 12668,
+          "sha256": "ab2a456cdf2260a9c5c93271dd4fec40ce12e635956836c3264f1fb04d998bb4",
+          "alpha": true,
+          "transparentFraction": 0.6449
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 30962,
+          "sha256": "af8180a8e6e4d3683ed1b0e60c60329998a9a2dd40983e052e8eb3317f6660ba",
+          "alpha": true,
+          "transparentFraction": 0.6535
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 43042,
+          "sha256": "a290b69af4825b0664d301a4e252215a0737b604b64324c6acdb33a621e132d0",
+          "alpha": true,
+          "transparentFraction": 0.6543
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "consumidor",
+      "name": "Mês do consumidor",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1211838,
+          "sha256": "d87f87ce4c3de5ef02fece786f036fdd2ccd1b75f26020a2b259db7503edb32e",
+          "alpha": true,
+          "transparentFraction": 0.6454
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7020,
+          "sha256": "0ba048e607597b3c580c9e1b8cbc2eb2ce3db9f76c8be4929d74b47d1c178c0a",
+          "alpha": true,
+          "transparentFraction": 0.6187
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 12822,
+          "sha256": "fae95ce769a7b97aac20f13430eb0e60e3035e836da80b5043f1610eab684b82",
+          "alpha": true,
+          "transparentFraction": 0.6303
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31534,
+          "sha256": "9be3afae2f858c735624f1e0a3c65c8ecc98ae8c59c64cfd0e517bc15998b78e",
+          "alpha": true,
+          "transparentFraction": 0.6422
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44178,
+          "sha256": "0ddfff0a3472544fb1f5e4e19fe564ce2190160b3a6cd17c4f09550bde6fe52e",
+          "alpha": true,
+          "transparentFraction": 0.6439
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "pascoa",
+      "name": "Páscoa",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1326363,
+          "sha256": "705834e23087ec5a258471d9a4509056d257aaebafc1c36de4250728e88d0bf4",
+          "alpha": true,
+          "transparentFraction": 0.6354
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 9244,
+          "sha256": "f1db7a67c267aedec9bcfd045a980904b40560e2d30cc6eaddcacfd4203645db",
+          "alpha": true,
+          "transparentFraction": 0.6165
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 17028,
+          "sha256": "0cf53e67c1d01f2ea3c42069e680b8b215c9ab14aecf70f2bb7b371b9017789f",
+          "alpha": true,
+          "transparentFraction": 0.627
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 42516,
+          "sha256": "71b208af3c735bfafb5a16c9c040bc1bb6ea3d38f273bf32a93acc06a5549b5a",
+          "alpha": true,
+          "transparentFraction": 0.6362
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 59332,
+          "sha256": "a39e79c255b58d6d9d3379f829a1766e2d46232e129b57112e97250340408aaa",
+          "alpha": true,
+          "transparentFraction": 0.6365
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "maes",
+      "name": "Dia das Mães",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/maes/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1214338,
+          "sha256": "2b5c4d462a7bc11642f931afe42ba7eebcf4689942b2fe72d73855d946a1b297",
+          "alpha": true,
+          "transparentFraction": 0.6852
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/maes/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 9682,
+          "sha256": "e3ba780fb16a777628fec6b996cd8124178dad33c0895031cf78d56de507860d",
+          "alpha": true,
+          "transparentFraction": 0.657
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/maes/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 18132,
+          "sha256": "7a5739ac6bcbb73446cddb3dff4f544eeb7a1b263becd2022f0894a90a34716d",
+          "alpha": true,
+          "transparentFraction": 0.6711
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/maes/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 46852,
+          "sha256": "6574f8dead10396167e3235b7a4fa8f6bbf4899f92b528f36d61c9e4811c7264",
+          "alpha": true,
+          "transparentFraction": 0.6837
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/maes/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 65334,
+          "sha256": "a58fc7197a9de4a8b425e5d3a873f4efac3b0ba18ae2990a56dd377f245274a8",
+          "alpha": true,
+          "transparentFraction": 0.6851
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "festa-junina",
+      "name": "Festa junina",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 945345,
+          "sha256": "3628da4f4af75f9acf7e513326c1542790bcafd6662017366e7b761dced3ed13",
+          "alpha": true,
+          "transparentFraction": 0.7417
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7908,
+          "sha256": "1c6cca1466019cc69cd03fa135317a723818faed65b6e8102e7409eb6ce78e2f",
+          "alpha": true,
+          "transparentFraction": 0.7382
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15418,
+          "sha256": "9c2b0943bb93bf81722c42809342cc083adb15feaf4de8bee0777b91b945e243",
+          "alpha": true,
+          "transparentFraction": 0.7354
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 39898,
+          "sha256": "a434b5a3e2f1ba5b80442f12a3c153eaaf8cfe5e2b31b6bc6995a494b943656b",
+          "alpha": true,
+          "transparentFraction": 0.7422
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 56116,
+          "sha256": "e718cd2066ac184018343c7025fdbb059fc1fa9293298eca4d59a46eb3838547",
+          "alpha": true,
+          "transparentFraction": 0.742
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "namorados",
+      "name": "Dia dos Namorados",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 713140,
+          "sha256": "cfa792ab57a7a978a7dcc30e7822c1fc9ab63ec8e40accd3e653960784576527",
+          "alpha": true,
+          "transparentFraction": 0.8159
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 6002,
+          "sha256": "ccd90a9bb126b8839a909e08c28cdde621c5329d370ad787c97cf00f0eac31ae",
+          "alpha": true,
+          "transparentFraction": 0.7847
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 10664,
+          "sha256": "b9439764e781199e01fcfe3584399fa191d0b442095116dc91f85529d25fc94d",
+          "alpha": true,
+          "transparentFraction": 0.7986
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 25302,
+          "sha256": "7e15f9f543396e7658b8a21f04a58134a61a88d5e95038b95007d39b7c148e4a",
+          "alpha": true,
+          "transparentFraction": 0.812
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 35476,
+          "sha256": "3a5e99f035e1cb1acbafd0e13e803193665dc9d6ca581d0136c9fa581ab286fb",
+          "alpha": true,
+          "transparentFraction": 0.8139
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "ferias",
+      "name": "Férias",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ferias/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 832659,
+          "sha256": "fd2b71607e018d7f5375253d448c8100a296c98bdf4ae7b8ff883bd50b9e1216",
+          "alpha": true,
+          "transparentFraction": 0.7573
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ferias/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8652,
+          "sha256": "fcbd6413729bfe63371803e4a66bf427007e6a78cd7b34c7f6b4746170c01555",
+          "alpha": true,
+          "transparentFraction": 0.7213
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ferias/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15736,
+          "sha256": "a36e742e6334911c96a35c1810bfd9b3f64696db22da7b42491853b2c6c74f0c",
+          "alpha": true,
+          "transparentFraction": 0.7385
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ferias/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 37780,
+          "sha256": "68598fc154ea67d9fa90ef0b30c64be3ac624520f3dbe585d7e278371dc947ce",
+          "alpha": true,
+          "transparentFraction": 0.7546
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ferias/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 50858,
+          "sha256": "3b6a0e370ccac3d5c173827770dc760d83e6aa118982df0b57deee3c2efefb94",
+          "alpha": true,
+          "transparentFraction": 0.7563
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "inverno",
+      "name": "Inverno",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1022941,
+          "sha256": "9c2c51cc80563c1889a37711c25cdd6a6df74ab3167d46f32db0a94dc4b6bcb4",
+          "alpha": true,
+          "transparentFraction": 0.6992
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8054,
+          "sha256": "732cc5264e01eb99de9113da01a162d72b932b0fd8e7a4afcad48cd566ba1235",
+          "alpha": true,
+          "transparentFraction": 0.6741
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 14834,
+          "sha256": "0f12460f1a4d4ef20dd53a2575b89a96b5fa61bae6e34ea44d488f82b610adb4",
+          "alpha": true,
+          "transparentFraction": 0.6861
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 37454,
+          "sha256": "f748524518dd705df7821c9e61678760514c6254b005f64034ece33906df285b",
+          "alpha": true,
+          "transparentFraction": 0.6978
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/inverno/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 50972,
+          "sha256": "62c1cd1e3d384e73a19df50762f32132491f024a524f119b049805f4477f9bfd",
+          "alpha": true,
+          "transparentFraction": 0.6989
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "pais",
+      "name": "Dia dos Pais",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 918616,
+          "sha256": "2cd203caacf1382de8bf4ad68ef7e6063d6ddc11343fc5667a977a189d0fc91a",
+          "alpha": true,
+          "transparentFraction": 0.7451
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7700,
+          "sha256": "88501289ebb62b54b64988fe7c823dce946d269b982174a3530f24596b595310",
+          "alpha": true,
+          "transparentFraction": 0.7115
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 13356,
+          "sha256": "c0d8eeba29b78d1e72451d162930587bca362d3bfae3bb9218f18047693dc708",
+          "alpha": true,
+          "transparentFraction": 0.7272
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 31820,
+          "sha256": "4d96b4e5aa7f4874338be6b229c7667e1dd93063bfc0a2d9c0f614bdf7785ecd",
+          "alpha": true,
+          "transparentFraction": 0.7415
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44284,
+          "sha256": "4634fe8ee64214e5a6b11bd899d09a5a1584f1b4724fb2baaa37d259a7e6cc90",
+          "alpha": true,
+          "transparentFraction": 0.7436
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "primavera",
+      "name": "Primavera",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/primavera/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1077171,
+          "sha256": "4d7ddc68352f14115d605c0b466d0c9d9c315be9f3cd457100d53c497021d605",
+          "alpha": true,
+          "transparentFraction": 0.7145
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/primavera/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8448,
+          "sha256": "1f264d233f83561e65fa2a528e44b79c5c5ae3ded018137c7d5b9f76be8cda1f",
+          "alpha": true,
+          "transparentFraction": 0.688
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/primavera/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15478,
+          "sha256": "5b7f2846604d793d4c3016337a50a10da264f5f65035a226f6c7af148b60bdf5",
+          "alpha": true,
+          "transparentFraction": 0.7009
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/primavera/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 38620,
+          "sha256": "0002ac830cdef85dcf2310ad8a47145a7f82a11375844b3a93cd5590628301d4",
+          "alpha": true,
+          "transparentFraction": 0.713
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/primavera/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 54058,
+          "sha256": "1155fd8b9765059a78c5d9832ce83dba63ddfc0eb1165eb2c2e674980c21bf9e",
+          "alpha": true,
+          "transparentFraction": 0.714
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "setembro-amarelo",
+      "name": "Setembro Amarelo",
+      "version": 1,
+      "kind": "institutional",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 614468,
+          "sha256": "1eed3160a530fa8ed9b15020e9a61bb9c56fe3753968a31aa0737b3d0a7ec12a",
+          "alpha": true,
+          "transparentFraction": 0.8117
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 4698,
+          "sha256": "ce3bfd3fe1c2d650e00fab6b7f7e973331db56b75cca0461af92ca09b26f11f2",
+          "alpha": true,
+          "transparentFraction": 0.7933
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 8156,
+          "sha256": "bc97fed3d8a64357cdc04dde4874f9a213fe3ccc2f787dab20c723060c0c1dc1",
+          "alpha": true,
+          "transparentFraction": 0.803
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 18354,
+          "sha256": "72cce2a437e4795a3eb88edcf73d35f059308a2baea61c743124ded20e84063d",
+          "alpha": true,
+          "transparentFraction": 0.8108
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 24856,
+          "sha256": "9e5cd9728664e36d286ea0c09e25077447cf6d20b7940b634de00716bb2a9ee4",
+          "alpha": true,
+          "transparentFraction": 0.8117
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 40,
+          "maxInstances": 1,
+          "placement": "separate-institutional-note"
+        },
+        "celular": {
+          "displayPx": 32,
+          "maxInstances": 1,
+          "placement": "separate-institutional-note"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 830,
+            "y": 270,
+            "width": 150,
+            "height": 150
+          },
+          "rule": "independent-institutional-piece-no-prices"
+        },
+        "intensity": [
+          "discreta"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "criancas",
+      "name": "Dia das Crianças",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 977829,
+          "sha256": "709caf49e08346454d74a6bb90ddbe954af099a294000827bbdf384683ccd9cf",
+          "alpha": true,
+          "transparentFraction": 0.6731
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8812,
+          "sha256": "880754b5aff16d2a69d2eff5c1f2b0d74db4c37d8245128730bb02704124cfbd",
+          "alpha": true,
+          "transparentFraction": 0.6435
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15556,
+          "sha256": "29288c933c663da10611b869e9e05d4c2f57a0de6e780ea856870c210ffe6545",
+          "alpha": true,
+          "transparentFraction": 0.6577
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 36520,
+          "sha256": "1253c3075f4273bc20a736fbd7f6186fe1d0b9fcc84b94139694674312957fd8",
+          "alpha": true,
+          "transparentFraction": 0.6708
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 49058,
+          "sha256": "95b2eaa5a8cec3e32a157b594452f44e8e79d21656f1aef73dd35a3f0cf61fd8",
+          "alpha": true,
+          "transparentFraction": 0.6723
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "outubro-rosa",
+      "name": "Outubro Rosa",
+      "version": 1,
+      "kind": "institutional",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 627438,
+          "sha256": "5ffb2551a94420215ddce5cdbc765aeefa1fbf1d126e83f791951140f4be9e1b",
+          "alpha": true,
+          "transparentFraction": 0.8157
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 4618,
+          "sha256": "7ea73f4275d3396574e828b82dcecc4ce5f65706e75c7769ac61ef116dd59a67",
+          "alpha": true,
+          "transparentFraction": 0.7985
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 7998,
+          "sha256": "105e8423c33df2b6c0452993dab4c19e32c19ff14821b18902b7af6510841732",
+          "alpha": true,
+          "transparentFraction": 0.8068
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 19566,
+          "sha256": "54e7c147fa4c65717a7ab2e681676fe9bfa46138fae34477ddc80bbb485cafa5",
+          "alpha": true,
+          "transparentFraction": 0.815
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 28206,
+          "sha256": "0ebd0a987f3105956296de331f74c3126a1875787cef60b82a1c8445fd8584ce",
+          "alpha": true,
+          "transparentFraction": 0.8158
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 40,
+          "maxInstances": 1,
+          "placement": "separate-institutional-note"
+        },
+        "celular": {
+          "displayPx": 32,
+          "maxInstances": 1,
+          "placement": "separate-institutional-note"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 830,
+            "y": 270,
+            "width": 150,
+            "height": 150
+          },
+          "rule": "independent-institutional-piece-no-prices"
+        },
+        "intensity": [
+          "discreta"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "black-friday",
+      "name": "Black Friday",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 518806,
+          "sha256": "320df28f8cfff93272a600c03b589b5f5f2e056d767d9318ffdf219370428057",
+          "alpha": true,
+          "transparentFraction": 0.8408
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 4936,
+          "sha256": "8c2db350df7f0163f4b02ba58a2daae11d61712d732be0239012003ea2ccb94a",
+          "alpha": true,
+          "transparentFraction": 0.8181
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 8550,
+          "sha256": "02dba405b958bb8dacb38c1023d7ab46c4e894df46998331ff0e5b09674f7a47",
+          "alpha": true,
+          "transparentFraction": 0.8291
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 19254,
+          "sha256": "17c2b20da9e8cb006bee07e06e572a01d7ad0adb5af2edbb6b91cd60aae289d2",
+          "alpha": true,
+          "transparentFraction": 0.8387
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 25810,
+          "sha256": "4d7b6a27f1c102ade8a403ba479a2661fd0bf450782f63622f862a9cbe13b75f",
+          "alpha": true,
+          "transparentFraction": 0.8399
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#21102e"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "natal",
+      "name": "Natal",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/natal/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 1620931,
+          "sha256": "af33821d30f9e94883e1455f3262ae4a3b78a1782c7bdc58ebbd5bb253bfdebb",
+          "alpha": true,
+          "transparentFraction": 0.6143
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/natal/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 10622,
+          "sha256": "f205c5cfc3083132aa8edd4810bee4d64c1b56d368f3d277ab8545021036fa38",
+          "alpha": true,
+          "transparentFraction": 0.5875
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/natal/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 21026,
+          "sha256": "bd879cb0fb91437082ccb65994d477e2b3b238a066c443be758edc5a95d03185",
+          "alpha": true,
+          "transparentFraction": 0.601
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/natal/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 63738,
+          "sha256": "5b6cdb12d087ef183dacac5d9f221ef92cda9d0b24657fc0b16a01b9fb1eb0d8",
+          "alpha": true,
+          "transparentFraction": 0.6142
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/natal/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 91866,
+          "sha256": "6b0ddf9b7dc0b7c8d16e8fd4d11e9a4fdff6718717cfc7237bffa210cd488cb5",
+          "alpha": true,
+          "transparentFraction": 0.615
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "ano-novo",
+      "name": "Ano-Novo",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 762057,
+          "sha256": "e1f14fc5fc6e14cbf837cf712f6dfe0531293cf1fbf913e4ef40e737482799b7",
+          "alpha": true,
+          "transparentFraction": 0.7988
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 8434,
+          "sha256": "34986c41ed9f313f32831f838a76d29a3928c45af9b1fdbb32da847970b00a1b",
+          "alpha": true,
+          "transparentFraction": 0.765
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 15340,
+          "sha256": "d190beb5c74e6073a4b41da806667e2c6aac509a23042580a0efa5cd490655c4",
+          "alpha": true,
+          "transparentFraction": 0.782
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 37366,
+          "sha256": "0cb2aa09177bd3f52a790c061fc90f0293981f2d718f8268c72dcdf8fbc4b24c",
+          "alpha": true,
+          "transparentFraction": 0.7966
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 51272,
+          "sha256": "4e370dc0714b1bfd3a49d69674a82b2e326443edae0cc9e2b1c22377b945deba",
+          "alpha": true,
+          "transparentFraction": 0.7985
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    },
+    {
+      "id": "aniversario-loja",
+      "name": "Aniversário da loja",
+      "version": 1,
+      "kind": "commercial",
+      "editorialApproval": "pending-user-review",
+      "technicalStatus": "prepared",
+      "files": {
+        "original": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/original.png",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 885496,
+          "sha256": "79878343f109e7195c46a3353d5cdfa84fd1f190037ee15c09c6be9f54a2a2c4",
+          "alpha": true,
+          "transparentFraction": 0.7327
+        },
+        "miniatura": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/miniatura.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7446,
+          "sha256": "1357aff73cedcaba737e9bd6760f0d043d2299c1c3b82dc0370526e01bd0e9f8",
+          "alpha": true,
+          "transparentFraction": 0.7026
+        },
+        "celular": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/celular.webp",
+          "width": 256,
+          "height": 256,
+          "bytes": 13722,
+          "sha256": "841420cfc8bb6b779eea0328ed01616117e5427a63825e308803f78eeae9904f",
+          "alpha": true,
+          "transparentFraction": 0.7158
+        },
+        "notebook": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/notebook.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 32520,
+          "sha256": "a13a5e1b548eb2c6391b0076023823b0508b9bb52c341f630c1292598385984f",
+          "alpha": true,
+          "transparentFraction": 0.7301
+        },
+        "story": {
+          "file": "../../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/story.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 44590,
+          "sha256": "47fcbf5aa6376d32467fe5bb3c60e7dd4239da2ec37927252fcd808ecfc07460",
+          "alpha": true,
+          "transparentFraction": 0.7319
+        }
+      },
+      "palette": {
+        "ink": "#21102e",
+        "paper": "#fffdf0",
+        "purple": "#4913b8",
+        "yellow": "#facc15",
+        "surface": "#fffdf0"
+      },
+      "contrast": {
+        "inkOnPaper": 17.45,
+        "purpleOnYellow": 6.63,
+        "whiteOnPurple": 10.15
+      },
+      "layout": {
+        "notebook": {
+          "displayPx": 144,
+          "maxInstances": 2,
+          "placement": "outside-content-corners"
+        },
+        "celular": {
+          "displayPx": 64,
+          "maxInstances": 1,
+          "placement": "reserved-margin"
+        },
+        "story": {
+          "canvas": [
+            1080,
+            1920
+          ],
+          "essentialSafeArea": {
+            "x": 60,
+            "y": 250,
+            "width": 960,
+            "height": 1420
+          },
+          "decorationBox": {
+            "x": 820,
+            "y": 0,
+            "width": 240,
+            "height": 240
+          },
+          "rule": "outside-essential-safe-area"
+        },
+        "intensity": [
+          "discreta",
+          "marcante"
+        ],
+        "pointerEvents": "none",
+        "decorativeAlt": ""
+      }
+    }
+  ],
+  "rules": [
+    "Sem fotos, preços, datas ou logo embutidos",
+    "Carregar somente o tema ativo",
+    "Não usar pranchas conceituais como assets",
+    "Não deformar nem recolorir arquivos",
+    "Institucional separado de ofertas",
+    "Integração e publicação não executadas"
+  ]
+}
