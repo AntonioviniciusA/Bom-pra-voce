@@ -36,6 +36,8 @@ for (const [route, meta] of Object.entries(pageMetadata)) {
     content = renderToStaticMarkup(React.createElement(MemoryRouter, { initialEntries: [route] }, React.createElement(route === '/termos' ? Terms : Privacy)));
   } else if (route === '/') {
     content = `<section class="shell section"><h1>Bom Pra Você Supermercado em Samambaia Sul</h1><p>Compras presenciais em Brasília–DF.</p><h2>Localização</h2><address>${escape(store.address)}</address><a href="${escape(store.mapsUrl)}">Como chegar pelo Google Maps</a><h2>Horários</h2>${store.hours.map(row => `<p>${escape(row.day)}: ${escape(row.time)}</p>`).join('')}<p>${escape(store.holidayHours)}</p><h2>Setores</h2><p>Hortifrúti, bebidas e adega, laticínios e frios e congelados. A padaria está em reforma.</p><h2>Pagamentos</h2><p>${escape(store.payments.join(', '))}.</p><p>${escape(store.paymentConditions)}</p><h2>Ofertas</h2><p>Os panfletos vigentes são consultados quando o site é aberto com JavaScript. Confira validade e condições de cada oferta.</p></section>`;
+  } else if (route === '/ofertas/novembro') {
+    content = '<section class="shell section"><h1>Ofertas de novembro</h1><h2>Seleção Black Friday</h2><p>As ofertas de novembro estão sendo preparadas. Volte em breve.</p></section>';
   } else {
     content = '<section class="shell section"><h1>Trabalhe conosco</h1><p>Consulte as orientações para enviar seu currículo ao Bom Pra Você, em Samambaia Sul. A disponibilidade do recebimento é verificada ao abrir o site com JavaScript.</p><p>Leia o <a href="/privacidade">aviso de privacidade</a> antes de enviar dados.</p></section>';
   }

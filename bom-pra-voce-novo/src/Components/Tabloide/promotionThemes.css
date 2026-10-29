@@ -14,3 +14,20 @@
 .offers-fallback__message p{margin:0;line-height:1.5}
 .offers-fallback__message .button{margin-top:18px}
 @media(max-width:700px){.offers-fallback{border-radius:18px}.offers-fallback__banner{aspect-ratio:1.65/1;object-position:left center}}
+.offers-showcase--seasonal .offers-stage{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"intro intro" "awareness awareness" "flyer details" "hud hud";gap:24px;background:#faf7ff}
+.seasonal-heading{grid-area:intro;display:flex;align-items:center;justify-content:space-between;gap:20px;min-width:0;color:#321653}
+.seasonal-heading h2{font-size:clamp(24px,3vw,38px);line-height:1.15;margin:10px 0;overflow-wrap:anywhere}
+.seasonal-heading__eyebrow{font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.seasonal-heading p{display:flex;align-items:center;gap:8px;margin:0;font-size:14px}
+.seasonal-decoration{flex:0 0 120px}.seasonal-decoration img{width:120px;height:120px;object-fit:contain}
+.seasonal-awareness{grid-area:awareness;display:flex;align-items:center;gap:14px;background:#fff0f6;border:1px solid #e8bdcf;border-radius:16px;padding:16px;color:#53263c}
+.seasonal-awareness img{object-fit:contain;flex-shrink:0}.seasonal-awareness p{margin:4px 0 0;font-size:14px}.seasonal-awareness a{margin-left:auto;color:inherit;font-weight:700;font-size:14px;text-underline-offset:3px}
+.offers-showcase--seasonal .offers-flyer{width:100%;max-width:480px;justify-self:center;transform:none}
+.offers-showcase--seasonal .offers-details{min-width:0;align-self:center}.offers-showcase--seasonal .offers-details h3{font-size:clamp(24px,3vw,36px);overflow-wrap:anywhere}
+.offers-showcase--seasonal .offers-hud{margin:0;max-width:100%;flex-wrap:wrap}
+.offers-showcase--seasonal[data-season="outubro-rosa"] .offers-stage{background:#fff8fb}
+.offers-showcase--seasonal[data-season="black-friday"] .offers-stage{background:#f0edf5;--offer-accent:#241338}
+.offers-showcase--seasonal[data-season="natal"] .offers-stage{background:#f1f8ef;--offer-accent:#245736}
+.offers-showcase--seasonal[data-season="ano-novo"] .offers-stage{background:#fff9e9;--offer-accent:#665017}
+.offers-showcase--seasonal[data-season="setembro-amarelo"] .seasonal-awareness{background:#fff6ce;border-color:#d4bd62;color:#51400b}
+@media(max-width:700px){.offers-showcase--seasonal .offers-stage{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "awareness" "flyer" "details" "hud";gap:18px}.seasonal-decoration{flex-basis:72px}.seasonal-decoration img{width:72px;height:72px}.seasonal-awareness{flex-wrap:wrap}.seasonal-awareness a{margin-left:62px}.offers-showcase--seasonal .offers-details{padding:8px}.offers-showcase--seasonal .offers-hud button{min-width:0}}

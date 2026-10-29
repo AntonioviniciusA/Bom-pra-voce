@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { SiteRoutes } from "./Routes";
+jest.mock('./services/productShowcase',()=>({getProductShowcase:async()=>({serverTime:Date.parse('2026-10-28T12:00:00-03:00'),version:'empty',campaigns:[],nextChangeAt:null})}));
 beforeAll(() => { Element.prototype.scrollIntoView = jest.fn(); });
 function renderRoute(route = "/") {
   return render(<MemoryRouter initialEntries={[route]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}><SiteRoutes /></MemoryRouter>);
@@ -23,7 +24,7 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.getByRole("heading", { name: "Formas de pagamento aceitas" })).toBeInTheDocument();
   expect(screen.getByRole("list", { name: "Bandeiras e formas de pagamento aceitas" })).toHaveTextContent("Pix");
   expect(screen.getByRole("img", { name: "Cartões e pagamentos aceitos no Bom Pra Você Supermercado" })).toBeInTheDocument();
-  expect(await screen.findByRole("heading", { name: /Ofertas da loja|Sem ofertas vigentes no momento|Panfletos indisponíveis no momento|Não conseguimos consultar as ofertas/ })).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: 'Ofertas da semana' })).toBeInTheDocument();
   const menu = screen.getByRole("button", { name: "Menu" });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
