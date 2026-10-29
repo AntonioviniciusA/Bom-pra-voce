@@ -2,7 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { Plus, RefreshCw, Upload, X } from "lucide-react";
 import { createCampaign, listCampaigns, publishCampaign, updateCampaign, withdrawCampaign } from "./services/adminApi";
 import { campaignPayload, icons, localDateTime, themes } from "./promotionOptions";
+import {panelErrorMessage} from './services/diagnostics';
 
+import SeasonalThemePicker from "./SeasonalThemePicker";
 import OfferPreview from "./OfferPreview";
 
 const empty = { title: "", summary: "", conditions: "", starts_at: "", ends_at: "", category_key: "other", display_order: 100, hud_label: "", icon_key: "tag", theme_key: "purple", instagram_feed_enabled: false, instagram_story_enabled: false, instagram_caption: "" };
@@ -18,7 +20,7 @@ export default function Offers({ notice, setNotice }) {
   const [busy, setBusy] = useState(false), [loading, setLoading] = useState(true), [failed, setFailed] = useState(false);
   const load = useCallback(async () => {
     setLoading(true); setFailed(false);
-    try { setCampaigns(await listCampaigns()); } catch (error) { setFailed(true); setNotice(error.message); } finally { setLoading(false); }
+    try { setCampaigns(await listCampaigns()); } catch (error) { setFailed(true); setNotice(panelErrorMessage('legacy-campaigns-load',error)); } finally { setLoading(false); }
   }, [setNotice]);
   useEffect(() => { load(); }, [load]);
   useEffect(() => {
@@ -44,13 +46,13 @@ export default function Offers({ notice, setNotice }) {
       else await updateCampaign(campaign, values);
       setOpen(false); setFile(null);
       await load(); setNotice(file ? "Oferta e panfleto publicados com sucesso." : "Alterações salvas. O panfleto atual foi mantido.");
-    } catch (error) { setNotice(error.message); } finally { setBusy(false); }
+    } catch (error) { setNotice(panelErrorMessage('legacy-campaign-save',error)); } finally { setBusy(false); }
   }
   async function withdraw(campaign) {
     if (!window.confirm(`Retirar “${campaign.title}” das ofertas públicas?`)) return;
     setBusy(true);
     try { await withdrawCampaign(campaign); await load(); setNotice("Oferta retirada."); }
-    catch (error) { setNotice(error.message); } finally { setBusy(false); }
+    catch (error) { setNotice(panelErrorMessage('legacy-campaign-withdraw',error)); } finally { setBusy(false); }
   }
   const field = key => ({ value: form[key], onChange: event => setForm({ ...form, [key]: event.target.value }) });
   const shortTextField = key => ({
@@ -73,6 +75,7 @@ export default function Offers({ notice, setNotice }) {
         <fieldset className="wide social-options"><legend>Publicação automática no Instagram</legend><p className="field-help">Ao publicar esta versão no site, o painel cria uma tarefa para o Instagram. É necessária uma conta Comercial conectada e o arquivo deve ser JPG.</p><label><input type="checkbox" checked={form.instagram_feed_enabled} onChange={event => setForm({ ...form, instagram_feed_enabled: event.target.checked })} /> Enviar também para o Feed</label><label><input type="checkbox" checked={form.instagram_story_enabled} onChange={event => setForm({ ...form, instagram_story_enabled: event.target.checked })} /> Enviar também para o Story</label><label>Legenda do Feed<textarea maxLength={2200} lang="pt-BR" spellCheck="true" placeholder="Vazio: publica somente a imagem." {...field("instagram_caption")} /><small>O Story não recebe legenda. Não inclua preços ou condições que não estejam aprovados no panfleto.</small></label></fieldset>
         <fieldset className="wide visual-picker"><legend>Ícone do cartão</legend><div>{icons.map(({ key, label, Icon: Choice }) => <button type="button" key={key} aria-pressed={form.icon_key === key} onClick={() => setForm({ ...form, icon_key: key })}><Choice aria-hidden="true" /><span>{label}</span></button>)}</div></fieldset>
         <fieldset className="wide visual-picker"><legend>Tema da promoção</legend><p className="field-help">Muda o fundo, os destaques e botões da seção. Não recolore a imagem do panfleto.</p><div>{themes.map(choice => <button type="button" key={choice.key} aria-pressed={form.theme_key === choice.key} onClick={() => setForm({ ...form, theme_key: choice.key })}><span className="theme-swatch" style={{ background: choice.color }} /><span>{choice.label}</span></button>)}</div></fieldset>
+        <SeasonalThemePicker value={form.theme_key} onChange={theme_key => setForm({ ...form, theme_key })} />
         <label className="wide file-drop"><Upload size={20} />{editing ? "Substituir imagem ou PDF do panfleto (opcional)" : "Imagem ou PDF do panfleto"}<input key={editing?.id || "new"} required={!editing || !editing.active_version_id} type="file" accept="application/pdf,image/png,image/jpeg,image/webp" onChange={e => setFile(e.target.files?.[0] || null)} /><small>Até 10 MB. Confira os produtos, preços e datas antes de publicar.</small>{file && <span>{file.name}</span>}</label>
 
       </div><button className="admin-primary">{busy ? "Salvando…" : file || !editing ? "Salvar e publicar panfleto" : "Salvar alterações"}</button></fieldset><OfferPreview form={form} preview={preview} file={file} editing={editing} campaigns={campaigns} /></div>

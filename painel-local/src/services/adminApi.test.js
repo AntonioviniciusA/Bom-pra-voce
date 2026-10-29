@@ -2,7 +2,7 @@ import { beforeEach, expect, test, vi } from "vitest";
 
 const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), signInWithPassword: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({ auth }) }));
-vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message) { super(message); this.code = code; } } }));
+vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message, status=0) { super(message); this.code = code; this.status=status; } } }));
 import { downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, signIn, verifyMfa } from "./adminApi";
 
 beforeEach(() => {
@@ -14,7 +14,31 @@ beforeEach(() => {
 
 test("explains a network failure during sign in without treating it as an invalid password", async () => {
   auth.signInWithPassword.mockResolvedValue({ data: {}, error: { name: "AuthRetryableFetchError", message: "Failed to fetch", status: 0 } });
-  await expect(signIn("user@example.com", "password")).rejects.toThrow("Não foi possível conectar ao Supabase");
+  await expect(signIn("user@example.com", "password")).rejects.toThrow("A conexão com a autenticação falhou");
+});
+test('distinguishes server failures from credentials and logs only safe metadata',async()=>{
+ const logged=vi.spyOn(console,'error').mockImplementation(()=>{});
+ auth.signInWithPassword.mockResolvedValue({data:{},error:{name:'AuthRetryableFetchError',code:'unexpected_failure',status:500,message:'secret token must never appear'}});
+ await expect(signIn('user@example.com','private-password')).rejects.toThrow('O servidor de autenticação falhou');
+ const output=logged.mock.calls.map(args=>args.join(' ')).join('\n');
+ expect(output).toContain('"operation":"sign-in"');expect(output).toContain('"status":500');
+ expect(output).not.toContain('private-password');expect(output).not.toContain('secret token');expect(output).not.toContain('user@example.com');
+ logged.mockRestore();
+});
+test('gives a specific message for rejected credentials',async()=>{
+ const logged=vi.spyOn(console,'error').mockImplementation(()=>{});
+ auth.signInWithPassword.mockResolvedValue({data:{},error:{code:'invalid_credentials',status:400}});
+ await expect(signIn('user@example.com','wrong')).rejects.toThrow('E-mail ou senha incorretos');
+ logged.mockRestore();
+});
+test('reports API status and request id while hiding server details',async()=>{
+ const logged=vi.spyOn(console,'error').mockImplementation(()=>{});
+ global.fetch=vi.fn().mockResolvedValue({ok:false,status:500,headers:{get:()=> 'request-123'},json:async()=>({message:'private response body',code:'unexpected_failure'})});
+ await expect(listCampaigns()).rejects.toThrow('O serviço falhou');
+ const output=logged.mock.calls.map(args=>args.join(' ')).join('\n');
+ expect(output).toContain('"requestId":"request-123"');expect(output).toContain('"status":500');
+ expect(output).not.toContain('private response body');
+ logged.mockRestore();
 });
 test("offers enrollment when there is no verified factor and challenge when one exists", async () => {
   expect((await getAuthState()).step).toBe("enroll");

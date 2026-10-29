@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { FileDown, RefreshCw } from "lucide-react";
 import { downloadApplication, listApplications } from "./services/adminApi";
+import {panelErrorMessage} from './services/diagnostics';
 
 const date = value => value ? new Date(value.length === 10 ? `${value}T12:00:00` : value).toLocaleDateString("pt-BR") : "Não informado";
 const inspection = { clean: "Disponível para download", pending: "Aguardando inspeção", rejected: "Arquivo bloqueado", error: "Inspeção indisponível" };
@@ -14,13 +15,13 @@ export default function Resumes({ notice, setNotice }) {
       const batch = await listApplications(cursor);
       setItems(previous => cursor ? [...previous, ...batch.filter(item => !previous.some(old => old.id === item.id))] : batch);
       setHasMore(batch.length === 50);
-    } catch (error) { setFailed(true); setNotice(error.message); } finally { setBusy(false); }
+    } catch (error) { setFailed(true); setNotice(panelErrorMessage('resumes-load',error)); } finally { setBusy(false); }
   }, [setNotice]);
   useEffect(() => { load(); }, [load]);
   async function download(item) {
     setDownloading(item.id); setNotice("");
     try { await downloadApplication(item.id, item.file_name || `curriculo-${item.candidate_name}.pdf`); }
-    catch (error) { setNotice(error.message); } finally { setDownloading(null); }
+    catch (error) { setNotice(panelErrorMessage('resume-download',error)); } finally { setDownloading(null); }
   }
   const filtered = items.filter(item => [item.candidate_name, item.email, item.area].some(value => value?.toLocaleLowerCase("pt-BR").includes(query.toLocaleLowerCase("pt-BR"))));
   const last = items.at(-1);

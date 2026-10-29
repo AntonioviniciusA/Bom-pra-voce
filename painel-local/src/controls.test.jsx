@@ -43,3 +43,18 @@ test("shows candidate details, blocks pending files and downloads a clean resume
   fireEvent.click(buttons[0]);
   await waitFor(() => expect(api.downloadApplication).toHaveBeenCalledWith("one", "a.pdf"));
 });
+test("previews October separately and saves its theme without republishing the flyer", async () => {
+  api.listCampaigns.mockResolvedValue([{ id: "october", revision: 2, active_version_id: "v1", state: "published", title: "Ofertas", summary: "Resumo", conditions: "Condições", starts_at: "2026-10-01T12:00:00Z", ends_at: "2026-11-01T12:00:00Z" }]);
+  render(<Offers notice="" setNotice={vi.fn()} />);
+  fireEvent.click(await screen.findByRole("button", { name: "Editar / trocar panfleto" }));
+  fireEvent.click(screen.getByRole("button", { name: "Outubro Rosa", exact: true }));
+  const frame = screen.getByTitle("Oferta no site");
+  frame.contentDocument.body.innerHTML = '<div id="preview-root"></div>';
+  fireEvent.load(frame);
+  expect(frame.contentDocument.querySelector('.seasonal-awareness').textContent).toContain('Outubro Rosa');
+  expect(frame.contentDocument.querySelector('.offers-showcase').dataset.season).toBe('outubro-rosa');
+  expect(api.updateCampaign).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole("button", { name: "Salvar alterações" }));
+  await waitFor(() => expect(api.updateCampaign).toHaveBeenCalledWith(expect.objectContaining({ id: "october" }), expect.objectContaining({ theme_key: "outubro-rosa" })));
+  expect(api.publishCampaign).not.toHaveBeenCalled();
+});
