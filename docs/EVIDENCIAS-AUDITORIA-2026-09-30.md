@@ -4,7 +4,7 @@ Complemento da [auditoria e plano de prioridades](AUDITORIA-SITE-2026-09-30.md),
 
 ## 1. Entrada e orientação — parcial
 
-![Página inicial](evidencias-auditoria-2026-09-30/01-inicio.png)
+![Página inicial](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/01-inicio.png)
 
 **Funciona:** marca e campanha visual reconhecíveis; menu de seções no desktop; ofertas aparecem logo depois do banner.
 
@@ -14,7 +14,7 @@ Complemento da [auditoria e plano de prioridades](AUDITORIA-SITE-2026-09-30.md),
 
 ## 2. Consultar tabloide — falha no ambiente local
 
-![Erro ao consultar tabloide](evidencias-auditoria-2026-09-30/02-tabloide.png)
+![Erro ao consultar tabloide](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/02-tabloide.png)
 
 Ao clicar no primeiro “Visualizar”, o modal foi criado; inicialmente mostrou “Página 1 de 0”. Em seguida o navegador registrou erro de renderizações concorrentes no mesmo canvas e exibiu a sobreposição de erro do ambiente de desenvolvimento. O material subjacente aparenta reproduzir uma página do próprio site, em vez de um tabloide convencional de produtos e preços; seu conteúdo completo não foi auditado.
 
@@ -26,7 +26,7 @@ Erro: `Cannot use the same canvas during multiple render() operations. Use diffe
 
 ## 3. Iniciar tour — sem ação
 
-![Convite de tour](evidencias-auditoria-2026-09-30/03-tour.png)
+![Convite de tour](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/03-tour.png)
 
 O clique em “Iniciar o Tour” manteve a página e o mesmo conteúdo. A ausência de ação é confirmada pelo código. A imagem ilustra mapas, mas não fornece uma rota até a loja.
 
@@ -36,7 +36,7 @@ O clique em “Iniciar o Tour” manteve a página e o mesmo conteúdo. A ausên
 
 ## 4. Tirar dúvida de pagamento — interação funciona, conteúdo incompleto
 
-![Pergunta de pagamentos aberta](evidencias-auditoria-2026-09-30/04-faq.png)
+![Pergunta de pagamentos aberta](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/04-faq.png)
 
 O FAQ expandiu a resposta corretamente. O navegador expõe estado expandido/recolhido, um ponto positivo do uso de `details/summary`.
 
@@ -46,7 +46,7 @@ A resposta lista dinheiro, débito, crédito e Pix, mas não identifica bandeira
 
 ## 5. Contato, links e pagamentos no rodapé — incompleto
 
-![Rodapé](evidencias-auditoria-2026-09-30/05-rodape.png)
+![Rodapé](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/05-rodape.png)
 
 O botão “Visualizar Metodos de Pagamento” foi clicado sem abrir conteúdo ou diálogo. O código confirma ausência de ação. Há telefone e e-mail visíveis, mas sem links de contato. Redes sociais apontam para `#`; links de seções usam destinos inconsistentes. Não houve envio de e-mail ou inscrição durante a auditoria.
 
@@ -56,7 +56,7 @@ O botão “Visualizar Metodos de Pagamento” foi clicado sem abrir conteúdo o
 
 ## 6. Candidatura — formulário acessível, recebimento não implementado
 
-![Formulário de candidatura](evidencias-auditoria-2026-09-30/06-candidatura.png)
+![Formulário de candidatura](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/06-candidatura.png)
 
 “Candidatura Espontânea” abre o formulário. Rótulos estão associados aos campos. A barra fixa cobre o título nessa posição. Não foram preenchidos dados pessoais, anexados currículos ou enviados formulários.
 
@@ -66,7 +66,7 @@ O falso sucesso foi identificado por inspeção do código: callback apenas regi
 
 ## 7. Navegação em celular — falha de orientação
 
-![Primeira tela no celular](evidencias-auditoria-2026-09-30/07-celular.png)
+![Primeira tela no celular](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/07-celular.png)
 
 Teste com viewport 390 × 844. O menu desaparece e sobra apenas a marca na barra fixa, que cobre boa parte do banner. As ofertas se empilham, mas as chamadas “Visualizar” não distinguem as campanhas pelo nome do botão.
 
@@ -76,7 +76,7 @@ Teste com viewport 390 × 844. O menu desaparece e sobra apenas a marca na barra
 
 ## 8. Explorar setor — conteúdo incorreto e falha de teclado
 
-![Galeria de Bebidas com hortifruti](evidencias-auditoria-2026-09-30/08-galeria.png)
+![Galeria de Bebidas com hortifruti](../bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/08-galeria.png)
 
 Ao abrir “Bebidas” no layout móvel, a galeria mostrou frutas e verduras sob esse título. Escape não fechou o modal; o botão de fechar continuou visível. O fechamento por clique funcionou depois. Os pontos de navegação são botões sem nome na árvore de acessibilidade.
 

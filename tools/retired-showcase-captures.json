@@ -1,0 +1,100 @@
+[
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/black-friday-desktop.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "01dd5c450eaab79841b3e299ab971edc4e9a472ec4b15b872113a47fece82773"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/black-friday-mobile.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "6e500dbe34781230fa62b288efdedb6e7ea60dbf84bf6a0fad220091bfd1b1f6"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-black-friday-mobile.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "ff71401414d33b28d59ba757c6ab8e49fd1a1a6935c4e9b012727987d919b0b7"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-black-friday.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "3f3a2d64b41070eaabde38caa0a7276413bd42c445f39c8cbba14597c70ea7f3"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/comparacao-cabecalho.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "27d8fc3bed2b3661983911c25ba96e6dd18b98af229668ae2a31fbeee7b290c6"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/novembro-80-largura-total.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "226ca52fae41d5a9e8acdd522c3d9ce9bd6f221dd62ede63c67e67fca348be18"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/novembro-desktop.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "8191f250193396b97de91fbf3d4b57e4d13579055dc387af1e6868ddabd72dd9"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/novembro-escala-80.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "50180d90d94b9dc09c769ac3d61e0b6fdb0d943cbdf6a624504907c1c716e225"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/novembro-mobile.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "b6488f1da232ec2358e727e58162f26d36f714fc4f1b489292f350e7587e8887"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/painel-novembro-desktop.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/painel-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "8c40502bcfd02f18023f7228ca6c2c271a35228780b29c6801dd2aa9c590093c"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/painel-novembro-mobile.jpg",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/painel-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "42d1b001d20f03ae2e9bf2c58220679596c5091a21ced0c7d1dd7b68a6687640"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-black-friday-1440.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "59770e19053de2490a8216378ee71bb1b2b4b7f81c6155563fafea2e6ba1b527"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-black-friday-320.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "cccab9ef6d22770327ed09eaf63c986bb7896fd016edb5186b3605b1caf7eb1d"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-black-friday-390.png",
+    "replacement": "bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-mobile.png",
+    "date": "2026-10-28",
+    "reason": "Captura de estado substituída; referência de layout preservada.",
+    "sha256": "12f9f4f752af9e313d293160c975905b4d78ab0f1629e99fb9e7c48b67e97d62"
+  }
+]

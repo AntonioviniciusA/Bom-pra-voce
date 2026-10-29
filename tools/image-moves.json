@@ -1,0 +1,1857 @@
+[
+  {
+    "source": "docs/nav-mobile-rounded.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/nav-mobile-rounded.png",
+    "sha256": "29cc394ed52e8554e489b6d58873c1fa30d871cc6d86808192c3e09322954e96"
+  },
+  {
+    "source": "docs/nav-mobile-rounded-scrolled.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/nav-mobile-rounded-scrolled.png",
+    "sha256": "abd4e5220c6fa892343d5c0fe8cfc91800d94e6cb0f08418c2374c02ecf49d64"
+  },
+  {
+    "source": "supabase/seeds/promotion-assets/segunda-da-limpeza-2026-10-12.png",
+    "target": "bom-pra-voce-novo/src/images/library/supabase/seeds/promotion-assets/segunda-da-limpeza-2026-10-12.png",
+    "sha256": "5edab56433617ff0f4c8faea059dbff6e239800c83fdd7965298d1f58bc0e66a"
+  },
+  {
+    "source": "supabase/seeds/promotion-assets/meat-frozen.png",
+    "target": "bom-pra-voce-novo/src/images/library/supabase/seeds/promotion-assets/meat-frozen.png",
+    "sha256": "0820116ae4615334e6f62a4360eb7c4b7bb5b58f6552249a5d14289f4e97447e"
+  },
+  {
+    "source": "supabase/seeds/promotion-assets/home-baby.png",
+    "target": "bom-pra-voce-novo/src/images/library/supabase/seeds/promotion-assets/home-baby.png",
+    "sha256": "f1528b2a7dddf19ecfa48355fc36fee7f2655616021e1142f26e06ef24f12b14"
+  },
+  {
+    "source": "supabase/seeds/promotion-assets/grocery-drinks.png",
+    "target": "bom-pra-voce-novo/src/images/library/supabase/seeds/promotion-assets/grocery-drinks.png",
+    "sha256": "f14fe11d925caec6c165ebb2d6208d6d26300b3b9d9042a9c7073a1a41a36d4b"
+  },
+  {
+    "source": "supabase/seeds/promotion-assets/cleaning-beauty.png",
+    "target": "bom-pra-voce-novo/src/images/library/supabase/seeds/promotion-assets/cleaning-beauty.png",
+    "sha256": "3b1936ebc5ab34c062ef3117b70e1845ea5ad56fdf40190cb2aebdc275f6dcb1"
+  },
+  {
+    "source": "docs/visita-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/visita-mobile.png",
+    "sha256": "2bae637324f79c6a73f9c0c9553d45e4f8f683b4470ec00e774ab458926ce58a"
+  },
+  {
+    "source": "docs/visita-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/visita-desktop.png",
+    "sha256": "bfbce9e683a84e9036872753d21e07ba6ae7fa265893bebc538f9472d712a10c"
+  },
+  {
+    "source": "painel-local/artifacts/resumes-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/resumes-mobile.png",
+    "sha256": "73d30795384541cb03f4584622ca561ee7ff0f31170fae842228f2e7e06b35c6"
+  },
+  {
+    "source": "docs/setores-modal-2026-10-24/mobile.jpg",
+    "target": "bom-pra-voce-novo/src/images/library/docs/setores-modal-2026-10-24/mobile.jpg",
+    "sha256": "a0f758d5f67072d0ccf017ad8a6f905a12e0603d41af35cf7ca5e217eb87da72"
+  },
+  {
+    "source": "painel-local/artifacts/remote-444444444444.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/remote-444444444444.png",
+    "sha256": "776c280cf07d4f105aa7d202937f170873fe47018c8a4230422add00bba9b7f9"
+  },
+  {
+    "source": "docs/setores-modal-2026-10-24/mobile-320.jpg",
+    "target": "bom-pra-voce-novo/src/images/library/docs/setores-modal-2026-10-24/mobile-320.jpg",
+    "sha256": "d463a98f6ee06011d1eabe809e880408f5a77b46f05df8487ee856a1eeb4f5cb"
+  },
+  {
+    "source": "docs/setores-modal-2026-10-24/desktop.jpg",
+    "target": "bom-pra-voce-novo/src/images/library/docs/setores-modal-2026-10-24/desktop.jpg",
+    "sha256": "66917e395baa978cb73555d22e4887d70f65e0b8a3744bdd31fa87741cc1e5ec"
+  },
+  {
+    "source": "painel-local/artifacts/remote-333333333333.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/remote-333333333333.png",
+    "sha256": "3c9b053b4b4bb343456e73f6a18ecbb54a4689213a1150be89ed2aaced1099fa"
+  },
+  {
+    "source": "painel-local/artifacts/remote-222222222222.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/remote-222222222222.png",
+    "sha256": "c20405aafbbfe057a54cffef5a6494d8b301af14c8766fd86995c8865594c5f9"
+  },
+  {
+    "source": "painel-local/artifacts/remote-111111111111.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/remote-111111111111.png",
+    "sha256": "aa8c1308bcaed3083e9e92371661b00b2bb17ff8d66329b580a25d6d97add53e"
+  },
+  {
+    "source": "painel-local/artifacts/offers-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/offers-mobile.png",
+    "sha256": "086bb4626cb9aa7bc6d3f3368460bf42c820527e9c52655703211a05dc66c683"
+  },
+  {
+    "source": "painel-local/artifacts/offers-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/offers-desktop.png",
+    "sha256": "bf6024b5905117a36c62c13ee62debe8a3959d998a7021c9efc761597317ea03"
+  },
+  {
+    "source": "painel-local/artifacts/live-site-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/live-site-desktop.png",
+    "sha256": "aef19841ae7168d83bb04174590deb568393608a46162cfe5088d59a28fb39f6"
+  },
+  {
+    "source": "painel-local/artifacts/live-careers-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/painel-local/artifacts/live-careers-mobile.png",
+    "sha256": "86bce9e3f1412a9fdf1bad80cbb41473b73014957c43b5928d95a81b12de9beb"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/inicio-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/inicio-mobile.png",
+    "sha256": "aac2f1364c04e49f06c2e7cf5b6fc4ddb7497a8077da37d127522ee17b242695"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/home-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/home-390.png",
+    "sha256": "0014c9fbc5951a6e911fbe02ea3ea79e91edd6b25ad59206b33e43639044ff96"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/home-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/home-320.png",
+    "sha256": "173eb18c1d2037171e712257b6e3fbad91706f35d52a11b80cc61faf1c660c8d"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/home-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/home-1440.png",
+    "sha256": "24e96f48752758a7f43ac604fafc53e19f79c3f7a2c8e144faadc1418082d399"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/destaque-inicio.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/destaque-inicio.png",
+    "sha256": "2c8c1f90d68915b43347ac35729f57d09bb5d2da6c8fdf89f06edf4da1ac9903"
+  },
+  {
+    "source": "docs/validacao-acessibilidade-2026-10-21/destaque-candidaturas.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/validacao-acessibilidade-2026-10-21/destaque-candidaturas.png",
+    "sha256": "9847decad12b7fb1bb1b3de1f307f06eec04f83c85fc4dc6bffd42009a45f048"
+  },
+  {
+    "source": "docs/sobre-layout-2026-10-23/mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/sobre-layout-2026-10-23/mobile.png",
+    "sha256": "2fb4ef09cfcc6af0702a2d2c591237ee4e5a7ce23f4deb9459c83c31344854ef"
+  },
+  {
+    "source": "docs/sobre-layout-2026-10-23/desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/sobre-layout-2026-10-23/desktop.png",
+    "sha256": "ea0b6eca6b014dcb4361bf4d65ab4b81da578e7860a5d65497f5cfd885140838"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/setores-768.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-768.png",
+    "sha256": "bcc4faa45fb95e0aea1dcf1a08df5e0491b7bd45949468db6dec2157aec388ed"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/setores-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-390.png",
+    "sha256": "b254ca1c2f93a6b9df4f1a117bb555f6be1ad78cee0416c2ae7230143c4d0808"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/setores-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-320.png",
+    "sha256": "dcd821c2460286ebccb3e9883589c0b846125ad384dfd71711eba14c43f953b6"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/setores-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-1440.png",
+    "sha256": "47c94a220c896899b486227e911d89c9dd5cd7d0e5dc64e3a09b6b58cbc28b76"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-390-4.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-4.png",
+    "sha256": "996e8b4d4430fe7f24f1b586d39cbe2a3df0083b1fb5148de28579a324ebdb6b"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-390-3.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-3.png",
+    "sha256": "de8321d5c616c400f070cd9f4e2f76b168654648266caecc075490c243fe025f"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-390-2.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-2.png",
+    "sha256": "0e4c1b7bcf2aebcf58af64e6eb4c56b829119c38d33c8cb288311d6ecc9b631c"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-390-1.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-1.png",
+    "sha256": "314bc73d32e0ea4d864337bedc8cc84ab4d1cbdb5948d21fd45b619d4933ffe0"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-390-0.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-0.png",
+    "sha256": "8298946e8a78e52167dd3c5fe9141696b0dee86cb42250be2a4b0a085f9c274b"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-1440-4.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-4.png",
+    "sha256": "bff06c8c27de8dc1ddb36cb37a9fdbff5a7092b8631a55cc2b78bc62e6861273"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-1440-3.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-3.png",
+    "sha256": "6fbb8bec29936191defd3e465c343c07c21760fbf2a384c0b6db468be4cecd4b"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-1440-2.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-2.png",
+    "sha256": "86cab66016b01dbe659c46d4a963e97a019a198901c5ec4457740550fa73c644"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-1440-1.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-1.png",
+    "sha256": "fb06a74fe2a62382bf02d18c56e4b53f085ffeada8eebcf4741858e11982175f"
+  },
+  {
+    "source": "docs/fotos-setores/validacao/modal-1440-0.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-0.png",
+    "sha256": "a3571ff4deea10c5a9f4dfab1b1409d06c7db6d905e74596e09c769feb297121"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/07-termos-revisados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/07-termos-revisados.png",
+    "sha256": "4e08cfad0719b43fd1bb997ea4c7b650af3335c93ed4491e36273d6133549eaf"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/06-privacidade-revisada.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/06-privacidade-revisada.png",
+    "sha256": "f7c2d5d7c38ddd3bbe82d2a10709105b02212f201eb0951a6c7f144572f765fb"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/05-visao-setores.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/05-visao-setores.png",
+    "sha256": "76c10cdc06febcf531dc8387e06c2205b04ba23e28902951821cb79b805d9bbb"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/04-cartoes-revisados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/04-cartoes-revisados.png",
+    "sha256": "92edff95aace0693038650f19af57a601ec5b501bce57bb48b07b38ebd4e561a"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/03-setores-revisados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/03-setores-revisados.png",
+    "sha256": "fcceee7f96bdfa11287ef2ff3a00a47f5065b15954190fbe67a1f394c32b5803"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/02-privacidade-publicada.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/02-privacidade-publicada.png",
+    "sha256": "54961dbf099572003e7ad1e22626ffee6dace842fe7bd4a8316e6cfddf757303"
+  },
+  {
+    "source": "docs/revisao-visual-juridica-2026-10-21/01-setores-publicados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-juridica-2026-10-21/01-setores-publicados.png",
+    "sha256": "1b94566e1b80b5dbd182fccae1a925db11b30fa5e8bf5fd8439307ba6d689be8"
+  },
+  {
+    "source": "docs/sobre-layout-2026-10-23/chrome-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/sobre-layout-2026-10-23/chrome-320.png",
+    "sha256": "0ce1f363bd2b678451da98402bf9a833b89c8274d3ba698ffb9b17959caf96c2"
+  },
+  {
+    "source": "docs/sobre-layout-2026-10-23/chrome-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/sobre-layout-2026-10-23/chrome-1440.png",
+    "sha256": "cb53343611d56b5fe89d54c39a23d9a03e1f5bce932552457009a16e340f3027"
+  },
+  {
+    "source": "bom-pra-voce-novo/public/logo512.png",
+    "target": "bom-pra-voce-novo/src/images/library/bom-pra-voce-novo/public/logo512.png",
+    "sha256": "9ea4f4da7050c0cc408926f6a39c253624e9babb1d43c7977cd821445a60b461"
+  },
+  {
+    "source": "bom-pra-voce-novo/public/logo192.png",
+    "target": "bom-pra-voce-novo/src/images/library/bom-pra-voce-novo/public/logo192.png",
+    "sha256": "c386396ec70db3608075b5fbfaac4ab1ccaa86ba05a68ab393ec551eb66c3e00"
+  },
+  {
+    "source": "docs/revisao-visual-2026-10-22/05-cookies-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-2026-10-22/05-cookies-mobile.png",
+    "sha256": "d3e876022f8ab9e32a4e6356a8a99f1f3aa1eefd80ef0265074a6f5186706cba"
+  },
+  {
+    "source": "docs/revisao-visual-2026-10-22/04-rodape-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-2026-10-22/04-rodape-desktop.png",
+    "sha256": "15ef6fea95b8085c275177f527db0d3c1976e7efa375770dbcd44f42f3abe340"
+  },
+  {
+    "source": "docs/revisao-visual-2026-10-22/03-controles-padaria.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-2026-10-22/03-controles-padaria.png",
+    "sha256": "6fa41b16378a283c42a10091184bf9ebdb580cfc08a864312ad980abe0dcbd19"
+  },
+  {
+    "source": "docs/revisao-visual-2026-10-22/02-setores-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-2026-10-22/02-setores-desktop.png",
+    "sha256": "1f5d230a4c83b6bf8ace6a626d45ce6bd952e13a62529604272c7c47869c01ba"
+  },
+  {
+    "source": "docs/revisao-visual-2026-10-22/01-setores-cookies-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/revisao-visual-2026-10-22/01-setores-cookies-desktop.png",
+    "sha256": "661f8ce115ebf09bbcd9f0d14fb4f0aa6bda915dd6dc7fcb58bb3ab778f88244"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-as-aulas/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/story.webp",
+    "sha256": "a290b69af4825b0664d301a4e252215a0737b604b64324c6acdb33a621e132d0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-as-aulas/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/original.png",
+    "sha256": "9736730c27e70573ed3adb81adede40b0e48e77c516040c887ab138b88337f26"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-as-aulas/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/notebook.webp",
+    "sha256": "af8180a8e6e4d3683ed1b0e60c60329998a9a2dd40983e052e8eb3317f6660ba"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-as-aulas/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/miniatura.webp",
+    "sha256": "eb7cd171f1bbeb7ea034bd5c2cc997d3cc1581673c99fb5b6475eefc7add7ae4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-as-aulas/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/celular.webp",
+    "sha256": "ab2a456cdf2260a9c5c93271dd4fec40ce12e635956836c3264f1fb04d998bb4"
+  },
+  {
+    "source": "bom-pra-voce-novo/public/favicon.ico",
+    "target": "bom-pra-voce-novo/src/images/library/bom-pra-voce-novo/public/favicon.ico",
+    "sha256": "3d10f7da6c603178340081668c4ac5b3ae9743ca9a262ab0fcd312fbb9f48bdd"
+  },
+  {
+    "source": "bom-pra-voce-novo/public/brand.png",
+    "target": "bom-pra-voce-novo/src/images/library/bom-pra-voce-novo/public/brand.png",
+    "sha256": "b357ffa640a858eeb9d78abd5ee68bf8c4cc3ba8fb890be543e9ec9136017892"
+  },
+  {
+    "source": "docs/evidencias-revisao-visual-2026-10-03/mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-revisao-visual-2026-10-03/mobile.png",
+    "sha256": "a9e75918e04d2ad7082e21fa01b449a584ca0b8e0b1b5890b9e60036eec9d02e"
+  },
+  {
+    "source": "docs/evidencias-revisao-visual-2026-10-03/desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-revisao-visual-2026-10-03/desktop.png",
+    "sha256": "c7bbdbc2759047a01b695744d208496a44b40da59763cca060754fdd6ab16930"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ano-novo/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/story.webp",
+    "sha256": "4e370dc0714b1bfd3a49d69674a82b2e326443edae0cc9e2b1c22377b945deba"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ano-novo/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/original.png",
+    "sha256": "e1f14fc5fc6e14cbf837cf712f6dfe0531293cf1fbf913e4ef40e737482799b7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ano-novo/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/notebook.webp",
+    "sha256": "0cb2aa09177bd3f52a790c061fc90f0293981f2d718f8268c72dcdf8fbc4b24c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ano-novo/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/miniatura.webp",
+    "sha256": "34986c41ed9f313f32831f838a76d29a3928c45af9b1fdbb32da847970b00a1b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ano-novo/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/originais/celular.webp",
+    "sha256": "d190beb5c74e6073a4b41da806667e2c6aac509a23042580a0efa5cd490655c4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-a-rotina/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/story.webp",
+    "sha256": "60937ff0c8252384dec09acf60881e180eb87a40c1241b7dcc44798dc62e590e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-a-rotina/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/original.png",
+    "sha256": "4c2a207ef26f3bcb74046e5b3b164b7eaa62dfb01877eb11a77c683bb3af2d0a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-a-rotina/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/notebook.webp",
+    "sha256": "bed0114138a66802781d5ee1f42099040cdeaa766acfcfd50970b432cd0e75e8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-a-rotina/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/miniatura.webp",
+    "sha256": "2c09730a253cb09dfca7ffa5aacaa71ede97d9f74f6a04ac1f9533b18dcae951"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/volta-a-rotina/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/originais/celular.webp",
+    "sha256": "7465f17b498e417290a46335b67bd50e2b876fd1bb728823bc892f4006ae89fe"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/aniversario-loja/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/story.webp",
+    "sha256": "47fcbf5aa6376d32467fe5bb3c60e7dd4239da2ec37927252fcd808ecfc07460"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/aniversario-loja/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/original.png",
+    "sha256": "79878343f109e7195c46a3353d5cdfa84fd1f190037ee15c09c6be9f54a2a2c4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/aniversario-loja/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/notebook.webp",
+    "sha256": "a13a5e1b548eb2c6391b0076023823b0508b9bb52c341f630c1292598385984f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/aniversario-loja/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/miniatura.webp",
+    "sha256": "1357aff73cedcaba737e9bd6760f0d043d2299c1c3b82dc0370526e01bd0e9f8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/aniversario-loja/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/originais/celular.webp",
+    "sha256": "841420cfc8bb6b779eea0328ed01616117e5427a63825e308803f78eeae9904f"
+  },
+  {
+    "source": "docs/evidencias-implementacao-2026-10-01/05-faq-producao.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/05-faq-producao.png",
+    "sha256": "29a4e7274862f7469945423b0b72afb44c1b8cbb15f5ebe09487308efa1042bd"
+  },
+  {
+    "source": "docs/evidencias-implementacao-2026-10-01/04-producao-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/04-producao-desktop.png",
+    "sha256": "b75438dcabf1b9cc4cee4f4642310a343bebfd42b29dd2991ba0542552b8dbfe"
+  },
+  {
+    "source": "docs/evidencias-implementacao-2026-10-01/03-curriculos-bloqueados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/03-curriculos-bloqueados.png",
+    "sha256": "e7a29b24f94e02d42823e2298c206237002fb25e33e0569290c9e59bd960e580"
+  },
+  {
+    "source": "docs/evidencias-implementacao-2026-10-01/02-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/02-mobile.png",
+    "sha256": "4348c9d0c41987426bdcea7418e0e4c14bb646dda7d63ff40e2ad281cc747a73"
+  },
+  {
+    "source": "docs/evidencias-implementacao-2026-10-01/01-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/01-desktop.png",
+    "sha256": "b75438dcabf1b9cc4cee4f4642310a343bebfd42b29dd2991ba0542552b8dbfe"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/festa-junina/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/story.webp",
+    "sha256": "e718cd2066ac184018343c7025fdbb059fc1fa9293298eca4d59a46eb3838547"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/festa-junina/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/original.png",
+    "sha256": "3628da4f4af75f9acf7e513326c1542790bcafd6662017366e7b761dced3ed13"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/festa-junina/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/notebook.webp",
+    "sha256": "a434b5a3e2f1ba5b80442f12a3c153eaaf8cfe5e2b31b6bc6995a494b943656b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/festa-junina/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/miniatura.webp",
+    "sha256": "1c6cca1466019cc69cd03fa135317a723818faed65b6e8102e7409eb6ce78e2f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/festa-junina/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/celular.webp",
+    "sha256": "9c2b0943bb93bf81722c42809342cc083adb15feaf4de8bee0777b91b945e243"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/verao/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/originais/story.webp",
+    "sha256": "5948bfaa148eedea05477c6c4a2612a238e32e552fc46d4c1045947fff2d40f9"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/verao/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/originais/original.png",
+    "sha256": "e1746ac032687deda84169bf9bbdb628cb2638773472e703c04704689e112681"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/verao/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/originais/notebook.webp",
+    "sha256": "7b1747cd2b9a2b5933c491576efc49c703889d161c472c4e54b40501effe4760"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/verao/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/originais/miniatura.webp",
+    "sha256": "8e2be680a98395bb3219de8672fbefc40c23ad7562adba0186b00bbf7773b3f0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/verao/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/originais/celular.webp",
+    "sha256": "ed387e97a6649092232874b169e04275ea07fbd34739250ebc95883c5fabf85f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/consumidor/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/story.webp",
+    "sha256": "0ddfff0a3472544fb1f5e4e19fe564ce2190160b3a6cd17c4f09550bde6fe52e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/consumidor/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/original.png",
+    "sha256": "d87f87ce4c3de5ef02fece786f036fdd2ccd1b75f26020a2b259db7503edb32e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/consumidor/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/notebook.webp",
+    "sha256": "9be3afae2f858c735624f1e0a3c65c8ecc98ae8c59c64cfd0e517bc15998b78e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/consumidor/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/miniatura.webp",
+    "sha256": "0ba048e607597b3c580c9e1b8cbc2eb2ce3db9f76c8be4929d74b47d1c178c0a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/consumidor/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/originais/celular.webp",
+    "sha256": "fae95ce769a7b97aac20f13430eb0e60e3035e836da80b5043f1610eab684b82"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/08-galeria.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/08-galeria.png",
+    "sha256": "e96927ea20e7114a5b27c4efb1c3cc17eff432a2b2a55793273700b2ebd17679"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/07-celular.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/07-celular.png",
+    "sha256": "751140148f272caafb42fcf0829e08a791b5ad55830c53d86b8092226fcabc4d"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/06-candidatura.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/06-candidatura.png",
+    "sha256": "513e17277ca979b31e61c42c6a57459b332a074ea3ee7f7a73861ff593cf018d"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/05-rodape.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/05-rodape.png",
+    "sha256": "ca9c3698e9762b85c6bdcc22a1f1c7df7af36510db95fb900270617e27a85f38"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/04-faq.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/04-faq.png",
+    "sha256": "72bf007f82ed9bc570e4caf520e707335155bb846192281ad84b178b12df560c"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/03-tour.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/03-tour.png",
+    "sha256": "1eacbcdda1b20bcc390c0d158b3074f2cfa40fc2f292bc150ac9a1ba04fa28e8"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/02-tabloide.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/02-tabloide.png",
+    "sha256": "9a9686dafbb4a42abac0048afe26717736e32e6e7176a027acc47b6d02af6548"
+  },
+  {
+    "source": "docs/evidencias-auditoria-2026-09-30/01-inicio.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-auditoria-2026-09-30/01-inicio.png",
+    "sha256": "f08cfc36147616280e8cb5a9bb141446da30f8b5ea84ad12a0d7f603fc452e17"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/setembro-amarelo/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/story.webp",
+    "sha256": "9e5cd9728664e36d286ea0c09e25077447cf6d20b7940b634de00716bb2a9ee4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/setembro-amarelo/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/original.png",
+    "sha256": "1eed3160a530fa8ed9b15020e9a61bb9c56fe3753968a31aa0737b3d0a7ec12a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/setembro-amarelo/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/notebook.webp",
+    "sha256": "72cce2a437e4795a3eb88edcf73d35f059308a2baea61c743124ded20e84063d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/setembro-amarelo/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/miniatura.webp",
+    "sha256": "ce3bfd3fe1c2d650e00fab6b7f7e973331db56b75cca0461af92ca09b26f11f2"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/setembro-amarelo/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/celular.webp",
+    "sha256": "bc97fed3d8a64357cdc04dde4874f9a213fe3ccc2f787dab20c723060c0c1dc1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ferias/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/originais/story.webp",
+    "sha256": "3b6a0e370ccac3d5c173827770dc760d83e6aa118982df0b57deee3c2efefb94"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ferias/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/originais/original.png",
+    "sha256": "fd2b71607e018d7f5375253d448c8100a296c98bdf4ae7b8ff883bd50b9e1216"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ferias/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/originais/notebook.webp",
+    "sha256": "68598fc154ea67d9fa90ef0b30c64be3ac624520f3dbe585d7e278371dc947ce"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ferias/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/originais/miniatura.webp",
+    "sha256": "fcbd6413729bfe63371803e4a66bf427007e6a78cd7b34c7f6b4746170c01555"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/ferias/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/originais/celular.webp",
+    "sha256": "a36e742e6334911c96a35c1810bfd9b3f64696db22da7b42491853b2c6c74f0c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/carnaval/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/story.webp",
+    "sha256": "8d629d85242740cc4d45128a35461ddf38e11196218802832d9f18f043946c77"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/carnaval/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/original.png",
+    "sha256": "bc5d0047e7901c2d52022cb0c67e1e4ef8c7ab38502644aa32f92ad0473d1275"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/carnaval/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/notebook.webp",
+    "sha256": "3878a4d05f3c9fadd047bd927508ca591cc2f89240fe257837a399a2572fe82f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/carnaval/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/miniatura.webp",
+    "sha256": "038974858877db3fd5c6a41cf353e317acdb6dd73cd9dde0cc14bd5d941a60eb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/carnaval/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/originais/celular.webp",
+    "sha256": "825ef285e79276d4a556d77d3c89e604605c7535f38474be764dd319bdb8fece"
+  },
+  {
+    "source": "bom-pra-voce-novo/src/logo.svg",
+    "target": "bom-pra-voce-novo/src/images/library/bom-pra-voce-novo/src/logo.svg",
+    "sha256": "6000b0e9b0b05b3f112de04f0d039768a1db63588ff9b6ef7099dbd71632f383"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/23-painel-revisao-imagem.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/painel/referencias/23-painel-revisao-imagem.png",
+    "sha256": "72e370aabd62e77b8bf8990351f374d2ffbcb19b1c338b6d29fe15f036a80a2c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/22-painel-lista-produtos.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/painel/referencias/22-painel-lista-produtos.png",
+    "sha256": "4ed325190c1879c4b596ff558ddc1707b6f713b72c45a2ede8e663de6ab1905a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/21-aniversario-loja.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/referencias/21-aniversario-loja.png",
+    "sha256": "4fccd6a9cca77cb67794a645c6cb2238f6cbea07b84524a1252fed1471d98570"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/20-ano-novo.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ano-novo/referencias/20-ano-novo.png",
+    "sha256": "931f18d4b7230d9af328129099f465d625ccc52984430aeb37c39ce2c6945348"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/19-natal.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/referencias/19-natal.png",
+    "sha256": "f38fb413b4bab7479c2a4af3fb1a93269bfa602940f5f96fb715906cadefebce"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/18-black-friday.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png",
+    "sha256": "97665915111b2bf5a38c7824649b853ed7b09ba4b3f35a7b6401fc58058ef145"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/17-outubro-rosa.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/referencias/17-outubro-rosa.png",
+    "sha256": "af73b6ec9748985018155213e13df5d8ba6b84f65f6ee2879453ffd7a27789da"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/16-criancas.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/referencias/16-criancas.png",
+    "sha256": "9a49e90fab2240d5c8a31073a5cea72d7fa1cd1d978da9f9272a0ddead157798"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/15-setembro-amarelo.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/referencias/15-setembro-amarelo.png",
+    "sha256": "3f7213f859672f58decdd47fcbcd28eb9d91fb64f2196cce80f25419a83d2b1e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/14-primavera.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/referencias/14-primavera.png",
+    "sha256": "6c7dda790522a5776ecfe4cf79dfb6acae92d0473d1ff2392003e6b76b0c6633"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/13-pais.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/referencias/13-pais.png",
+    "sha256": "e3f3d0f293440d502cb58930654ebc1d4b16d9e6e5495b8c94bf567dde1f10e8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/12-inverno.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/referencias/12-inverno.png",
+    "sha256": "9b187c0678e90a813365cdcc156815a842188ebb0ed008ab46e9e712d2261445"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/11-ferias.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/ferias/referencias/11-ferias.png",
+    "sha256": "04cac6288f488c2e0ecfc36294c55f42cfa2e29b20cd910c32df7f667ced6e1a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/10-namorados.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/referencias/10-namorados.png",
+    "sha256": "c6d3b5848ae90abbc188cd8c6408ef7a3e87387dc3d7809029b2a1bfbd67ef87"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/09-festa-junina.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/festa-junina/referencias/09-festa-junina.png",
+    "sha256": "4334b4b0f99b46c2355e59cb1ccb58575c9c39f177b8ffca8534a8592a53dfcf"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/08-maes.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/referencias/08-maes.png",
+    "sha256": "c4806e0f6162db41c262f02c343d8c88bc64279be4a739631002a35dda4e89f0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/07-pascoa.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/referencias/07-pascoa.png",
+    "sha256": "70ea6ae5e23e58cc1591da0878630055db3bae336b2f4d13a944c8d463fe9dc1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/06-consumidor.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/consumidor/referencias/06-consumidor.png",
+    "sha256": "df7c01ecd0821261b21f172667284ea104b524cd512d444bebe6cc0bcc885827"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/05-volta-as-aulas.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/referencias/05-volta-as-aulas.png",
+    "sha256": "46e8d93ec80ac0364c36a43d9f9aac035f8733a07041865316a2fbf2d3dfa045"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/04-carnaval.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/carnaval/referencias/04-carnaval.png",
+    "sha256": "58c88f2f62112f30f626f72431e1e75bd6dac7b797d0cdca6b0054623c3f3753"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/03-volta-a-rotina.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/referencias/03-volta-a-rotina.png",
+    "sha256": "46619cdd6b89a8ac84b510bdfbd98b159a2af1932d52d9712af5822cf1080f24"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/02-verao.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/verao/referencias/02-verao.png",
+    "sha256": "249d742bb60b67a59c2749263608ea4e0a91919b63e970277f95b39bed7d7443"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/pranchas/01-padrao.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/referencias/01-padrao.png",
+    "sha256": "98775942e9d9b3e9c61ade95fcdb4c14e4ee233d8eb84c08194f0fb126b6d8ef"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/primavera/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/originais/story.webp",
+    "sha256": "1155fd8b9765059a78c5d9832ce83dba63ddfc0eb1165eb2c2e674980c21bf9e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/primavera/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/originais/original.png",
+    "sha256": "4d7ddc68352f14115d605c0b466d0c9d9c315be9f3cd457100d53c497021d605"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/primavera/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/originais/notebook.webp",
+    "sha256": "0002ac830cdef85dcf2310ad8a47145a7f82a11375844b3a93cd5590628301d4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/primavera/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/originais/miniatura.webp",
+    "sha256": "1f264d233f83561e65fa2a528e44b79c5c5ae3ded018137c7d5b9f76be8cda1f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/primavera/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/primavera/originais/celular.webp",
+    "sha256": "5b7f2846604d793d4c3016337a50a10da264f5f65035a226f6c7af148b60bdf5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/black-friday/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/story.webp",
+    "sha256": "4d7b6a27f1c102ade8a403ba479a2661fd0bf450782f63622f862a9cbe13b75f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/black-friday/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/original.png",
+    "sha256": "320df28f8cfff93272a600c03b589b5f5f2e056d767d9318ffdf219370428057"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/black-friday/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/notebook.webp",
+    "sha256": "17c2b20da9e8cb006bee07e06e572a01d7ad0adb5af2edbb6b91cd60aae289d2"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/black-friday/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/miniatura.webp",
+    "sha256": "8c2db350df7f0163f4b02ba58a2daae11d61712d732be0239012003ea2ccb94a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/black-friday/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/black-friday/originais/celular.webp",
+    "sha256": "02dba405b958bb8dacb38c1023d7ab46c4e894df46998331ff0e5b09674f7a47"
+  },
+  {
+    "source": "docs/evidencias-ajustes-2026-10-03/mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-ajustes-2026-10-03/mobile.png",
+    "sha256": "668a867b378797b96ac454a058745f565d8e829f2f567780cc8803f42b84d469"
+  },
+  {
+    "source": "docs/evidencias-ajustes-2026-10-03/desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/evidencias-ajustes-2026-10-03/desktop.png",
+    "sha256": "ce66bbfb0d1594c6c06ceb0fee611057e4df9d80ca2c12b915de25f112ee9d95"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/galeria-desktop.jpg",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/assets-v1/galeria-desktop.jpg",
+    "sha256": "1533134e865d3a1b1e2339d3ad958d7573692c16646c37575fdf2bf9ac0c45f4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/galeria-celular.jpg",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/assets-v1/galeria-celular.jpg",
+    "sha256": "0f69b4d7bb8b0de9ab863dc70dc572eddf5f4fb41f202363cdcce5d889d26372"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/criancas/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/originais/story.webp",
+    "sha256": "95b2eaa5a8cec3e32a157b594452f44e8e79d21656f1aef73dd35a3f0cf61fd8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/criancas/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/originais/original.png",
+    "sha256": "709caf49e08346454d74a6bb90ddbe954af099a294000827bbdf384683ccd9cf"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/criancas/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/originais/notebook.webp",
+    "sha256": "1253c3075f4273bc20a736fbd7f6186fe1d0b9fcc84b94139694674312957fd8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/criancas/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/originais/miniatura.webp",
+    "sha256": "880754b5aff16d2a69d2eff5c1f2b0d74db4c37d8245128730bb02704124cfbd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/criancas/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/criancas/originais/celular.webp",
+    "sha256": "29288c933c663da10611b869e9e05d4c2f57a0de6e780ea856870c210ffe6545"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pascoa/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/story.webp",
+    "sha256": "a39e79c255b58d6d9d3379f829a1766e2d46232e129b57112e97250340408aaa"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pascoa/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/original.png",
+    "sha256": "705834e23087ec5a258471d9a4509056d257aaebafc1c36de4250728e88d0bf4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pascoa/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/notebook.webp",
+    "sha256": "71b208af3c735bfafb5a16c9c040bc1bb6ea3d38f273bf32a93acc06a5549b5a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pascoa/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/miniatura.webp",
+    "sha256": "f1db7a67c267aedec9bcfd045a980904b40560e2d30cc6eaddcacfd4203645db"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pascoa/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pascoa/originais/celular.webp",
+    "sha256": "0cf53e67c1d01f2ea3c42069e680b8b215c9ab14aecf70f2bb7b371b9017789f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/inverno/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/originais/story.webp",
+    "sha256": "62c1cd1e3d384e73a19df50762f32132491f024a524f119b049805f4477f9bfd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/inverno/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/originais/original.png",
+    "sha256": "9c2c51cc80563c1889a37711c25cdd6a6df74ab3167d46f32db0a94dc4b6bcb4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/inverno/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/originais/notebook.webp",
+    "sha256": "f748524518dd705df7821c9e61678760514c6254b005f64034ece33906df285b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/inverno/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/originais/miniatura.webp",
+    "sha256": "732cc5264e01eb99de9113da01a162d72b932b0fd8e7a4afcad48cd566ba1235"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/inverno/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/inverno/originais/celular.webp",
+    "sha256": "0f12460f1a4d4ef20dd53a2575b89a96b5fa61bae6e34ea44d488f82b610adb4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/maes/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/originais/celular.webp",
+    "sha256": "7a5739ac6bcbb73446cddb3dff4f544eeb7a1b263becd2022f0894a90a34716d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/maes/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/originais/miniatura.webp",
+    "sha256": "e3ba780fb16a777628fec6b996cd8124178dad33c0895031cf78d56de507860d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/maes/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/originais/notebook.webp",
+    "sha256": "6574f8dead10396167e3235b7a4fa8f6bbf4899f92b528f36d61c9e4811c7264"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/maes/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/originais/story.webp",
+    "sha256": "a58fc7197a9de4a8b425e5d3a873f4efac3b0ba18ae2990a56dd377f245274a8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/maes/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/maes/originais/original.png",
+    "sha256": "2b5c4d462a7bc11642f931afe42ba7eebcf4689942b2fe72d73855d946a1b297"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/namorados/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/originais/story.webp",
+    "sha256": "3a5e99f035e1cb1acbafd0e13e803193665dc9d6ca581d0136c9fa581ab286fb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/namorados/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/originais/original.png",
+    "sha256": "cfa792ab57a7a978a7dcc30e7822c1fc9ab63ec8e40accd3e653960784576527"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/namorados/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/originais/notebook.webp",
+    "sha256": "7e15f9f543396e7658b8a21f04a58134a61a88d5e95038b95007d39b7c148e4a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/namorados/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/originais/miniatura.webp",
+    "sha256": "ccd90a9bb126b8839a909e08c28cdde621c5329d370ad787c97cf00f0eac31ae"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/namorados/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/namorados/originais/celular.webp",
+    "sha256": "b9439764e781199e01fcfe3584399fa191d0b442095116dc91f85529d25fc94d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/natal/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/originais/celular.webp",
+    "sha256": "bd879cb0fb91437082ccb65994d477e2b3b238a066c443be758edc5a95d03185"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/outubro-rosa/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/celular.webp",
+    "sha256": "105e8423c33df2b6c0452993dab4c19e32c19ff14821b18902b7af6510841732"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/outubro-rosa/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/miniatura.webp",
+    "sha256": "7ea73f4275d3396574e828b82dcecc4ce5f65706e75c7769ac61ef116dd59a67"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/natal/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/originais/story.webp",
+    "sha256": "6b0ddf9b7dc0b7c8d16e8fd4d11e9a4fdff6718717cfc7237bffa210cd488cb5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/natal/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/originais/original.png",
+    "sha256": "af33821d30f9e94883e1455f3262ae4a3b78a1782c7bdc58ebbd5bb253bfdebb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/natal/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/originais/notebook.webp",
+    "sha256": "5b6cdb12d087ef183dacac5d9f221ef92cda9d0b24657fc0b16a01b9fb1eb0d8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/natal/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/natal/originais/miniatura.webp",
+    "sha256": "f205c5cfc3083132aa8edd4810bee4d64c1b56d368f3d277ab8545021036fa38"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/outubro-rosa/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/story.webp",
+    "sha256": "0ebd0a987f3105956296de331f74c3126a1875787cef60b82a1c8445fd8584ce"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/padrao/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/originais/story.webp",
+    "sha256": "8230118c3b0670aeba342de0bde9fc42ba48dfda697c606a2851926e1ce6f18a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/outubro-rosa/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/original.png",
+    "sha256": "5ffb2551a94420215ddce5cdbc765aeefa1fbf1d126e83f791951140f4be9e1b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/outubro-rosa/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/originais/notebook.webp",
+    "sha256": "54e7c147fa4c65717a7ab2e681676fe9bfa46138fae34477ddc80bbb485cafa5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/padrao/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/originais/original.png",
+    "sha256": "49bd3fcf57ce8e2dbafce2a4ef57916596f1554eb7f7c80d3fa142d0341b24fb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/padrao/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/originais/notebook.webp",
+    "sha256": "87d0112a1fbf3af27a86cff65aab61cbd12f880a4b9a0b77d710f9e3de008ed0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/padrao/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/originais/miniatura.webp",
+    "sha256": "d34a3bfec67de6a890f2a66781c9bd0b2de14f7d4eabe48413efe9384cfce7f0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/padrao/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/padrao/originais/celular.webp",
+    "sha256": "ec9530775911a035679b0f639f2e04cdd29f5fc1aa69bd1de6d4e9af17effc83"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pais/story.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/originais/story.webp",
+    "sha256": "4634fe8ee64214e5a6b11bd899d09a5a1584f1b4724fb2baaa37d259a7e6cc90"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pais/original.png",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/originais/original.png",
+    "sha256": "2cd203caacf1382de8bf4ad68ef7e6063d6ddc11343fc5667a977a189d0fc91a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pais/notebook.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/originais/notebook.webp",
+    "sha256": "4d96b4e5aa7f4874338be6b229c7667e1dd93063bfc0a2d9c0f614bdf7785ecd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pais/miniatura.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/originais/miniatura.webp",
+    "sha256": "88501289ebb62b54b64988fe7c823dce946d269b982174a3530f24596b595310"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/assets-v1/pais/celular.webp",
+    "target": "bom-pra-voce-novo/src/images/offer-themes/pais/originais/celular.webp",
+    "sha256": "c0d8eeba29b78d1e72451d162930587bca362d3bfae3bb9218f18047693dc708"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/aniversario-loja-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/aniversario-loja-mobile.png",
+    "sha256": "e9aa29f7669e043cf41c6e11c8deda62f964042c354dfa91c856fc82264d0f57"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/aniversario-loja-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/aniversario-loja-desktop.png",
+    "sha256": "00e0f4719b8380a5119772a3a6eb1afb86efcec5d03e7b3e436eb8fdebac59d2"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ano-novo-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ano-novo-desktop.png",
+    "sha256": "0b11487ab983e848dd5d0db18cb087f3d185892a1fd0a902883bca926cd09730"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ano-novo-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ano-novo-mobile.png",
+    "sha256": "9076742607f8e568b4228d63e9143f69e843f8142b363849b473660ccb1a3423"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/painel-produtos-outubro.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/painel-produtos-outubro.png",
+    "sha256": "222e3f14553d1db4ec1beae1d5b6a1f9cfb6a4b4f0dc5775664c7e944c96fa9b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/painel-outubro.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/painel-outubro.png",
+    "sha256": "b50253b24534a009a9756ca6dbf49fdd624dcba147999ced34aedb06dee5bce9"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/outubro-rosa-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/outubro-rosa-390.png",
+    "sha256": "8a578670ea3a4cbc17260724ac40529ace5f2f4693bab2386b02f436be8938df"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/outubro-rosa-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/outubro-rosa-1440.png",
+    "sha256": "d0ee3a8caa3589d9a68cf1f91e6f29c79054cffea5b3d87323f539726c55a620"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/site-outubro-contexto.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/site-outubro-contexto.png",
+    "sha256": "b3ff780db55a9cb01af5ef722115ed568d759c8226d6d3833f2dd0988869224b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-1440.png",
+    "sha256": "9dc89f1fb918e509171da1f5ca404576729dd66bcd3982fd380e0baeebdfaded"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-320.png",
+    "sha256": "63da7dc1de30a651d771d319bd2ccb89ad77ccb112a99477e80284e2a0435861"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-aniversario-loja.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-aniversario-loja.png",
+    "sha256": "76ffe5d473dd33c752234d67b632bacc5aa0aa1ff3e78b38cb4baf83dff1288d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-aniversario-loja-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-aniversario-loja-mobile.png",
+    "sha256": "5f570db3631ef8bd95d484b6f97be034215e0d92e81e9a5aeca98787ecf0ac9e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/carnaval-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/carnaval-mobile.png",
+    "sha256": "e83a79de831409466a4c77738da783c4d14106ea244d26294b0d24ef3b8fa44c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/carnaval-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/carnaval-desktop.png",
+    "sha256": "4d78e2cabb7d2a4a43c9028a9155aa85c711fef49ed9b1dde6954667c06e5bc2"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ano-novo.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ano-novo.png",
+    "sha256": "dc5b457b3d5a138354a34c34915c93c1382f228b8328b159747e18773857500c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ano-novo-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ano-novo-mobile.png",
+    "sha256": "f043cc57029c1c325b9fdef33b9caf7cb0374f518eeb65bb07bf6546f6c9569e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-carnaval-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-carnaval-mobile.png",
+    "sha256": "cee1048baf61b9f0dcf37d25f033411f3f763ab59f95f620ba88838758386063"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-1440.png",
+    "sha256": "b8bef4105fd385bd8da31367bfdf568cd4b7e228d4322e98ccc4b0bfded9b1df"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-aniversario-loja-390.png",
+    "sha256": "f8fac995ef5d22dc6fdc30dca9aec8b60b99b64652f6ddf75b6349e341bd9ecf"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-390.png",
+    "sha256": "9d28709fc69d8f85b68ad01005e792d51d70a2effc018872256624a0f499bc97"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ano-novo-320.png",
+    "sha256": "7c1522bf93eae6877dd125d5958dd7c522156a9f285d7f058e4c09f27eb35a8b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-carnaval.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-carnaval.png",
+    "sha256": "02ba9379597668151c95a0cf7b2bde21df119ab384dcd07773cf6971aebf123e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-consumidor.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-consumidor.png",
+    "sha256": "a3f47c0c780bb08de176d181a4e7a62cf8cd893cdfb95167240940b3e5ffb639"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-consumidor-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-consumidor-mobile.png",
+    "sha256": "4188b4206ca595aa465c9111756f04117eb3053e2bf640b2364796793f7cb645"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-criancas-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-criancas-mobile.png",
+    "sha256": "f4c8eb9ebb7fb35e7fdada8117f6a76e53950cbc30bfbff867c735de7d5ed609"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-criancas.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-criancas.png",
+    "sha256": "464486f870b26cdcec6c6a7374486eb9b4d14d4f59bcceb30d9cd85600cc8ae1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/painel-mobile-detalhe.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-27/painel-mobile-detalhe.png",
+    "sha256": "f7e227a0b6563bac1f6c75f4e5d493761789aee48143b99538ec3b55adf21ba8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-festa-junina.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-festa-junina.png",
+    "sha256": "3420fe660b3d02da55070733de24705c7c5b21fb64a493d85aef9b775f22580e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-festa-junina-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-festa-junina-mobile.png",
+    "sha256": "a8fea3d0a3957d48a5dd1642a6ec0b450035a8801e4399e414c5858c2149a84e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ferias.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ferias.png",
+    "sha256": "aebee28eeca8cd157ccab5cdb4ffb193629f2bb3cd95998c84ce9b52e6f438ee"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ferias-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-ferias-mobile.png",
+    "sha256": "e8e096741dee7284581166ce61d1ffdba296e7fb8c3b88dbd98e7503a581ec46"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-inverno.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-inverno.png",
+    "sha256": "1ede808d0e7b7791d95c17a32e1dd9cfb3bf71a6b1ef581186d6d7e9af6bcfd1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-inverno-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-inverno-mobile.png",
+    "sha256": "5366bafc555bc1ea3b8e5b67ae4d365a40a446002b20ff5b1b6d7156d4bf2f41"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-maes-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-maes-mobile.png",
+    "sha256": "47841bf424c43f2ecdb2dd46cf76010d4c51b2dcc12948046226d17ec0c66056"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-maes.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-maes.png",
+    "sha256": "51712344647ddc1e47d8bb22018bf5ffcab0b29e0e5b4a94d2361827cfeddc2e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-320.png",
+    "sha256": "f2c114b43b5d7a7b681bb6fa7fc3af3456711101df40bc3cef249e770c0b9ded"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-1440.png",
+    "sha256": "d54a46c2f4b2b4dac7ff55904d96991eb98fe08585acd0fc5531bad2e1e7511b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-1440.png",
+    "sha256": "30ccff36cc6ae7de3dca1e95e549640d3c6ba5609fc857ad66c6e704ba855cc3"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-carnaval-390.png",
+    "sha256": "9138841faecc3d35cd6e51bc8f55ca495da28a33fbcedc8bbf61838771e9a259"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-320.png",
+    "sha256": "196ea895916c35e52ee473e081580b6a33859262d30b72ba9feee35149c4b276"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-mobile.png",
+    "sha256": "f626df6c9b05714629c6d8f254b4660d4808485dd9d9cd3438f96beb6dec822c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-namorados-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-namorados-mobile.png",
+    "sha256": "29e4959100d90f17da315f8cac19d7c3b9848d81602be5e8a86c25a853826d51"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-namorados.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-namorados.png",
+    "sha256": "eacf3b19bc1e28d6d699cf4ef9bbeb4a1b2fa7317dc56b3539de377f44a70a4b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-consumidor-390.png",
+    "sha256": "c7232852e10c0835907528cbfe1d343d128a5b645a54066d88817185f0c83e92"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pascoa-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pascoa-mobile.png",
+    "sha256": "496134daa1e089e30c5e3a2eb19952b11d5512d4f7cf47dc62e30c6ceb5b590d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pais.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pais.png",
+    "sha256": "448fe97d7e9842c50f1f3d9f1a36edb7905956cb2143c5af81faba3ee3f636ed"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pais-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pais-mobile.png",
+    "sha256": "57cd2d0ad3c14d3fbc36c1dd18f5e5a33bac2c9c6a8db91ca72bbbf890b7f7b6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-padrao.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-padrao.png",
+    "sha256": "1e03276ab2ad6988fb3a5e4bfb83c3aa8c5a9ead4341b0a17be14fd530e6ceb4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-padrao-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-padrao-mobile.png",
+    "sha256": "a99db099917ef935f75e27c3d6a5350684103d076d3e958281c42d1fcf393a02"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro.png",
+    "sha256": "833511c7b57821dd223c9b4ae4c0b22d2f91fd7005abb0720005ec1ed488d5e0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro-rosa.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro-rosa.png",
+    "sha256": "84a917b13e3058af8b4afd354c2628dbd1c2a4b0f43f7ceb9fff3600c0c1c620"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro-rosa-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-outubro-rosa-mobile.png",
+    "sha256": "22007b0b8548c11995ef9c338c0ab1211eae8e145dd779a2c664a9894c7dd945"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-natal.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-natal.png",
+    "sha256": "0937736de5bd8f7b97f68c5c96adc2e1bff6df0942d408eb12ccbe8726910e65"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-natal-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-natal-mobile.png",
+    "sha256": "0f8c9e5a374680404926eb60e53247013eeaae26ec24211b5476d68532e8cc3f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-setembro-amarelo.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-setembro-amarelo.png",
+    "sha256": "e6c0b6f0689face9ef294cfc362dd88a26818ddbad304f35314e5bc2230ae8bb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-setembro-amarelo-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-setembro-amarelo-mobile.png",
+    "sha256": "fff7be4e44ce60a8ff243ff77ee3e345a41f89bc7754793b9a7f565a41a13ae0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-primavera.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-primavera.png",
+    "sha256": "4c67c7f58d8ffea52871b4620946597d262907e2f22d2e0062bafbb0275cfa79"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-primavera-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-primavera-mobile.png",
+    "sha256": "ca1ff6aee1ee2a0d48f59f8f3588c8f338a7f8fddbe5481e3836edf32bfc0c14"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pascoa.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-pascoa.png",
+    "sha256": "c648e24835c2be78ac3cd75b6d08f8d126cd7c79f30bbbdc0b1281edbdff7517"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-a-rotina-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-a-rotina-mobile.png",
+    "sha256": "92aabf0d242d4ffdbb94db976e5851e613cba5e42e067c53567a4991ead8439e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-verao.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-verao.png",
+    "sha256": "584e8b1290f67f74f3d71c8449ffc2c5c12ff4fa1cd4b6104aff38185de1fe8d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-verao-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-verao-mobile.png",
+    "sha256": "95bab30e159348a6c849b4477d66b5c9d67a9d0e9c32b282e33b1cbd2b63d6ea"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-a-rotina.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-a-rotina.png",
+    "sha256": "2632474a664b4cf85d356d14c522f923fd94df5a16e0db5b31c269ca723e224e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-as-aulas-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-as-aulas-mobile.png",
+    "sha256": "dd26b707e4017fb186dedbb65aa8b2fa9c323484f7e520c3615a5d3191591ad5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-390.png",
+    "sha256": "4019e252ad8e35ee2df9a24384b74286808e537d31099a7baaba9a919bef66f8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-320.png",
+    "sha256": "0f2fb1ca30e8209c28c86e58fc4828eb25a834e055583c1309034906c2f95d38"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-ferias-1440.png",
+    "sha256": "1fe73763ba9e9a718f491bbf8ccd4ab127b96f9c450ef17c406102ad2cf8506f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-390.png",
+    "sha256": "f9603630c81104b7a7eea80bb7e9ccbe767ea229f57e732ed3cedb9dd4b127f1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-320.png",
+    "sha256": "0322978eea865bc58c97c9906c8e45ab4be15a4cebd22276fdcd0f25d806f97b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-criancas-1440.png",
+    "sha256": "1b6e7141a7ba9242ff24d5ee93e423329aa19937fadac34c54f3f2e399237d3d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-390.png",
+    "sha256": "3fdd5ae3a7aad93b7bf560ae4901aaf853f0e3158b79a33e8cdad0d617ee2697"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-320.png",
+    "sha256": "3530eb6d1639e32ed6824911f0375299159edc6da66f31db4ea829d7688ba9d7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-festa-junina-1440.png",
+    "sha256": "14b6cc5f5cb810a6afda424a489499619d65ab654865fad6bc96c093d0d95045"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-320.png",
+    "sha256": "f698ae9e9550d0ab136fe1059820606a326793490d0b60c6066e191c11fa2894"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-1440.png",
+    "sha256": "eb49a9803acf8e4a0bea34b61faa6f2b4278774b98329dece0facf27c4f5e6bd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-inverno-390.png",
+    "sha256": "0c1a17a05ec2700535a7c86dbc9dfa9caa17e0b0868b015c353a246edf264586"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-as-aulas.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/comparacao-volta-as-aulas.png",
+    "sha256": "6c8fb1c23812107f6f8b62e12b49f982685a0dd90bda004b0a3cd31d77f09696"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-desktop.png",
+    "sha256": "4776faca377a755625b84f9a6fe726500eae7ac6f182455a05b893ad0d77f98c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/contato-assets-v2.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/contato-assets-v2.png",
+    "sha256": "c2a06ed31289ce317c6af4b984d3318b0e83745b5cc4bbad9ce0a69cacc1eb5f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/consumidor-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/consumidor-mobile.png",
+    "sha256": "86d4160aa3fb0da0ec909b782ec3e16c2d85908e0471f0e79fe577369f27f0e7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/consumidor-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/consumidor-desktop.png",
+    "sha256": "c6170bede5fa71ad53a10654485528ea1469a8a60e13b2511c6793b7540cb5cd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/festa-junina-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/festa-junina-mobile.png",
+    "sha256": "112acc13192b434eae8158ae95fa246fe520ddd0e5d469408e86bb41828e631f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/festa-junina-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/festa-junina-desktop.png",
+    "sha256": "8b7876b79a0f229d0cc37660df547e24b3faee7b0e9ab3bf974fbdab4e9bebb6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ferias-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ferias-mobile.png",
+    "sha256": "ebd1cc873596c67e86d414cc68c1a870d9a7d95234a34c2d4c454ffa0fae8fe7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ferias-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/ferias-desktop.png",
+    "sha256": "c452c51a6042d8f68a32d73f7b3b732c44cf3ff4c7238853618433fac4fd5047"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-mobile.png",
+    "sha256": "2bc3b0b550c38e1bda6de2091a3b59758f2e088f22bdb9da334e93402694194f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-mobile-recorte.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/criancas-mobile-recorte.png",
+    "sha256": "1102f456fb8e1abfa3b5b86f334decdaaba7589b650b99c764fcd0ac8baaabce"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/inverno-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/inverno-mobile.png",
+    "sha256": "2df8cba7e4c8f2130edab2a8ecf67f623118ef672bb3768b837d62576c9207c6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/inverno-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/inverno-desktop.png",
+    "sha256": "4f4272fb0b322e588bae34f3abd594270c43fcf464fa36d379d6692a16e1dccd"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/maes-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/maes-mobile.png",
+    "sha256": "27c642af509b7a08aa53e53e8d89e3a03afc715fccd563c90a543655f7ca9037"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/maes-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/maes-desktop.png",
+    "sha256": "aadd84c4fbd0831b2d97746daec6f4e0dc85187bf4512e2cd4fc95a3893efb53"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/namorados-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/namorados-desktop.png",
+    "sha256": "fab6adbfa96219cb2bdc9843e41ca6f42b36928b9c18b51c285c15540864e7ec"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pais-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pais-mobile.png",
+    "sha256": "d31899b4690e26561b7ff0d64c1f0e1f97f66ed89bf9dbb763f6e00767a3ba07"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pais-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pais-desktop.png",
+    "sha256": "bf5ebb5c9a2b91f7351b3716650271d6378e8cfc66b2145e20464133dc9cbd09"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/painel-v2.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/painel-v2.png",
+    "sha256": "e37dcdd784e8b96b623ae70de9367bd2fea641578c94046e0e80512390a2f295"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/painel-outubro.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/painel-outubro.png",
+    "sha256": "74da746667cf5a581019291b03ffb60fdf841dbcc2514ed3ce32a0cbe865104f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/padrao-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/padrao-mobile.png",
+    "sha256": "304804b8b232595df78b6a8e0cdf8d230972a440095ab3aee91f4959e8509844"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/padrao-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/padrao-desktop.png",
+    "sha256": "d0a6f033dec3b4313f9d18f7c10cbe74e3710fadde49d6f8af79e95b70d5f6c7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-rosa-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-rosa-mobile.png",
+    "sha256": "55caaa3f7dbd5a02e08694fea0f79fde128a094bcdace4d6a71c602f51a9ecac"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-rosa-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-rosa-desktop.png",
+    "sha256": "30680441f735b73c74b122afbf8e8fd278d95e0511476da080697dd2ad125f38"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile.png",
+    "sha256": "98f665edbebb9e90ae08369ccc97c0ffec9d881fe358bd88ba6c9e313d3a4267"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile-v1.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile-v1.png",
+    "sha256": "f802ee42dd51a3f9f531e95cc15b92cbb2f5a23923a6b233adc9c3917508e90a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile-recorte.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-mobile-recorte.png",
+    "sha256": "38e6b8cd943e2a1aaa73f485f214a258c8d9826a6fa69879273cf76fbedd17c5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-desktop.png",
+    "sha256": "f427c6677713eb4ea8a6226567905d1e1b57f80f1593901f4836b6257f6b3a71"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-desktop-v1.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/outubro-desktop-v1.png",
+    "sha256": "29012d8fd2dd8d078616986df55b8d53f804375e59bf88e7b3e1c58d36929f40"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/natal-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/natal-mobile.png",
+    "sha256": "ae891cc501dc9e0fb5f9f84436a089bfd9dc0e4d565396ed0b9adb7d018457df"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/natal-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/natal-desktop.png",
+    "sha256": "62285c5c5fcd6a45309b797aecee4bcc7d3cb4460de41904790657857ebde4b6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/referencias-restantes.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/referencias-restantes.png",
+    "sha256": "f97f8c27b6c0e8050b07beec31cd78eae4d79a29b70560bf78f00b26d56b3514"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/primavera-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/primavera-mobile.png",
+    "sha256": "2fb7d621ef1341c24cc96d887dddfeb875ae6bfbdf29fb6b3130324ccf6a8549"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/primavera-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/primavera-desktop.png",
+    "sha256": "b70e7abf26bc773cd89da7b0acd571dbfc513dc3d3df0833868ba68beae84a97"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pascoa-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pascoa-mobile.png",
+    "sha256": "7820e3e05b4aed3fdf3285cf6290dbb8aa246f3e282659be50c4d68c9aa26344"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pascoa-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/pascoa-desktop.png",
+    "sha256": "c11d8d8dac5e37e369306353b4cec906cdfc5f89407669f2b1846cff4451fb0f"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-4.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-4.png",
+    "sha256": "e9f8bc93b8990997d84b0bc270abc035a360c5b8830b6d848cdf05034c4c70a4"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-3.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-3.png",
+    "sha256": "7a7b7b1390670ba1c25672ec437cd973e53594caf307b8b6284c3adfd4267347"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-2.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-2.png",
+    "sha256": "09cec341e1bac2bb77a545bcaa20833a4c7d21f1a4f521151b2b620ab20d2398"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-1.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/revisao-grupo-1.png",
+    "sha256": "6ecdeb5009d1b7a450c68a31550e1c1c1228f5d2d9c2bb641db3907bdce3ac3b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/setembro-amarelo-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/setembro-amarelo-mobile.png",
+    "sha256": "6d21be72fa3a7ab14aafe9288696952554805bbf2997df82a8f1e51edb30be1d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/setembro-amarelo-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/setembro-amarelo-desktop.png",
+    "sha256": "2384e32764d8a084c8e4bb97763dafb909e0ce175286333e026c1c49fdc96dbb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/verao-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/verao-desktop.png",
+    "sha256": "082f6062e80e8bcea917f50eaabbba2c33cfe4152af8f9240d7726649d586407"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/namorados-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/namorados-mobile.png",
+    "sha256": "398843d96f19591dde9adc154f211f31918f582620a7801c0115449b45d1a2a1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-390.png",
+    "sha256": "510eb8ac0f2ab06ab82713cee030a228bb3f35db00a33acb7763eb4037034da3"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-390.png",
+    "sha256": "f111f31cf04ebef454dbdd9182f080d7a2d1a99cad266c29b07db4193605be0b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-320.png",
+    "sha256": "2ce9c489bf16936265c0defb0dad8546ecf614c55b8d0af023811e1710408542"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-setembro-amarelo-1440.png",
+    "sha256": "a11e5b6aa045ec5bdf86fe13bd7569ac342c9500c0e491552d8fd71318859c26"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-390.png",
+    "sha256": "1d259c3b0463c781c70d282d11643fd305764f12a2d1191d7ce203afa8086b3e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-320.png",
+    "sha256": "68493748ea2fa12b24a5789bf3d8f2e3f8985885ed432420fcb5c3d9b6afa172"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-320.png",
+    "sha256": "bc21f4589bd821497ad662e492eeec4c76806e5806d2cf708d97b51b328b9dbb"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pais-1440.png",
+    "sha256": "a9e96cbb06b0ed7253a7933454eacef089fc3f4febf76984358f9e5aed1335c9"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-primavera-1440.png",
+    "sha256": "cd769c8407cd6efbd38270742b8536d471e911dcad1a5a1e5f2895c21c366434"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-390.png",
+    "sha256": "dd10546073963c9acc15602513bc4b307b5bfad5922c2f597985d713816f0ef8"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-390.png",
+    "sha256": "47bfa55416a1e5242b182a2fccae8e6dac7c8cc066b921c24811c74b56568a67"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-320.png",
+    "sha256": "225385a83e778acb971a95c278a105cb9a50bf8f073a46d36d7574e88be12f6b"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-320.png",
+    "sha256": "102e8c2a4a2afc1a6222389eee7bf3f8f18f166fc27284c1f038770ccfde864a"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-padrao-1440.png",
+    "sha256": "681ce42c560a0c0e7c73c99dde75fa9d9cce45d9e1e956957c7c56d90da907da"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-pascoa-1440.png",
+    "sha256": "5bda70c15b443d8e7d0a3b6b54bb94327e7e40fa21055c7939c4bec19a9ca667"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-390.png",
+    "sha256": "a36d637b05ed3da21ce3c0cf0045950f03e8106efce86f6713b9d48f4971f272"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-320.png",
+    "sha256": "63af8c23fd412714cec3b036464bf8f320901198cc8371c18c58ad64072211ff"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-a-rotina-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-a-rotina-desktop.png",
+    "sha256": "02fc09bb8d226c67f8f9763d8a90a137f58e652382ded63fa818c397b0a33d46"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-outubro-rosa-1440.png",
+    "sha256": "1f57340e375258842588fdd10acce1ccd15c3edee9cd77fb34b74f7ec7a317d2"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-390.png",
+    "sha256": "f4df1c5d2177aa3520ef33756a1ac6fbdadd8d2e751b69cfdfee7f0012df7487"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-320.png",
+    "sha256": "62bd036b960943c27c884a09bac8192f9b1be467ebbc2d5008122a62cf73b021"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-1440.png",
+    "sha256": "a2c9f0d370ae9623170dfc8632795f6d47c3b89b26a3759ff2660fb170cb71a0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-natal-1440.png",
+    "sha256": "68b16f3cb138e6154dc0d9e3f0f291d96287c92a8a338137b49a489de8b02b8e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-390.png",
+    "sha256": "172a169d0a272305bd127c2ec3f3e35be3c9d4f1b7930ef62ca0177de9115ddc"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-390.png",
+    "sha256": "8d2fa98a910c2c63a1b3eab52a936a874516189e5e5fd1d7d0ccfdbe4009016d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-320.png",
+    "sha256": "d901c36a9804a1e0c8fc938ab13ac05ee065659827af2d271e86239b468895ca"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-320.png",
+    "sha256": "c1f45813d998e8719a23c040d4cd563d811861aea963c6ba23681219a92a98ec"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-verao-1440.png",
+    "sha256": "ca90be0eca8b5409703a51cd962fcb22e51dfe93971adf486dfe60dfe05b48b7"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-namorados-1440.png",
+    "sha256": "cca73dc82173c080a9c8f4470b1dde0ce16a326f1e818202a8a742d9131ae0f5"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-390.png",
+    "sha256": "fcb8a32a02b688c5bbd3122952d975375e7c7b9f6b33a56095756f2b86675f8c"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-320.png",
+    "sha256": "9c94c07a6392dcab6a0a28c9b860c8cde61286a3b5ab70de0276f71781c51de9"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-maes-1440.png",
+    "sha256": "eada55889bd3f5031bf2e8754be995f48fb37f51c942ab3d4fa07b946d2bea3e"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-320.png",
+    "sha256": "b0e29b4b260daef08675e4d1cd07a909ed6c0f68b11962f75c04aaa21e8ca741"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-a-rotina-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-a-rotina-mobile.png",
+    "sha256": "474ea6b6381999e0bd891c47d0f148f292dd191f607cfc504af7fd94efbc7826"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-1440.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-1440.png",
+    "sha256": "c4b65980ed4b5beba8fb802b9c6c6fbaf906d2d305be509016a4575ad07ca4d1"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-a-rotina-390.png",
+    "sha256": "0158151713da629175006fbf5f1d0d4c90ac3d329bba7e9e65bc32e4344899e6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-320.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-320.png",
+    "sha256": "0122c85483188a7f326726380b2dadb289f57ea334122ab22b7beb0b4084675d"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-as-aulas-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-as-aulas-mobile.png",
+    "sha256": "18e9fed02584489071ff8acbc35f489b29f1e7ac97250daac92ddce8edb110f0"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-as-aulas-desktop.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/volta-as-aulas-desktop.png",
+    "sha256": "bec7e43bdd45cb82e17740713f922e0e6e5c4ec428055c329a4e68c80b57d071"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/verao-mobile.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/correcao-2026-10-26/verao-mobile.png",
+    "sha256": "d11841f14786da057e7dc7dab666188331907e1486ab520e056850bcd5a239d6"
+  },
+  {
+    "source": "docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-390.png",
+    "target": "bom-pra-voce-novo/src/images/library/docs/vitrine-sazonal-2026-10-24/implementacao-2026-10-26/vitrine-volta-as-aulas-390.png",
+    "sha256": "abda81962ede1eeb563616ce0f22ce3b4b2edc958ab65261c707d180da28e339"
+  }
+]

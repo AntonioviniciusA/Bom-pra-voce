@@ -24,7 +24,7 @@ Prompt utilizado:
 - 23 testes existentes aprovados; teste adicional do carrossel aprovado (24 no total). Cobre seleção, avanço, retorno e fechamento do ciclo de três slides.
 - Build de produção concluído. Avisos existentes das ferramentas sobre Browserslist e fs.F_OK permanecem.
 - Conferência no navegador desktop e celular: controles trocam imagens, seção de panfletos única, leitura móvel e ausência de transbordamento horizontal em 390 pixels. Console observado sem erros/avisos da página.
-- [Captura desktop](evidencias-ajustes-2026-10-03/desktop.png) e [captura móvel](evidencias-ajustes-2026-10-03/mobile.png).
+- [Captura desktop](../bom-pra-voce-novo/src/images/library/docs/evidencias-ajustes-2026-10-03/desktop.png) e [captura móvel](../bom-pra-voce-novo/src/images/library/docs/evidencias-ajustes-2026-10-03/mobile.png).
 
 Integração com Supabase, recebimento efetivo de currículos e confirmação dos dados comerciais continuam pendentes. Nenhuma publicação realizada nesta revisão.
 
