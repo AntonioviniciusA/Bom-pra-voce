@@ -1,6 +1,6 @@
 import { authenticatedUser, projectUrl, rpc } from '../_shared/supabase.ts';
 import { cors, failure, HttpError, json, preflight, requireMethod, requireUuid } from '../_shared/http.ts';
-import { validateProductCampaign } from '../_shared/productCampaign.ts';
+import { validateCatalogProduct, validateProductCampaign } from '../_shared/productCampaign.ts';
 import {imageExists,productImagePath,productImageUrl,storeProductImage,isProductImageUrl} from '../_shared/productImages.ts';
 
 Deno.serve(async req => {
@@ -23,12 +23,28 @@ Deno.serve(async req => {
     if(binary)return json(req,await storeProductImage(bytes,mime));
     const body=JSON.parse(new TextDecoder().decode(bytes));
     if(body.action==='list')return json(req,await rpc('bpv_list_product_campaigns',{p_actor:user.id}));
+    if(body.action==='product_list')return json(req,await rpc('bpv_list_products',{p_actor:user.id}));
     if(body.action==='image-status'){
       const path=productImagePath(body.hash,body.mime);
       return json(req,{exists:await imageExists(path),url:productImageUrl(path)});
     }
     const id=requireUuid(body.campaign_id,'Campanha');
     if(!Number.isSafeInteger(body.expected_revision)||body.expected_revision<0)throw new HttpError(422,'INVALID_REVISION','Recarregue o estado da publicaÃ§Ã£o.');
+    if(body.action==='product_save'){
+      const product=validateCatalogProduct(body.product,projectUrl());
+      return json(req,await rpc('bpv_write_product',{p_actor:user.id,p_id:id,p_expected_revision:body.expected_revision,p_product:product}));
+    }
+    if(body.action==='product_patch'){
+      if(!body.patch||typeof body.patch!=='object'||Array.isArray(body.patch))throw new HttpError(422,'INVALID_PRODUCT_PATCH','Alteração de produto inválida.');
+      const allowed=new Set(['revision','name','code','barcode','fragrances','identifierType','noGtinReason','brand','variant','content','category','image','imageSmall','imageRevision','imageSource','imageApproved','imageAuthorized']);
+      if(Object.keys(body.patch).some(key=>!allowed.has(key)))throw new HttpError(422,'INVALID_PRODUCT_PATCH','A alteração contém campos não permitidos.');
+      const products=await rpc('bpv_list_products',{p_actor:user.id}) as any[];
+      const current=products.find(product=>product.id===id);
+      if(!current)throw new HttpError(404,'PRODUCT_NOT_FOUND','Produto não encontrado.');
+      const merged={...current,...body.patch,id}; delete merged.remoteRevision;
+      const product=validateCatalogProduct(merged,projectUrl());
+      return json(req,await rpc('bpv_write_product',{p_actor:user.id,p_id:id,p_expected_revision:body.expected_revision,p_product:product}));
+    }
     if(body.action==='withdraw')return json(req,await rpc('bpv_write_product_campaign',{p_actor:user.id,p_id:id,p_expected_revision:body.expected_revision,p_snapshot:null}));
     if(body.action!=='publish')throw new HttpError(400,'INVALID_ACTION','AÃ§Ã£o invÃ¡lida.');
     const snapshot=validateProductCampaign(body.campaign,projectUrl());

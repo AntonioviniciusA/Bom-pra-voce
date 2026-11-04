@@ -3,13 +3,24 @@ import { beforeEach, expect, test, vi } from "vitest";
 const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), signInWithPassword: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({ auth }) }));
 vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message, status=0) { super(message); this.code = code; this.status=status; } } }));
-import { downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, signIn, verifyMfa } from "./adminApi";
+import { authorizeAssistant, changedProductFields, downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, signIn, verifyMfa } from "./adminApi";
 
 beforeEach(() => {
   vi.clearAllMocks();
   auth.getSession.mockResolvedValue({ data: { session: { access_token: "session-token" } } });
   auth.mfa.listFactors.mockResolvedValue({ data: { all: [], totp: [] } });
   auth.mfa.getAuthenticatorAssuranceLevel.mockResolvedValue({ data: { currentLevel: "aal1" } });
+});
+
+test('sends only fields changed in an existing product',()=>{
+  const base={id:'p',revision:2,remoteRevision:4,name:'Produto',category:'mercearia',image:'https://photo'};
+  expect(changedProductFields(base,{...base,revision:3,category:'higiene'})).toEqual({revision:3,category:'higiene'});
+});
+
+test('does not send local image metadata in a product patch',()=>{
+  const base={id:'p',revision:2,remoteRevision:4,name:'Produto',image:'old'};
+  const product={...base,revision:3,image:'new',imageSmall:'small',imageWidth:1600,imageHeight:1200,imageOptimizationVersion:1};
+  expect(changedProductFields(base,product)).toEqual({revision:3,image:'new',imageSmall:'small'});
 });
 
 test("explains a network failure during sign in without treating it as an invalid password", async () => {
@@ -60,6 +71,13 @@ test("never opens the panel when MFA verification fails or does not elevate the 
   await expect(verifyMfa("factor", "000000")).rejects.toThrow("AAL2");
   auth.mfa.getAuthenticatorAssuranceLevel.mockResolvedValue({ data: { currentLevel: "aal2" } });
   expect((await verifyMfa("factor", "000000")).step).toBe("ready");
+});
+test("requires a fresh authenticator challenge before authorizing assisted mode", async () => {
+  await expect(authorizeAssistant("123456")).rejects.toThrow("Configure o autenticador");
+  auth.mfa.listFactors.mockResolvedValue({ data: { totp: [{ id: "phone-factor", status: "verified" }] } });
+  auth.mfa.challengeAndVerify.mockResolvedValue({});
+  expect(await authorizeAssistant("123456")).toBe("session-token");
+  expect(auth.mfa.challengeAndVerify).toHaveBeenCalledWith({ factorId: "phone-factor", code: "123456" });
 });
 test("reads the server array and sends metadata with the same publication request", async () => {
   global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => [{ id: "offer" }] });

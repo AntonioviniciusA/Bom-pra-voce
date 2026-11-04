@@ -84,6 +84,19 @@ export async function verifyMfa(factorId, code) {
   return state;
 }
 
+export async function authorizeAssistant(code) {
+  const auth = supabase().auth;
+  const { data: factors, error: factorsError } = await auth.mfa.listFactors();
+  if (factorsError) throw authError(factorsError, "Não foi possível consultar o autenticador.", "assistant-mfa-factors");
+  const factor = (factors?.totp || []).find((item) => item.status === "verified");
+  if (!factor) throw new AdminApiError("AUTH", "Configure o autenticador do celular antes de ativar o modo assistido.");
+  const { error } = await auth.mfa.challengeAndVerify({ factorId: factor.id, code });
+  if (error) throw authError(error, "Código inválido ou expirado.", "assistant-mfa-verify");
+  const { data, error: sessionError } = await auth.getSession();
+  if (sessionError || !data.session?.access_token) throw authError(sessionError, "Não foi possível confirmar a sessão protegida.", "assistant-session");
+  return data.session.access_token;
+}
+
 async function request(path, options = {}) {
   const config = apiConfig();
   if (!config.ready) throw new AdminApiError("UNAVAILABLE", "Configure a conexão do Supabase para usar o painel.");
@@ -114,6 +127,34 @@ export async function productCampaignRequest(action, campaign, expectedRevision=
     return response.json();
   },onProgress);
   const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,campaign_id:campaign?.id,expected_revision:expectedRevision,campaign})});
+  return response.json();
+}
+
+export function changedProductFields(base={},product={}){
+  const patch={revision:product.revision};
+  const localImageMetadata=new Set(['imageWidth','imageHeight','imageOptimizationVersion']);
+  for(const key of new Set([...Object.keys(base),...Object.keys(product)])){
+    if(['id','revision','remoteRevision'].includes(key)||localImageMetadata.has(key))continue;
+    if(JSON.stringify(base[key])!==JSON.stringify(product[key]))patch[key]=product[key];
+  }
+  return patch;
+}
+
+export async function productCatalogRequest(action, product, expectedRevision=0, onProgress, baseProduct) {
+  if(action==='product_list'){
+    const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action})});
+    return response.json();
+  }
+  let patch=action==='product_patch'?changedProductFields(baseProduct,product):null;
+  const needsImageUpload=action!=='product_patch'||typeof patch.image==='string'&&patch.image.startsWith('data:');
+  const prepared=needsImageUpload?await prepareCampaignImages({items:[{id:product.id,priceCents:1,unit:'un',expiresOn:'2099-12-31',product}]},async payload=>{
+    const binary=payload instanceof Blob;
+    const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
+    return response.json();
+  },onProgress):null;
+  if(action==='product_patch'&&prepared)patch={...patch,image:prepared.items[0].product.image,imageSmall:prepared.items[0].product.imageSmall};
+  const body=action==='product_patch'?{action,campaign_id:product.id,expected_revision:expectedRevision,patch}:{action:'product_save',campaign_id:product.id,expected_revision:expectedRevision,product:prepared.items[0].product};
+  const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   return response.json();
 }
 

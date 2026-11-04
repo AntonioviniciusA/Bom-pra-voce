@@ -22,7 +22,7 @@ async function api(path: string, init: RequestInit = {}) {
     try { message = JSON.parse(detail)?.message ?? ""; } catch { /* not JSON */ }
     const mapped: Record<string, [number, string]> = {
       FORBIDDEN: [403, "FORBIDDEN"], EXPIRED: [410, "EXPIRED"], RATE_LIMIT: [429, "RATE_LIMIT"],
-      PAYLOAD_CONFLICT: [409, "CONFLICT"], OBJECT_CONFLICT: [409, "CONFLICT"], REVISION_CONFLICT: [409, "CONFLICT"],
+      PAYLOAD_CONFLICT: [409, "CONFLICT"], OBJECT_CONFLICT: [409, "CONFLICT"], REVISION_CONFLICT: [409, "CONFLICT"], PRODUCT_IDENTITY_CONFLICT: [409, "CONFLICT"], CAMPAIGN_PERIOD_CONFLICT: [409, "CONFLICT"],
       INVALID_TOKEN: [401, "INVALID_TOKEN"], NOT_FOUND: [404, "NOT_FOUND"], DOWNLOAD_BLOCKED: [423, "DOWNLOAD_BLOCKED"],
     };
     if (mapped[message]) throw new HttpError(mapped[message][0], mapped[message][1], "Não foi possível concluir a operação.");

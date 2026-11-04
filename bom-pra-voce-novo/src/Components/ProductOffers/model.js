@@ -7,18 +7,26 @@ export function validGTIN(value) {
  const digits=[...value].map(Number); const check=digits.pop();
  return (10-digits.reverse().reduce((sum,n,i)=>sum+n*(i%2===0?3:1),0)%10)%10===check;
 }
-export function productIssues(p) {
+export function productDraftIssues(p) {
  const issues=[];
  if(!p.name?.trim()) issues.push('Informe o nome');
  if(!p.code?.trim()) issues.push('Informe o código interno');
- const fragrances=productFragrances(p),barcodes=productBarcodes(p);
- if(fragrances.length>8) issues.push('Use até 8 fragrâncias por produto');
- if(p.identifierType==='gtin'&&(!fragrances.length||fragrances.some(f=>(Array.isArray(p.fragrances)&&!f.name?.trim())||!validGTIN(f.barcode||'')))) issues.push('Informe cada fragrância e seu GTIN válido');
+ const explicitVariants=Array.isArray(p.fragrances)?p.fragrances:[],barcodes=productBarcodes(p);
+ if(explicitVariants.length>8) issues.push('Use até 8 variantes por produto');
+ if(p.identifierType==='gtin') {
+  if(explicitVariants.length) {
+   if(explicitVariants.some(f=>!f.name?.trim()||!validGTIN(f.barcode||''))) issues.push('Informe o nome e o GTIN válido de cada variante');
+  } else if(!validGTIN(p.barcode||'')) issues.push('Informe um GTIN válido para o produto');
+ }
  if(new Set(barcodes.map(code=>code.padStart(14,'0'))).size!==barcodes.length) issues.push('Cada fragrância precisa de um código de barras diferente');
  if(p.identifierType!=='gtin'&&!p.noGtinReason?.trim()) issues.push('Informe o motivo de não usar GTIN');
  if(!productCategories.some(c=>c.key===p.category)) issues.push('Escolha a categoria');
  if(!p.image) issues.push('Anexe a foto correspondente');
  if(!p.imageSource?.trim()||!p.imageAuthorized) issues.push('Informe a origem e autorização da foto');
+ return issues;
+}
+export function productIssues(p) {
+ const issues=productDraftIssues(p);
  if(!p.imageApproved) issues.push('Revise e aprove a foto');
  return issues;
 }
@@ -37,7 +45,8 @@ export function campaignIssues(c,catalog) {
  for(const item of c.items){const p=catalog.find(p=>p.id===item.productId);if(!p){issues.push('Produto não encontrado');continue;}
  for(const message of productIssues(p)) issues.push(`${p.name||p.code}: ${message}`);
  for(const barcode of productBarcodes(p)){const normalized=barcode.padStart(14,'0');if(campaignBarcodes.has(normalized))issues.push(`${p.name}: GTIN repetido em outro produto da campanha`);campaignBarcodes.add(normalized);}
- if(item.expiresOn&&(!realDate(item.expiresOn)||item.expiresOn<c.endDate)) issues.push(`${p.name}: o vencimento do lote deve ser uma data válida igual ou posterior ao fim da campanha`);
+ if(!item.expiresOn) issues.push(`${p.name}: informe o vencimento representativo da embalagem/lote`);
+ else if(!realDate(item.expiresOn)||item.expiresOn<c.endDate) issues.push(`${p.name}: o vencimento do lote deve ser uma data válida igual ou posterior ao fim da campanha`);
  if(!Number.isSafeInteger(item.priceCents)||item.priceCents<=0) issues.push(`${p.name}: informe um preço válido`);
  if(!['un','kg','L','pacote'].includes(item.unit)) issues.push(`${p.name}: confira a unidade`);
  }

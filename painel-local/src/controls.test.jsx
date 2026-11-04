@@ -5,6 +5,7 @@ import Offers from "./Offers";
 import Resumes from "./Resumes";
 import * as api from "./services/adminApi";
 vi.mock("./services/adminApi", () => ({ listCampaigns: vi.fn(), createCampaign: vi.fn(), publishCampaign: vi.fn(), updateCampaign: vi.fn(), withdrawCampaign: vi.fn(), listApplications: vi.fn(), downloadApplication: vi.fn() }));
+vi.mock("./services/sensitiveAction", () => ({ requireSensitiveAction: vi.fn(async () => true) }));
 afterEach(() => { cleanup(); vi.clearAllMocks(); });
 test("edits an existing promotion, selects a visual icon and theme, preserving its current flyer", async () => {
   api.listCampaigns.mockResolvedValue([{ id: "offer", revision: 4, active_version_id: "v1", state: "published", title: "Oferta", summary: "Resumo", conditions: "Enquanto durar", starts_at: "2026-10-01T12:00:00Z", ends_at: "2026-10-20T12:00:00Z" }]);
@@ -47,7 +48,7 @@ test("previews October separately and saves its theme without republishing the f
   api.listCampaigns.mockResolvedValue([{ id: "october", revision: 2, active_version_id: "v1", state: "published", title: "Ofertas", summary: "Resumo", conditions: "Condições", starts_at: "2026-10-01T12:00:00Z", ends_at: "2026-11-01T12:00:00Z" }]);
   render(<Offers notice="" setNotice={vi.fn()} />);
   fireEvent.click(await screen.findByRole("button", { name: "Editar / trocar panfleto" }));
-  fireEvent.click(screen.getByRole("button", { name: "Outubro Rosa", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: /Outubro Rosa/ }));
   const frame = screen.getByTitle("Oferta no site");
   frame.contentDocument.body.innerHTML = '<div id="preview-root"></div>';
   fireEvent.load(frame);

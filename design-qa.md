@@ -119,3 +119,49 @@ P2 corrigido: o seletor base exigia id promocoes, mas campanhas usam IDs individ
 Comparação focal: título/data, categorias e preço foram inspecionados nas capturas de desktop e celular em resolução original; a prancha e as capturas foram apresentadas no mesmo conjunto de comparação. Nenhum P0/P1/P2 remanescente no escopo da composição web com fotos pendentes. P3: ornamentos não são cópia pixel a pixel; acrescentar fotografias reais permitirá avaliar a composição comercial completa.
 
 Testes: site 60/60; painel 42/42; builds aprovados. Login real, publicação com AAL2 e compartilhamento no Instagram não foram exercitados. Guia: docs/vitrine-novembro-2026.md.
+
+# Painel local de campanhas e produtos — 29/10/2026
+
+final result: passed
+
+Fonte visual: `docs/painel-novembro-2026-10-29/01-campanhas.png` a `06-produtos-da-campanha-mobile.png`. As cinco referências desktop medem 1487 × 1058 px; a referência mobile mede 853 × 1844 px. Estado pretendido: campanhas de novembro, catálogo, cadastro, edição mobile e conferência/publicação.
+
+Implementação: `painel-local/src/OfferCampaignPanel.jsx` e `OfferCampaignPanel.css`; rota isolada de avaliação `painel-local/panel-visual.html`. A implementação usa os temas, a prévia, as validações, a persistência IndexedDB, a preparação de novembro e a publicação versionada reais do projeto.
+
+Evidência disponível: todas as seis referências foram abertas em resolução original e inspecionadas. A implementação foi renderizada no navegador integrado em `http://127.0.0.1:5175/panel-visual.html`, primeiro em desktop e depois com viewport explícito de 390 × 844 px. A largura mobile foi medida no documento: `innerWidth=390` e `scrollWidth=390`, sem estouro horizontal. A aba 3 foi mantida aberta como prévia local para conferência.
+
+Verificação funcional: o percurso Campanhas → Calendário → Produtos → Cadastrar produto → Campanha → Conferência foi exercitado no navegador. Foram confirmados os dois rascunhos de novembro, catálogo vazio, formulário com identidade/GTIN, seletor de temas reais, salvamento local, prévia, checklist e controles de publicação. A suíte completa aprovou 59 testes em 15 arquivos; o build Vite foi aprovado. O limite de teste foi ampliado para dez segundos porque um teste antigo de controles excedia cinco segundos apenas na execução paralela completa e continuava passando isoladamente.
+
+Superfícies verificadas no navegador:
+
+- Tipografia: Inter e hierarquia roxa do painel, preservando fontes próprias apenas dentro da prévia real do site.
+- Espaçamento: cartões de campanha, tabela/catálogo, formulário em duas colunas, conferência com painel lateral e reorganização abaixo de 1000/700 px.
+- Cores: roxo, amarelo de aviso, verde de sucesso, vermelho de erro e fundo branco conforme as referências.
+- Imagens: recursos reais dos temas e fotos cadastradas; nenhuma imagem fictícia das pranchas foi incorporada ao produto.
+- Conteúdo: textos operacionais reais, limite correto de 10 MB com otimização até 2 MB e separação explícita entre salvar localmente e publicar.
+
+Correções após a comparação: o recurso largo do tema foi removido do cabeçalho operacional e o cartão passou a usar a miniatura própria; no mobile, a navegação virou uma grade de três colunas e o contêiner passou a impedir estouro lateral. Nenhum P0/P1/P2 permaneceu no escopo local. P3: a miniatura Black Friday é propositalmente decorativa e não reproduz o banner completo da referência.
+
+Console: não surgiram novos erros durante o percurso local. O histórico da aba continha quatro registros `session-required` anteriores, provenientes de tentativas de consultar o estado protegido do servidor sem sessão. O painel não faz essa consulta ao abrir a revisão; ela só ocorre por ação explícita em “Conferir estado no site”. Publicação remota, retirada da vitrine, login AAL2 e validação comercial com produtos reais não foram executados e permanecem fora desta aprovação local.
+
+## Correção de produto sem variantes e revisão Black Friday — 30/10/2026
+
+final result: passed
+
+Fonte visual: `bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png`, 1774 × 887 px. Implementação comparada: `bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png`, 1366 × 1000 px, e `semana-mobile.png`, 390 × 1100 px. A prancha é uma composição reduzida de notebook, celular e Story; as capturas foram avaliadas em suas larguras CSS documentadas e não redimensionadas como se fossem um recorte 1:1 da prancha.
+
+Evidência combinada: `painel-local/black-friday-qa.html`, aberta em `http://127.0.0.1:5175/black-friday-qa.html`, apresentou a fonte e as duas capturas atuais na mesma vista. Estado: Semana Black Friday, quatro produtos demonstrativos, fotos ainda não aprovadas e valores explicitamente marcados como não publicados. A rota isolada `seasonal-visual.html?theme=black-friday&phase=semana&device=desktop` foi renderizada novamente; navegação e console foram verificados, sem erros ou avisos.
+
+Correção funcional: produtos sem variantes agora exibem `GTIN do produto`; a seção de variantes começa vazia e marcada como opcional. Só passa a exigir nome e GTIN por variante depois de `Adicionar variante`. Rascunhos antigos contendo uma única variante completamente vazia são normalizados. A validação de dígito verificador e duplicidade de GTIN permanece ativa. Evidência no navegador: formulário novo mostrou o campo `GTIN do produto` e nenhuma `Variante 1` obrigatória.
+
+Fidelidade visual:
+
+- Tipografia: Barlow Condensed mantém a hierarquia branca/amarela do título e os preços roxos sobre pincelada amarela. `Semana` e o período atual são dados da campanha, não texto fixo do tema.
+- Espaçamento: quatro cards no notebook e duas colunas no celular; busca, filtros horizontais e rodapé compacto preservam a estrutura da prancha. Nenhum estouro próprio do componente foi observado na captura normalizada; a barra vista na página de avaliação vem do iframe fixo de 1280 px dentro de uma aba menor.
+- Cores: roxo quase preto, violeta, amarelo elétrico, branco e creme coincidem com a direção definida.
+- Imagens: logo e decoração reais estão presentes. A ausência de fotografias nos cards é um estado intencional de segurança (`Aguardando cadastro e revisão`), não uma divergência a preencher com imagens fictícias.
+- Conteúdo: títulos e datas refletem a campanha configurada. Preços da demonstração continuam identificados como ilustrativos e não publicados.
+
+Comparação histórica: a falha P1 do formulário era a criação automática de `Variante 1`, que tornava impossível concluir um produto único. Ela foi removida, o caso sem variantes recebeu campo próprio e a nova evidência no navegador confirmou o estado corrigido. Nenhum P0/P1/P2 visual permanece. P3: com fotos reais aprovadas, repetir a comparação comercial para avaliar recorte, escala e equilíbrio dos cards; o Story continua dependente de uma foto aprovada.
+
+Verificação: 61 testes em 15 arquivos aprovados e build Vite aprovado. O GTIN `7896422000109` visível no anexo não passa no cálculo de dígito verificador atual; a correção não transforma esse código em GTIN válido. Se ele for apenas código interno, deve permanecer no campo correspondente e o GTIN real deve ser informado separadamente.

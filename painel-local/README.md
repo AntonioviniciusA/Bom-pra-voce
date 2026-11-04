@@ -1,5 +1,7 @@
 # Painel local Bom Pra Você
 
+> **Novo escopo — 29/10/2026:** a reformulação será dedicada somente à nova vitrine: Campanhas, Calendário e Produtos; tema pronto no site, seleção do catálogo, cadastro durante inclusão, preço e vencimento da embalagem/lote, início/fim e no máximo uma campanha ativa. Panfletos antigos, editor de aparência, Currículos e Instagram/Publicações saem do escopo futuro. Consulte a [especificação que prevalece sobre os fluxos antigos abaixo](../docs/ESCOPO-PAINEL-CAMPANHAS-2026-10-29.md). Esta atualização é documental; nenhuma função foi removida do aplicativo nesta etapa. Os trechos antigos abaixo registram a operação existente, não requisitos da reformulação.
+
 Aplicativo administrativo separado do site público e executado em Electron.
 
 ## Configuração
@@ -10,11 +12,13 @@ Aplicativo administrativo separado do site público e executado em Electron.
 
 ## Vitrine de novembro de 2026
 
-Abra o painel com `npm start` na pasta `painel-local`. Em **Ofertas → Vitrine de produtos**, use **Preparar novembro** para obter Esquenta (1–22/11) e Semana Black Friday (23–29/11). O botão preserva rascunhos existentes. [Guia de cadastro e publicação](../docs/vitrine-novembro-2026.md).
+Abra o painel com `npm start` na pasta `painel-local`. Em **Ofertas → Vitrine de produtos**, use **Preparar novembro** para obter Esquenta (1–22/11) e Semana Black Friday (23–29/11). O botão preserva rascunhos existentes. Alterações de campanha são salvas automaticamente neste computador; ao cadastrar um produto, a confirmação só aparece depois que a gravação local termina. O indicador no topo diferencia salvamento em andamento, sucesso e falha. Salvar localmente não publica no site nem sincroniza outros computadores. [Guia de cadastro e publicação](../docs/vitrine-novembro-2026.md).
 
 ## Abrir o painel
 
 Na pasta `painel-local`, execute `npm start`. O comando compila a interface e abre o aplicativo. Mantenha o terminal aberto enquanto usa o painel.
+
+Para operação automatizada local, consulte o [guia permanente do modo assistido](../docs/MODO-ASSISTIDO-OPERACAO.md). Ele registra localização, comandos, critérios de confirmação, preservação de rascunhos e recuperação segura para evitar repetir a investigação em cada sessão.
 
 ## Erros e diagnóstico
 

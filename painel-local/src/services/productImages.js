@@ -48,6 +48,13 @@ export async function prepareCampaignImages(campaign, request, onProgress = () =
   for (const [index,item] of campaign.items.entries()) {
     onProgress(`Preparando foto ${index+1} de ${campaign.items.length}: ${item.product.name}`);
     const p = item.product;
+    // Produtos já sincronizados guardam URLs públicas validadas pelo servidor.
+    // Uma edição textual não deve tentar decodificar essas URLs como base64.
+    if (typeof p.image === 'string' && !p.image.startsWith('data:')) {
+      prepared.items.push({...item,product:{...p}});
+      onProgress(`Foto já armazenada: ${index+1} de ${campaign.items.length}.`);
+      continue;
+    }
     const images = p.imageOptimizationVersion === 1 && p.imageSmall
       ? p : await optimizeProductImage(dataImageBlob(p.image));
     const image = await send(images.image), imageSmall = await send(images.imageSmall);

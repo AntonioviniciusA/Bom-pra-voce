@@ -1,7 +1,10 @@
-const { app, BrowserWindow, shell } = require("electron");
+const { app, BrowserWindow, dialog, ipcMain, powerMonitor, shell } = require("electron");
 const path = require("node:path");
+const { createAssistantController } = require("./assistant.cjs");
 
 function createWindow() {
+  let closeState = "saved";
+  let allowClose = false;
   const window = new BrowserWindow({
     width: 1280,
     height: 800,
@@ -40,6 +43,37 @@ function createWindow() {
   window.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith("https://")) shell.openExternal(url);
     return { action: "deny" };
+  });
+
+  createAssistantController({ app, ipcMain, window });
+  const lockScreenListener = () => {
+    if (!window.isDestroyed()) window.webContents.send("bpv-lock-screen");
+  };
+  powerMonitor.on("lock-screen", lockScreenListener);
+
+  const closeStateListener = (event, status) => {
+    if (event.sender === window.webContents && ["saved", "pending", "saving", "error", "loading"].includes(status)) closeState = status;
+  };
+  ipcMain.on("bpv-close-state", closeStateListener);
+  window.on("close", event => {
+    if (allowClose || !["pending", "saving", "error"].includes(closeState)) return;
+    event.preventDefault();
+    const saving = closeState !== "error";
+    const choice = dialog.showMessageBoxSync(window, {
+      type: saving ? "info" : "warning",
+      title: "Alterações ainda não salvas",
+      message: saving ? "O painel ainda está salvando suas alterações." : "Algumas alterações não puderam ser salvas.",
+      detail: saving ? "Aguarde alguns instantes e tente fechar novamente, ou feche sem salvar." : "Continue no painel para tentar novamente, ou feche sem salvar as alterações pendentes.",
+      buttons: [saving ? "Aguardar" : "Continuar no painel", "Fechar sem salvar"],
+      defaultId: 0,
+      cancelId: 0,
+      noLink: true
+    });
+    if (choice === 1) { allowClose = true; window.close(); }
+  });
+  window.on("closed", () => {
+    ipcMain.removeListener("bpv-close-state", closeStateListener);
+    powerMonitor.removeListener("lock-screen", lockScreenListener);
   });
 
   const devUrl = process.env.VITE_DEV_SERVER_URL;

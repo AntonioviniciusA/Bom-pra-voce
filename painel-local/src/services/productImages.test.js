@@ -13,6 +13,13 @@ test('reuses stored photos across campaigns without uploading bytes',async()=>{
   expect(result.items[0].product.image).toBe('https://example/photo.webp');
   expect(source.items[0].product.image).toBe(photo);
 });
+test('keeps an already stored Supabase photo when only product data changes',async()=>{
+  const request=vi.fn();
+  const image='https://project.supabase.co/storage/v1/object/public/promotion-public/products/assets/hash.webp';
+  const result=await prepareCampaignImages({items:[{product:{name:'Produto',image,imageSmall:image,category:'higiene'}}]},request);
+  expect(request).not.toHaveBeenCalled();
+  expect(result.items[0].product).toMatchObject({image,imageSmall:image,category:'higiene'});
+});
 test('uploads only missing files and never sends the campaign on an image failure',async()=>{
   const request=vi.fn(async value=>{
     if(value instanceof Blob)throw new Error('Conexão interrompida');

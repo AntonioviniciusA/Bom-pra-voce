@@ -3,6 +3,7 @@ import { Plus, RefreshCw, Upload, X } from "lucide-react";
 import { createCampaign, listCampaigns, publishCampaign, updateCampaign, withdrawCampaign } from "./services/adminApi";
 import { campaignPayload, icons, localDateTime, themes } from "./promotionOptions";
 import {panelErrorMessage} from './services/diagnostics';
+import {requireSensitiveAction} from './services/sensitiveAction';
 
 import SeasonalThemePicker from "./SeasonalThemePicker";
 import OfferPreview from "./OfferPreview";
@@ -40,6 +41,7 @@ export default function Offers({ notice, setNotice }) {
       if (file && (!['application/pdf', 'image/png', 'image/jpeg', 'image/webp'].includes(file.type) || file.size > 10000000 || file.size === 0)) throw new Error("Escolha um PDF, PNG, JPEG ou WebP de até 10 MB.");
       if ((values.instagram_feed_enabled || values.instagram_story_enabled) && file?.type !== "image/jpeg") throw new Error("Para enviar automaticamente ao Instagram, anexe a versão JPG do panfleto. PDF, PNG e WebP continuam disponíveis apenas no site.");
       if ((values.instagram_feed_enabled || values.instagram_story_enabled) && !file && !editing?.active_version_id) throw new Error("Anexe um panfleto JPG antes de programar o Instagram.");
+      if (file && !await requireSensitiveAction('publicar o panfleto no site')) return;
       let campaign = editing;
       if (!campaign) { campaign = await createCampaign(values); setEditing(campaign); }
       if (file) await publishCampaign(campaign, file, values);
@@ -50,6 +52,7 @@ export default function Offers({ notice, setNotice }) {
   }
   async function withdraw(campaign) {
     if (!window.confirm(`Retirar “${campaign.title}” das ofertas públicas?`)) return;
+    if (!await requireSensitiveAction('retirar o panfleto do site')) return;
     setBusy(true);
     try { await withdrawCampaign(campaign); await load(); setNotice("Oferta retirada."); }
     catch (error) { setNotice(panelErrorMessage('legacy-campaign-withdraw',error)); } finally { setBusy(false); }

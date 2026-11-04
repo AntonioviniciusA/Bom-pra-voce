@@ -4,9 +4,10 @@ import {cleanup,fireEvent,render,screen,waitFor} from '@testing-library/react';
 import ProductPublication from './ProductPublication';
 import {productCampaignRequest} from './services/adminApi';
 vi.mock('./services/adminApi',()=>({productCampaignRequest:vi.fn()}));
+vi.mock('./services/sensitiveAction',()=>({requireSensitiveAction:vi.fn(async()=>true)}));
 afterEach(()=>{cleanup();vi.resetAllMocks();});
 const product={id:'p',revision:1,name:'Maçã',code:'001',identifierType:'plu',noGtinReason:'Venda por peso',category:'hortifruti',image:'photo',imageSource:'Própria',imageAuthorized:true,imageApproved:true};
-const campaign={id:'c',title:'Semana',startDate:'2090-01-01',endDate:'2090-01-02',conditions:'Enquanto durarem os estoques',items:[{id:'i',productId:'p',priceCents:599,unit:'kg'}]};
+const campaign={id:'c',title:'Semana',startDate:'2090-01-01',endDate:'2090-01-02',conditions:'Enquanto durarem os estoques',items:[{id:'i',productId:'p',priceCents:599,unit:'kg',expiresOn:'2090-02-01'}]};
 test('requires checking remote revision and saving before publishing a snapshot',async()=>{
  const save=vi.fn(async()=>{});productCampaignRequest.mockResolvedValueOnce([{id:'c',revision:4,state:'published',title:'Semana'}]).mockResolvedValueOnce({id:'c',revision:5,state:'published'});
  render(<ProductPublication campaign={campaign} catalog={[product]} beforePublish={save}/>);

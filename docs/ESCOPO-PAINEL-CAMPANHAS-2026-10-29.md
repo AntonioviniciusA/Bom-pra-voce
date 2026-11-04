@@ -1,100 +1,149 @@
-# Painel de campanhas e produtos
+# Reformulação completa do painel: nova vitrine
 
-Data: 29/10/2026. Status: escopo desejado, somente documentação. Não implementado nesta tarefa.
+Atualizado em 29/10/2026. Escopo definido pelo usuário. Esta etapa altera somente documentação, sem implementar ou remover telas do aplicativo.
 
-## Direção definida pelo usuário
+Este documento prevalece sobre o planejamento anterior que mantinha panfletos, currículos e publicações no painel. A retirada abaixo é do escopo futuro; a remoção funcional depende da etapa de implementação.
 
-O painel deve servir apenas para mudar a campanha e cadastrar ou alterar os produtos das ofertas. Cada campanha terá sua apresentação previamente configurada no site, pronta para receber os produtos e a indicação do tema ativo.
+## Decisões confirmadas
 
-Esta orientação substitui propostas anteriores de edição visual de campanhas pelo painel. Os guias existentes continuam registrando o funcionamento anterior; este documento descreve o comportamento futuro desejado.
+- O painel inteiro será dedicado à nova vitrine de produtos.
+- Layouts, cores, fontes, fundos, decorações e composição de cada tema ficam prontos no site, para computador e celular. No painel, apenas escolher o tema.
+- Selecionar produtos do catálogo existente. Se não houver cadastro, cadastrar durante a inclusão e retornar à mesma campanha, preservando preenchimento e seleção.
+- Editar preço e **vencimento da embalagem/lote** de cada item. O usuário confirmou esse significado de validade; não criar validade individual do preço por interpretação deste pedido.
+- Cada campanha terá início e fim. No máximo uma campanha ativa no site em qualquer instante, independentemente do tema.
+- Ter um calendário com as campanhas marcadas.
+- Gerar imagem de qualquer layout ainda sem referência antes de implementar. Revisar as referências existentes contra este escopo.
+- Não implementar nesta etapa.
 
-Exemplo: o operador escolhe Black Friday, cadastra ou atualiza as ofertas e publica. O site aplica a apresentação de Black Friday já preparada.
+## Fluxo e navegação
 
-## O que fica no site
+Navegação principal: **Campanhas**, **Calendário** e **Produtos**. Conferência e publicação são etapas da campanha.
 
-- Catálogo de campanhas disponíveis, com identificadores estáveis.
-- Layout, cores, fontes, fundos, ilustrações, títulos e composição de cada tema.
-- Versões para celular e computador e regras de apresentação dos produtos.
-- Aplicação do tema ativo e exibição dos produtos publicados e válidos.
-- Inclusão de novos temas e mudanças de aparência por atualização do próprio site.
+1. Criar ou abrir campanha, informar nome operacional, escolher tema pronto e definir início/fim.
+2. Buscar produtos por nome, código ou GTIN e selecionar os já cadastrados.
+3. Se não houver produto, escolher “Cadastrar novo produto”, salvar de verdade e retornar para incluí-lo na campanha de origem. Preservar a seleção anterior e evitar duplicação em novas tentativas.
+4. Ajustar preço, unidade de venda e vencimento da embalagem/lote dos itens; reutilizar identidade, variantes/códigos e foto aprovadas do catálogo.
+5. Conferir pendências e prévia com o componente real do site, em computador e celular.
+6. Confirmar publicação/agendamento e mostrar sucesso somente após confirmação do servidor.
+7. Acompanhar datas, situação e conflitos no calendário.
 
-## O que fica no painel
+Catálogo permanente, independente das campanhas. Remover um item não exclui seu cadastro. Alterações de preço ou vencimento em uma campanha não mudam outra campanha nem uma publicação anterior. Não transformar esse fluxo em controle completo de estoque por lotes.
 
-O fluxo principal terá duas áreas:
+Preservar salvamento automático, rascunhos recuperáveis, confirmação real da gravação e proteção ao sair com alterações pendentes, conforme o [plano de fluxo](PAINEL-NOVEMBRO-FLUXO-E-ESTADOS-2026-10-29.md). Salvar não publica. Diferenciar catálogo vazio, busca sem resultado, falha de leitura e campanha sem itens.
 
-1. **Campanha:** escolher uma campanha pronta, identificar qual está ativa, conferir a prévia e confirmar a troca.
-2. **Produtos das ofertas:** cadastrar, editar, associar ou retirar produtos e atualizar seus preços, unidades, fotos e validade promocional.
+## Datas e exclusividade
 
-Reaproveitar os dados comerciais já tratados pelo projeto: nome, marca, conteúdo, variantes e respectivos códigos, imagem, preço e unidade de venda. Manter a validade da oferta separada do vencimento da embalagem ou lote, quando informado.
+### Fragrâncias, seleção e imagens — complemento de 29/10/2026
 
-O painel não terá editor de layout, cores, fontes, fundos, artes ou estrutura dos cards. A operação não deve exigir preenchimento de configurações técnicas para utilizar campanhas prontas.
+- O cadastro deverá permitir uma imagem geral para o conjunto de fragrâncias e uma imagem individual associada a cada fragrância e respectivo GTIN.
+- Ao incluir o produto na campanha, escolher quais fragrâncias participam. Selecionar uma não coloca as demais em promoção nem altera o catálogo para removê-las.
+- Para uma única fragrância em promoção, mostrar sua imagem individual, nome e código correspondentes. Não usar automaticamente uma imagem coletiva que sugira promoção das demais. Se faltar imagem individual, sinalizar a pendência antes da publicação.
+- Para todas as fragrâncias em promoção pelo mesmo preço, usar a imagem geral aprovada e identificar as participantes. Para um subconjunto de várias fragrâncias, a apresentação ainda precisa de referência visual: não presumir que a foto geral represente corretamente esse subconjunto.
+- Preço e vencimento da embalagem/lote devem acompanhar as fragrâncias selecionadas. Se diferirem, separar os itens comerciais; não estender um valor ou vencimento às demais por herança silenciosa.
+- Revisar as imagens de cadastro, seleção, itens e prévia para mostrar foto geral, fotos por fragrância e seleção das participantes antes de implementar.
 
-Recomenda-se preservar rascunho, prévia e uma ação explícita para publicar. Salvar localmente e publicar precisam ter resultados claros. Uma falha não pode ser apresentada como publicação concluída.
+Evidência do código local: `painel-local/src/services/productImages.js` converte PNG/JPG/WebP em WebP, qualidade 0,82, com versões quadradas de 1200 e 480 pixels, sem recortar a embalagem e com limite de 2 MB por versão. `productDrafts.js` chama essa preparação na seleção; `adminApi.js` prepara imagens antes do envio. Os arquivos são enviados ao Storage e os dados publicados referenciam suas URLs. O cadastro atual em `ProductCampaigns.jsx` tem uma foto compartilhada e informa que o preço vale para todas as fragrâncias; fotos individuais e seleção parcial são requisitos futuros, não comportamento já entregue. Esta inspeção não confirma a versão instalada ou remota.
 
-## Troca da campanha
+Campos separados: **Início da campanha**, **Fim da campanha** e **Vencimento da embalagem/lote**. O preço acompanha o período da campanha.
 
-- Proposta: uma campanha temática ativa por vez. Confirmar essa regra antes da implementação, pois a leitura atual admite uma lista de campanhas.
-- O site recebe o identificador do tema e os dados comerciais; a definição visual fica no site.
-- Publicar tema e produtos como uma versão consistente, sem combinar o tema novo com produtos da versão anterior.
-- Recomenda-se guardar produtos associados a cada campanha. Trocar o tema não deve copiar, apagar ou reaproveitar ofertas automaticamente.
-- Recomenda-se impedir a ativação sem ao menos uma oferta válida. O site também precisa tratar a ausência de ofertas após sua expiração.
-- Escolher um tema não renova ofertas vencidas nem implica ativação automática por calendário. Período e validade continuam sendo dados comerciais.
+Direção proposta para implementação futura:
 
-## Carregamento com a identidade do site
+- Operação em `America/Sao_Paulo`, com fuso visível. Se forem usadas apenas datas, considerar início às 00h do primeiro dia e término exclusivo às 00h do dia seguinte ao último dia. Campanhas consecutivas podem se encostar sem sobreposição.
+- Estados: rascunho, agendada, ativa, encerrada e retirada. Ativa exige publicação confirmada e período vigente pelo relógio do servidor.
+- Rascunhos podem se sobrepor para planejamento, com aviso. Bloquear publicação/agendamento de períodos sobrepostos, inclusive em solicitações simultâneas de operadores distintos.
+- Mostrar campanha e datas em conflito. Não retirar ou substituir outra campanha silenciosamente.
+- Permitir várias campanhas futuras em períodos diferentes, inclusive do mesmo tema.
+- Sem campanha publicada vigente, encerrar a exibição das ofertas. Não reativar campanha encerrada. A expiração deve funcionar com o painel fechado.
+- Vencimento da embalagem/lote informado não pode ser anterior ao último dia da campanha. Não inventar data quando ausente. A obrigatoriedade para todos os tipos de produto ainda precisa de decisão.
+- Publicação preserva tema, itens, preços, datas e fotos na mesma revisão. Mudanças posteriores exigem nova publicação.
 
-Durante a consulta da campanha ativa, dos produtos e dos recursos visuais essenciais do tema, exibir um carregamento com a identidade do Bom pra Você.
+A exclusividade deverá ser garantida no servidor; validação apenas na tela não atende ao requisito. Esta etapa não altera banco ou contratos.
 
-Direção visual proposta:
+## Condições padronizadas e informação ao consumidor
 
-- Marca existente, tipografia do site, amarelo, roxo e fundo claro, reutilizando os estilos compartilhados.
-- Mensagem **“Carregando nossas ofertas…”**, animação discreta e espaços reservados para os cards.
-- Identidade institucional durante a espera, sem antecipar uma campanha antes de saber qual está ativa.
-- Espaço reservado para reduzir saltos na página.
-- Texto de status acessível e respeito à preferência por movimento reduzido.
+Decisão do usuário em 29/10/2026: condições da campanha serão padronizadas e deverão observar a legislação aplicável. Não oferecer um campo livre para inventar ressalvas ou substituir direitos do consumidor. Usar modelo versionado, preenchido com os dados reais da campanha, comum a todos os temas.
 
-Recomenda-se limitar o carregamento à área de campanha e ofertas, mantendo cabeçalho, navegação e informações da loja disponíveis. Bloquear a página inteira exigiria uma necessidade adicional definida.
+Base federal consultada em 29/10/2026: [CDC, especialmente arts. 18, § 6º, 30, 31, 35, 37 e 39](https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm) e [Decreto 5.903/2006, arts. 2º e 3º](https://presidencia.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5903.htm). A oferta vincula o fornecedor; informação relevante precisa ser clara e publicidade não pode induzir a erro. Um texto padrão sozinho não garante conformidade: depende também da veracidade dos dados, estoque, operação da loja e normas locais aplicáveis.
 
-| Estado | Resultado esperado |
-| --- | --- |
-| Consulta inicial em andamento | Carregamento institucional na área das ofertas. |
-| Dados e identidade essencial prontos | Mostrar tema e produtos da mesma versão juntos. |
-| Fotos individuais carregando | Reservar o espaço de cada foto, sem bloquear toda a vitrine por imagens fora da tela. |
-| Nenhuma oferta válida | Encerrar a espera e informar a ausência de ofertas. |
-| Erro na consulta | Encerrar a espera com mensagem clara e opção de tentar novamente. |
-| Tema desconhecido ou arte essencial indisponível | Proposta: usar apresentação institucional padrão se os dados comerciais forem válidos e registrar a falha para correção. |
-| Atualização em segundo plano | Preservar a versão anterior apenas enquanto válida; trocar quando a nova estiver pronta e retirar ofertas expiradas mesmo sem resposta da rede. |
+Requisitos do modelo futuro:
 
-Não usar porcentagem fictícia nem um tempo mínimo artificial. Definir limite de espera e política de nova tentativa na implementação, evitando animação infinita após falha. Uma imagem isolada com erro deve ter tratamento próprio.
+- Exibir período real, estabelecimento/local de validade e produtos/fragrâncias participantes, com conteúdo da embalagem, preço total à vista e unidade de venda legíveis. Não confundir preço por unidade de medida com preço da embalagem.
+- Distinguir período da campanha e vencimento da embalagem/lote. Quando a oferta se referir a lote com vencimento específico, mostrá-lo junto ao item, com destaque adequado; não vender produto vencido.
+- Restrições reais de pagamento, quantidade ou disponibilidade devem ser informadas antes da compra e próximas à oferta. Não presumir limite por cliente ou condição de pagamento; qualquer exceção precisa de fundamento e revisão antes de integrar o padrão.
+- Não incluir automaticamente “enquanto durarem os estoques” como dispensa de cumprir a oferta. Se houver campanha limitada por estoque, definir disponibilidade real e como informar/retirar item esgotado; a frase não afasta os direitos previstos no CDC.
+- Não usar ressalvas genéricas como “não nos responsabilizamos por erros”, “preços sujeitos a alteração sem aviso” ou “imagem meramente ilustrativa” para justificar divergência de preço, embalagem ou fragrância.
+- Não mostrar desconto percentual ou preço “de/por” sem referência verdadeira e verificável. Não criar desconto por aumentar previamente o preço de referência.
+- Preservar condições e dados da revisão publicada no histórico. Trocar o modelo não deve reescrever retroativamente ofertas publicadas.
+- Site, prévia e eventuais materiais de compartilhamento devem manter as informações essenciais e as restrições relevantes legíveis; não escondê-las somente em rodapé ou detalhes.
 
-## Base local consultada
+Texto-base proposto para preenchimento automático: **“Ofertas válidas de {início} a {fim}, em {estabelecimento/local confirmado}, para os produtos e fragrâncias identificados nesta campanha. Preços à vista por {unidade de venda indicada em cada item}. Vencimentos específicos de embalagem/lote, quando aplicáveis, estão informados junto ao produto.”** Os marcadores nunca são publicados vazios. A linha de vencimento só deve aparecer quando houver informação correspondente; restrições adicionais só entram se verdadeiras, claras e previamente revisadas.
 
-- `bom-pra-voce-novo/src/Components/Tabloide/seasonalThemes.js`: catálogo visual com recursos por tamanho e seleção explícita, sem ativação automática pelo calendário.
-- `bom-pra-voce-novo/src/services/productShowcase.js`: leitura e validação de campanhas e produtos, com filtro de validade pelo horário informado pelo servidor.
-- `bom-pra-voce-novo/src/index.css`: cores e fontes do site.
-- `painel-local/src/OffersWorkspace.jsx`: alternância existente entre vitrine e panfletos.
-- [Vitrine e painel](vitrine-painel.md): fluxo anterior de cadastro, rascunho e publicação.
+Antes de implementar/publicar o padrão, confirmar estabelecimento/local e meios de pagamento efetivamente abrangidos e verificar normas estaduais/municipais pertinentes. Não declarar o texto como homologado juridicamente. Nesta etapa, somente requisitos documentados, sem mudança de código.
 
-A consulta identifica pontos de partida locais. Não confirma comportamento em produção nem valida a publicação remota.
+## Apresentação do calendário
 
-## Decisões ainda abertas
+- Visão mensal, navegação entre meses, ação “Hoje” e legenda; lista equivalente para celular e teclado.
+- Marcar todo o intervalo, inclusive quando cruza meses, com nome, tema, datas e situação. Não depender apenas da cor.
+- Destacar a ativa e diferenciar rascunhos, agendadas, encerradas e retiradas.
+- Abrir edição ao selecionar campanha. Uma data pode iniciar rascunho preenchido, sem publicar.
+- Sinalizar sobreposição e permitir abrir as campanhas envolvidas. Arrastar para reagendar não faz parte deste escopo.
+- Tratar carregamento, vazio e falha separadamente. Estado local não comprova publicação no site.
 
-1. **Alcance de “painel apenas”:** o fluxo de campanhas terá o escopo reduzido descrito aqui. Antes de retirar outros módulos existentes, como currículos e publicações, confirmar se o pedido abrange o painel inteiro.
-2. **Campanhas e produtos:** confirmar uma campanha ativa por vez e a proposta de guardar os produtos por campanha; definir se haverá reaproveitamento manual em outra campanha.
-3. **Ordem e destaque:** definir se o operador poderá ordenar produtos e marcar destaques, sem editar o layout.
+## O que sai do painel na futura reformulação
 
-As recomendações deste documento são propostas para a futura implementação, não decisões adicionais já aprovadas pelo usuário.
+| Área ou função atual | Destino |
+|---|---|
+| Panfletos existentes e editor antigo de ofertas | Retirar da navegação e do fluxo. Sem upload de panfleto/PDF para compor a nova vitrine. |
+| Controles de cores, fontes, fundos, ícones, nome do cartão/HUD e composição | Retirar. Aparência pertence aos temas prontos no site. |
+| Currículos, consultas e downloads de RH | Retirar deste painel. Destinação operacional do RH fica pendente fora deste escopo. |
+| Instagram/Publicações, contas e agendamento social | Retirar deste painel. O calendário solicitado é de campanhas da vitrine. |
+| Prévia antiga de panfleto | Substituir por prévia da nova vitrine com o componente do site. |
+| Segundo botão geral para persistir um cadastro | Retirar como requisito; cadastro confirma gravação real, edição salva automaticamente. |
+| Estrutura exclusiva de novembro | Usar campanhas genéricas por tema e período; preservar campanhas existentes. |
+
+Manter login, MFA, permissões, troca de senha, saída, erros e confirmação de publicação, necessários à operação da vitrine.
+
+Retirar módulos não significa apagar currículos, arquivos, campanhas, histórico, permissões ou serviços remotos. Não alterar candidatura pública, banners, setores ou outras áreas institucionais por consequência desta reforma. Inventariar dependências e preservar dados antes da limpeza futura.
+
+## Imagens obrigatórias antes de implementar
+
+Existem seis estudos em [painel-novembro-2026-10-29](painel-novembro-2026-10-29/) e referências de temas em [vitrine-imagens](vitrine-imagens.md). Existência de imagem não comprova aprovação nem fidelidade do aplicativo.
+
+| Layout | Referência existente | Próxima etapa visual |
+|---|---|---|
+| Lista de campanhas | `01-campanhas.png` | Revisar temas genéricos, início/fim, exclusividade e navegação. |
+| Calendário desktop | Sem imagem específica no conjunto de seis estudos | Gerar mês com intervalos, estados, ativa e conflito. |
+| Calendário mobile/lista | Sem imagem específica no conjunto | Gerar visão estreita legível e acesso à campanha. |
+| Criação/edição da campanha | Sem estudo dedicado ao fluxo completo | Gerar nome, seleção de tema pronto e início/fim, sem editor visual. |
+| Seleção no catálogo | `03-catalogo.png` | Revisar seleção, ausência de resultado e retorno à campanha. |
+| Cadastro durante inclusão | `04-cadastro.png` | Revisar contexto, gravação real e retorno sem perda. |
+| Itens, preço e vencimento | `02-produtos-da-campanha.png` e `06-produtos-da-campanha-mobile.png` | Revisar vencimento da embalagem/lote separado do período da campanha. |
+| Conferência/publicação | `05-conferencia-publicacao.png` | Revisar prévia real, agendamento, conflitos e confirmação remota. |
+| Tema do site sem referência adequada | Inventário em `vitrine-imagens.md` | Gerar referência faltante antes de implementar esse layout. |
+
+Produzir uma imagem por página e tamanho necessário, identificar dados ilustrativos e apresentar antes de implementar. Não regenerar todos os temas sem necessidade. Esta entrega somente registra as pendências: nenhuma imagem nova foi gerada e nenhuma tela está liberada para implementação por este documento.
+
+## Pontos para decidir antes de implementar
+
+1. Vencimento da embalagem/lote será obrigatório para todos os produtos ou opcional conforme o tipo? O significado do campo está confirmado.
+2. Períodos terão apenas dias ou também horários? A convenção por dias acima é proposta.
+3. Se um produto tiver lotes com vencimentos diferentes, permitir mais de um item ou informar um vencimento representativo? Não deduzir controle de lotes sem essa decisão.
 
 ## Critérios de aceite futuros
 
-- Escolher uma campanha pronta e cadastrar ou alterar produtos sem configurar aparência.
-- Aplicar no site a identidade previamente definida para a campanha publicada.
-- Nunca misturar tema e produtos de versões diferentes durante a troca.
-- Exibir carregamento institucional em celular e computador.
-- Diferenciar carregamento, sucesso, ausência de ofertas e erro.
-- Não bloquear indefinidamente as ofertas por falha de uma foto.
-- Preservar validações comerciais, validade, autenticação, permissões e confirmação real da publicação.
-- Resolver as decisões abertas antes de remover módulos ou mudar a regra de campanhas simultâneas.
+- Navegação dedicada à nova vitrine; acessos antigos não reabrem módulos retirados.
+- Escolher tema pronto, selecionar catálogo e cadastrar produto durante inclusão sem perder contexto.
+- Editar preço e vencimento sem confundir datas ou afetar outras campanhas.
+- Exigir início/fim válidos e bloquear sobreposição no servidor, inclusive com edições simultâneas.
+- Garantir no máximo uma ativa nas fronteiras dos períodos e com o painel fechado.
+- Calendário e lista mostram datas e estados equivalentes, com teclado e sem dependência exclusiva de cor.
+- Cadastro permanece ao reabrir; falhas preservam preenchimento e não mostram sucesso fictício.
+- Prévia e site exibem mesma revisão, tema, preços e itens, respeitando expiração.
+- Referências visuais apresentadas antes da implementação; verificar computador, celular e estados de falha.
+- Preservar dados anteriores e serviços fora do escopo.
 
-## Limite desta entrega
+## Evidências e limites
 
-Somente documentação. Nenhum código de aplicação, configuração, banco de dados, campanha ou publicação foi alterado nesta tarefa. As alterações já existentes no diretório foram preservadas.
+Inspeção local: `AdminPanel.jsx` contém ofertas, currículos e Instagram. `OffersWorkspace.jsx` alterna “Campanhas e produtos” e “Panfletos existentes”. O README descreve HUD, temas antigos, panfletos e RH. Isso fundamenta a lista de retirada, sem confirmar a versão instalada ou publicada.
+
+Havia alterações de outros trabalhos no código e na documentação ao iniciar esta tarefa. Foram preservadas. Não houve alteração de código, remoção operacional, consulta remota, migração ou publicação nesta entrega.

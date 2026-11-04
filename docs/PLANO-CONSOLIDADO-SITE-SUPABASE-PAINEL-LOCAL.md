@@ -1,5 +1,7 @@
 # Plano consolidado — site, Supabase e painel local
 
+> **Escopo do painel substituído em 29/10/2026:** a [reformulação completa](ESCOPO-PAINEL-CAMPANHAS-2026-10-29.md) define painel exclusivo da nova vitrine, com campanhas, calendário e produtos. Panfletos, RH e publicações sociais não integram o novo painel. As responsabilidades e fases antigas abaixo são históricas onde divergirem desse escopo; esta revisão não remove dados ou serviços remotos e não implementa alterações.
+
 Revisão de execução de 03/10/2026: [plano detalhado de panfletos e currículos no Supabase](PLANO-EXECUCAO-SUPABASE-2026-10-03.md), com inventário remoto de leitura, diferenças do frontend atual, ordem de implementação e critérios de aceite.
 
 Decisão de 01/10/2026: **adotar painel instalado somente no computador do usuário**. Aprovação de arquitetura e documentação; implementação, instalação e publicação ainda não executadas nem autorizadas por esta consolidação.

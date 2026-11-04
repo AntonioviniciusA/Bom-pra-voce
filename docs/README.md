@@ -2,10 +2,11 @@
 
 ## Escopo proposto
 
-- [Painel simplificado e carregamento institucional — 29/10/2026](ESCOPO-PAINEL-CAMPANHAS-2026-10-29.md) — somente documentação, sem implementação.
+- [Reformulação completa do painel: nova vitrine — 29/10/2026](ESCOPO-PAINEL-CAMPANHAS-2026-10-29.md) — escopo vigente: campanhas, calendário, catálogo, cadastro durante inclusão, preço e vencimento da embalagem/lote; uma campanha ativa por vez. Inclui retirada dos módulos antigos e imagens necessárias antes de implementar. Somente documentação.
 
 ## Uso e estado atual
 
+- [Modo assistido: localização, sequência padronizada e recuperação](MODO-ASSISTIDO-OPERACAO.md)
 - [Black Friday: períodos, cadastro de produtos e conferência](vitrine-novembro-2026.md)
 - [Imagens e pranchas organizadas por tema](vitrine-imagens.md)
 
