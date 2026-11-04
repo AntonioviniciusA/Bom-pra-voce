@@ -3,6 +3,7 @@ import {afterEach,expect,test,vi} from 'vitest';
 import {cleanup,fireEvent,render,screen,waitFor} from '@testing-library/react';
 import OfferCampaignPanel from './OfferCampaignPanel';
 import * as drafts from './services/productDrafts';
+import * as sensitive from './services/sensitiveAction';
 vi.mock('./services/sensitiveAction',()=>({requireSensitiveAction:vi.fn(async()=>true)}));
 
 vi.mock('./services/productDrafts',()=>({
@@ -131,4 +132,57 @@ test('saves a product pending photo review but blocks it from campaign selection
   fireEvent.click(screen.getAllByRole('button',{name:/Escolher produtos do catálogo/})[0]);
   expect(screen.getByRole('checkbox',{name:'Selecionar Molho de tomate'}).disabled).toBe(true);
   expect(screen.getByText('Revisar cadastro')).toBeTruthy();
+});
+
+test('keeps the photo checked after a delayed authenticator confirmation',async()=>{
+  let confirm;
+  sensitive.requireSensitiveAction.mockImplementationOnce(()=>new Promise(resolve=>{confirm=resolve}));
+  const pending={id:'pending',revision:1,name:'Produto teste',code:'P-1',barcode:'7897534800212',fragrances:[],identifierType:'gtin',brand:'Marca',content:'500 ml',category:'limpeza',image:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:false};
+  drafts.loadWorkspace.mockResolvedValue({revision:0,catalog:[pending],campaigns:[]});drafts.saveWorkspace.mockImplementation(async data=>data);
+  render(<OfferCampaignPanel/>);fireEvent.click(await screen.findByRole('button',{name:'Produtos'}));fireEvent.click(screen.getByRole('button',{name:'Editar'}));
+  const checkbox=screen.getByLabelText('Conferi a foto deste produto');
+  fireEvent.click(checkbox);expect(sensitive.requireSensitiveAction).toHaveBeenCalledTimes(1);
+  confirm(true);
+  await waitFor(()=>expect(checkbox.checked).toBe(true));
+  expect(sensitive.requireSensitiveAction).toHaveBeenCalledTimes(1);
+});
+
+test('marks a product already in the campaign and prevents adding it twice',async()=>{
+  const ready={id:'product',revision:1,name:'Produto pronto',code:'P-1',barcode:'7897534800212',fragrances:[],identifierType:'gtin',brand:'Marca',content:'500 ml',category:'limpeza',image:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:true};
+  drafts.loadWorkspace.mockResolvedValue({revision:0,catalog:[ready],campaigns:[{id:'campaign',title:'Campanha',theme_key:'padrao',startDate:'2026-11-01',endDate:'2026-11-30',conditions:'Condições',items:[{id:'item',productId:'product',priceCents:100,unit:'un',expiresOn:'2026-12-01'}]}]});
+  drafts.saveWorkspace.mockImplementation(async data=>({...data,revision:data.revision+1}));
+  render(<OfferCampaignPanel/>);
+  fireEvent.click(await screen.findByRole('button',{name:/Abrir campanha/}));
+  fireEvent.click(screen.getAllByRole('button',{name:/Adicionar produtos/})[0]);
+  expect(screen.getByText('Já adicionado')).toBeTruthy();
+  expect(screen.getByRole('checkbox',{name:'Selecionar Produto pronto'}).disabled).toBe(true);
+});
+
+test('reviews one image and persists its approval immediately',async()=>{
+  const pending={id:'pending',revision:1,name:'Produto pendente',code:'P-2',barcode:'7897534800213',fragrances:[],identifierType:'gtin',brand:'Marca',content:'500 ml',category:'limpeza',image:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:false};
+  const second={...pending,id:'pending-2',name:'Segundo produto',code:'P-3',barcode:'7897534800214'};
+  drafts.loadWorkspace.mockResolvedValue({revision:0,catalog:[pending,second],campaigns:[]});
+  drafts.saveWorkspace.mockImplementation(async data=>({...data,revision:data.revision+1}));
+  render(<OfferCampaignPanel/>);
+  fireEvent.click(await screen.findByRole('button',{name:'Produtos'}));
+  fireEvent.click(screen.getAllByRole('button',{name:'Conferir imagem'})[0]);
+  expect(await screen.findByRole('heading',{name:'Conferir imagem'})).toBeTruthy();
+  expect(screen.getByText(/Produto 1 de 2/)).toBeTruthy();
+  expect(screen.getByRole('button',{name:/Próxima imagem/}).disabled).toBe(true);
+  fireEvent.click(screen.getByRole('button',{name:'Aprovar esta imagem'}));
+  await waitFor(()=>expect(drafts.saveWorkspace).toHaveBeenCalledWith(expect.objectContaining({catalog:expect.arrayContaining([expect.objectContaining({id:'pending',imageApproved:true})])})));
+  expect(await screen.findByText('Imagem conferida e salva neste computador.')).toBeTruthy();
+  expect(screen.getByText('Conferida')).toBeTruthy();
+  fireEvent.click(screen.getByRole('button',{name:/Próxima imagem/}));
+  expect(screen.getByRole('heading',{name:/Segundo produto/})).toBeTruthy();
+  expect(screen.getByText(/Produto 2 de 2/)).toBeTruthy();
+});
+
+test('paginates the product catalogue eight at a time',async()=>{
+  const catalog=Array.from({length:9},(_,index)=>({id:`p${index+1}`,revision:1,name:`Produto ${index+1}`,code:`00${index+1}`,identifierType:'plu',noGtinReason:'Produto interno',fragrances:[],brand:'Marca',content:'1 un',category:'mercearia',image:'',imageSource:'',imageAuthorized:false,imageApproved:false}));
+  drafts.loadWorkspace.mockResolvedValue({revision:0,catalog,campaigns:[]});drafts.saveWorkspace.mockImplementation(async data=>data);
+  render(<OfferCampaignPanel/>);fireEvent.click(await screen.findByRole('button',{name:'Produtos'}));
+  expect(screen.getByText(/Produto 8/)).toBeTruthy();expect(screen.queryByText(/Produto 9/)).toBeNull();
+  fireEvent.click(screen.getByRole('button',{name:'Próxima'}));
+  expect(screen.getByText(/Produto 9/)).toBeTruthy();expect(screen.getByText('Página 2 de 2')).toBeTruthy();
 });

@@ -1,30 +1,34 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {getProductShowcase} from '../../services/productShowcase';
+import {readProductShowcaseCache,writeProductShowcaseCache} from '../../services/productShowcaseCache';
 import ProductOffers from './ProductOffers';
 import {homeNovemberPreparationAt,novemberPreparationAt} from './novemberCampaign';
 
 export default function LiveProductOffers({november=false}) {
-  const [state,setState]=useState({status:'loading',campaigns:[]});
+  const [state,setState]=useState(()=>{const cached=readProductShowcaseCache();return cached?{status:'ready',...cached}:{status:'loading',campaigns:[]};});
   const generation=useRef(0),controller=useRef(null),expiry=useRef(null);
   const invalidate=useCallback(()=>{generation.current++;},[]);
-  const reload=useCallback(async()=>{
+  const reload=useCallback(async(expired=false)=>{
     const current=++generation.current; controller.current?.abort();clearTimeout(expiry.current);
     controller.current=new AbortController();
-    // Remove the old snapshot before any request, including at the expiry boundary.
-    setState({status:'loading',campaigns:[]});const started=performance.now();
+    if(expired)setState({status:'loading',campaigns:[]});
+    else setState(previous=>previous.status==='ready'?previous:{status:'loading',campaigns:[]});
+    const started=performance.now();
     try{
       const result=await getProductShowcase(controller.current.signal);
       if(current!==generation.current)return;
       const now=result.serverTime+performance.now()-started;
       const campaigns=result.campaigns.filter(c=>c.ends>now);
-      setState({status:'ready',campaigns,serverTime:now});
       const next=Math.min(result.nextChangeAt??Infinity,...campaigns.map(c=>c.ends));
-      if(Number.isFinite(next))expiry.current=setTimeout(reload,Math.min(2147483647,Math.max(1,next-now)));
-    }catch{if(current===generation.current)setState({status:'error',campaigns:[]});}
+      const fresh={campaigns,serverTime:now,version:result.version,nextChangeAt:result.nextChangeAt,cacheExpiresAt:Number.isFinite(next)?Date.now()+Math.max(1,next-now):null};
+      writeProductShowcaseCache(fresh);
+      setState({status:'ready',...fresh,fromCache:false});
+      if(Number.isFinite(next))expiry.current=setTimeout(()=>reload(true),Math.min(2147483647,Math.max(1,next-now)));
+    }catch{if(current===generation.current)setState(previous=>{if(previous.status==='ready'){const delay=previous.cacheExpiresAt-Date.now();if(delay>0)expiry.current=setTimeout(()=>reload(true),Math.min(2147483647,delay));else return {status:'error',campaigns:[]};return previous;}return {status:'error',campaigns:[]};});}
   },[]);
   useEffect(()=>{
-    reload();const poll=setInterval(()=>{if(!document.hidden)reload()},60000);
-    const visible=()=>{if(!document.hidden)reload();else{generation.current++;controller.current?.abort();clearTimeout(expiry.current);setState({status:'loading',campaigns:[]});}};
+    reload();const poll=setInterval(()=>{if(!document.hidden)reload()},5*60*1000);
+    const visible=()=>{if(!document.hidden)reload();else{generation.current++;controller.current?.abort();}};
     document.addEventListener('visibilitychange',visible);window.addEventListener('focus',visible);
     return()=>{invalidate();controller.current?.abort();clearTimeout(expiry.current);clearInterval(poll);document.removeEventListener('visibilitychange',visible);window.removeEventListener('focus',visible);};
   },[reload,invalidate]);

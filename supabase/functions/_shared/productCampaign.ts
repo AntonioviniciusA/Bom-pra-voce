@@ -50,9 +50,10 @@ export function validateProductCampaign(input: any, baseUrl = '', options: {requ
     if (!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+=*$/.test(image) && !isProductImageUrl(image,baseUrl)) fail('Anexe uma foto JPG, PNG ou WebP para publicar.');
     const imageSmall = p.imageSmall ? string(p.imageSmall,2048) : '';
     if(imageSmall && !isProductImageUrl(imageSmall,baseUrl)) fail('Miniatura inválida.');
-    const expiresOn=date(item.expiresOn);
-    if(expiresOn<endDate)fail('O lote vence antes do fim da campanha.');
-    return {id,priceCents:item.priceCents,unit:item.unit,expiresOn,conditions:string(item.conditions ?? '',500,false),product:{id:productId,revision:p.revision,name:string(p.name,120),code,barcode,fragrances:explicitFragrances.length?checkedFragrances:[],identifierType:p.identifierType,noGtinReason,brand:string(p.brand ?? '',120,false),variant:string(p.variant ?? '',120,false),content:string(p.content ?? '',120,false),category:p.category,image,...(imageSmall?{imageSmall}:{}),imageRevision:string(p.imageRevision,80),imageSource,imageApproved:requireImageApproval?true:p.imageApproved===true,imageAuthorized:true}};
+    const noExpiry=item.noExpiry===true;
+    const expiresOn=noExpiry?'':date(item.expiresOn);
+    if(!noExpiry&&expiresOn<endDate)fail('O lote vence antes do fim da campanha.');
+    return {id,priceCents:item.priceCents,unit:item.unit,noExpiry,...(noExpiry?{}:{expiresOn}),conditions:string(item.conditions ?? '',500,false),product:{id:productId,revision:p.revision,name:string(p.name,120),code,barcode,fragrances:explicitFragrances.length?checkedFragrances:[],identifierType:p.identifierType,noGtinReason,brand:string(p.brand ?? '',120,false),variant:string(p.variant ?? '',120,false),content:string(p.content ?? '',120,false),category:p.category,image,...(imageSmall?{imageSmall}:{}),imageRevision:string(p.imageRevision,80),imageSource,imageApproved:requireImageApproval?true:p.imageApproved===true,imageAuthorized:true}};
   });
   const campaignType=campaignTypes.includes(input.campaignType)?input.campaignType:'seasonal';
   return {title:string(input.title,120),campaignType,theme_key:input.theme_key,startDate,endDate,starts_at,ends_at,conditions:string(input.conditions,500),items};

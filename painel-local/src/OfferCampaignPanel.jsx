@@ -51,6 +51,7 @@ import "./ProductEditor.css";
 
 const FORM_DRAFT = "bpv-product-form-draft-v1";
 const PHOTO_REVIEW_SESSION_MS = 10 * 60 * 1000;
+const PRODUCTS_PAGE_SIZE = 8;
 const IMAGE_SOURCE_OPTIONS = [
   "Inteligência artificial",
   "Fornecedor ou fabricante",
@@ -559,7 +560,8 @@ function CampaignCalendar({ campaigns, onOpen, onNew }) {
 function Catalog({ catalog, campaign, onInclude, onEdit, onNew, onBack, onReviewPhoto }) {
   const [query, setQuery] = useState(""),
     [selected, setSelected] = useState([]),
-    [listText, setListText] = useState("");
+    [listText, setListText] = useState(""),
+    [page, setPage] = useState(1);
   const q = query.trim().toLocaleLowerCase("pt-BR");
   const visible = catalog.filter((p) =>
     [p.name, p.code, p.brand, ...productBarcodes(p)].some((value) =>
@@ -569,6 +571,10 @@ function Catalog({ catalog, campaign, onInclude, onEdit, onNew, onBack, onReview
   const available = visible.filter(
     (p) => !campaign?.items.some((i) => i.productId === p.id),
   );
+  const pageCount = Math.max(1, Math.ceil(visible.length / PRODUCTS_PAGE_SIZE));
+  const pagedVisible = visible.slice((page - 1) * PRODUCTS_PAGE_SIZE, page * PRODUCTS_PAGE_SIZE);
+  useEffect(() => { if (page > pageCount) setPage(pageCount); }, [page, pageCount]);
+  useEffect(() => setPage(1), [campaign?.id]);
   const listEntries = listText
     .split(/[\n;,]+/)
     .map((value) => value.trim())
@@ -677,7 +683,7 @@ function Catalog({ catalog, campaign, onInclude, onEdit, onNew, onBack, onReview
         <input
           placeholder="Buscar por nome, código ou GTIN"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => { setQuery(e.target.value); setPage(1); }}
         />
       </label>
       <div className="offer-catalog">
@@ -688,7 +694,7 @@ function Catalog({ catalog, campaign, onInclude, onEdit, onNew, onBack, onReview
           <span>Foto</span>
           <span>Ações</span>
         </div>
-        {visible.map((p) => {
+        {pagedVisible.map((p) => {
           const alreadyAdded = Boolean(campaign?.items.some((i) => i.productId === p.id));
           return <article key={p.id}>
             <input
@@ -737,6 +743,7 @@ function Catalog({ catalog, campaign, onInclude, onEdit, onNew, onBack, onReview
             </button>
           </div>
         )}
+        {pageCount > 1 && <nav className="offer-pagination" aria-label="Paginação do catálogo de produtos"><button type="button" className="offer-secondary" disabled={page === 1} onClick={() => setPage((value) => value - 1)}>Anterior</button><span aria-live="polite">Página {page} de {pageCount}</span><button type="button" className="offer-secondary" disabled={page === pageCount} onClick={() => setPage((value) => value + 1)}>Próxima</button></nav>}
         <footer data-catalog-count={catalog.length}>
           <span>{catalog.length} produtos neste computador</span>
           {campaign && (
@@ -1065,8 +1072,9 @@ function ProductForm({ initial, onCancel, onSave }) {
                 !product.imageSource.trim()
               }
               onChange={async (e) => {
-                if (e.target.checked && !await requireSensitiveAction("confirmar a foto do produto")) return;
-                setProduct({ ...product, imageApproved: e.target.checked });
+                const checked = e.currentTarget.checked;
+                if (checked && !await requireSensitiveAction("confirmar a foto do produto")) return;
+                setProduct((current) => ({ ...current, imageApproved: checked }));
               }}
             />{" "}
             Conferi a foto deste produto
@@ -1246,13 +1254,13 @@ function PhotoReview({ products, onBack, onApprove }) {
     <button className="offer-back" onClick={onBack}><ArrowLeft /> Voltar</button>
     <header className="offer-page-head"><div><h1>Conferir imagem</h1><p>Produto {index + 1} de {products.length} · autorização válida por até 10 minutos</p></div></header>
     {message && <div className={product.imageApproved ? "offer-success" : "offer-error"} role="status">{message}</div>}
+    <nav className="photo-review-navigation" aria-label="Navegação entre imagens"><button className="offer-secondary" disabled={index === 0 || busy} onClick={() => { setIndex(index - 1);setMessage(""); }}>Imagem anterior</button><span aria-live="polite">Imagem {index + 1} de {products.length}</span><button className="offer-primary" disabled={index === products.length - 1 || !product.imageApproved || busy} onClick={() => { setIndex(index + 1);setMessage(""); }}>Próxima imagem <ArrowRight /></button></nav>
     <section className="photo-review-card">
       <div className="photo-review-image"><img src={product.image} alt={`Foto de ${product.name}`} /></div>
       <div className="photo-review-data"><span className={product.imageApproved ? "offer-badge" : "campaign-photo-status"}>{product.imageApproved ? "Conferida" : "Pendente"}</span><h2>{productDescription(product)}</h2><dl><div><dt>Marca</dt><dd>{product.brand || "Não informada"}</dd></div><div><dt>Código interno</dt><dd>{product.code}</dd></div><div><dt>GTINs</dt><dd>{productBarcodes(product).join(" / ") || "Sem GTIN"}</dd></div><div><dt>Origem</dt><dd>{product.imageSource || "Não informada"}</dd></div></dl>
         {!product.imageApproved && <button className="offer-primary" disabled={busy} onClick={approve}>{busy ? "Salvando…" : "Aprovar esta imagem"}</button>}
       </div>
     </section>
-    <footer className="photo-review-navigation"><button className="offer-secondary" disabled={index === 0} onClick={() => { setIndex(index - 1);setMessage(""); }}>Imagem anterior</button><button className="offer-primary" disabled={index === products.length - 1 || !product.imageApproved} onClick={() => { setIndex(index + 1);setMessage(""); }}>Próxima imagem <ArrowRight /></button></footer>
   </div>;
 }
 
@@ -1308,6 +1316,7 @@ export default function OfferCampaignPanel() {
             priceCents: 0,
             unit: "un",
             expiresOn: "",
+            noExpiry: false,
             conditions: "",
           })),
       ],
@@ -1364,13 +1373,19 @@ export default function OfferCampaignPanel() {
     [items[index], items[to]] = [items[to], items[index]];
     updateCampaign({ items });
   }
-  async function openPhotoReview(products, returnPage = page) {
+  async function openPhotoReview(product, returnPage = page, campaignOnly = false) {
     if (Date.now() >= photoReviewAuthorizedUntil) {
       const confirmed = await requireSensitiveAction("iniciar a conferência individual das imagens");
       if (!confirmed) return;
       setPhotoReviewAuthorizedUntil(Date.now() + PHOTO_REVIEW_SESSION_MS);
     }
-    setPhotoReviewIds(products.filter((product) => product?.image).map((product) => product.id));
+    const current = workspaceRef.current;
+    const source = campaignOnly && campaign
+      ? campaign.items.map((item) => current.catalog.find((entry) => entry.id === item.productId))
+      : current.catalog;
+    const pending = source.filter((entry) => entry?.image && !entry.imageApproved);
+    const ordered = [product, ...pending].filter((entry, index, entries) => entry?.image && entries.findIndex((candidate) => candidate?.id === entry.id) === index);
+    setPhotoReviewIds(ordered.map((entry) => entry.id));
     setPhotoReviewReturn(returnPage);
     setPage("photo-review");
   }
@@ -1385,7 +1400,7 @@ export default function OfferCampaignPanel() {
     await persist();
   }
   function fixIssue(type, item) {
-    if (type === "photo" && item.product) return openPhotoReview([item.product], "review");
+    if (type === "photo" && item.product) return openPhotoReview(item.product, "review", true);
     if (["identifier", "registration"].includes(type) && item.product) { setEditing(item.product);setPage("product");return; }
     const campaignItem = item.product && campaign?.items.find((entry) => entry.productId === item.product.id);
     const field = type === "expiry" ? "expiry" : type === "unit" ? "unit" : "price";
@@ -1468,7 +1483,7 @@ export default function OfferCampaignPanel() {
           onBack={() => setPage("campaigns")}
           saveState={saveState}
           onRetry={() => persist().catch(() => {})}
-          onReviewPhoto={(product) => openPhotoReview([product], "campaign")}
+          onReviewPhoto={(product) => openPhotoReview(product, "campaign", true)}
           focusTarget={focusTarget}
           onFocusHandled={() => setFocusTarget(null)}
         />
@@ -1487,7 +1502,7 @@ export default function OfferCampaignPanel() {
             setPage("product");
           }}
           onBack={() => setPage(campaign ? "campaign" : "campaigns")}
-          onReviewPhoto={(product) => openPhotoReview([product], "catalog")}
+          onReviewPhoto={(product) => openPhotoReview(product, "catalog")}
         />
       )}{" "}
       {page === "product" && (

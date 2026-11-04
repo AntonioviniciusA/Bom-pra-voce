@@ -2,7 +2,7 @@
 
 ## Situação deste documento
 
-Este documento registra o diagnóstico, o comportamento esperado e os critérios de aceite antes da implementação. Nenhuma das correções abaixo foi implementada nesta etapa.
+Este documento foi criado antes da implementação para registrar o diagnóstico, o comportamento esperado e os critérios de aceite. As correções foram implementadas após a confirmação das duas decisões pendentes e validadas por testes automatizados e compilação em 04/11/2026.
 
 ## Objetivo
 
@@ -181,8 +181,15 @@ Enter avança para o próximo campo sem enviar formulário, remover produto ou a
 - verificação visual no Electron em desktop e na menor largura suportada;
 - teste manual do bloqueio do Windows, que não pode ser comprovado apenas por teste de interface.
 
-## Decisões que precisam de confirmação antes da implementação
+## Decisões confirmadas antes da implementação
 
-1. **Autenticador na conferência de fotos:** a recomendação é pedir o código uma vez ao iniciar uma sessão curta de conferência e, durante essa sessão, continuar mostrando uma imagem por vez. Pedir um novo código para cada imagem é mais seguro, mas torna a revisão de vários produtos lenta. Qual comportamento você prefere?
-2. **Enter na tabela:** a sequência recomendada é `preço → unidade → vencimento → preço do próximo produto`. Confirma essa ordem?
+1. **Autenticador na conferência de fotos:** confirmado pedir o código uma vez e abrir uma sessão de conferência de até 10 minutos. Cada imagem continua sendo apresentada e aprovada individualmente. Se o prazo terminar, o código é solicitado novamente antes da próxima aprovação.
+2. **Enter na tabela:** confirmada a sequência `preço → unidade → vencimento → preço do próximo produto`.
+
+## Resultado da validação local
+
+- suíte completa do painel: 16 arquivos e 74 testes aprovados;
+- compilação de produção concluída;
+- o aviso de pacote JavaScript acima de 500 kB continua sendo apenas uma recomendação de divisão do pacote e não bloqueou a compilação;
+- a execução real no Electron, o bloqueio físico do Windows e a conferência visual final ainda dependem de validação manual no computador.
 

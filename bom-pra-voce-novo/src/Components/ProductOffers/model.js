@@ -45,8 +45,8 @@ export function campaignIssues(c,catalog) {
  for(const item of c.items){const p=catalog.find(p=>p.id===item.productId);if(!p){issues.push('Produto não encontrado');continue;}
  for(const message of productIssues(p)) issues.push(`${p.name||p.code}: ${message}`);
  for(const barcode of productBarcodes(p)){const normalized=barcode.padStart(14,'0');if(campaignBarcodes.has(normalized))issues.push(`${p.name}: GTIN repetido em outro produto da campanha`);campaignBarcodes.add(normalized);}
- if(!item.expiresOn) issues.push(`${p.name}: informe o vencimento representativo da embalagem/lote`);
- else if(!realDate(item.expiresOn)||item.expiresOn<c.endDate) issues.push(`${p.name}: o vencimento do lote deve ser uma data válida igual ou posterior ao fim da campanha`);
+ if(!item.noExpiry&&!item.expiresOn) issues.push(`${p.name}: informe o vencimento representativo da embalagem/lote ou marque sem vencimento`);
+ else if(!item.noExpiry&&(!realDate(item.expiresOn)||item.expiresOn<c.endDate)) issues.push(`${p.name}: o vencimento do lote deve ser uma data válida igual ou posterior ao fim da campanha`);
  if(!Number.isSafeInteger(item.priceCents)||item.priceCents<=0) issues.push(`${p.name}: informe um preço válido`);
  if(!['un','kg','L','pacote'].includes(item.unit)) issues.push(`${p.name}: confira a unidade`);
  }

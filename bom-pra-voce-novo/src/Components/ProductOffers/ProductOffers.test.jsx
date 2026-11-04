@@ -15,5 +15,17 @@ test('shows brand, both fragrances, package content and lot expiry without mixin
  expect(screen.getByText('Vencimento do lote: 15/12/2026')).toBeInTheDocument();
  expect(screen.getByText('Oferta: De 01 a 31/10/2026')).toBeInTheDocument();
 });
+test('shows eight products per page and resets pagination after a search',()=>{
+ const items=Array.from({length:9},(_,index)=>({id:`i${index+1}`,priceCents:100,unit:'un',product:{id:`p${index+1}`,name:`Produto ${index+1}`,code:`00${index+1}`,category:'mercearia'}}));
+ render(<ProductOffers campaign={{...campaign,items}} preview/>);
+ expect(screen.getByText('Produto 8')).toBeInTheDocument();
+ expect(screen.queryByText('Produto 9')).not.toBeInTheDocument();
+ fireEvent.click(screen.getByRole('button',{name:'Próxima'}));
+ expect(screen.getByText('Página 2 de 2')).toBeInTheDocument();
+ expect(screen.getByText('Produto 9')).toBeInTheDocument();
+ fireEvent.change(screen.getByRole('textbox',{name:'Buscar produto ou código'}),{target:{value:'Produto 1'}});
+ expect(screen.getByText('Produto 1')).toBeInTheDocument();
+ expect(screen.queryByText('Página 2 de 2')).not.toBeInTheDocument();
+});
 
 
