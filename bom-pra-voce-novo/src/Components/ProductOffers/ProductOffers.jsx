@@ -9,7 +9,18 @@ import './ProductOffers.css';
 import './SeasonalFrames.css';
 import './SeasonalRemaining.css';
 const groups=[{key:'all',label:'Todas',Icon:LayoutGrid},{key:'meat',label:'Açougue e congelados',Icon:Beef,categories:['acougue','frios']},{key:'grocery',label:'Mercearia e bebidas',Icon:Milk,categories:['mercearia','bebidas','hortifruti','padaria']},{key:'cleaning',label:'Limpeza e beleza',Icon:SprayCan,categories:['limpeza','higiene']},{key:'home',label:'Casa e bebê',Icon:House,categories:['utilidades']}];
-const PAGE_SIZE=8;
+const MOBILE_QUERY='(max-width: 700px)';
+function useProductsPerPage(){
+ const [mobile,setMobile]=useState(()=>typeof window!=='undefined'&&!!window.matchMedia?.(MOBILE_QUERY).matches);
+ useEffect(()=>{
+  const media=window.matchMedia?.(MOBILE_QUERY);
+  if(!media)return;
+  const update=()=>setMobile(media.matches);
+  update();media.addEventListener('change',update);
+  return()=>media.removeEventListener('change',update);
+ },[]);
+ return mobile?4:8;
+}
 const day=value=>value?.split('-').reverse().join('/');
 const period=(start,end)=>start&&end?'De '+(start.slice(0,7)===end.slice(0,7)?start.slice(8):day(start))+' a '+day(end):'Período a definir';
 function CampaignTitle({theme,title}){
@@ -24,9 +35,10 @@ function Price({cents,unit}){if(!Number.isSafeInteger(cents)||cents<=0)return <d
 export default function ProductOffers({campaign,preview=false}){
  const[category,setCategory]=useState('all'),[query,setQuery]=useState(''),[message,setMessage]=useState(''),[page,setPage]=useState(1);const theme=seasonalTheme(campaign.theme_key);
  const filtered=useMemo(()=>{const q=query.trim().toLocaleLowerCase('pt-BR'),group=groups.find(c=>c.key===category);const exact=campaign.items.filter(i=>i.product.code?.toLocaleLowerCase('pt-BR')===q||productBarcodes(i.product).includes(q));return (q&&exact.length?exact:campaign.items).filter(({product:p})=>(category==='all'||group?.categories.includes(p.category))&&(!q||exact.length||[p.name,p.brand,p.code,p.content,...productFragrances(p).flatMap(f=>[f.name,f.barcode])].some(v=>v?.toLocaleLowerCase('pt-BR').includes(q))));},[campaign,category,query]);
- const pageCount=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE)),paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
- useEffect(()=>setPage(1),[category,query,campaign.id,campaign.revision]);
- useEffect(()=>{if(page>pageCount)setPage(pageCount);},[page,pageCount]);
+ const pageSize=useProductsPerPage();
+ const pageCount=Math.max(1,Math.ceil(filtered.length/pageSize)),paged=filtered.slice((page-1)*pageSize,page*pageSize);
+ useEffect(()=>setPage(1),[category,query,campaign.id,campaign.revision,pageSize]);
+ useEffect(()=>{if(page>pageCount)setPage(current=>Math.min(current,pageCount));},[page,pageCount]);
  async function share(item){if(preview){setMessage('Esta é uma prévia. Compartilhamento disponível após a publicação da campanha.');return;}const url=window.location.origin+'/#promocoes';try{if(navigator.share)await navigator.share({title:item?.product.name||campaign.title,text:'Não guarde o segredo da economia. Compartilhe!',url});else{await navigator.clipboard.writeText(url);setMessage('Link copiado.');}}catch(e){if(e.name!=='AbortError')setMessage('Não foi possível compartilhar neste navegador.');}}
  return <section className="product-offers" id={campaign.id ? `promocoes-${campaign.id}` : "promocoes"} data-theme={theme?.key||'padrao'} aria-labelledby={`product-offers-title-${campaign.id||"empty"}`}><div className="product-offers__inner">
  <header className="product-offers__heading">{theme&&!theme.institutional&&<img className="product-offers__theme-art" src={theme.desktop} alt=""/>}<img className="product-offers__logo" src={Logo} alt="Bom pra você Supermercado"/><div className="product-offers__headline">{theme?.key==="black-friday"&&<div className="black-friday-ornaments" aria-hidden="true"><img className="black-friday-sparks" src={blackFridaySparks} width="64" height="64" alt="" draggable="false"/></div>}<h2 id={`product-offers-title-${campaign.id||"empty"}`}><CampaignTitle theme={theme?.key} title={campaign.title}/></h2><p>{period(campaign.startDate,campaign.endDate)}</p></div><label className="product-offers__search"><Search size={23} aria-hidden="true"/><span className="sr-only">Buscar produto ou código</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar produtos…"/></label></header>
