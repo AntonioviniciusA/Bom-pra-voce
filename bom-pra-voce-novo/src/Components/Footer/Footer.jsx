@@ -1,28 +1,30 @@
 import { usePrivacyPreferences } from "../PrivacyPreferences";
 import { Link } from "react-router-dom";
-import { Clock3, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock3, Cookie, LayoutGrid, Mail, MapPin, MessageCircle, Phone, ShoppingCart } from "lucide-react";
 import { navigation } from "../../Data/navigation";
 import { storeConfig } from "../../Data/storeConfig";
 import Logo from "../Logo/Logo";
+import "./Footer.css";
 export default function Footer() {
   const { openPreferences } = usePrivacyPreferences();
   const hasDirectContact = storeConfig.phone || storeConfig.email || storeConfig.whatsappUrl;
 
-  return <footer className="site-footer">
+  return <footer className="site-footer footer-reference">
     <div className="shell footer-grid">
       <div className="footer-intro"><Link to="/" aria-label="Bom Pra Você — início"><Logo /></Link>
         <p>Supermercado físico. Informações para planejar sua visita.</p>
+        <ShoppingCart className="footer-cart" aria-hidden="true" strokeWidth={1.5} />
       </div>
-      <nav aria-label="Rodapé"><h2>Encontre no site</h2>
+      <nav aria-label="Rodapé"><h2><LayoutGrid aria-hidden="true" />Navegação</h2>
         {navigation.map(item => <Link key={item.href} to={item.href}>{item.label}</Link>)}
       </nav>
-      <div className="footer-careers"><h2>Trabalhe conosco</h2><p>Veja as orientações para enviar seu currículo.</p>
+      <div className="footer-careers"><h2><Mail aria-hidden="true" />Atendimento</h2><p>Veja as orientações para enviar seu currículo.</p>
         <Link to="/trabalhe-conosco">Envio de currículo</Link>
         <p><Link to="/privacidade">Privacidade</Link></p>
         <p><Link to="/termos">Termos de uso</Link></p>
-        <button type="button" className="privacy-settings" onClick={openPreferences}>Preferências de cookies</button>
+        <button type="button" className="privacy-settings" onClick={openPreferences}><Cookie aria-hidden="true" />Preferências de cookies</button>
       </div>
-      <div className="footer-visit"><h2>Visite a loja</h2>
+      <div className="footer-visit"><h2><MapPin aria-hidden="true" />Visite a loja</h2>
         {storeConfig.address && <p><MapPin aria-hidden="true" /><span>{storeConfig.address}</span></p>}
         {storeConfig.hours.map(row => <p key={row.day}><Clock3 aria-hidden="true" /><span><strong>{row.day}</strong><br />{row.time}</span></p>)}
         {storeConfig.holidayHours && <p className="footer-holiday">{storeConfig.holidayHours}</p>}
