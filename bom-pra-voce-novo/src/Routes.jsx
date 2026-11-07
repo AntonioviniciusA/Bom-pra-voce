@@ -6,12 +6,16 @@ const Careers = lazy(() => import("./pages/Careers"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const NovemberOffers = lazy(() => import("./pages/NovemberOffers"));
+const Payments = lazy(() => import("./pages/Payments"));
+const Store = lazy(() => import("./pages/Store"));
 export function SiteRoutes() {
   return <Suspense fallback={<p className="shell section" role="status">Carregando página…</p>}>
     <Routes><Route element={<App />}>
       <Route path="/" element={<Home />} />
       <Route path="/ofertas/novembro" element={<NovemberOffers />} />
       <Route path="/trabalhe-conosco" element={<Careers />} />
+      <Route path="/formas-de-pagamento" element={<Payments />} />
+      <Route path="/nossa-loja" element={<Store />} />
       <Route path="/termos" element={<Terms />} />
       <Route path="/privacidade" element={<Privacy />} />
       <Route path="*" element={<section className="shell section"><h1>Página não encontrada</h1><p>Confira o endereço ou volte ao início.</p><Link to="/">Voltar ao início</Link></section>} />

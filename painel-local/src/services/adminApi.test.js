@@ -3,7 +3,7 @@ import { beforeEach, expect, test, vi } from "vitest";
 const { auth } = vi.hoisted(() => ({ auth: { getSession: vi.fn(), signInWithPassword: vi.fn(), mfa: { listFactors: vi.fn(), enroll: vi.fn(), unenroll: vi.fn(), challengeAndVerify: vi.fn(), getAuthenticatorAssuranceLevel: vi.fn() } } }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({ auth }) }));
 vi.mock("./config", () => ({ apiConfig: () => ({ ready: true, url: "https://test.supabase.co", key: "public" }), AdminApiError: class extends Error { constructor(code, message, status=0) { super(message); this.code = code; this.status=status; } } }));
-import { authorizeAssistant, changedProductFields, downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, signIn, verifyMfa } from "./adminApi";
+import { authorizeAssistant, changedProductFields, downloadApplication, enrollMfa, getAuthState, listCampaigns, listSocialPublications, publishCampaign, retrySocialPublication, samePublishedCampaign, signIn, verifyMfa } from "./adminApi";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -21,6 +21,12 @@ test('does not send local image metadata in a product patch',()=>{
   const base={id:'p',revision:2,remoteRevision:4,name:'Produto',image:'old'};
   const product={...base,revision:3,image:'new',imageSmall:'small',imageWidth:1600,imageHeight:1200,imageOptimizationVersion:1};
   expect(changedProductFields(base,product)).toEqual({revision:3,image:'new',imageSmall:'small'});
+});
+test('compares published content independent of local identity, key order and private review metadata',()=>{
+ const left={id:'campaign-local',revision:7,state:'draft',title:'Semana',items:[{id:'i',product:{id:'p',name:'Produto',imageApproved:true,imageSource:'Própria'}}]};
+ const right={items:[{product:{imageSource:'Fornecedor',name:'Produto',id:'p',imageApproved:false},id:'i'}],title:'Semana'};
+ expect(samePublishedCampaign(left,right)).toBe(true);
+ expect(samePublishedCampaign(left,{...right,title:'Outra'})).toBe(false);
 });
 
 test("explains a network failure during sign in without treating it as an invalid password", async () => {

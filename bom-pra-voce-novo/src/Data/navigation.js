@@ -2,8 +2,8 @@ export const navigation = [
   { href: "/#home", label: "Início" },
   { href: "/#promocoes", label: "Ofertas" },
   { href: "/#sobre", label: "Sobre" },
-  { href: "/#setores", label: "Setores" },
-  { href: "/#trabalhe-conosco", label: "Trabalhe conosco" },
-  { href: "/#localizacao", label: "Como chegar" },
+  { href: "/nossa-loja", label: "Nossa loja" },
+  { href: "/trabalhe-conosco", label: "Trabalhe conosco" },
+  { href: "/formas-de-pagamento", label: "Pagamentos" },
   { href: "/#duvidas", label: "Dúvidas" },
 ];

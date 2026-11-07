@@ -35,7 +35,11 @@ for (const [route, meta] of Object.entries(pageMetadata)) {
   if (route === '/privacidade' || route === '/termos') {
     content = renderToStaticMarkup(React.createElement(MemoryRouter, { initialEntries: [route] }, React.createElement(route === '/termos' ? Terms : Privacy)));
   } else if (route === '/') {
-    content = `<section class="shell section"><h1>Bom Pra Você Supermercado em Samambaia Sul</h1><p>Compras presenciais em Brasília–DF.</p><h2>Localização</h2><address>${escape(store.address)}</address><a href="${escape(store.mapsUrl)}">Como chegar pelo Google Maps</a><h2>Horários</h2>${store.hours.map(row => `<p>${escape(row.day)}: ${escape(row.time)}</p>`).join('')}<p>${escape(store.holidayHours)}</p><h2>Setores</h2><p>Hortifrúti, bebidas e adega, laticínios e frios e congelados. A padaria está em reforma.</p><h2>Pagamentos</h2><p>${escape(store.payments.join(', '))}.</p><p>${escape(store.paymentConditions)}</p><h2>Ofertas</h2><p>Os panfletos vigentes são consultados quando o site é aberto com JavaScript. Confira validade e condições de cada oferta.</p></section>`;
+    content = `<section class="shell section"><h1>Bom Pra Você Supermercado em Samambaia Sul</h1><p>Compras presenciais em Brasília–DF.</p><h2>Ofertas</h2><p>Os panfletos vigentes são consultados quando o site é aberto com JavaScript. Confira validade e condições de cada oferta.</p></section>`;
+  } else if (route === '/formas-de-pagamento') {
+    content = `<section class="shell section"><h1>Formas de pagamento aceitas</h1><p>${escape(store.payments.join(', '))}.</p><p>${escape(store.paymentConditions)}</p></section>`;
+  } else if (route === '/nossa-loja') {
+    content = `<section class="shell section"><h1>Conheça nossa loja</h1><h2>Setores</h2><p>Hortifrúti, bebidas e adega, laticínios e frios e congelados. A padaria está em reforma.</p><h2>Localização</h2><address>${escape(store.address)}</address><a href="${escape(store.mapsUrl)}">Como chegar pelo Google Maps</a><h2>Horários</h2>${store.hours.map(row => `<p>${escape(row.day)}: ${escape(row.time)}</p>`).join('')}<p>${escape(store.holidayHours)}</p></section>`;
   } else if (route === '/ofertas/novembro') {
     content = '<section class="shell section"><h1>Ofertas de novembro</h1><h2>Seleção Black Friday</h2><p>As ofertas de novembro estão sendo preparadas. Volte em breve.</p></section>';
   } else {
@@ -53,4 +57,4 @@ for (const [route, meta] of Object.entries(pageMetadata)) {
 }
 fs.writeFileSync(path.join(build, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + Object.keys(pageMetadata).map(route => `<url><loc>${siteUrl}${route}</loc></url>`).join('') + '</urlset>');
 fs.writeFileSync(path.join(build, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
-console.log('Generated 4 static institutional pages, local business data, sitemap and robots.txt.');
+console.log(`Generated ${Object.keys(pageMetadata).length} static institutional pages, local business data, sitemap and robots.txt.`);

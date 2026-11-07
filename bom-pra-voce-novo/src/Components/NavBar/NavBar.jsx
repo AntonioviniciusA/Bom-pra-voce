@@ -5,10 +5,7 @@ import Logo from "../Logo/Logo";
 import { navigation } from "../../Data/navigation";
 import "./NavBar.css";
 
-const searchItems = [
-  ...navigation,
-  { href: "/#pagamentos", label: "Pagamentos" },
-];
+const searchItems = navigation;
 
 function normalizeSearch(value) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -84,6 +81,14 @@ export default function NavBar() {
     }
   }
 
+  function isItemActive(item) {
+    const [itemPath, itemHash] = item.href.split("#");
+    if (itemHash) {
+      return location.pathname === itemPath && activeSection === itemHash;
+    }
+    return location.pathname === itemPath;
+  }
+
   return (
     <header ref={header} className={scrolled ? "site-header is-scrolled" : "site-header"} onKeyDown={closeOnEscape}>
       <div className="shell header-row">
@@ -113,12 +118,7 @@ export default function NavBar() {
             <Link
               key={item.href}
               to={item.href}
-              aria-current={
-                (location.pathname === "/" && activeSection === item.href.split("#")[1]) ||
-                (location.pathname === "/trabalhe-conosco" && item.href === "/#trabalhe-conosco")
-                  ? "location"
-                  : undefined
-              }
+              aria-current={isItemActive(item) ? "location" : undefined}
               onClick={() => setMenuOpen(false)}
             >
               {item.label}

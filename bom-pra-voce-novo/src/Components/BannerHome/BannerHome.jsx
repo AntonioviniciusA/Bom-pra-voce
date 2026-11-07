@@ -1,6 +1,6 @@
 import PrecoBaixo from "../../images/PrecoBaixo.png";
 import Compras from "../../images/banner-compras.png";
-import Padaria from "../../images/banner-padaria.png";
+import ConhecaLoja from "../../images/banner-conheca-nossa-loja-v2.png";
 import { useEffect, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { storeConfig } from "../../Data/storeConfig";
@@ -21,9 +21,11 @@ const slides = [
   {
     image: PrecoBaixo,
     alt: "Preço baixo todo dia. Venha conferir no Bom Pra Você Supermercado.",
+    width: 1913,
+    height: 765,
   },
-  { image: Compras, alt: "Tudo para o seu dia a dia. Bom pra você." },
-  { image: Padaria, alt: "Ilustração da padaria Bom Pra Você. Setor em reforma.", status: "Padaria em reforma para trazer a melhor qualidade para sua mesa." },
+  { image: Compras, alt: "Tudo para o seu dia a dia. Bom pra você.", width: 1983, height: 793 },
+  { image: ConhecaLoja, alt: "Conheça nossa loja. Tudo o que sua família precisa em um só lugar.", href: "/nossa-loja#setores", width: 1983, height: 793 },
 ];
 export default function BannerHome() {
   const [slide, setSlide] = useState(0);
@@ -61,14 +63,23 @@ export default function BannerHome() {
         role="group"
         aria-roledescription="carrossel"
         aria-label="Destaques da loja"
+        style={{ aspectRatio: `${slides[slide].width} / ${slides[slide].height}` }}
       >
-        <img
+        {slides[slide].href ? <a className="carousel-slide-link" href={slides[slide].href} aria-label="Conhecer os setores da loja">
+          <img
+            src={slides[slide].image}
+            alt={slides[slide].alt}
+            width={slides[slide].width}
+            height={slides[slide].height}
+            fetchPriority="high"
+          />
+        </a> : <img
           src={slides[slide].image}
           alt={slides[slide].alt}
-          width="1913"
-          height="765"
+          width={slides[slide].width}
+          height={slides[slide].height}
           fetchPriority="high"
-        />
+        />}
         <div className="carousel-controls">
           <button type="button" className="carousel-pause" aria-label={stopped ? "Retomar destaques" : "Pausar destaques"} title={stopped ? "Retomar destaques" : "Pausar destaques"} onClick={() => setStopped(value => !value)}>{stopped ? <Play size={18} fill="currentColor" aria-hidden="true" /> : <Pause size={18} fill="currentColor" aria-hidden="true" />}</button>
           <div className="carousel-dots">

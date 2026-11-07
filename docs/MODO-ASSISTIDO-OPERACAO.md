@@ -27,6 +27,9 @@ Guia operacional permanente para continuar cadastros sem redescobrir o fluxo. Es
 10. Nenhuma ação do modo assistido publica campanha, altera preço ou confirma foto como revisada.
 11. Antes de iniciar um lote, `status` deve retornar `assistantVersion: 3`. Ausência ou versão diferente significa que o painel aberto usa um build antigo: reiniciar antes de operar.
 12. `assistantScript` já é um template literal. Não usar crases ou `${...}` dentro do JavaScript incorporado sem escape; preferir concatenação e executar `node --check electron/assistant.cjs` antes de reiniciar o painel.
+13. No cadastro automatizado, anexar e processar a imagem antes de preencher `imageSource`. O processamento atualiza o estado do produto e uma origem preenchida cedo demais pode ser substituída pelo estado anterior.
+14. `USER_ACTIVE` significa que aquela ação não foi executada. Repetir somente a ação recusada depois de `userActive: false`.
+15. Se `saving: true`, não repetir `save-product`, mesmo após o limite de 30 segundos. Consultar `status` até a página voltar para `Produtos`.
 
 ## Sequência padronizada de cadastro
 
@@ -35,9 +38,11 @@ Execute a partir da raiz do repositório. O JSON abaixo é um modelo; substitua 
 ```powershell
 node painel-local/scripts/assistant-client.mjs '{"action":"status"}'
 node painel-local/scripts/assistant-client.mjs '{"action":"open-new-product"}'
-node painel-local/scripts/assistant-client.mjs '{"action":"fill-product","product":{"name":"NOME","code":"GTIN","brand":"MARCA","content":"CONTEUDO","category":"CATEGORIA","barcode":"GTIN","imageSource":"Inteligência artificial"}}'
+node painel-local/scripts/assistant-client.mjs '{"action":"fill-product","product":{"name":"NOME","code":"GTIN","brand":"MARCA","content":"CONTEUDO","category":"CATEGORIA","barcode":"GTIN"}}'
 node painel-local/scripts/assistant-client.mjs '{"action":"attach-image","path":"CAMINHO_ABSOLUTO_DA_IMAGEM"}'
 node painel-local/scripts/assistant-client.mjs '{"action":"set-image-authorization","authorized":true}'
+node painel-local/scripts/assistant-client.mjs '{"action":"fill-product","product":{"imageSource":"Inteligência artificial"}}'
+node painel-local/scripts/assistant-client.mjs '{"action":"status"}'
 node painel-local/scripts/assistant-client.mjs '{"action":"save-product"}'
 node painel-local/scripts/assistant-client.mjs '{"action":"status"}'
 ```
@@ -101,3 +106,10 @@ npm run build
 ```
 
 Reinicie o aplicativo após alterar `electron/assistant.cjs` ou gerar um novo build. Uma janela já aberta não recebe automaticamente o novo processo principal.
+
+## Estado confirmado em 04/11/2026
+
+- Catálogo local confirmado com 28 produtos.
+- Lote `imagens-produtos-cadastro/2026-11-03/LISTA-CADASTRO.csv` concluído para todos os itens com foto disponível.
+- O GTIN `7898575692958` continua sem cadastro de imagem porque a foto correta do Casaflor Mistérios do Oriente não foi encontrada.
+- Os produtos deste lote permanecem com revisão visual pendente; cadastro local não equivale a publicação.

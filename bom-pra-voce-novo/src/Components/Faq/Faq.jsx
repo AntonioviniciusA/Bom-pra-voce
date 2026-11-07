@@ -63,7 +63,7 @@ export default function FaqSection() {
           <h3>Ainda ficou com alguma dúvida?</h3>
           <p>Consulte o endereço e os horários para planejar sua visita à loja.</p>
         </div>
-        <Link className="faq-help__button" to="/#localizacao">Planejar visita <ArrowRight size={19} aria-hidden="true" /></Link>
+        <Link className="faq-help__button" to="/nossa-loja#localizacao">Planejar visita <ArrowRight size={19} aria-hidden="true" /></Link>
       </aside>
     </div>
   </section>;

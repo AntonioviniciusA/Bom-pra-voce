@@ -186,3 +186,29 @@ test('paginates the product catalogue eight at a time',async()=>{
   fireEvent.click(screen.getByRole('button',{name:'Próxima'}));
   expect(screen.getByText(/Produto 9/)).toBeTruthy();expect(screen.getByText('Página 2 de 2')).toBeTruthy();
 });
+
+test('reopens edited prices and creates another campaign reusing the same catalogue product',async()=>{
+ const product={id:'p',revision:1,name:'Produto reutilizável',code:'P-1',barcode:'7897534800212',fragrances:[],identifierType:'gtin',brand:'Marca',content:'500 ml',category:'limpeza',image:'data:image/png;base64,x',imageSmall:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:true};
+ let stored={revision:3,catalog:[product],campaigns:[{id:'c',title:'Campanha existente',theme_key:'padrao',startDate:'2090-01-01',endDate:'2090-01-02',conditions:'Condições',items:[{id:'i',productId:'p',priceCents:500,unit:'un',noExpiry:true,expiresOn:''}]}]};
+ drafts.loadWorkspace.mockImplementation(async()=>structuredClone(stored));
+ drafts.saveWorkspace.mockImplementation(async data=>{stored=structuredClone({...data,revision:data.revision+1});return stored;});
+ const first=render(<OfferCampaignPanel/>);
+ fireEvent.click(await screen.findByRole('button',{name:/Abrir campanha/}));
+ fireEvent.change(screen.getByLabelText('Nome operacional'),{target:{value:'Campanha editada'}});
+ fireEvent.change(screen.getByLabelText('Preço de Produto reutilizável'),{target:{value:'1299'}});
+ await waitFor(()=>expect(stored.campaigns[0]).toMatchObject({title:'Campanha editada',items:[{id:'i',productId:'p',priceCents:1299,noExpiry:true}]}));
+ first.unmount();render(<OfferCampaignPanel/>);
+ fireEvent.click(await screen.findByRole('button',{name:/Abrir campanha/}));
+ expect(screen.getByLabelText('Preço de Produto reutilizável').value).toBe('12,99');
+ expect(screen.getByLabelText('Produto sem vencimento').checked).toBe(true);
+ fireEvent.click(screen.getAllByRole('button',{name:/^Campanhas$/})[0]);
+ fireEvent.click(screen.getByRole('button',{name:/Ver catálogo de temas prontos/}));
+ fireEvent.click(screen.getByRole('button',{name:'Adicionar produtos'}));
+ fireEvent.click(screen.getByRole('checkbox',{name:'Selecionar Produto reutilizável'}));
+ fireEvent.click(screen.getByRole('button',{name:/Incluir selecionados/}));
+ await waitFor(()=>expect(stored.campaigns).toHaveLength(2));
+ await waitFor(()=>expect(stored.campaigns[1].items).toHaveLength(1));
+ expect(stored.catalog).toEqual([product]);
+ expect(stored.campaigns[0].items[0].priceCents).toBe(1299);
+ expect(stored.campaigns[1].items[0]).toMatchObject({productId:'p',priceCents:0});
+});

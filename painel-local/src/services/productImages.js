@@ -46,20 +46,20 @@ export async function prepareCampaignImages(campaign, request, onProgress = () =
     sent.set(hash,result.url); return result.url;
   }
   for (const [index,item] of campaign.items.entries()) {
-    onProgress(`Preparando foto ${index+1} de ${campaign.items.length}: ${item.product.name}`);
+    onProgress(`Preparando foto ${index+1} de ${campaign.items.length}: ${item.product.name}`,10+Math.round(index/campaign.items.length*70));
     const p = item.product;
     // Produtos já sincronizados guardam URLs públicas validadas pelo servidor.
     // Uma edição textual não deve tentar decodificar essas URLs como base64.
     if (typeof p.image === 'string' && !p.image.startsWith('data:')) {
       prepared.items.push({...item,product:{...p}});
-      onProgress(`Foto já armazenada: ${index+1} de ${campaign.items.length}.`);
+      onProgress(`Foto já armazenada: ${index+1} de ${campaign.items.length}.`,10+Math.round((index+1)/campaign.items.length*70));
       continue;
     }
     const images = p.imageOptimizationVersion === 1 && p.imageSmall
       ? p : await optimizeProductImage(dataImageBlob(p.image));
     const image = await send(images.image), imageSmall = await send(images.imageSmall);
     prepared.items.push({...item,product:{...p,image,imageSmall}});
-    onProgress(`Fotos confirmadas: ${index+1} de ${campaign.items.length}.`);
+    onProgress(`Fotos confirmadas: ${index+1} de ${campaign.items.length}.`,10+Math.round((index+1)/campaign.items.length*70));
   }
   return prepared;
 }

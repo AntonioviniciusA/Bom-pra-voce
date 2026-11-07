@@ -12,6 +12,7 @@ export const storeConfig = {
   email: "roseanyleite75@gmail.com",
   whatsappUrl: null,
   payments: [
+    "Dinheiro",
     "Alelo",
     "Sodexo",
     "Ben",
@@ -28,7 +29,7 @@ export const storeConfig = {
     "American Express",
     "Elo",
   ],
-  paymentConditions: "Aceitação sujeita às regras e à disponibilidade de cada emissor.",
+  paymentConditions: "Cartões de benefícios dependem das regras, do saldo e da disponibilidade do emissor.",
   sectors: ["Hortifrúti", "Padaria", "Bebidas", "Adega", "Congelados"],
   privacy: {
     approved: true,

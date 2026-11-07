@@ -2,6 +2,7 @@ import {prepareCampaignImages} from './productImages';
 import { createClient } from "@supabase/supabase-js";
 import { apiConfig, AdminApiError } from "./config";
 import {logPanelError} from './diagnostics';
+import {validateProductCampaign} from '../../../supabase/functions/_shared/productCampaign.ts';
 
 let client;
 function supabase() {
@@ -98,19 +99,20 @@ export async function authorizeAssistant(code) {
 }
 
 async function request(path, options = {}) {
+  const {onSending,...fetchOptions}=options;
   const config = apiConfig();
   if (!config.ready) throw new AdminApiError("UNAVAILABLE", "Configure a conexão do Supabase para usar o painel.");
   const { data, error } = await supabase().auth.getSession();
   if (error || !data.session?.access_token) {const problem=new AdminApiError("AUTH", "Sua sessão expirou. Entre novamente.");logPanelError('session-required',problem);throw problem;}
   let response;
-  try { response = await fetch(`${config.url}${path}`, {
-    ...options,
-    headers: { apikey: config.key, Authorization: `Bearer ${data.session.access_token}`, ...options.headers },
-  }); } catch (cause) {const problem=new AdminApiError('NETWORK','Não foi possível conectar ao serviço. Confira a internet e tente novamente.');problem.cause=cause;logPanelError('api-request',problem);throw problem;}
+  try { onSending?.();response = await fetch(`${config.url}${path}`, {
+    ...fetchOptions,
+    headers: { apikey: config.key, Authorization: `Bearer ${data.session.access_token}`, ...fetchOptions.headers },
+  }); } catch (cause) {if(fetchOptions.signal?.aborted)throw fetchOptions.signal.reason;const problem=new AdminApiError('NETWORK','Não foi possível conectar ao serviço. Confira a internet e tente novamente.');problem.cause=cause;logPanelError('api-request',problem);throw problem;}
   if (!response.ok) {
     let message = "Não foi possível concluir a operação.";
     let remoteCode;
-    try { const body=await response.json();message=body?.message || message;remoteCode=body?.code; } catch {}
+    try { const body=await response.json();message=body?.message || message;remoteCode=body?.code || body?.error; } catch {}
     const guidance={401:'Sua sessão expirou. Entre novamente.',403:'Sua conta não tem permissão para esta operação.',409:'Os dados mudaram no servidor. Confira o estado atual antes de tentar novamente.',429:'Muitas tentativas em pouco tempo. Aguarde e tente novamente.'};
     const friendly=response.status>=500?'O serviço falhou. Tente novamente em instantes.':guidance[response.status]||message;
     const problem=new AdminApiError(response.status === 401 ? "AUTH" : "REQUEST", friendly, response.status);
@@ -120,14 +122,58 @@ async function request(path, options = {}) {
   return response;
 }
 
-export async function productCampaignRequest(action, campaign, expectedRevision=0, onProgress) {
-  if(action==='publish') campaign=await prepareCampaignImages(campaign,async payload=>{
+// Include response-body consumption in the deadline: HTTP 200 headers alone
+// do not confirm that a campaign revision was received by the panel.
+async function requestJson(path, options) {
+  const controller = new AbortController();
+  let timer;
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      const error = new AdminApiError('TIMEOUT', 'O serviço não concluiu a resposta em 60 segundos. Confira o estado no site antes de tentar novamente.');
+      reject(error);
+      controller.abort(error);
+    }, 60000);
+  });
+  try {
+    return await Promise.race([
+      request(path, {...options, signal: controller.signal}).then(response => response.json()),
+      deadline,
+    ]);
+  } finally { clearTimeout(timer); }
+}
+
+const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
+const publicCampaignSnapshot=snapshot=>{
+ const {id:_id,revision:_revision,state:_state,...campaign}=snapshot||{};
+ return canonical({...campaign,items:(campaign.items||[]).map(item=>({...item,product:Object.fromEntries(Object.entries(item.product||{}).filter(([key])=>!['imageSource','imageAuthorized','imageApproved','noGtinReason'].includes(key)))}))});
+};
+export const samePublishedCampaign=(left,right)=>Boolean(left&&right)&&JSON.stringify(publicCampaignSnapshot(left))===JSON.stringify(publicCampaignSnapshot(right));
+
+export async function productCampaignRequest(action, campaign, expectedRevision=0, onProgress, remoteSnapshot) {
+  if(action==='publish'){
+    onProgress?.('Validando a lista final de produtos…',8);
+    try{campaign={id:campaign.id,...validateProductCampaign(campaign,apiConfig().url)};}
+    catch(cause){const problem=new AdminApiError('INVALID_LOCAL_CAMPAIGN',cause?.message||'A lista final contém dados incompatíveis com a publicação.');problem.cause=cause;throw problem;}
+    campaign=await prepareCampaignImages(campaign,async payload=>{
     const binary=payload instanceof Blob;
-    const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
-    return response.json();
-  },onProgress);
-  const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,campaign_id:campaign?.id,expected_revision:expectedRevision,campaign})});
-  return response.json();
+    return requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
+    },onProgress);
+    if(samePublishedCampaign(campaign,remoteSnapshot)){
+      onProgress?.('Nenhuma alteração pública para enviar.',100);
+      return {id:campaign.id,revision:expectedRevision,state:'published',unchanged:true};
+    }
+  }
+  if(action==='publish')onProgress?.('Montando os dados da campanha…',82);
+  let body;
+  try{body=JSON.stringify({action,campaign_id:campaign?.id,expected_revision:expectedRevision,campaign});}
+  catch(cause){const problem=new AdminApiError('INVALID_LOCAL_PAYLOAD','O painel não conseguiu preparar os dados da campanha. Feche e abra o painel antes de tentar novamente.');problem.cause=cause;throw problem;}
+  const result=await requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body,onSending:action==='publish'?()=>onProgress?.('Pedido enviado. Aguardando confirmação do site…',90):undefined});
+  if(action==='publish'){
+    if(result?.id!==campaign.id || result?.state!=='published' || !Number.isSafeInteger(result?.revision) || result.revision<=expectedRevision)
+      throw new AdminApiError('INVALID_PUBLICATION_RESPONSE','O serviço respondeu, mas não confirmou a revisão da campanha. Confira o estado no site antes de tentar novamente.');
+    onProgress?.('Publicação confirmada pelo site.',100);
+  }
+  return result;
 }
 
 export function changedProductFields(base={},product={}){
@@ -149,8 +195,7 @@ export async function productCatalogRequest(action, product, expectedRevision=0,
   const needsImageUpload=action!=='product_patch'||typeof patch.image==='string'&&patch.image.startsWith('data:');
   const prepared=needsImageUpload?await prepareCampaignImages({items:[{id:product.id,priceCents:1,unit:'un',expiresOn:'2099-12-31',product}]},async payload=>{
     const binary=payload instanceof Blob;
-    const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
-    return response.json();
+    return requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
   },onProgress):null;
   if(action==='product_patch'&&prepared)patch={...patch,image:prepared.items[0].product.image,imageSmall:prepared.items[0].product.imageSmall};
   const body=action==='product_patch'?{action,campaign_id:product.id,expected_revision:expectedRevision,patch}:{action:'product_save',campaign_id:product.id,expected_revision:expectedRevision,product:prepared.items[0].product};

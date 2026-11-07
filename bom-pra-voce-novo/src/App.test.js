@@ -7,24 +7,22 @@ function renderRoute(route = "/") {
   return render(<MemoryRouter initialEntries={[route]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}><SiteRoutes /></MemoryRouter>);
 }
 
-test("repeated section navigation restores focus and scroll", async () => {
-  renderRoute("/#setores");
-  const sector = await screen.findByRole("region", { name: "Conheça nossos setores" });
-  await waitFor(() => expect(sector).toHaveFocus());
-  const link = within(screen.getByRole("navigation", { name: "Rodapé" })).getByRole("link", { name: "Setores" });
-  link.focus();
-  Element.prototype.scrollIntoView.mockClear();
-  fireEvent.click(link);
+test("store section anchors restore focus and scroll on the dedicated page", async () => {
+  renderRoute("/nossa-loja#setores");
+  const sector = await screen.findByRole("region", { name: "Conheça nossos setores" }, { timeout: 10000 });
   await waitFor(() => expect(sector).toHaveFocus());
   expect(Element.prototype.scrollIntoView).toHaveBeenCalled();
 });
 test("real mounted routes show informative home, navigation and no fake actions", async () => {
   renderRoute();
   expect(await screen.findByRole("heading", { level: 1 })).toHaveTextContent("Bom Pra Você Supermercado");
-  expect(screen.getByRole("heading", { name: "Formas de pagamento aceitas" })).toBeInTheDocument();
-  expect(screen.getByRole("list", { name: "Bandeiras e formas de pagamento aceitas" })).toHaveTextContent("Pix");
-  expect(screen.getByRole("img", { name: "Cartões e pagamentos aceitos no Bom Pra Você Supermercado" })).toBeInTheDocument();
+  expect(screen.queryByRole("heading", { name: "Formas de pagamento aceitas" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("region", { name: "Conheça nossos setores" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("heading", { name: "Como chegar e quando visitar" })).not.toBeInTheDocument();
   expect(await screen.findByRole("heading", { name: 'Ofertas da semana' })).toBeInTheDocument();
+  const primaryNavigation = screen.getByRole("navigation", { name: "Principal" });
+  expect(within(primaryNavigation).getAllByRole("link").filter(link => link.hasAttribute("aria-current"))).toHaveLength(1);
+  expect(within(primaryNavigation).getByRole("link", { name: "Trabalhe conosco" })).toHaveAttribute("href", "/trabalhe-conosco");
   const menu = screen.getByRole("button", { name: "Menu" });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
@@ -34,6 +32,25 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.getAllByRole("link").some(link => link.getAttribute("href") === "#")).toBe(false);
   expect(screen.queryByText("Inscrever")).not.toBeInTheDocument();
   expect(screen.queryByText("Iniciar o Tour")).not.toBeInTheDocument();
+});
+test("store page reuses sectors, location and opening hours", async () => {
+  renderRoute("/nossa-loja");
+  expect(await screen.findByRole("region", { name: "Conheça nossos setores" }, { timeout: 10000 })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "Como chegar e quando visitar" })).toBeInTheDocument();
+  expect(within(screen.getByRole("navigation", { name: "Principal" })).getByRole("link", { name: "Nossa loja" })).toHaveAttribute("aria-current", "location");
+});
+test("payment methods have a dedicated page and are removed from home", async () => {
+  renderRoute("/formas-de-pagamento");
+  expect(await screen.findByRole("heading", { level: 1, name: "Formas de pagamento" }, { timeout: 10000 })).toBeInTheDocument();
+  expect(screen.getByRole("list", { name: "Bandeiras e formas de pagamento aceitas" })).toHaveTextContent("Pix");
+  expect(screen.getByRole("list", { name: "Alimentação e refeição" })).toHaveTextContent("Alelo");
+  expect(screen.getByRole("list", { name: "Crédito" })).toHaveTextContent("Mastercard");
+  expect(screen.getByRole("list", { name: "Débito" })).toHaveTextContent("Visa Electron");
+  expect(screen.getByRole("list", { name: "À vista e digitais" })).toHaveTextContent("Dinheiro");
+  expect(screen.getByRole("list", { name: "À vista e digitais" })).toHaveTextContent("PicPay");
+  expect(screen.getByRole("complementary", { name: "Transparência no pagamento" })).toHaveTextContent("Não exigimos valor mínimo");
+  expect(screen.getByRole("img", { name: "Cartões e pagamentos aceitos no Bom Pra Você Supermercado" })).toBeInTheDocument();
+  expect(within(screen.getByRole("navigation", { name: "Principal" })).getByRole("link", { name: "Pagamentos" })).toHaveAttribute("aria-current", "location");
 });
 test("mobile navigation closes when clicking outside the header", async () => {
   renderRoute("/trabalhe-conosco");

@@ -24,7 +24,7 @@
 .visit-hours svg,.visit-holiday svg { flex-shrink:0; color:#111; }
 .visit-hours dd { margin:0; font-weight:800; white-space:nowrap; }
 .visit-holiday { display:flex; align-items:center; gap:21px; border-top:1px solid #f0eef1; padding:20px 20px 8px; margin:0; font-size:20px; line-height:1.4; }
-.payments-showcase { overflow:hidden; border:1px solid #e8bd20; border-radius:22px; background:#fff; margin-top:23px; padding:28px; scroll-margin-top:120px; box-shadow:0 8px 28px rgba(46,31,0,.08); }
+.store-visit .payments-showcase { overflow:hidden; border:1px solid #e8bd20; border-radius:22px; background:#fff; margin-top:23px; padding:28px; scroll-margin-top:120px; box-shadow:0 8px 28px rgba(46,31,0,.08); }
 .payments-copy { max-width:820px; margin:0 auto 24px; text-align:center; }
 .payments-copy .eyebrow { margin:0 0 8px; color:#76378b; font-size:15px; font-weight:800; letter-spacing:.08em; }
 .payments-copy h2 { margin:0 0 10px; color:#190d30; font-size:clamp(28px,3vw,44px); }

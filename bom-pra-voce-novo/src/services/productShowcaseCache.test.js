@@ -10,3 +10,8 @@ test('does not cache a snapshot with no safe expiry',()=>{
  writeProductShowcaseCache({serverTime:1000,nextChangeAt:null,campaigns:[]},10000);
  expect(readProductShowcaseCache(10000)).toBeNull();
 });
+test('keeps a valid snapshot fresh for at most 45 minutes',()=>{
+ const longPayload={...payload,nextChangeAt:10_000_000,campaigns:[{...payload.campaigns[0],ends:10_000_000}]};
+ writeProductShowcaseCache(longPayload,10000);
+ expect(readProductShowcaseCache(20000)).toMatchObject({revalidateAt:10000+45*60*1000});
+});

@@ -10,7 +10,7 @@ export default function About() {
         <h2 id="about-title">Sobre o Bom Pra Você Supermercado</h2>
         <p>O Bom Pra Você Supermercado nasceu com o objetivo de oferecer produtos de qualidade, bons preços e um atendimento próximo e humano.</p>
         <p>Queremos fazer parte da rotina das famílias, com um ambiente acolhedor e setores completos para as compras do dia a dia.</p>
-        <div className="about-showcase__actions"><a className="about-showcase__primary" href="#setores">Conheça nossos setores <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" /></a>
+        <div className="about-showcase__actions"><a className="about-showcase__primary" href="/nossa-loja#setores">Conheça nossos setores <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" /></a>
           <a className="about-showcase__secondary" href="#promocoes">Ver ofertas da semana</a></div>
       </div>
       <div className="about-showcase__visual">

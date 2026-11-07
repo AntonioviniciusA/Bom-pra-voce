@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { usePrivacyPreferences } from "../PrivacyPreferences";
 import { storeConfig } from "../../Data/storeConfig";
-import PaymentMethods from "../PaymentMethods/PaymentMethods";
 import "./StoreVisit.css";
 
 export default function StoreVisit() {
@@ -110,7 +109,6 @@ export default function StoreVisit() {
             </p>
           </article>
         </div>
-        <PaymentMethods />
       </div>
     </section>
   );

@@ -3,6 +3,8 @@ export const pageMetadata = {
   "/ofertas/novembro": { title: "Ofertas de novembro | Bom Pra Você", description: "Acompanhe a preparação das ofertas de novembro do Bom Pra Você Supermercado." },
   "/": { title: "Supermercado em Samambaia Sul, Brasília–DF | Bom Pra Você", description: "Bom Pra Você Supermercado na QS 118, conjunto 6, lote 2, Samambaia Sul, Brasília–DF. Consulte localização, horários, setores e ofertas da loja." },
   "/trabalhe-conosco": { title: "Trabalhe conosco | Bom Pra Você", description: "Consulte as orientações para candidaturas no Bom Pra Você Supermercado, em Samambaia Sul, Brasília–DF." },
+  "/formas-de-pagamento": { title: "Formas de pagamento | Bom Pra Você", description: "Consulte as formas de pagamento aceitas no Bom Pra Você Supermercado, incluindo Pix, carteiras digitais, cartões e benefícios." },
+  "/nossa-loja": { title: "Setores, localização e horários | Bom Pra Você", description: "Conheça os setores do Bom Pra Você Supermercado e consulte endereço, mapa e horários de funcionamento em Samambaia Sul, Brasília–DF." },
   "/privacidade": { title: "Privacidade | Bom Pra Você", description: "Saiba como o site trata dados de candidaturas, cookies, preferências e serviços externos, e como entrar em contato sobre seus direitos." },
   "/termos": { title: "Termos de uso | Bom Pra Você", description: "Condições de uso do site, consulta de ofertas, candidaturas e informações sobre o supermercado Bom Pra Você." },
 };

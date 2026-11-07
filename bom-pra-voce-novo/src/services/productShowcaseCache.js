@@ -1,5 +1,6 @@
 const CACHE_KEY='bpv-public-product-showcase-v1';
 const MAX_CACHE_AGE_MS=24*60*60*1000;
+export const PRODUCT_SHOWCASE_FRESHNESS_MS=45*60*1000;
 
 function validUntil(payload){
   return Math.min(payload.nextChangeAt??Infinity,...payload.campaigns.map(campaign=>campaign.ends));
@@ -20,7 +21,8 @@ export function readProductShowcaseCache(clientNow=Date.now()){
     const serverTime=stored.payload.serverTime+(clientNow-stored.savedAt);
     if(serverTime>=validUntil(stored.payload)){localStorage.removeItem(CACHE_KEY);return null;}
     const campaigns=stored.payload.campaigns.filter(campaign=>Number.isFinite(campaign.ends)&&campaign.ends>serverTime);
-    return {...stored.payload,serverTime,campaigns,cacheExpiresAt:clientNow+(validUntil(stored.payload)-serverTime),fromCache:true};
+    const cacheExpiresAt=clientNow+(validUntil(stored.payload)-serverTime);
+    return {...stored.payload,serverTime,campaigns,cacheExpiresAt,revalidateAt:Math.min(stored.savedAt+PRODUCT_SHOWCASE_FRESHNESS_MS,cacheExpiresAt),fromCache:true};
   }catch{return null;}
 }
 

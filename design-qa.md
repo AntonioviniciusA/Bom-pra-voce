@@ -165,3 +165,31 @@ Fidelidade visual:
 Comparação histórica: a falha P1 do formulário era a criação automática de `Variante 1`, que tornava impossível concluir um produto único. Ela foi removida, o caso sem variantes recebeu campo próprio e a nova evidência no navegador confirmou o estado corrigido. Nenhum P0/P1/P2 visual permanece. P3: com fotos reais aprovadas, repetir a comparação comercial para avaliar recorte, escala e equilíbrio dos cards; o Story continua dependente de uma foto aprovada.
 
 Verificação: 61 testes em 15 arquivos aprovados e build Vite aprovado. O GTIN `7896422000109` visível no anexo não passa no cálculo de dígito verificador atual; a correção não transforma esse código em GTIN válido. Se ele for apenas código interno, deve permanecer no campo correspondente e o GTIN real deve ser informado separadamente.
+# QA — Estado de erro das ofertas (2026-11-05)
+
+- Fonte visual: Figma `Bom Pra Você — Estado de erro das ofertas`, componente `2:30` (328 × 342 px) e tela mobile `2:25` (360 × 790 px).
+- Implementação observada: `http://localhost:3001/#promocoes`, Chrome, estado de erro real após falha da consulta.
+- Viewport observado: desktop, 1352 × 766 px. O card usa expansão responsiva intencional; no breakpoint de até 600 px, largura, tipografia e limites de texto reproduzem as medidas do Figma.
+- Estado: erro inicial; botão padrão e clique de nova tentativa verificados. Hover, active, foco visível e movimento reduzido conferidos nos estilos.
+- Evidência de tela inteira: captura do navegador mostrou o card centralizado entre o banner e a seção Sobre nós, sem sobreposição ou conteúdo cortado.
+- Evidência focada: o card apresentou tag amarela, título roxo, descrição centralizada, botão roxo com sombra e ícone de recarga, correspondendo ao componente `2:30`.
+- Tipografia: família de marca preservada nos títulos e `SiteInter` no corpo/ação; pesos, tamanhos e quebras seguem o Figma.
+- Espaçamento: gap de 14 px, padding de 20 px, raio de 24 px e altura mínima de 342 px reproduzidos.
+- Cores: tokens existentes do site são priorizados, com os valores aprovados no Figma como fallback.
+- Imagem/ícone: nenhum raster novo; `RefreshCw` da biblioteca já instalada corresponde ao ícone usado no design.
+- Conteúdo: textos idênticos ao Figma aprovado.
+- Interação: o clique removeu o erro, iniciou nova consulta e retornou ao estado de erro quando a consulta local falhou novamente.
+- Validação técnica: 5 testes do componente aprovados; build de produção concluído com sucesso.
+- Histórico de correções: a animação foi movida do SVG para seu contêiner, preservando o efeito visual e seguindo a recomendação de renderização do React.
+
+**Findings**
+
+- Nenhuma diferença P0, P1 ou P2 encontrada no escopo aprovado.
+
+**Follow-up Polish**
+
+- P3: uma captura automatizada no viewport móvel exato de 360 × 790 px pode ser adicionada futuramente; a instância local foi inspecionada visualmente em desktop e os valores móveis foram comparados diretamente com o Figma.
+
+final result: passed
+
+---
