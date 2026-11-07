@@ -2,3 +2,6 @@
 entregas/panfleto-final-de-semana-2026-10-05/
 supabase/.temp/
 /Mercado
+
+# Local prototypes, including dependencies and generated files.
+/prototipos/
