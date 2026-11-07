@@ -59,3 +59,14 @@ test('shows four products on mobile, navigates and adjusts when the viewport cha
  }finally{view?.unmount();window.matchMedia=original;}
  expect(media.removeEventListener).toHaveBeenCalledWith('change',change);
 });
+
+test('shared product link opens the requested product and can clear the filter',()=>{
+ window.history.replaceState({},'', '/?campanha=c&produto=p2#promocoes-c');
+ try{render(<ProductOffers campaign={campaign}/>);expect(screen.getByText('Produto B')).toBeInTheDocument();expect(screen.queryByText('Produto A')).not.toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'Limpar filtros'}));expect(screen.getByText('Produto A')).toBeInTheDocument();}
+ finally{window.history.replaceState({},'', '/');}
+});
+test('copies a public product-specific link instead of the local site address',async()=>{
+ const writeText=jest.fn().mockResolvedValue();Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText}});
+ try{render(<ProductOffers campaign={campaign}/>);fireEvent.click(screen.getByRole('button',{name:'Compartilhar Produto B'}));expect(writeText).toHaveBeenCalledWith('https://www.bompravocesupermercado.com.br/?campanha=c&produto=p2#promocoes-c');expect(await screen.findByRole('status')).toHaveTextContent('Link copiado');}
+ finally{delete navigator.clipboard;}
+});

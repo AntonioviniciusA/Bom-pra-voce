@@ -1,0 +1,36 @@
+.product-offers--public { scroll-margin-top: 120px; }
+.product-offers--public[data-theme] .product-offers__inner { zoom: 1; width: 100%; max-width: 1366px; }
+.product-offers--public .product-offers__pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; padding: 16px; background: #ffe600; color: #000; border-block: 2px solid #000; font-family: Arial, sans-serif; }
+.product-offers--public .product-offers__pagination button { min-height: 44px; min-width: 120px; padding: 10px 18px; border: 2px solid #000; border-radius: 10px; background: #000; color: #fff; font-size: 16px; font-weight: 700; }
+.product-offers--public .product-offers__pagination button:disabled { opacity: 1; background: #ffe600; color: #555; border-color: #827600; cursor: default; }
+.product-offers--public .product-offers__pagination span { font-size: 16px; font-weight: 700; }
+.product-offers--public .product-offer__share { position: static; align-self: flex-end; display: flex; gap: 6px; width: auto; height: auto; min-height: 40px; padding: 6px 10px; margin: 8px 8px 0; border: 1px solid #000; border-radius: 8px; background: #fff; color: #000; font: 700 13px Arial, sans-serif; }
+.product-offers--public .product-story button { min-height: 40px; width: 100%; border-color: #000; background: #000; color: #fff; }
+.product-offers--public .product-story button:hover,
+.product-offers--public .product-offers__pagination button:not(:disabled):hover { background: #303030; }
+.product-offers--public .product-offers__message { overflow-wrap: anywhere; }
+.product-offers--public :focus-visible { outline: 3px solid #000; outline-offset: 3px; box-shadow: 0 0 0 2px #fff; }
+@media (min-width: 701px) and (max-height: 820px) {
+  .product-offers--public[data-theme] .product-offers__heading { min-height: 100px; padding-block: 12px; }
+  .product-offers--public[data-theme] .product-offers__categories { padding: 10px 16px; gap: 10px; }
+  .product-offers--public[data-theme] .product-offers__categories button { min-height: 44px; }
+  .product-offers--public[data-theme] .product-offers__grid { padding: 12px 16px; gap: 12px; }
+  .product-offers--public .product-offer__photo { height: clamp(100px, 19vh, 160px); }
+  .product-offers--public .product-offer h3 { font-size: 22px; }
+  .product-offers--public .product-offer__price { height: 68px; }
+  .product-offers--public .product-offer__price strong { font-size: 54px; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .product-offers--public[data-theme] .product-offers__heading { grid-template-columns: 160px minmax(0, 1fr); }
+  .product-offers--public .product-offers__search { grid-column: 1 / -1; width: 100%; }
+  .product-offers--public[data-theme] .product-offers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .product-offers--public .product-offers__pagination { gap: 8px; padding: 12px 8px; }
+  .product-offers--public .product-offers__pagination button { min-width: 80px; padding: 8px; font-size: 14px; }
+  .product-offers--public .product-offers__pagination span { font-size: 14px; }
+  .product-offers--public .product-offer__share { font-size: 11px; gap: 4px; padding: 5px 7px; }
+  .product-offers--public .product-story button { font-size: 12px; }
+  .product-offers--public .product-offers__share-all { grid-column: 1 / -1; width: auto; height: auto; min-height: 44px; padding: 10px 16px; }
+  .product-offers--public .product-offers__share-all span { position: static; width: auto; height: auto; clip: auto; overflow: visible; }
+}

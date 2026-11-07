@@ -1,15 +1,23 @@
-import {useState} from 'react';
+import {useEffect,useState} from 'react';
 import {createProductStory,downloadStory} from './story';
 export default function StoryButton({campaign,item,preview}){
-  const [busy,setBusy]=useState(false),[message,setMessage]=useState('');
-  async function share(){
+  const [busy,setBusy]=useState(false),[message,setMessage]=useState(''),[file,setFile]=useState(null);
+  useEffect(()=>{setFile(null);setMessage('');},[campaign,item]);
+  async function prepare(){
     setBusy(true);setMessage('');
-    try{
-      const file=await createProductStory(campaign,item);
-      if(navigator.share&&navigator.canShare?.({files:[file]}))await navigator.share({files:[file],title:item.product.name});
-      else{downloadStory(file);setMessage('Imagem do Story baixada. Abra o Instagram para compartilhar.');}
-    }catch(e){if(e.name!=='AbortError')setMessage(e.message||'Não foi possível compartilhar o Story. Confira a conexão e tente novamente.');}
+    try{setFile(await createProductStory(campaign,item));}
+    catch(e){setMessage(e.message||'Não foi possível preparar a arte. Tente novamente.');}
     finally{setBusy(false);}
   }
-  return <div className="product-story"><button disabled={preview||busy} onClick={share}>{busy?'Preparando compartilhamento…':'Compartilhar nos Stories'}</button>{message&&<small role="status">{message}</small>}</div>;
+  async function share(){
+    try{await navigator.share({files:[file],title:item.product.name});}
+    catch(e){if(e.name!=='AbortError')setMessage('Não foi possível abrir o compartilhamento. Use Baixar PNG.');}
+  }
+  return <div className="product-story">
+    {!file?<button type="button" disabled={preview||busy} onClick={prepare}>{busy?'Preparando arte…':'Preparar arte para compartilhar'}</button>:<>
+      {navigator.share&&navigator.canShare?.({files:[file]})&&<button type="button" onClick={share}>Compartilhar arte</button>}
+      <button type="button" onClick={()=>{downloadStory(file);setMessage('PNG baixado. Pronto para enviar ou publicar.');}}>Baixar PNG</button>
+    </>}
+    {message&&<small role="status">{message}</small>}
+  </div>;
 }
