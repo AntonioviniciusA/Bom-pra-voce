@@ -11,11 +11,8 @@ export function validateApplication(values, file) {
   if ((values.phone || "").length > 24) errors.phone = "Use até 24 caracteres no telefone.";
   if ((values.address || "").length > 200) errors.address = "Use até 200 caracteres no endereço.";
   if ((values.area || "").length > 100) errors.area = "Use até 100 caracteres.";
-  if (values.birthDate) {
-    const parsed = new Date(values.birthDate + "T12:00:00Z");
-    if (Number.isNaN(parsed.valueOf()) || parsed.toISOString().slice(0, 10) !== values.birthDate || values.birthDate > new Date().toISOString().slice(0, 10))
-      errors.birthDate = "Informe uma data de nascimento válida e não futura.";
-  }
+  if (values.age && (!/^\d{2}$/.test(String(values.age)) || Number(values.age) < 15 || Number(values.age) > 60))
+    errors.age = "Informe uma idade inteira entre 15 e 60 anos.";
   if (!file) errors.file = "Selecione seu currículo em PDF.";
   else if (!/\.pdf$/i.test(file.name) || (file.type && file.type !== "application/pdf"))
     errors.file = "Escolha um arquivo PDF.";
@@ -38,18 +35,19 @@ function parseReceipt(data, intent, payload) {
 // A session belongs to exactly one immutable payload and lives only in memory.
 export function createApplicationSession(values, file, challengeToken = "") {
   const payload = { name: values.name.trim(), email: values.email.trim(), phone: (values.phone || "").trim(),
-    birth_date: values.birthDate || "", address: (values.address || "").trim(), area: (values.area || "").trim() };
+    age: values.age || "", address: (values.address || "").trim(), area: (values.area || "").trim() };
   const key = crypto.randomUUID();
   let intent = null;
   let busy = false;
   let result = null;
   let deadline = null;
   return {
-    async submit() {
+    async submit(onProgress) {
       if (result) return result;
       if (busy) throw new PublicApiError("BUSY", "Envio em andamento.");
       busy = true;
       try {
+        onProgress?.({ phase: "preparing" });
         if (!intent) {
           const data = await callPublicFunction("application-init", {
             body: JSON.stringify({ idempotency_key: key, challenge_token: challengeToken }),
@@ -69,7 +67,7 @@ export function createApplicationSession(values, file, challengeToken = "") {
         body.append("name", payload.name);
         body.append("email", payload.email);
         body.append("phone", payload.phone);
-        body.append("birth_date", payload.birth_date);
+        body.append("age", payload.age);
         body.append("address", payload.address);
         body.append("area", payload.area);
         // Nunca envie a versão de um aviso ainda não aprovado, mesmo que o
@@ -77,7 +75,7 @@ export function createApplicationSession(values, file, challengeToken = "") {
         body.append("privacy_notice_version", privacyReady() ? storeConfig.privacy.version : "");
         body.append("file", file);
         const data = await callPublicFunction("application-submit", {
-          body, headers: { "X-Application-Token": intent.token, "Idempotency-Key": key },
+          body, onUploadProgress: onProgress, headers: { "X-Application-Token": intent.token, "Idempotency-Key": key },
         });
         result = parseReceipt(data, intent, payload);
         return result;

@@ -42,3 +42,11 @@ export function validatePromotion(bytes: Uint8Array, mime: string) {
   return mime === "application/pdf" ? "pdf" : mime === "image/jpeg" ? "jpg" : mime === "image/png" ? "png" : "webp";
 }
 
+
+export function validateAge(value: string) {
+  if (!value) return null;
+  if (!/^\d{2}$/.test(value) || Number(value) < 15 || Number(value) > 60) {
+    throw new HttpError(422, "INVALID_FIELDS", "Informe uma idade inteira entre 15 e 60 anos.");
+  }
+  return Number(value);
+}

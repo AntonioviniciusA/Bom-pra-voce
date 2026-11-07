@@ -21,7 +21,12 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.queryByRole("heading", { name: "Como chegar e quando visitar" })).not.toBeInTheDocument();
   expect(await screen.findByRole("heading", { name: 'Ofertas da semana' })).toBeInTheDocument();
   const primaryNavigation = screen.getByRole("navigation", { name: "Principal" });
-  expect(within(primaryNavigation).getAllByRole("link").filter(link => link.hasAttribute("aria-current"))).toHaveLength(1);
+  const primaryLinks = within(primaryNavigation).getAllByRole("link");
+  expect(within(primaryNavigation).queryByRole("link", { name: "Início" })).not.toBeInTheDocument();
+  expect(primaryLinks.map(link => link.textContent)).toEqual([
+    "Ofertas", "Sobre", "Dúvidas", "Nossa loja", "Trabalhe conosco", "Pagamentos"
+  ]);
+  expect(primaryLinks.filter(link => link.hasAttribute("aria-current"))).toHaveLength(1);
   expect(within(primaryNavigation).getByRole("link", { name: "Trabalhe conosco" })).toHaveAttribute("href", "/trabalhe-conosco");
   const menu = screen.getByRole("button", { name: "Menu" });
   fireEvent.click(menu);
@@ -59,6 +64,28 @@ test("mobile navigation closes when clicking outside the header", async () => {
   expect(menu).toHaveAttribute("aria-expanded", "true");
   fireEvent.pointerDown(screen.getByRole("main"));
   expect(menu).toHaveAttribute("aria-expanded", "false");
+});
+test("header scroll state stays stable while its size transition changes the scroll offset", async () => {
+  Object.defineProperty(window, "scrollY", { configurable: true, writable: true, value: 0 });
+  const { unmount } = renderRoute("/termos");
+  const header = (await screen.findAllByRole("banner"))[0];
+
+  window.scrollY = 49;
+  fireEvent.scroll(window);
+  expect(header).toHaveClass("is-scrolled");
+
+  // The compact header is about 20 px shorter on desktop. Remaining inside
+  // this neutral band must not switch the class back and start a flicker loop.
+  window.scrollY = 24;
+  fireEvent.scroll(window);
+  expect(header).toHaveClass("is-scrolled");
+
+  window.scrollY = 12;
+  fireEvent.scroll(window);
+  expect(header).not.toHaveClass("is-scrolled");
+
+  unmount();
+  window.scrollY = 0;
 });
 test("career route fails closed until receiving and privacy are ready", async () => {
   renderRoute("/trabalhe-conosco");

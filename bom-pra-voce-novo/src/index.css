@@ -3200,3 +3200,16 @@ main h1,
     color: #111;
   }
 }
+
+.application-dropzone { transition: background-color .2s, border-color .2s, transform .2s; }
+.application-dropzone.is-dragging { background: #fff2ae; border-color: #ad7700; transform: scale(1.015); }
+.application-dropzone.has-file { border-style: solid; border-color: #477a35; }
+.application-dropzone:focus-visible { outline: 3px solid #222; outline-offset: 4px; }
+.application-dropzone.is-reading > span { animation: resume-reading .8s ease-in-out infinite alternate; }
+.application-dropzone[aria-disabled="true"] { cursor: wait; }
+.application-form progress { display: block; width: 100%; height: 12px; accent-color: #477a35; }
+.application-progress { margin-block: 16px; }
+@keyframes resume-reading { to { transform: translateY(-5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .application-dropzone, .application-dropzone > span { animation: none !important; transition: none; transform: none; }
+}

@@ -8,9 +8,10 @@ export function apiConfig() {
   try { valid = new URL(url).protocol === "https:" && /^sb_publishable_[A-Za-z0-9_-]+$/.test(key); } catch {}
   return { url, key, ready: valid };
 }
-export async function callPublicFunction(name, { signal, body, headers = {}, query } = {}) {
+export async function callPublicFunction(name, { signal, body, headers = {}, query, onUploadProgress } = {}) {
   const config = apiConfig();
   if (!config.ready) throw new PublicApiError("UNAVAILABLE", "Serviço temporariamente indisponível.");
+  if (onUploadProgress) return uploadPublicFunction(config, name, body, headers, onUploadProgress);
   const controller = new AbortController();
   const abort = () => controller.abort();
   if (signal?.aborted) abort();
@@ -47,4 +48,30 @@ export function publicMediaUrl(value) {
       url.pathname.startsWith("/storage/v1/object/public/promotion-public/") &&
       !url.username && !url.password && !url.search && !url.hash ? url.href : null;
   } catch { return null; }
+}
+
+// Progress measures the request bytes, not server-side validation or persistence.
+function uploadPublicFunction(config, name, body, headers, onProgress) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", config.url + "/functions/v1/" + name);
+    xhr.timeout = 120000;
+    xhr.withCredentials = false;
+    xhr.setRequestHeader("apikey", config.key);
+    Object.entries(headers).forEach(([key, value]) => xhr.setRequestHeader(key, value));
+    xhr.upload.onprogress = event => onProgress({ phase: "uploading", percent: event.lengthComputable ? Math.floor(event.loaded / event.total * 100) : null });
+    xhr.upload.onload = () => onProgress({ phase: "confirming", percent: 100 });
+    xhr.onerror = xhr.ontimeout = xhr.onabort = () => reject(new PublicApiError("NETWORK", "Não foi possível confirmar o recebimento. Tente novamente com os mesmos dados."));
+    xhr.onload = () => {
+      let data;
+      try { data = JSON.parse(xhr.responseText); } catch { /* Invalid responses never confirm receipt. */ }
+      if (xhr.status < 200 || xhr.status >= 300) {
+        const code = data?.error === "PRIVACY_NOTICE_CHANGED" ? data.error : xhr.status === 409 ? "CONFLICT" : xhr.status === 410 ? "EXPIRED" : xhr.status === 429 ? "RATE_LIMIT" : [400, 413, 415, 422].includes(xhr.status) ? (data?.error || "INVALID_REQUEST") : "UNAVAILABLE";
+        reject(new PublicApiError(code, "Não foi possível confirmar a operação.", xhr.status));
+      } else if (!data) reject(new PublicApiError("INVALID_RESPONSE", "Resposta inválida do servidor."));
+      else resolve(data);
+    };
+    onProgress({ phase: "uploading", percent: 0 });
+    xhr.send(body);
+  });
 }

@@ -81,4 +81,21 @@ assert.equal(publicProducts.campaigns.length,0);assert.notEqual(publicProducts.v
 assert.equal((await db.query('select count(*)::int n from bpv.product_campaign_revisions')).rows[0].n,2);
 assert.equal((await db.query("select has_function_privilege('anon','public.bpv_write_product_campaign(uuid,uuid,bigint,jsonb)','EXECUTE') allowed")).rows[0].allowed,false);
 console.log('PASS: product snapshots, private fields, permissions, stale revisions, withdrawal and immutable history');
+// Exercise real SQL constraints, persistence, idempotency and staff listing for age.
+const ageIntent = '60000000-0000-4000-8000-000000000001';
+await db.query(`insert into bpv.application_intents(id,idempotency_hash,token_hash,token_key_version,object_path,expires_at)
+  values($1,$2,$3,1,$4,'2090-01-01')`, [ageIntent, 'g'.repeat(43), 't'.repeat(43), `${ageIntent}/${ageIntent}.pdf`]);
+const finalizeAge = 'select public.bpv_finalize_application_v2($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16) value';
+const ageArgs = [ageIntent,'t'.repeat(43),'h'.repeat(43),'Candidato idade','idade@example.com','',15,null,'','Padaria','v1',`${ageIntent}/${ageIntent}.pdf`,'cv.pdf','f'.repeat(43),100,'BPV-2026-'+'a'.repeat(32)];
+await assert.rejects(rpc(finalizeAge, ageArgs.map((value,index) => index === 6 ? 14 : value)), /check constraint/);
+const ageReceipt = await rpc(finalizeAge, ageArgs);
+assert.equal(ageReceipt.status, 'received');
+assert.deepEqual(await rpc(finalizeAge, ageArgs), ageReceipt);
+const savedAge = (await db.query('select age,birth_date from bpv.applications where intent_id=$1',[ageIntent])).rows[0];
+assert.equal(savedAge.age,15); assert.equal(savedAge.birth_date,null);
+assert.equal((await rpc('select public.bpv_list_applications_page($1) value',[actor])).find(row=>row.email==='idade@example.com').age,15);
+await db.query('update bpv.applications set age=60 where intent_id=$1',[ageIntent]);
+await assert.rejects(db.query('update bpv.applications set age=61 where intent_id=$1',[ageIntent]),/check constraint/);
+assert.equal((await db.query("select has_function_privilege('anon','public.bpv_finalize_application_v2(uuid,text,text,text,text,text,integer,date,text,text,text,text,text,text,integer,text)','EXECUTE') allowed")).rows[0].allowed,false);
+console.log('PASS: age boundaries, persistence, receipt retry, staff listing and private RPC');
 await db.close();

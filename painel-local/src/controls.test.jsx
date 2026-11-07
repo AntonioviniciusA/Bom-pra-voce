@@ -34,13 +34,14 @@ test("edits an existing promotion, selects a visual icon and theme, preserving i
   expect(api.publishCampaign).not.toHaveBeenCalled();
 });
 test("shows candidate details, blocks pending files and downloads a clean resume", async () => {
-  const base = { email: "teste@example.com", phone: "61999999999", birth_date: "2000-01-01", address: "Rua de teste", received_at: "2026-10-01T12:00:00Z", delete_after: "2027-04-01T12:00:00Z" };
+  const base = { age: 25, email: "teste@example.com", phone: "61999999999", birth_date: "2000-01-01", address: "Rua de teste", received_at: "2026-10-01T12:00:00Z", delete_after: "2027-04-01T12:00:00Z" };
   api.listApplications.mockResolvedValue([{ ...base, id: "one", candidate_name: "Pessoa A", inspection_state: "clean", file_name: "a.pdf" }, { ...base, id: "two", candidate_name: "Pessoa B", inspection_state: "pending" }]);
   render(<Resumes notice="" setNotice={vi.fn()} />);
   const buttons = await screen.findAllByRole("button", { name: "Baixar currículo" });
   expect(buttons[0].disabled).toBe(false); expect(buttons[1].disabled).toBe(true);
   fireEvent.click(screen.getAllByText("Ver dados da candidatura")[0]);
   expect(screen.getAllByText("Rua de teste")).toHaveLength(2);
+  expect(screen.getAllByText("25 anos")).toHaveLength(2);
   fireEvent.click(buttons[0]);
   await waitFor(() => expect(api.downloadApplication).toHaveBeenCalledWith("one", "a.pdf"));
 });

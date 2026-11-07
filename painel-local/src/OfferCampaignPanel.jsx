@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock3,
+  Copy,
   FileText,
   Image as ImageIcon,
   Monitor,
@@ -305,11 +306,37 @@ function CampaignEditor({
   saveState,
   onRetry,
   onReviewPhoto,
+  onReuseCampaign,
   focusTarget,
   onFocusHandled,
 }) {
+  const [reuseSourceId, setReuseSourceId] = useState("");
+  const [reuseMessage, setReuseMessage] = useState("");
+  const campaignIndex = campaigns.findIndex((item) => item.id === campaign.id);
+  const reusableCampaigns = campaigns
+    .filter((item, index) => {
+      if (item.id === campaign.id || !item.items?.length) return false;
+      if (campaign.startDate && item.startDate) {
+        return item.startDate < campaign.startDate;
+      }
+      return campaignIndex >= 0 && index < campaignIndex;
+    })
+    .sort((a, b) =>
+      (b.endDate || b.startDate || "").localeCompare(
+        a.endDate || a.startDate || "",
+      ),
+    );
   const theme = seasonalTheme(campaign.theme_key),
     conflicts = campaigns.filter((other) => overlaps(campaign, other));
+  const reuse = () => {
+    const result = onReuseCampaign(reuseSourceId);
+    if (!result) return;
+    setReuseMessage(
+      result.copied
+        ? `${result.copied} produto${result.copied === 1 ? "" : "s"} copiado${result.copied === 1 ? "" : "s"} com preço e vencimento. Confira os dados antes de publicar.${result.skipped ? ` ${result.skipped} já estava${result.skipped === 1 ? "" : "m"} nesta campanha.` : ""}`
+        : "Todos os produtos dessa campanha já estão na campanha atual.",
+    );
+  };
   return (
     <div className="offer-page">
       <div className="offer-breadcrumb"><button onClick={onBack}>Campanhas</button><span>/</span><strong>{campaign.title.split(" ")[0]}</strong></div>
@@ -410,6 +437,40 @@ function CampaignEditor({
           campanhas do mesmo tipo podem usar temas diferentes.
         </p>
       </section>
+      {reusableCampaigns.length > 0 && (
+        <section className="campaign-reuse" aria-labelledby="campaign-reuse-title">
+          <div>
+            <h2 id="campaign-reuse-title">Reaproveitar campanha anterior</h2>
+            <p>Copie os produtos com preço, unidade e vencimento. A campanha anterior não será alterada.</p>
+          </div>
+          <label>
+            Campanha de origem
+            <select
+              value={reuseSourceId}
+              onChange={(event) => {
+                setReuseSourceId(event.target.value);
+                setReuseMessage("");
+              }}
+            >
+              <option value="">Selecione uma campanha</option>
+              {reusableCampaigns.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title} · {day(item.startDate)} a {day(item.endDate)} · {item.items.length} produto{item.items.length === 1 ? "" : "s"}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            className="offer-secondary"
+            disabled={!reuseSourceId}
+            onClick={reuse}
+          >
+            <Copy /> Reaproveitar produtos
+          </button>
+          {reuseMessage && <p className="campaign-reuse__message" role="status">{reuseMessage}</p>}
+        </section>
+      )}
       <section className="offer-section-head">
         <div>
           <h2>Produtos da campanha</h2>
@@ -1323,6 +1384,35 @@ export default function OfferCampaignPanel() {
     });
     setPage("campaign");
   }
+  function reuseCampaign(sourceCampaignId) {
+    if (!campaign) return null;
+    const source = workspaceRef.current.campaigns.find(
+      (item) => item.id === sourceCampaignId && item.id !== campaign.id,
+    );
+    if (!source) return null;
+    const existingProductIds = new Set(campaign.items.map((item) => item.productId));
+    const reusableItems = source.items.filter(
+      (item) => !existingProductIds.has(item.productId),
+    );
+    updateCampaign({
+      items: [
+        ...campaign.items,
+        ...reusableItems.map((item) => ({
+          id: crypto.randomUUID(),
+          productId: item.productId,
+          priceCents: item.priceCents,
+          unit: item.unit || "un",
+          expiresOn: item.expiresOn || "",
+          noExpiry: item.noExpiry === true,
+          conditions: item.conditions || "",
+        })),
+      ],
+    });
+    return {
+      copied: reusableItems.length,
+      skipped: source.items.length - reusableItems.length,
+    };
+  }
   async function saveProduct(input) {
     const codes = productBarcodes(input).map((c) => c.padStart(14, "0"));
     if (
@@ -1484,6 +1574,7 @@ export default function OfferCampaignPanel() {
           saveState={saveState}
           onRetry={() => persist().catch(() => {})}
           onReviewPhoto={(product) => openPhotoReview(product, "campaign", true)}
+          onReuseCampaign={reuseCampaign}
           focusTarget={focusTarget}
           onFocusHandled={() => setFocusTarget(null)}
         />

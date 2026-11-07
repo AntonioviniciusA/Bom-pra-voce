@@ -49,3 +49,17 @@ test("expired intent does not silently create a new submission", async () => {
   await expect(session.submit()).rejects.toMatchObject({ code: "EXPIRED" });
   expect(callPublicFunction).toHaveBeenCalledTimes(1);
 });
+
+test.each(["14", "61", "20.5", "abc", "0"])("rejects invalid age %s", age => {
+  expect(validateApplication({ ...values, age }, file).age).toBeTruthy();
+});
+test.each(["15", "60", ""])("accepts age %s", age => {
+  expect(validateApplication({ ...values, age }, file).age).toBeUndefined();
+});
+test("sends declared age without manufacturing a birth date", async () => {
+  callPublicFunction.mockResolvedValueOnce(intent).mockResolvedValueOnce(receipt);
+  await createApplicationSession({ ...values, age: "25" }, file).submit();
+  const body = callPublicFunction.mock.calls[1][1].body;
+  expect(body.get("age")).toBe("25");
+  expect(body.has("birth_date")).toBe(false);
+});

@@ -6,6 +6,20 @@ import { navigation } from "../../Data/navigation";
 import "./NavBar.css";
 
 const searchItems = navigation;
+const headerNavigation = navigation
+  .filter(item => item.href !== "/#home")
+  .sort((first, second) => {
+    const order = ["/#promocoes", "/#sobre", "/#duvidas", "/nossa-loja", "/trabalhe-conosco", "/formas-de-pagamento"];
+    return order.indexOf(first.href) - order.indexOf(second.href);
+  });
+const HEADER_SCROLL_ENTER = 48;
+const HEADER_SCROLL_EXIT = 12;
+
+export function resolveHeaderScrolled(scrollY, wasScrolled) {
+  return wasScrolled
+    ? scrollY > HEADER_SCROLL_EXIT
+    : scrollY > HEADER_SCROLL_ENTER;
+}
 
 function normalizeSearch(value) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -14,7 +28,7 @@ function normalizeSearch(value) {
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > HEADER_SCROLL_ENTER);
   const [activeSection, setActiveSection] = useState(() => window.location.hash.slice(1) || "home");
   const [query, setQuery] = useState("");
   const header = useRef(null);
@@ -27,7 +41,9 @@ export default function NavBar() {
   );
 
   useEffect(() => {
-    const updateHeader = () => setScrolled(window.scrollY > 24);
+    const updateHeader = () => {
+      setScrolled(current => resolveHeaderScrolled(window.scrollY, current));
+    };
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
     return () => window.removeEventListener("scroll", updateHeader);
@@ -35,7 +51,7 @@ export default function NavBar() {
 
   useEffect(() => {
     if (location.pathname !== "/") return undefined;
-    const ids = navigation.map(item => item.href.split("#")[1]);
+    const ids = headerNavigation.map(item => item.href.split("#")[1]);
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
     const updateActiveSection = () => {
       // Considera a seção ativa quando seu início alcança a área principal
@@ -114,7 +130,7 @@ export default function NavBar() {
           aria-label="Principal"
           className={menuOpen ? "site-nav is-open" : "site-nav"}
         >
-          {navigation.map(item => (
+          {headerNavigation.map(item => (
             <Link
               key={item.href}
               to={item.href}

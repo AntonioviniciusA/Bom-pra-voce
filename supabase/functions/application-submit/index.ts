@@ -1,7 +1,7 @@
 import { randomToken, sha256 } from "../_shared/crypto.ts";
 import { failure, HttpError, json, preflight, requireMethod, requireUuid } from "../_shared/http.ts";
 import { download, rpc, upload } from "../_shared/supabase.ts";
-import { MAX_RESUME_BYTES, text, validateBirthDate, validateEmail, validatePdf } from "../_shared/validation.ts";
+import { MAX_RESUME_BYTES, text, validateAge, validateBirthDate, validateEmail, validatePdf } from "../_shared/validation.ts";
 
 const MAX_BODY_BYTES = 5_150_000;
 
@@ -22,6 +22,7 @@ Deno.serve(async (req) => {
     const email = text(form.get("email"), 254, true).toLowerCase();
     validateEmail(email);
     const phone = text(form.get("phone"), 24);
+    const age = validateAge(text(form.get("age"), 2));
     const birthDate = validateBirthDate(text(form.get("birth_date"), 10));
     const address = text(form.get("address"), 200);
     const area = text(form.get("area"), 100);
@@ -37,7 +38,7 @@ Deno.serve(async (req) => {
     validatePdf(bytes);
     const fileHash = await sha256(bytes);
     const normalized = JSON.stringify({ name, email, phone, birth_date: birthDate ?? "", address, area, privacy_notice_version: privacyVersion, file_name: safeName, file_sha256: fileHash });
-    const payloadHash = await sha256(normalized);
+    const payloadHash = await sha256(form.has("age") ? JSON.stringify({ normalized, age }) : normalized);
     const tokenHash = await sha256(token);
     const intent = await rpc<{ object_path: string } | null>("bpv_get_application_intent_by_id", { p_intent_id: actualIntentId, p_token_hash: tokenHash });
     if (!intent) throw new HttpError(401, "INVALID_TOKEN", "Sessão inválida.");
@@ -49,9 +50,9 @@ Deno.serve(async (req) => {
       const existing = new Uint8Array(await download("resumes-private", uploadedPath));
       if (await sha256(existing) !== fileHash) throw error;
     }
-    const receipt = await rpc("bpv_finalize_application", {
+    const receipt = await rpc("bpv_finalize_application_v2", {
       p_intent_id: actualIntentId, p_token_hash: tokenHash, p_payload_hash: payloadHash,
-      p_name: name, p_email: email, p_phone: phone, p_birth_date: birthDate, p_address: address, p_area: area,
+      p_age: age, p_name: name, p_email: email, p_phone: phone, p_birth_date: birthDate, p_address: address, p_area: area,
       p_privacy_version: privacyVersion, p_object_path: uploadedPath, p_file_name: safeName,
       p_file_sha256: fileHash, p_file_size: bytes.length,
       p_protocol: `BPV-${new Date().getUTCFullYear()}-${randomToken(16)}`,

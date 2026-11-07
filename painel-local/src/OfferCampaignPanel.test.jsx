@@ -212,3 +212,33 @@ test('reopens edited prices and creates another campaign reusing the same catalo
  expect(stored.campaigns[0].items[0].priceCents).toBe(1299);
  expect(stored.campaigns[1].items[0]).toMatchObject({productId:'p',priceCents:0});
 });
+
+test('reuses products from a previous campaign with price and lot expiry without changing the source',async()=>{
+ const products=[
+  {id:'p1',revision:1,name:'Produto com validade',code:'P-1',barcode:'7897534800212',fragrances:[],identifierType:'gtin',brand:'Marca',content:'500 ml',category:'limpeza',image:'data:image/png;base64,x',imageSmall:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:true},
+  {id:'p2',revision:1,name:'Produto sem validade',code:'P-2',barcode:'7897534800229',fragrances:[],identifierType:'gtin',brand:'Marca',content:'1 un',category:'limpeza',image:'data:image/png;base64,x',imageSmall:'data:image/png;base64,x',imageSource:'Foto própria',imageAuthorized:true,imageApproved:true},
+ ];
+ const sourceItems=[
+  {id:'old-1',productId:'p1',priceCents:1299,unit:'un',expiresOn:'2090-03-31',noExpiry:false,conditions:'Limite de 2 unidades'},
+  {id:'old-2',productId:'p2',priceCents:750,unit:'pacote',expiresOn:'',noExpiry:true,conditions:''},
+ ];
+ let stored={revision:1,catalog:products,campaigns:[
+  {id:'old',title:'Campanha anterior',theme_key:'padrao',startDate:'2090-01-01',endDate:'2090-01-15',conditions:'Condições',items:sourceItems},
+  {id:'new',title:'Campanha nova',theme_key:'padrao',startDate:'2090-02-01',endDate:'2090-02-15',conditions:'Condições',items:[]},
+ ]};
+ drafts.loadWorkspace.mockImplementation(async()=>structuredClone(stored));
+ drafts.saveWorkspace.mockImplementation(async data=>{stored=structuredClone({...data,revision:data.revision+1});return stored;});
+ render(<OfferCampaignPanel/>);
+ const openButtons=await screen.findAllByRole('button',{name:/Abrir campanha/});
+ fireEvent.click(openButtons[1]);
+ fireEvent.change(screen.getByLabelText('Campanha de origem'),{target:{value:'old'}});
+ fireEvent.click(screen.getByRole('button',{name:'Reaproveitar produtos'}));
+ await waitFor(()=>expect(stored.campaigns[1].items).toHaveLength(2));
+ expect(stored.campaigns[1].items).toEqual([
+  expect.objectContaining({productId:'p1',priceCents:1299,unit:'un',expiresOn:'2090-03-31',noExpiry:false,conditions:'Limite de 2 unidades'}),
+  expect.objectContaining({productId:'p2',priceCents:750,unit:'pacote',expiresOn:'',noExpiry:true}),
+ ]);
+ expect(stored.campaigns[1].items[0].id).not.toBe('old-1');
+ expect(stored.campaigns[0].items).toEqual(sourceItems);
+ expect(screen.getByText(/2 produtos copiados com preço e vencimento/)).toBeTruthy();
+});
