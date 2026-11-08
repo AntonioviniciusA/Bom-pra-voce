@@ -14,7 +14,7 @@
 
 Em `bom-pra-voce-novo/src/images/offer-themes/`:
 
-- `black-friday-papel-v2.png`: original gerado a partir da referência `../../bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png`.
+- `black-friday-papel-v2.png`: original gerado a partir da referência `../pranchas-ofertas-sazonais/18-black-friday.png`.
 - `black-friday-papel-v2.webp`: versão usada no site, 60.652 bytes, mantendo o original disponível.
 - `preco-pincel-v2.webp` e `data-pincel-rosa-v2.webp`: recursos compartilhados para preço e data. A faixa de data de novembro recebe o tratamento roxo nos estilos.
 

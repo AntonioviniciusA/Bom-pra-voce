@@ -32,7 +32,7 @@ As páginas `seasonal-visual.html` são demonstrações: não servem para cadast
 
 Abra a [comparação visual completa](vitrine-black-friday-comparacao.html) para conferir a prancha e as capturas atuais juntas.
 
-Fonte de direção visual: [prancha completa Black Friday](../bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png), com notebook, celular e Story. A data ilustrativa da prancha (23–27) foi substituída pelo período confirmado (23–29). Logo original do supermercado preservado.
+Fonte de direção visual: [prancha completa Black Friday](pranchas-ofertas-sazonais/18-black-friday.png), com notebook, celular e Story. A data ilustrativa da prancha (23–27) foi substituída pelo período confirmado (23–29). Logo original do supermercado preservado.
 
 | Estado atual | Desktop | Celular |
 |---|---|---|

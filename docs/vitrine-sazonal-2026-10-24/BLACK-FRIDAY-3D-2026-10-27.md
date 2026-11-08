@@ -1,6 +1,6 @@
 # Carrinho e adornos 3D — Black Friday
 
-Referência: `../../bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png`. Aplicação: título do tema `black-friday`, compartilhado pelo site e pela prévia do painel local.
+Referência: `../pranchas-ofertas-sazonais/18-black-friday.png`. Aplicação: título do tema `black-friday`, compartilhado pelo site e pela prévia do painel local.
 
 ## Recursos
 

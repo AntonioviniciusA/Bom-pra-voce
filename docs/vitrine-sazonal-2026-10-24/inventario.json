@@ -2,7 +2,7 @@
   {
     "numero": 1,
     "titulo": "Padrão Bom pra você",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/padrao/referencias/01-padrao.png",
+    "arquivo": "../pranchas-ofertas-sazonais/01-padrao.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2147601,
@@ -13,7 +13,7 @@
   {
     "numero": 2,
     "titulo": "Verão",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/verao/referencias/02-verao.png",
+    "arquivo": "../pranchas-ofertas-sazonais/02-verao.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2146756,
@@ -24,7 +24,7 @@
   {
     "numero": 3,
     "titulo": "Volta à rotina",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/volta-a-rotina/referencias/03-volta-a-rotina.png",
+    "arquivo": "../pranchas-ofertas-sazonais/03-volta-a-rotina.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2282212,
@@ -35,7 +35,7 @@
   {
     "numero": 4,
     "titulo": "Carnaval",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/carnaval/referencias/04-carnaval.png",
+    "arquivo": "../pranchas-ofertas-sazonais/04-carnaval.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2209365,
@@ -46,7 +46,7 @@
   {
     "numero": 5,
     "titulo": "Volta às aulas",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/referencias/05-volta-as-aulas.png",
+    "arquivo": "../pranchas-ofertas-sazonais/05-volta-as-aulas.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2220541,
@@ -57,7 +57,7 @@
   {
     "numero": 6,
     "titulo": "Mês do consumidor",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/consumidor/referencias/06-consumidor.png",
+    "arquivo": "../pranchas-ofertas-sazonais/06-consumidor.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2173615,
@@ -68,7 +68,7 @@
   {
     "numero": 7,
     "titulo": "Páscoa",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/pascoa/referencias/07-pascoa.png",
+    "arquivo": "../pranchas-ofertas-sazonais/07-pascoa.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2296761,
@@ -79,7 +79,7 @@
   {
     "numero": 8,
     "titulo": "Dia das Mães",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/maes/referencias/08-maes.png",
+    "arquivo": "../pranchas-ofertas-sazonais/08-maes.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2326406,
@@ -90,7 +90,7 @@
   {
     "numero": 9,
     "titulo": "Festa junina",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/referencias/09-festa-junina.png",
+    "arquivo": "../pranchas-ofertas-sazonais/09-festa-junina.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2587340,
@@ -101,7 +101,7 @@
   {
     "numero": 10,
     "titulo": "Dia dos Namorados",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/namorados/referencias/10-namorados.png",
+    "arquivo": "../pranchas-ofertas-sazonais/10-namorados.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2194990,
@@ -112,7 +112,7 @@
   {
     "numero": 11,
     "titulo": "Férias",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/ferias/referencias/11-ferias.png",
+    "arquivo": "../pranchas-ofertas-sazonais/11-ferias.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2328249,
@@ -123,7 +123,7 @@
   {
     "numero": 12,
     "titulo": "Inverno",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/inverno/referencias/12-inverno.png",
+    "arquivo": "../pranchas-ofertas-sazonais/12-inverno.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2556864,
@@ -134,7 +134,7 @@
   {
     "numero": 13,
     "titulo": "Dia dos Pais",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/pais/referencias/13-pais.png",
+    "arquivo": "../pranchas-ofertas-sazonais/13-pais.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2475352,
@@ -145,7 +145,7 @@
   {
     "numero": 14,
     "titulo": "Primavera",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/primavera/referencias/14-primavera.png",
+    "arquivo": "../pranchas-ofertas-sazonais/14-primavera.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2236122,
@@ -156,7 +156,7 @@
   {
     "numero": 15,
     "titulo": "Setembro Amarelo",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/referencias/15-setembro-amarelo.png",
+    "arquivo": "../pranchas-ofertas-sazonais/15-setembro-amarelo.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2154701,
@@ -167,7 +167,7 @@
   {
     "numero": 16,
     "titulo": "Dia das Crianças",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/criancas/referencias/16-criancas.png",
+    "arquivo": "../pranchas-ofertas-sazonais/16-criancas.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2343511,
@@ -178,7 +178,7 @@
   {
     "numero": 17,
     "titulo": "Outubro Rosa",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/outubro-rosa/referencias/17-outubro-rosa.png",
+    "arquivo": "../pranchas-ofertas-sazonais/17-outubro-rosa.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2092575,
@@ -189,7 +189,7 @@
   {
     "numero": 18,
     "titulo": "Black Friday",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png",
+    "arquivo": "../pranchas-ofertas-sazonais/18-black-friday.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2166750,
@@ -200,7 +200,7 @@
   {
     "numero": 19,
     "titulo": "Natal",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/natal/referencias/19-natal.png",
+    "arquivo": "../pranchas-ofertas-sazonais/19-natal.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2453114,
@@ -211,7 +211,7 @@
   {
     "numero": 20,
     "titulo": "Ano-Novo",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/ano-novo/referencias/20-ano-novo.png",
+    "arquivo": "../pranchas-ofertas-sazonais/20-ano-novo.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2306607,
@@ -222,7 +222,7 @@
   {
     "numero": 21,
     "titulo": "Aniversário da loja",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/aniversario-loja/referencias/21-aniversario-loja.png",
+    "arquivo": "../pranchas-ofertas-sazonais/21-aniversario-loja.png",
     "largura_real": 1774,
     "altura_real": 887,
     "bytes": 2194881,
@@ -233,7 +233,7 @@
   {
     "numero": 22,
     "titulo": "Painel — lista de produtos",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/painel/referencias/22-painel-lista-produtos.png",
+    "arquivo": "../pranchas-ofertas-sazonais/22-painel-lista-produtos.png",
     "largura_real": 1536,
     "altura_real": 1024,
     "bytes": 1421515,
@@ -244,7 +244,7 @@
   {
     "numero": 23,
     "titulo": "Painel — revisão de imagem",
-    "arquivo": "../../bom-pra-voce-novo/src/images/offer-themes/painel/referencias/23-painel-revisao-imagem.png",
+    "arquivo": "../pranchas-ofertas-sazonais/23-painel-revisao-imagem.png",
     "largura_real": 1536,
     "altura_real": 1024,
     "bytes": 1524620,

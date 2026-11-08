@@ -4,7 +4,7 @@ Os arquivos-fonte de imagem do repositório ficam nesta pasta.
 
 - Arquivos e pastas existentes: identidade e fotos usadas no site.
 - `offer-themes/<tema>/`: decorações consumidas, originais e referências completas organizados por tema; veja o [índice](../../../docs/vitrine-imagens.md).
-- `offer-themes/<tema>/referencias/`: pranchas completas preservadas para comparação.
+- `../../../docs/pranchas-ofertas-sazonais/`: pranchas completas preservadas para comparação.
 - `offer-themes/<tema>/evidencias/atual/`: capturas atuais; remover as substituídas, mantendo o registro da substituição.
 - `offer-themes/compartilhados/`: pinceladas e faixas reutilizadas.
 - `offer-themes/<tema>/originais/`: primeira produção de materiais, incluindo Story. Não são fotos aprovadas de produtos.

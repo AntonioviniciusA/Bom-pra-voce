@@ -79,7 +79,7 @@ Pendente: inspeção da composição final animada no navegador, que continua fa
 
 ## 2026-10-27 — Correção do cabeçalho Black Friday
 
-Escopo: corrigir título, carrinho e efeitos rejeitados, preservando o cadastro e o estado vazio da rota pública. Fonte: bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png.
+Escopo: corrigir título, carrinho e efeitos rejeitados, preservando o cadastro e o estado vazio da rota pública. Fonte: docs/pranchas-ofertas-sazonais/18-black-friday.png.
 
 - Removidos os dois ornamentos de aparência plástica. Carrinho agora usa o ícone ShoppingCart da biblioteca instalada, junto ao texto; raios finos foram gerados com fundo transparente e otimizados em WebP.
 - Cabeçalho reorganizado em logo + título, com busca abaixo à direita; título ampliado e inclinado, profundidade curta. Movimento de 2–3 px apenas nos ornamentos; respeita prefers-reduced-motion.
@@ -101,7 +101,7 @@ final result: passed
 
 Escopo: vitrine web e painel de preparação de novembro, com fotos ainda a cadastrar pelo operador. Não declara aprovação visual dos outros temas, da composição do Story ou de publicação comercial.
 
-Fonte visual: bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png (1774 × 887, prancha composta com notebook, celular e Story). Capturas: offer-themes/black-friday/evidencias/atual/semana-desktop.png (1366 × 1000), semana-mobile.png (390 × 1100), esquenta-desktop.png, esquenta-mobile.png, painel-desktop.png e painel-mobile.png, todas sob bom-pra-voce-novo/src/images/. Viewports CSS 1366 × 1000 e 390 × 1100, imagens em 1 pixel por CSS pixel. A prancha contém miniaturas, não é uma captura em escala 1:1; comparação por regiões e proporções. Referência completa e ambas as capturas foram abertas juntas na mesma avaliação.
+Fonte visual: docs/pranchas-ofertas-sazonais/18-black-friday.png (1774 × 887, prancha composta com notebook, celular e Story). Capturas: offer-themes/black-friday/evidencias/atual/semana-desktop.png (1366 × 1000), semana-mobile.png (390 × 1100), esquenta-desktop.png, esquenta-mobile.png, painel-desktop.png e painel-mobile.png, todas sob bom-pra-voce-novo/src/images/. Viewports CSS 1366 × 1000 e 390 × 1100, imagens em 1 pixel por CSS pixel. A prancha contém miniaturas, não é uma captura em escala 1:1; comparação por regiões e proporções. Referência completa e ambas as capturas foram abertas juntas na mesma avaliação.
 
 Estado: demonstração local, quatro itens ilustrativos sem foto aprovada; produtos reais não foram criados. A diferença de fotos é intencional. Datas e títulos seguem a decisão atual do usuário, não os exemplos da prancha.
 
@@ -148,7 +148,7 @@ Console: não surgiram novos erros durante o percurso local. O histórico da aba
 
 final result: passed
 
-Fonte visual: `bom-pra-voce-novo/src/images/offer-themes/black-friday/referencias/18-black-friday.png`, 1774 × 887 px. Implementação comparada: `bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png`, 1366 × 1000 px, e `semana-mobile.png`, 390 × 1100 px. A prancha é uma composição reduzida de notebook, celular e Story; as capturas foram avaliadas em suas larguras CSS documentadas e não redimensionadas como se fossem um recorte 1:1 da prancha.
+Fonte visual: `docs/pranchas-ofertas-sazonais/18-black-friday.png`, 1774 × 887 px. Implementação comparada: `bom-pra-voce-novo/src/images/offer-themes/black-friday/evidencias/atual/semana-desktop.png`, 1366 × 1000 px, e `semana-mobile.png`, 390 × 1100 px. A prancha é uma composição reduzida de notebook, celular e Story; as capturas foram avaliadas em suas larguras CSS documentadas e não redimensionadas como se fossem um recorte 1:1 da prancha.
 
 Evidência combinada: `painel-local/black-friday-qa.html`, aberta em `http://127.0.0.1:5175/black-friday-qa.html`, apresentou a fonte e as duas capturas atuais na mesma vista. Estado: Semana Black Friday, quatro produtos demonstrativos, fotos ainda não aprovadas e valores explicitamente marcados como não publicados. A rota isolada `seasonal-visual.html?theme=black-friday&phase=semana&device=desktop` foi renderizada novamente; navegação e console foram verificados, sem erros ou avisos.
 

@@ -1,4 +1,0 @@
-// Format compression only; originals are retained without retouching or cropping.
-const sharp=require('C:/Users/anton/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');const fs=require('fs'),path=require('path');
-const dir=path.resolve(__dirname,'../../../bom-pra-voce-novo/src/images/offer-themes');
-(async()=>{const results=[];for(const file of fs.readdirSync(dir).filter(n=>n.endsWith('-v2.png'))){const target=file.replace(/\.png$/,'.webp');await sharp(path.join(dir,file)).webp({quality:90,alphaQuality:100}).toFile(path.join(dir,target));results.push({original:file,optimized:target,bytes:fs.statSync(path.join(dir,target)).size});}fs.writeFileSync(path.join(__dirname,'assets-v2.json'),JSON.stringify(results,null,2));console.log(results.length+' recursos otimizados');})();

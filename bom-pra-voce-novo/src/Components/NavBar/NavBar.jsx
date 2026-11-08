@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Search, X } from "lucide-react";
+import { BadgePercent, CircleHelp, CreditCard, Info, MapPin, Menu, Search, Store, UsersRound, X } from "lucide-react";
 import Logo from "../Logo/Logo";
 import { navigation } from "../../Data/navigation";
 import "./NavBar.css";
@@ -14,6 +14,14 @@ const headerNavigation = navigation
   });
 const HEADER_SCROLL_ENTER = 48;
 const HEADER_SCROLL_EXIT = 12;
+const quickAccessIcons = {
+  "/#promocoes": BadgePercent,
+  "/#sobre": Info,
+  "/#duvidas": CircleHelp,
+  "/nossa-loja": Store,
+  "/trabalhe-conosco": UsersRound,
+  "/formas-de-pagamento": CreditCard,
+};
 
 export function resolveHeaderScrolled(scrollY, wasScrolled) {
   return wasScrolled
@@ -122,7 +130,6 @@ export default function NavBar() {
           onClick={() => setMenuOpen(value => !value)}
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          <span>{menuOpen ? "Fechar" : "Menu"}</span>
         </button>
 
         <nav
@@ -130,16 +137,23 @@ export default function NavBar() {
           aria-label="Principal"
           className={menuOpen ? "site-nav is-open" : "site-nav"}
         >
-          {headerNavigation.map(item => (
-            <Link
-              key={item.href}
-              to={item.href}
-              aria-current={isItemActive(item) ? "location" : undefined}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <p className="quick-access-title">Acesso rápido</p>
+          <div className="quick-access-grid">
+            {headerNavigation.map(item => {
+              const Icon = quickAccessIcons[item.href] || MapPin;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  aria-current={isItemActive(item) ? "location" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <Icon aria-hidden="true" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
           <button
             ref={searchButton}
             className="nav-search"

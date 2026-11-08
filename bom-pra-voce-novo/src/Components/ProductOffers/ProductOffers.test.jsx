@@ -63,7 +63,7 @@ test('shows four products on mobile, navigates and adjusts when the viewport cha
 
 test('shared product link opens the requested product and can clear the filter',()=>{
  window.history.replaceState({},'', '/?campanha=c&produto=p2#promocoes-c');
- try{render(<ProductOffers campaign={campaign}/>);expect(screen.getByText('Produto B')).toBeInTheDocument();expect(screen.queryByText('Produto A')).not.toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'Limpar filtros'}));expect(screen.getByText('Produto A')).toBeInTheDocument();}
+ try{render(<ProductOffers campaign={campaign}/>);expect(screen.getByRole('heading',{name:'Produto B'})).toBeInTheDocument();expect(screen.queryByRole('heading',{name:'Produto A'})).not.toBeInTheDocument();fireEvent.click(screen.getByRole('button',{name:'Limpar filtros'}));expect(screen.getByRole('heading',{name:'Produto A'})).toBeInTheDocument();}
  finally{window.history.replaceState({},'', '/');}
 });
 test('keeps the artwork share action in the top product control',()=>{
