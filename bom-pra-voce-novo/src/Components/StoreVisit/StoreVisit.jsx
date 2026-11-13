@@ -8,13 +8,9 @@ import {
 } from "lucide-react";
 import { storeConfig } from "../../Data/storeConfig";
 import PaymentMethods from "../PaymentMethods/PaymentMethods";
-import storeLogo from "../../images/logo_bom_pra_voce_vetorizada.svg";
 import "./StoreVisit.css";
 
 export default function StoreVisit() {
-  const mapQuery = storeConfig.mapCoordinates
-    ? `${storeConfig.mapCoordinates.latitude},${storeConfig.mapCoordinates.longitude}`
-    : storeConfig.address;
   return (
     <section
       id="localizacao"
@@ -52,21 +48,10 @@ export default function StoreVisit() {
               <div className="visit-map">
                 <iframe
                   title="Localização do supermercado Bom Pra Você"
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${storeConfig.name} Supermercado ${storeConfig.address}`)}&z=16&output=embed`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  tabIndex="-1"
                 />
-                <div
-                  className="visit-map-marker"
-                  role="img"
-                  aria-label="Bom pra Você Supermercado nesta localização"
-                >
-                  <span className="visit-map-marker-label">
-                    <img src={storeLogo} alt="" aria-hidden="true" />
-                  </span>
-                  <span className="visit-map-marker-tip" aria-hidden="true" />
-                </div>
                 {storeConfig.mapsUrl && (
                   <a
                     className="visit-map-link"

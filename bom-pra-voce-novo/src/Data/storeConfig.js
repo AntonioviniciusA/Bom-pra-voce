@@ -5,7 +5,6 @@ export const storeConfig = {
   cnpj: "05.428.120/0001-08",
   foundedOn: "2002-12-09",
   address: "QS 118, conjunto 6, lote 2 — Samambaia Sul, Brasília–DF",
-  mapCoordinates: { latitude: -15.8591294, longitude: -48.0116736 },
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Bom%20Pra%20Voc%C3%AA%20Supermercado%20QS%20118%20Conjunto%206%20Lote%202%20Samambaia%20Sul%20Bras%C3%ADlia%20DF",
   hours: [{ day: "Segunda a sábado", time: "08:00–21:00" }, { day: "Domingo", time: "08:00–20:00" }],
   holidayHours: "Feriados: consulte a loja antes de sair.",
