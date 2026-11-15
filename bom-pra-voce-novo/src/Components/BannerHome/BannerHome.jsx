@@ -1,3 +1,6 @@
+import PrecoBaixoMobile from "../../images/banners-mobile/banner_preco_baixo.webp";
+import ComprasMobile from "../../images/banners-mobile/banner_tudo_para_seu_dia.webp";
+import ConhecaLojaMobile from "../../images/banners-mobile/banner_conheca_nossa_loja.webp";
 import PrecoBaixo from "../../images/PrecoBaixo.png";
 import Compras from "../../images/banner-compras.png";
 import ConhecaLoja from "../../images/banner-conheca-nossa-loja-v2.png";
@@ -19,14 +22,31 @@ export function storeExperience(today = new Date()) {
 }
 const slides = [
   {
-    image: PrecoBaixo,
+    image: PrecoBaixo, mobileImage: PrecoBaixoMobile,
     alt: "Preço baixo todo dia. Venha conferir no Bom Pra Você Supermercado.",
     width: 1913,
     height: 765,
   },
-  { image: Compras, alt: "Tudo para o seu dia a dia. Bom pra você.", width: 1983, height: 793 },
-  { image: ConhecaLoja, alt: "Conheça nossa loja. Tudo o que sua família precisa em um só lugar.", href: "/nossa-loja#setores", width: 1983, height: 793 },
+  { image: Compras, mobileImage: ComprasMobile, alt: "Tudo para o seu dia a dia. Bom pra você.", width: 1983, height: 793 },
+  { image: ConhecaLoja, mobileImage: ConhecaLojaMobile, alt: "Conheça nossa loja. Tudo o que sua família precisa em um só lugar.", href: "/nossa-loja#setores", width: 1983, height: 793 },
 ];
+function BannerImage({ slide, active, priority }) {
+  return (
+    <picture className="carousel-slide-image">
+      <source media="(max-width: 600px)" srcSet={slide.mobileImage} width={1254} height={1254} />
+      <img
+        src={slide.image}
+        alt={active ? slide.alt : ""}
+        width={slide.width}
+        height={slide.height}
+        loading="eager"
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+      />
+    </picture>
+  );
+}
+
 export default function BannerHome() {
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -63,23 +83,37 @@ export default function BannerHome() {
         role="group"
         aria-roledescription="carrossel"
         aria-label="Destaques da loja"
-        style={{ aspectRatio: `${slides[slide].width} / ${slides[slide].height}` }}
+        style={{ "--banner-aspect-ratio": `${slides[slide].width} / ${slides[slide].height}` }}
       >
-        {slides[slide].href ? <a className="carousel-slide-link" href={slides[slide].href} aria-label="Conhecer os setores da loja">
-          <img
-            src={slides[slide].image}
-            alt={slides[slide].alt}
-            width={slides[slide].width}
-            height={slides[slide].height}
-            fetchPriority="high"
-          />
-        </a> : <img
-          src={slides[slide].image}
-          alt={slides[slide].alt}
-          width={slides[slide].width}
-          height={slides[slide].height}
-          fetchPriority="high"
-        />}
+        <div className="carousel-slides">
+          {slides.map((item, index) => {
+            const active = index === slide;
+            const image = <BannerImage slide={item} active={active} priority={index === 0} />;
+
+            return item.href ? (
+              <a
+                key={item.image}
+                className="carousel-slide-link carousel-slide-layer"
+                href={item.href}
+                aria-label="Conhecer os setores da loja"
+                aria-hidden={!active}
+                tabIndex={active ? 0 : -1}
+                data-active={active}
+              >
+                {image}
+              </a>
+            ) : (
+              <div
+                key={item.image}
+                className="carousel-slide-layer"
+                aria-hidden={!active}
+                data-active={active}
+              >
+                {image}
+              </div>
+            );
+          })}
+        </div>
         <div className="carousel-controls">
           <button type="button" className="carousel-pause" aria-label={stopped ? "Retomar destaques" : "Pausar destaques"} title={stopped ? "Retomar destaques" : "Pausar destaques"} onClick={() => setStopped(value => !value)}>{stopped ? <Play size={18} fill="currentColor" aria-hidden="true" /> : <Pause size={18} fill="currentColor" aria-hidden="true" />}</button>
           <div className="carousel-dots">

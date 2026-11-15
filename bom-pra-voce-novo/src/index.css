@@ -2724,7 +2724,7 @@ h2 {
 .carousel-slide {
   position: relative;
   background: #ffdf4e;
-  aspect-ratio: 1913/765;
+  aspect-ratio: var(--banner-aspect-ratio, 1913/765);
   overflow: hidden;
 }
 .carousel-slide > img {

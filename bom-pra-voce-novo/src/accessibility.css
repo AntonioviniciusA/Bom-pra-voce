@@ -188,19 +188,13 @@ body .site-header .nav-search[aria-expanded="true"] {
   body .site-header .brand-link { padding-right: 0; border-right: 0; }
   body .site-header .brand-logo,
   body .site-header.is-scrolled .brand-logo { width: 176px; height: 54px; }
-  body .site-header .menu-toggle {
-    color: #090909;
-    border: 2px solid #090909;
-    background: transparent;
-  }
-  body .site-header .menu-toggle:hover { color: #ffe600; background: #090909; }
   body .site-header .site-nav.is-open {
     margin-top: 8px;
-    border: 3px solid #090909;
+    border: 0;
     border-radius: 22px;
     color: #090909;
     background: #ffe600;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, .2);
+    box-shadow: none;
   }
   body .site-header .site-nav a { color: #090909; }
 }

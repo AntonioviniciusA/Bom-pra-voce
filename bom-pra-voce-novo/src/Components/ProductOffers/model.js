@@ -1,7 +1,8 @@
+import {productBarcodes} from './productIdentity';
+
 export const productCategories = [
  {key:'hortifruti',label:'Hortifruti'}, {key:'acougue',label:'Açougue'}, {key:'mercearia',label:'Mercearia'}, {key:'bebidas',label:'Bebidas'}, {key:'limpeza',label:'Limpeza'}, {key:'higiene',label:'Higiene e beleza'}, {key:'padaria',label:'Padaria'}, {key:'frios',label:'Frios e congelados'}, {key:'utilidades',label:'Utilidades'}
 ];
-import {productBarcodes,productFragrances} from './productIdentity';
 export function validGTIN(value) {
  if(!/^(\d{8}|\d{12}|\d{13}|\d{14})$/.test(value)) return false;
  const digits=[...value].map(Number); const check=digits.pop();

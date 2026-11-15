@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BadgePercent, CircleHelp, CreditCard, Info, MapPin, Menu, Search, Store, UsersRound, X } from "lucide-react";
+import { BadgePercent, CircleHelp, CreditCard, Info, MapPin, Menu, ShoppingCart, Store, UsersRound, X } from "lucide-react";
 import Logo from "../Logo/Logo";
 import { navigation } from "../../Data/navigation";
+import LogoImage from "../../images/logo_bom_pra_voce_vetorizada.svg";
+import GroceryBasketImage from "../../images/navigation/mobile-menu-grocery-basket.png";
 import "./NavBar.css";
 
-const searchItems = navigation;
 const headerNavigation = navigation
   .filter(item => item.href !== "/#home")
   .sort((first, second) => {
@@ -29,24 +30,13 @@ export function resolveHeaderScrolled(scrollY, wasScrolled) {
     : scrollY > HEADER_SCROLL_ENTER;
 }
 
-function normalizeSearch(value) {
-  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-}
-
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(() => window.scrollY > HEADER_SCROLL_ENTER);
   const [activeSection, setActiveSection] = useState(() => window.location.hash.slice(1) || "home");
-  const [query, setQuery] = useState("");
   const header = useRef(null);
   const menuButton = useRef(null);
-  const searchButton = useRef(null);
   const location = useLocation();
-  const normalizedQuery = normalizeSearch(query.trim());
-  const results = searchItems.filter(item =>
-    normalizeSearch(item.label).includes(normalizedQuery)
-  );
 
   useEffect(() => {
     const updateHeader = () => {
@@ -82,7 +72,6 @@ export default function NavBar() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setSearchOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -94,12 +83,18 @@ export default function NavBar() {
     return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   function closeOnEscape(event) {
     if (event.key !== "Escape") return;
-    if (searchOpen) {
-      setSearchOpen(false);
-      searchButton.current?.focus();
-    } else if (menuOpen) {
+    if (menuOpen) {
       setMenuOpen(false);
       menuButton.current?.focus();
     }
@@ -114,10 +109,15 @@ export default function NavBar() {
   }
 
   return (
-    <header ref={header} className={scrolled ? "site-header is-scrolled" : "site-header"} onKeyDown={closeOnEscape}>
+    <header
+      ref={header}
+      className={`${scrolled ? "site-header is-scrolled" : "site-header"}${menuOpen ? " has-open-menu" : ""}`}
+      onKeyDown={closeOnEscape}
+    >
       <div className="shell header-row">
         <Link to="/#home" className="brand-link" aria-label="Bom Pra Você — início">
           <Logo />
+          <ShoppingCart className="brand-cart-mark" aria-hidden="true" />
         </Link>
 
         <button
@@ -126,7 +126,7 @@ export default function NavBar() {
           className="menu-toggle"
           aria-expanded={menuOpen}
           aria-controls="main-navigation"
-          aria-label="Menu"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setMenuOpen(value => !value)}
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
@@ -154,45 +154,18 @@ export default function NavBar() {
               );
             })}
           </div>
-          <button
-            ref={searchButton}
-            className="nav-search"
-            type="button"
-            aria-label={searchOpen ? "Fechar busca" : "Buscar no site"}
-            aria-expanded={searchOpen}
-            aria-controls="site-search"
-            onClick={() => setSearchOpen(value => !value)}
-          >
-            {searchOpen ? <X aria-hidden="true" /> : <Search aria-hidden="true" />}
-          </button>
+          <div className="mobile-menu-detail" aria-hidden="true">
+            <ShoppingCart className="mobile-menu-detail__cart" />
+            <span className="mobile-menu-detail__basket">
+              <img className="mobile-menu-detail__basket-image" src={GroceryBasketImage} alt="" />
+              <span className="mobile-menu-detail__brand-badge">
+                <img src={LogoImage} alt="" />
+              </span>
+            </span>
+          </div>
         </nav>
       </div>
 
-      {searchOpen && (
-        <div id="site-search" className="site-search">
-          <label htmlFor="site-search-input">O que você procura?</label>
-          <div className="site-search-field">
-            <Search aria-hidden="true" />
-            <input
-              autoFocus
-              id="site-search-input"
-              type="search"
-              value={query}
-              onChange={event => setQuery(event.target.value)}
-              placeholder="Ofertas, horários, pagamentos…"
-            />
-          </div>
-          <ul aria-label={normalizedQuery ? "Resultados da busca" : "Atalhos sugeridos"}>
-            {results.map(item => (
-              <li key={item.href}>
-                <Link to={item.href} onClick={() => setSearchOpen(false)}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-          {normalizedQuery && results.length === 0 && <p className="site-search-empty">Nenhuma seção encontrada.</p>}
-          <p className="small">Para produtos e preços, consulte as ofertas.</p>
-        </div>
-      )}
     </header>
   );
 }

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { usePrivacyPreferences } from "../PrivacyPreferences";
 import { storeConfig } from "../../Data/storeConfig";
+import storeLogo from "../../images/logo_bom_pra_voce_vetorizada.svg";
 import "./StoreVisit.css";
 
 export default function StoreVisit() {
@@ -47,12 +48,25 @@ export default function StoreVisit() {
             </div>
             {storeConfig.address && (
               <div className="visit-map">
-                {mapsAllowed ? <iframe
-                  title="Localização do supermercado Bom Pra Você"
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(`${storeConfig.name} Supermercado ${storeConfig.address}`)}&z=16&output=embed`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                /> : <div className="map-placeholder"><p>Mapa externo desativado para preservar sua escolha de privacidade.</p><button type="button" onClick={openPreferences}>Escolher se desejo carregar o mapa</button></div>}
+                {mapsAllowed ? <>
+                  <iframe
+                    title="Localização do supermercado Bom Pra Você"
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(`${storeConfig.name} Supermercado ${storeConfig.address}`)}&z=16&output=embed`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    tabIndex="-1"
+                  />
+                  <div
+                    className="visit-map-marker"
+                    role="img"
+                    aria-label="Bom pra Você Supermercado nesta localização"
+                  >
+                    <span className="visit-map-marker-label">
+                      <img src={storeLogo} alt="" aria-hidden="true" />
+                    </span>
+                    <span className="visit-map-marker-tip" aria-hidden="true" />
+                  </div>
+                </> : <div className="map-placeholder"><p>Mapa externo desativado para preservar sua escolha de privacidade.</p><button type="button" onClick={openPreferences}>Escolher se desejo carregar o mapa</button></div>}
                 {storeConfig.mapsUrl && (
                   <a
                     className="visit-map-link"

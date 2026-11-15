@@ -1,9 +1,12 @@
 import logoUrl from '../../images/Logo.png';
-import blackFridayBackgroundUrl from '../../images/offer-themes/black-friday/black-friday-papel-v2.webp';
+import neonBackgroundUrl from '../../images/offer-themes/black-friday/explosao-neon-roxa-dourada.png';
 import priceBrushUrl from '../../images/offer-themes/compartilhados/preco-pincel-v2.webp';
+import regularFontUrl from '../../fonts/BarlowCondensed-Bold.ttf';
+import heavyFontUrl from '../../fonts/BarlowCondensed-Black.ttf';
 async function load(url){const response=await fetch(url);if(!response.ok)throw new Error('Foto indisponível.');return createImageBitmap(await response.blob());}
 function contain(ctx,image,x,y,w,h){const scale=Math.min(w/image.width,h/image.height);ctx.drawImage(image,x+(w-image.width*scale)/2,y+(h-image.height*scale)/2,image.width*scale,image.height*scale);}
-function centered(ctx,value,y,size,color='#fff'){ctx.fillStyle=color;ctx.font=`900 ${size}px Arial Black, Arial`;ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(value,540,y);ctx.textAlign='left';}
+async function loadOfferFonts(){if(typeof FontFace!=='function'||!document.fonts)return;for(const [url,weight] of [[regularFontUrl,'700'],[heavyFontUrl,'900']]){const face=await new FontFace('Offer Condensed',`url(${url})`,{weight}).load();if(![...document.fonts].some(item=>item.family===face.family&&item.weight===face.weight))document.fonts.add(face);}}
+function centered(ctx,value,y,size,color='#fff'){ctx.fillStyle=color;ctx.font=`900 ${size}px 'Offer Condensed', Arial, sans-serif`;ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(value,540,y);ctx.textAlign='left';}
 export function text(ctx,value,x,y,width,height,size=48){
   for(;size>=16;size-=2){
     ctx.font=`700 ${size}px Arial`;const lines=[''];
@@ -20,21 +23,25 @@ export async function createProductStory(campaign,item){
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1920;
   const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Este navegador não permite gerar a imagem.');
   const blackFriday=campaign.theme_key==='black-friday';
-  const [photo,logo,background,priceBrush]=await Promise.all([load(item.product.image),load(logoUrl),blackFriday?load(blackFridayBackgroundUrl):null,blackFriday?load(priceBrushUrl):null]);
+  await loadOfferFonts();
+  const [photo,logo,background,priceBrush]=await Promise.all([load(item.product.image),load(logoUrl),blackFriday?load(neonBackgroundUrl):null,blackFriday?load(priceBrushUrl):null]);
   try{
     if(blackFriday){
       ctx.fillStyle='#160019';ctx.fillRect(0,0,1080,1920);ctx.drawImage(background,0,0,1080,1920);
       ctx.fillStyle='rgba(18,0,25,.28)';ctx.fillRect(0,0,1080,1920);
-      ctx.fillStyle='#fff200';ctx.fillRect(310,55,460,116);contain(ctx,logo,340,73,400,80);
+      ctx.fillStyle='#fff200';ctx.fillRect(250,55,580,132);contain(ctx,logo,275,75,530,92);
       centered(ctx,'SELEÇÃO',220,70);centered(ctx,'BLACK',286,154);centered(ctx,'FRIDAY',430,154,'#fff200');
       centered(ctx,(campaign.title||'OFERTAS').toLocaleUpperCase('pt-BR').replace(/BLACK FRIDAY/g,'').trim()||'OFERTAS',595,46);
-      contain(ctx,photo,95,675,890,625);
-      ctx.fillStyle='#fff';text(ctx,item.product.name.toLocaleUpperCase('pt-BR'),110,1310,860,130,48);
-      const detail=[item.product.variant,item.product.content].filter(Boolean).join(' · ').toLocaleUpperCase('pt-BR');if(detail)text(ctx,detail,110,1435,860,60,29);
-      ctx.drawImage(priceBrush,110,1510,860,245);centered(ctx,'PREÇO',1545,46,'#230064');
-      centered(ctx,(item.priceCents/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),1600,108,'#230064');
-      centered(ctx,`POR ${item.unit.toLocaleUpperCase('pt-BR')}`,1710,30,'#230064');
-      centered(ctx,'Não guarde o segredo da economia.',1810,28);centered(ctx,'Compartilhe!',1843,42,'#fff200');
+      ctx.save();ctx.shadowColor='#000a';ctx.shadowBlur=28;ctx.shadowOffsetY=16;contain(ctx,photo,95,660,890,575);ctx.restore();
+      ctx.fillStyle='#fff';text(ctx,item.product.name.toLocaleUpperCase('pt-BR'),110,1245,860,125,48);
+      const detail=[item.product.variant,item.product.content].filter(Boolean).join(' · ').toLocaleUpperCase('pt-BR');if(detail)text(ctx,detail,110,1370,860,58,29);
+      ctx.drawImage(priceBrush,110,1440,860,225);centered(ctx,'PREÇO',1470,42,'#230064');
+      centered(ctx,(item.priceCents/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),1517,100,'#230064');
+      centered(ctx,`POR ${item.unit.toLocaleUpperCase('pt-BR')}`,1615,28,'#230064');
+      const day=value=>value?.split('-').reverse().join('/');
+      centered(ctx,campaign.startDate&&campaign.endDate?`VÁLIDO DE ${day(campaign.startDate)} A ${day(campaign.endDate)}`:'CONSULTE A VALIDADE',1690,28);
+      ctx.fillStyle='#e7d9f2';text(ctx,[...new Set([campaign.conditions,item.conditions].filter(Boolean))].join(' ')||'Consulte condições e disponibilidade na loja.',90,1730,900,58,23);
+      centered(ctx,'Não guarde o segredo da economia.',1814,27);centered(ctx,'Compartilhe!',1848,42,'#fff200');
       const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('Não foi possível gerar a imagem.');
       return new File([blob],`oferta-${item.product.code.replace(/[^a-z0-9_-]/gi,'_')}.png`,{type:'image/png'});
     }

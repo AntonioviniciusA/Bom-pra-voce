@@ -26,11 +26,15 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(primaryLinks.map(link => link.textContent)).toEqual([
     "Ofertas", "Sobre", "Dúvidas", "Nossa loja", "Trabalhe conosco", "Pagamentos"
   ]);
+  expect(primaryLinks.map(link => link.getAttribute("href"))).toEqual([
+    "/#promocoes", "/#sobre", "/#duvidas", "/nossa-loja", "/trabalhe-conosco", "/formas-de-pagamento"
+  ]);
   expect(primaryLinks.filter(link => link.hasAttribute("aria-current"))).toHaveLength(1);
   expect(within(primaryNavigation).getByRole("link", { name: "Trabalhe conosco" })).toHaveAttribute("href", "/trabalhe-conosco");
-  const menu = screen.getByRole("button", { name: "Menu" });
+  const menu = screen.getByRole("button", { name: "Abrir menu" });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
+  expect(menu).toHaveAccessibleName("Fechar menu");
   fireEvent.keyDown(menu, { key: "Escape" });
   expect(menu).toHaveAttribute("aria-expanded", "false");
   expect(menu).toHaveFocus();
@@ -59,7 +63,7 @@ test("payment methods have a dedicated page and are removed from home", async ()
 });
 test("mobile navigation closes when clicking outside the header", async () => {
   renderRoute("/trabalhe-conosco");
-  const menu = await screen.findByRole("button", { name: "Menu" }, { timeout: 10000 });
+  const menu = await screen.findByRole("button", { name: "Abrir menu" }, { timeout: 10000 });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
   fireEvent.pointerDown(screen.getByRole("main"));

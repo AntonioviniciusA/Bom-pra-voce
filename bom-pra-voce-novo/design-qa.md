@@ -1,4 +1,88 @@
+# Revisão visual — menu mobile “Acesso rápido”
+
+Data: 2026-11-14.
+
+- Verdade visual: `C:/Users/anton/AppData/Local/Temp/codex-clipboard-a085d641-42e7-4e89-a082-8f372d99c1fc.png` (942 × 1674 px, proporção aproximada 9:16).
+- Implementação: `http://127.0.0.1:3012/`, menu mobile aberto.
+- Captura da implementação: observada no Codex In-app Browser; a ferramenta não expôs caminho persistente para a captura.
+- Viewports: 320 × 568 e 430 × 764 CSS px, densidade efetiva 1×. A fonte foi normalizada pela largura: 942 px da referência para 320/430 CSS px da implementação.
+- Estado: página inicial, menu aberto, fundo bloqueado e botão de fechamento visível.
+
+## Comparação e histórico
+
+1. A primeira implementação foi reprovada pelo usuário por compactar o menu dentro do cabeçalho, reduzir logo, título e cartões e substituir a cesta da referência por um ícone pequeno. Achado P1.
+2. O menu aberto passou a ocupar `100dvh`; logo, título, grade 2 × 3, raios, sombras e rodapé foram reescalados a partir da referência. Foi produzido um asset transparente isolado de cesta com produtos, e o selo usa a logomarca vetorial real do projeto.
+3. A primeira captura corrigida ainda iniciava os cartões 11–19 px acima da faixa equivalente e deixava a cesta pequena. Achados P2.
+4. A escala tipográfica, a separação abaixo do título, a altura dos cartões e a cesta foram ajustadas. Na captura final de 320 × 568, o título começa em y=90; os cartões começam em y=146, 252 e 358, com 136 × 96/97 px; a referência normalizada começa aproximadamente em y=91, 145, 250 e 356.
+5. Em 430 × 764, os cartões medem 183 × 129 px, o documento mede 430 px de largura e o cabeçalho 764 px de altura, sem overflow horizontal ou corte.
+
+## Superfícies obrigatórias
+
+- Tipografia: `SiteInter` local em peso 950 aproxima a massa visual da referência; título usa 30,4 px em 320 e os rótulos 17,28 px, com “Trabalhe conosco” em duas linhas.
+- Espaçamento e ritmo: painel em tela cheia, margens laterais equivalentes, grade 2 × 3, raios amplos, sombras inferiores e cesta ancorada ao canto inferior direito.
+- Cores: amarelo `#FFE500`, cartões creme `#FFF9E9`, preto e sombra marrom-amarela; nenhum vermelho decorativo foi introduzido.
+- Imagens: logo vetorial existente preservada; cesta com produtos é um PNG ARGB 1536 × 1024 com transparência real nos quatro cantos, aberto e inspecionado antes da aplicação. Não foi usada a referência como fundo estático.
+- Conteúdo: título e seis rótulos coincidem com a referência. Todos permanecem links reais.
+- Ícones: Lucide mantém família consistente, espessura preta e escala equivalente; carrinho pálido inferior é decorativo e oculto da árvore acessível.
+- Acessibilidade e comportamento: “Abrir menu”/“Fechar menu”, foco visível, Escape, fechamento externo, bloqueio da rolagem de fundo e restauração ao fechar. O link Pagamentos abriu `/formas-de-pagamento` no navegador.
+
+## Evidência final
+
+- Comparação de visão completa: referência e renderização foram abertas na mesma revisão, com estado e proporção equivalentes. Não restam diferenças P0/P1/P2.
+- Comparação focada: logo/carrinho, título, três fileiras, ícones, quebras e rodapé foram legíveis nas capturas completas; não foi necessário um recorte adicional.
+- Console: uma aba limpa da prévia foi aberta após a recompilação e não registrou erros.
+- Testes: 20 suítes e 104 testes aprovados. Permanecem apenas avisos preexistentes de migração futura do React Router.
+- Build: compilação de produção concluída e sete páginas institucionais estáticas geradas.
+- Follow-up P3: a onda amarela translúcida do rodapé da arte foi omitida; o carrinho pálido e a cesta preservam a hierarquia sem introduzir uma ilustração artificial adicional.
+
+final result: passed
+
+---
+
 # Modal dos setores — revisão de 2026-10-24
+
+final result: passed
+
+---
+
+# Revisão visual — Stories mobile e Guided Tour
+
+Data: 2026-11-14.
+
+- Referências: `image(20261114-061007).png` e `image(10).png` anexadas na conversa “Corrigir descrição e tour”.
+- Implementação: `http://localhost:3000/#promocoes`, campanha Esquenta Black Friday.
+- Viewports: 320, 360, 375, 390, 414 e 430 × 700 CSS px.
+- Estados: Guided Tour aberto; story iniciado; reprodução pausada para a inspeção do texto e do preço.
+
+## Mudanças verificadas
+
+- A área inferior do card agora usa duas colunas estruturais: nome/conteúdo em uma coluna flexível e preço em um bloco independente.
+- O nome permite quebra e é limitado a duas linhas; o conteúdo também é limitado, sem invadir o preço.
+- O tour apresenta um mapa visual das zonas de voltar, segurar e avançar, três instruções curtas, botão **Começar stories** e ação **Pular tour**.
+- O foco inicial vai para **Começar stories** e, ao concluir ou pular, retorna aos controles do story.
+- As animações de toque/segurar são feitas em CSS e respeitam `prefers-reduced-motion`; não foram criadas imagens desnecessárias.
+
+## Evidências responsivas
+
+- Nas seis larguras, o Guided Tour ficou integralmente visível, sem rolagem interna, com CTA dentro do viewport e foco inicial correto.
+- Nas seis larguras, as caixas do nome e do preço não se cruzaram; copy e rodapé permaneceram dentro do viewport.
+- As inspeções pausadas em 320 e 430 px confirmaram logo, campanha, produto, nome, conteúdo, preço e rodapé legíveis.
+- Ações de avançar/voltar, pausa, retomada e toque prolongado com `pointerType: touch` estão cobertas pelos testes do componente.
+
+## Validação
+
+- 19 suítes e 100 testes aprovados antes do teste adicional de “Pular tour”.
+- A suíte focada de Stories passou novamente com 7 testes, incluindo “Pular tour” e retorno do foco.
+- Build de produção concluído com sucesso.
+- O build manteve um aviso já existente em `story.js`: importação `blackFridayBackgroundUrl` não utilizada.
+- A suíte completa manteve avisos já existentes do React Router e do canvas não implementado pelo JSDOM; nenhum teste falhou.
+- `git diff --check` sem erros; somente avisos de conversão LF/CRLF do checkout.
+
+## Limitações
+
+- A revisão validou eventos de ponteiro touch automatizados e o navegador responsivo local; não substitui uma rodada em aparelho físico com diferentes barras do navegador e recortes de tela.
+- A campanha avança automaticamente a cada 7 segundos; a inspeção visual do card foi pausada para evitar capturas durante uma transição.
+- Após essas validações, uma alteração concorrente adicionou `ShareDownloadMenu`/`flyerPdf` ao mesmo diretório. A repetição final da suíte completa ficou bloqueada por `TextEncoder` ausente no Jest e por um estado intermediário de `ProductOffers.jsx`; esses erros não estavam presentes no build e na suíte completa aprovados acima e não foram alterados por esta revisão para evitar sobrescrever trabalho externo.
 
 final result: passed
 
