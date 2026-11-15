@@ -5,8 +5,10 @@ import ProductOffers from './ProductOffers';
 import {RefreshCw} from 'lucide-react';
 import {homeNovemberPreparationAt,novemberPreparationAt} from './novemberCampaign';
 
-function OffersLoading(){
-  return <section id="promocoes" className="offers-loading" aria-busy="true" aria-labelledby="offers-loading-title">
+const MINIMUM_LOADING_MS=1400;
+
+function OffersLoading({overlay=false}){
+  return <section id={overlay?undefined:'promocoes'} className={'offers-loading'+(overlay?' offers-loading--overlay':'')} aria-busy="true" aria-labelledby="offers-loading-title">
     <div className="offers-loading__inner">
       <header className="offers-loading__heading"><div className="offers-loading__brand" aria-hidden="true"/><div><h2 id="offers-loading-title">Preparando as melhores ofertas</h2><p role="status">Conferindo produtos, preços e validade…</p></div></header>
       <div className="offers-loading__categories" aria-hidden="true">{Array.from({length:5},(_,index)=><span key={index}/>)}</div>
@@ -19,13 +21,15 @@ export default function LiveProductOffers({november=false}) {
   const initial=useRef();
   if(initial.current===undefined)initial.current=readProductShowcaseCache()||false;
   const [state,setState]=useState(()=>initial.current?{status:'ready',...initial.current}:{status:'loading',campaigns:[]});
+  const [visualReady,setVisualReady]=useState(false);
   const generation=useRef(0),controller=useRef(null),expiry=useRef(null);
+  const loadingStartedAt=useRef(performance.now()),visualTimer=useRef(null);
   const revalidateAt=useRef(initial.current?.revalidateAt||0),cacheExpiresAt=useRef(initial.current?.cacheExpiresAt||0);
   const invalidate=useCallback(()=>{generation.current++;},[]);
   const reload=useCallback(async(expired=false)=>{
     const current=++generation.current; controller.current?.abort();clearTimeout(expiry.current);
     controller.current=new AbortController();
-    if(expired)setState({status:'loading',campaigns:[]});
+    if(expired){loadingStartedAt.current=performance.now();setVisualReady(false);setState({status:'loading',campaigns:[]});}
     else setState(previous=>previous.status==='ready'?previous:{status:'loading',campaigns:[]});
     const started=performance.now();
     try{
@@ -44,6 +48,11 @@ export default function LiveProductOffers({november=false}) {
       if(Number.isFinite(delay))expiry.current=setTimeout(()=>{if(!document.hidden)reload(Date.now()>=cacheExpiresAt.current)},Math.min(2147483647,Math.max(1,delay)));
     }catch{if(current===generation.current)setState(previous=>{if(previous.status==='ready'){const delay=previous.cacheExpiresAt-Date.now();if(delay>0)expiry.current=setTimeout(()=>reload(true),Math.min(2147483647,delay));else return {status:'error',campaigns:[]};return previous;}return {status:'error',campaigns:[]};});}
   },[]);
+  const handleVisualReady=useCallback(()=>{
+    clearTimeout(visualTimer.current);
+    const remaining=Math.max(0,MINIMUM_LOADING_MS-(performance.now()-loadingStartedAt.current));
+    visualTimer.current=setTimeout(()=>setVisualReady(true),remaining);
+  },[]);
   useEffect(()=>{
     const scheduleOrReload=()=>{
       const now=Date.now();
@@ -54,7 +63,7 @@ export default function LiveProductOffers({november=false}) {
     scheduleOrReload();
     const visible=()=>{if(!document.hidden&&Date.now()>=revalidateAt.current)scheduleOrReload();else if(document.hidden){generation.current++;controller.current?.abort();}};
     document.addEventListener('visibilitychange',visible);window.addEventListener('focus',visible);
-    return()=>{invalidate();controller.current?.abort();clearTimeout(expiry.current);document.removeEventListener('visibilitychange',visible);window.removeEventListener('focus',visible);};
+    return()=>{invalidate();controller.current?.abort();clearTimeout(expiry.current);clearTimeout(visualTimer.current);document.removeEventListener('visibilitychange',visible);window.removeEventListener('focus',visible);};
   },[reload,invalidate]);
   if(state.status==='loading')return <OffersLoading/>;
   if(state.status==='error')return <section id="promocoes" className="offers-error" aria-labelledby="offers-error-title">
@@ -69,6 +78,6 @@ export default function LiveProductOffers({november=false}) {
     </div>
   </section>;
   const campaigns=november?state.campaigns.filter(c=>c.startDate<='2026-11-30'&&c.endDate>='2026-11-01'):state.campaigns;
-  if(!campaigns.length)return <ProductOffers campaign={november?novemberPreparationAt(state.serverTime):homeNovemberPreparationAt(state.serverTime)||{title:'Ofertas da semana',theme_key:'padrao',items:[],conditions:'Aguarde as próximas ofertas.',emptyMessage:'As próximas ofertas estão sendo preparadas. Volte em breve.'}}/>;
-  return <div id="promocoes">{campaigns.map(c=><ProductOffers key={`${c.id}:${c.revision}`} campaign={c}/>)}</div>;
+  if(!campaigns.length)return <div className="offers-ready-shell"><ProductOffers onVisualReady={handleVisualReady} campaign={november?novemberPreparationAt(state.serverTime):homeNovemberPreparationAt(state.serverTime)||{title:'Ofertas da semana',theme_key:'padrao',items:[],conditions:'Aguarde as próximas ofertas.',emptyMessage:'As próximas ofertas estão sendo preparadas. Volte em breve.'}}/>{!visualReady&&<OffersLoading overlay/>}</div>;
+  return <div id="promocoes" className="offers-ready-shell">{campaigns.map(c=><ProductOffers key={`${c.id}:${c.revision}`} campaign={c} onVisualReady={handleVisualReady}/>) }{!visualReady&&<OffersLoading overlay/>}</div>;
 }

@@ -4,8 +4,8 @@ import ConhecaLojaMobile from "../../images/banners-mobile/banner_conheca_nossa_
 import PrecoBaixo from "../../images/PrecoBaixo.png";
 import Compras from "../../images/banner-compras.png";
 import ConhecaLoja from "../../images/banner-conheca-nossa-loja-v2.png";
-import { useEffect, useState } from "react";
-import { Pause, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Hand, Pause, Play } from "lucide-react";
 import { storeConfig } from "../../Data/storeConfig";
 import "./BannerHome.css";
 
@@ -30,7 +30,7 @@ const slides = [
   { image: Compras, mobileImage: ComprasMobile, alt: "Tudo para o seu dia a dia. Bom pra você.", width: 1983, height: 793 },
   { image: ConhecaLoja, mobileImage: ConhecaLojaMobile, alt: "Conheça nossa loja. Tudo o que sua família precisa em um só lugar.", href: "/nossa-loja#setores", width: 1983, height: 793 },
 ];
-function BannerImage({ slide, active, priority }) {
+function BannerImage({ slide, active, priority, onLoad }) {
   return (
     <picture className="carousel-slide-image">
       <source media="(max-width: 600px)" srcSet={slide.mobileImage} width={1254} height={1254} />
@@ -39,9 +39,10 @@ function BannerImage({ slide, active, priority }) {
         alt={active ? slide.alt : ""}
         width={slide.width}
         height={slide.height}
-        loading="eager"
+        loading={priority ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={priority ? "high" : "auto"}
+        onLoad={onLoad}
       />
     </picture>
   );
@@ -51,6 +52,24 @@ export default function BannerHome() {
   const [slide, setSlide] = useState(0);
   const [paused, setPaused] = useState(false);
   const [stopped, setStopped] = useState(false);
+  const [bannerReady, setBannerReady] = useState(false);
+  const dragStart = useRef(null);
+  const dragged = useRef(false);
+
+  function startDrag(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    dragStart.current = event.clientX;
+    dragged.current = false;
+  }
+
+  function finishDrag(event) {
+    if (dragStart.current === null) return;
+    const distance = event.clientX - dragStart.current;
+    dragStart.current = null;
+    if (Math.abs(distance) < 36) return;
+    dragged.current = true;
+    setSlide((value) => (value + (distance < 0 ? 1 : slides.length - 1)) % slides.length);
+  }
   useEffect(() => {
     if (
       paused || stopped ||
@@ -83,12 +102,32 @@ export default function BannerHome() {
         role="group"
         aria-roledescription="carrossel"
         aria-label="Destaques da loja"
+        data-ready={bannerReady}
         style={{ "--banner-aspect-ratio": `${slides[slide].width} / ${slides[slide].height}` }}
+        onPointerDown={startDrag}
+        onPointerUp={finishDrag}
+        onPointerCancel={() => { dragStart.current = null; }}
+        onClickCapture={(event) => {
+          if (!dragged.current) return;
+          event.preventDefault();
+          event.stopPropagation();
+          dragged.current = false;
+        }}
       >
+        <div className="banner-loading" role="status" aria-hidden={bannerReady}>
+          <span className="banner-loading__mark" aria-hidden="true">B</span>
+          <strong>Preparando os destaques da loja...</strong>
+          <span className="banner-loading__dots" aria-hidden="true"><i /><i /><i /></span>
+        </div>
         <div className="carousel-slides">
           {slides.map((item, index) => {
             const active = index === slide;
-            const image = <BannerImage slide={item} active={active} priority={index === 0} />;
+            const image = <BannerImage
+              slide={item}
+              active={active}
+              priority={index === 0}
+              onLoad={index === 0 ? () => setBannerReady(true) : undefined}
+            />;
 
             return item.href ? (
               <a
@@ -116,6 +155,7 @@ export default function BannerHome() {
         </div>
         <div className="carousel-controls">
           <button type="button" className="carousel-pause" aria-label={stopped ? "Retomar destaques" : "Pausar destaques"} title={stopped ? "Retomar destaques" : "Pausar destaques"} onClick={() => setStopped(value => !value)}>{stopped ? <Play size={18} fill="currentColor" aria-hidden="true" /> : <Pause size={18} fill="currentColor" aria-hidden="true" />}</button>
+          <span className="carousel-drag-hint" aria-hidden="true"><Hand size={18} /><span>Arraste</span></span>
           <div className="carousel-dots">
             {slides.map((item, index) => (
               <button

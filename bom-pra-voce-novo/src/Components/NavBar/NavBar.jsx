@@ -156,6 +156,22 @@ export default function NavBar() {
           </div>
           <div className="mobile-menu-detail" aria-hidden="true">
             <ShoppingCart className="mobile-menu-detail__cart" />
+            <svg
+              className="mobile-menu-detail__ribbon"
+              viewBox="0 0 360 170"
+              fill="none"
+              preserveAspectRatio="none"
+              focusable="false"
+            >
+              <path
+                className="mobile-menu-detail__ribbon-outline"
+                d="M12 95C38 79 61 78 84 91C107 105 126 113 161 111C210 108 256 82 341 77C351 77 355 86 350 96C341 112 323 121 299 123C270 125 238 119 208 116C173 112 142 114 115 125C86 136 57 137 33 127C17 120 9 108 12 95ZM163 109C143 91 139 71 151 61C163 51 178 66 183 99C184 71 196 52 210 59C226 67 211 91 187 109M180 112C168 126 163 142 166 158M185 112C198 129 204 143 202 158"
+              />
+              <path
+                className="mobile-menu-detail__ribbon-line"
+                d="M12 95C38 79 61 78 84 91C107 105 126 113 161 111C210 108 256 82 341 77C351 77 355 86 350 96C341 112 323 121 299 123C270 125 238 119 208 116C173 112 142 114 115 125C86 136 57 137 33 127C17 120 9 108 12 95ZM163 109C143 91 139 71 151 61C163 51 178 66 183 99C184 71 196 52 210 59C226 67 211 91 187 109M180 112C168 126 163 142 166 158M185 112C198 129 204 143 202 158"
+              />
+            </svg>
             <span className="mobile-menu-detail__basket">
               <img className="mobile-menu-detail__basket-image" src={GroceryBasketImage} alt="" />
               <span className="mobile-menu-detail__brand-badge">

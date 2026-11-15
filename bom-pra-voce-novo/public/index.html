@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/brand.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#facc15" />
     <meta name="description" content="Consulte ofertas, informações da loja, pagamentos e dúvidas frequentes do Bom Pra Você Supermercado." />
@@ -12,9 +12,118 @@
     <meta property="og:locale" content="pt_BR" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Ofertas e informações da loja | Bom Pra Você</title>
+    <style>
+      /* Loading crítico: fica no HTML para aparecer antes do bundle do React. */
+      #initial-loading {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 24px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background: #fff9e9;
+        color: #090909;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      #initial-loading::before {
+        content: "";
+        position: absolute;
+        right: -18vw;
+        bottom: -16vh;
+        left: -18vw;
+        height: 46vh;
+        border-radius: 50% 50% 0 0;
+        background: #ffe500;
+      }
+      .initial-loading__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        width: min(100%, 390px);
+        flex-direction: column;
+        align-items: center;
+      }
+      .initial-loading__brand {
+        display: block;
+        width: min(82vw, 320px);
+        height: auto;
+        margin: 0 0 30px;
+        border: 0;
+      }
+      .initial-loading__bar {
+        width: min(72vw, 280px);
+        height: 7px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(9, 9, 9, 0.14);
+      }
+      .initial-loading__bar::after {
+        content: "";
+        display: block;
+        width: 42%;
+        height: 100%;
+        border-radius: inherit;
+        background: #090909;
+        animation: initial-loading-progress 1.15s ease-in-out infinite;
+      }
+      #initial-loading-message {
+        min-height: 1.5em;
+        margin: 18px 0 0;
+        font-size: clamp(1rem, 4.2vw, 1.15rem);
+        font-weight: 800;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+      }
+      @keyframes initial-loading-progress {
+        from { transform: translateX(-110%); }
+        to { transform: translateX(345%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .initial-loading__bar::after { animation: none; width: 65%; }
+      }
+      @media (max-width: 480px) {
+        #initial-loading::before {
+          right: -45vw;
+          bottom: -10vh;
+          left: -45vw;
+          height: 42vh;
+        }
+      }
+    </style>
   </head>
   <body>
-    <noscript>Bom Pra Você Supermercado. As informações institucionais estão disponíveis abaixo. Ative o JavaScript para consultar panfletos atualizados e a disponibilidade do formulário. As compras são presenciais.</noscript>
+    <noscript>
+      <style>#initial-loading { display: none; }</style>
+      Bom Pra Você Supermercado. As informações institucionais estão disponíveis abaixo. Ative o JavaScript para consultar panfletos atualizados e a disponibilidade do formulário. As compras são presenciais.
+    </noscript>
+    <div id="initial-loading" role="status" aria-live="polite" aria-label="Carregando o site">
+      <div class="initial-loading__content">
+        <img class="initial-loading__brand" src="%PUBLIC_URL%/brand.svg" alt="Bom Pra Você Supermercado" width="320" height="74" fetchpriority="high" decoding="async" />
+        <div class="initial-loading__bar" aria-hidden="true"></div>
+        <p id="initial-loading-message">Preparando as melhores ofertas...</p>
+      </div>
+    </div>
     <div id="root"></div>
+    <script>
+      (function () {
+        window.__initialLoadingStartedAt = performance.now();
+        var messages = [
+          "Preparando as melhores ofertas...",
+          "Selecionando economia para você...",
+          "Deixando tudo prontinho..."
+        ];
+        var current = 0;
+        var message = document.getElementById("initial-loading-message");
+        window.__initialLoadingTimer = window.setInterval(function () {
+          current = (current + 1) % messages.length;
+          if (message) message.textContent = messages[current];
+        }, 1800);
+      }());
+    </script>
   </body>
 </html>

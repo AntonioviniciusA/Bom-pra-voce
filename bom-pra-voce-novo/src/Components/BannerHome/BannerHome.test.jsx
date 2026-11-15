@@ -39,3 +39,11 @@ test("explicit pause persists after keyboard focus leaves the carousel", () => {
   act(() => jest.advanceTimersByTime(12000));
   expect(screen.getByRole("button", { name: "Mostrar imagem 1" })).toHaveAttribute("aria-pressed", "true");
 });
+
+test("changes slide when the banner is dragged horizontally", () => {
+  const { container } = render(<BannerHome />);
+  const carousel = container.querySelector(".carousel-slide");
+  fireEvent(carousel, new MouseEvent("pointerdown", { bubbles: true, clientX: 260, button: 0 }));
+  fireEvent(carousel, new MouseEvent("pointerup", { bubbles: true, clientX: 160, button: 0 }));
+  expect(screen.getByRole("button", { name: "Mostrar imagem 2" })).toHaveAttribute("aria-pressed", "true");
+});

@@ -38,7 +38,7 @@ body .carousel-controls .carousel-dots button[aria-pressed="true"]::after { widt
 body .carousel-controls .carousel-dots button:hover::after { background: #000; }
 body .carousel-controls button:focus-visible { outline-color: #000; }
 @media (max-width: 600px) {
-  body .carousel-controls { right: 10px; bottom: 10px; padding: 3px 6px; }
+  body .carousel-controls { right: auto; left: 50%; bottom: 10px; transform: translateX(-50%); padding: 3px 6px; }
   body .carousel-controls .carousel-pause { width: 34px; min-width: 34px; height: 34px; min-height: 34px; }
   body .carousel-controls .carousel-dots button { width: 30px; min-width: 30px; height: 34px; min-height: 34px; }
   body .carousel-controls .carousel-dots button[aria-pressed="true"] { width: 30px; }

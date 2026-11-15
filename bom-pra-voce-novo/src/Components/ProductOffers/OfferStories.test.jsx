@@ -58,7 +58,9 @@ test('runs Guided Tour once and loops back to the first category after the last 
   const categorized=[...items,{id:'3',priceCents:999,unit:'un',product:{name:'Sabão',category:'limpeza'}}];
   render(<OfferStories campaign={campaign} items={categorized}/>);
   openGrocery();
-  expect(screen.getByRole('dialog',{name:'Oferta de Arroz em Mercearia'})).toBeInTheDocument();
+  const dialog=screen.getByRole('dialog',{name:'Oferta de Arroz em Mercearia'});
+  expect(dialog).toBeInTheDocument();
+  expect(dialog.parentElement).toBe(document.body);
   expect(screen.getByRole('heading',{name:'Navegue como nos stories'})).toBeInTheDocument();
   expect(screen.getByRole('button',{name:'Começar stories'})).toHaveFocus();
   expect(screen.getByRole('button',{name:'Pular tour e começar stories'})).toBeInTheDocument();

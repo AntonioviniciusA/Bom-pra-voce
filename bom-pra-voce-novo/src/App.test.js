@@ -20,6 +20,9 @@ test("real mounted routes show informative home, navigation and no fake actions"
   expect(screen.queryByRole("region", { name: "Conheça nossos setores" })).not.toBeInTheDocument();
   expect(screen.queryByRole("heading", { name: "Como chegar e quando visitar" })).not.toBeInTheDocument();
   expect(await screen.findByRole("heading", { name: 'Ofertas da semana' })).toBeInTheDocument();
+  const offersSection = document.getElementById("promocoes");
+  const bannerSection = document.getElementById("home");
+  expect(offersSection.compareDocumentPosition(bannerSection) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   const primaryNavigation = screen.getByRole("navigation", { name: "Principal" });
   const primaryLinks = within(primaryNavigation).getAllByRole("link");
   expect(within(primaryNavigation).queryByRole("link", { name: "Início" })).not.toBeInTheDocument();

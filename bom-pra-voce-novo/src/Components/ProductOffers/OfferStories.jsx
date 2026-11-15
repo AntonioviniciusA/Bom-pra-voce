@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ChevronLeft, ChevronRight, Hand, Pause, Play, Share2, X } from 'lucide-react';
 import {createProductStory} from './story';
 import ShareDownloadMenu from './ShareDownloadMenu';
@@ -60,7 +61,7 @@ function GuidedTour({onFinish}) {
   </div>;
 }
 
-export default function OfferStories({campaign, items}) {
+export default function OfferStories({campaign, items, onVisualReady}) {
   const categories = useMemo(() => {
     const known = productCategories.map(category => ({
       ...category,
@@ -77,6 +78,7 @@ export default function OfferStories({campaign, items}) {
   const [showGuidedTour, setShowGuidedTour] = useState(false);
   const [progressRun, setProgressRun] = useState(0);
   const card = useRef(null);
+  const rail = useRef(null);
   const closeButton = useRef(null);
   const previousFocus = useRef(null);
   const guidedTourSeen = useRef(false);
@@ -203,12 +205,34 @@ export default function OfferStories({campaign, items}) {
     };
   }, [activeCategoryKey, activeIndex, isPaused, showGuidedTour]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    if (!onVisualReady) return undefined;
+    if (!categories.length) {
+      onVisualReady();
+      return undefined;
+    }
+    let cancelled = false;
+    const frame = requestAnimationFrame(() => {
+      const images = [...rail.current.querySelectorAll('img')]
+        .filter(image => image.getBoundingClientRect().left < window.innerWidth + 120);
+      const settled = images.map(image => image.complete
+        ? (image.decode?.().catch(() => {}) || Promise.resolve())
+        : new Promise(resolve => {
+          image.addEventListener('load', resolve, {once:true});
+          image.addEventListener('error', resolve, {once:true});
+        }));
+      Promise.race([Promise.all(settled), new Promise(resolve => setTimeout(resolve, 1600))])
+        .then(() => { if (!cancelled) onVisualReady(); });
+    });
+    return () => { cancelled = true; cancelAnimationFrame(frame); };
+  }, [categories, onVisualReady]);
+
   if (!categories.length) return null;
   const progressStart = Math.max(0, Math.min(1, 1 - remaining.current / STORY_DURATION));
 
   return <>
     <div className={'offer-stories' + (isBlackFriday ? ' offer-stories--black-friday' : '')} aria-label="Ofertas em stories por categoria">
-      <div className="offer-stories__rail">
+      <div ref={rail} className="offer-stories__rail">
         {categories.map(category => {
           const cover = CATEGORY_COVERS[category.key]
             || category.items.find(item => item.product.image)?.product.image
@@ -216,13 +240,13 @@ export default function OfferStories({campaign, items}) {
           return <button key={category.key} type="button" onClick={event => open(category.key, event)} aria-label={'Ver stories de ' + category.label}>
             <span className="offer-stories__ring">
               <span>
-                <img src={cover} alt="" onError={event => {
+                <img src={cover} alt="" loading="lazy" decoding="async" onError={event => {
                   if (event.currentTarget.getAttribute('src') !== storeCover) {
                     event.currentTarget.src = storeCover;
                   }
                 }}/>
               </span>
-              {isBlackFriday && <img className="offer-stories__badge" src={blackFridayTag} alt="" aria-hidden="true"/>}
+              {isBlackFriday && <img className="offer-stories__badge" src={blackFridayTag} alt="" aria-hidden="true" loading="lazy" decoding="async"/>}
             </span>
             <strong>{category.label}</strong>
             <small>{category.items.length} {category.items.length === 1 ? 'oferta' : 'ofertas'}</small>
@@ -231,11 +255,11 @@ export default function OfferStories({campaign, items}) {
       </div>
       <header className="offer-stories__heading">
         <Hand className="offer-stories__tap" aria-hidden="true"/>
-        <p>Toque em uma categoria e descubra as ofertas</p>
+        <p>Arraste para o lado e descubra as ofertas</p>
       </header>
     </div>
 
-    {activeItem && <div className={'offer-story-viewer' + (isBlackFriday ? ' offer-story-viewer--black-friday' : '')} style={isBlackFriday ? {'--story-background': 'url(' + blackFridayBackground + ')'} : undefined} role="dialog" aria-modal="true" aria-label={'Oferta de ' + activeItem.product.name + ' em ' + activeCategory.label}>
+    {activeItem && createPortal(<div className={'offer-story-viewer' + (isBlackFriday ? ' offer-story-viewer--black-friday' : '')} style={isBlackFriday ? {'--story-background': 'url(' + blackFridayBackground + ')'} : undefined} role="dialog" aria-modal="true" aria-label={'Oferta de ' + activeItem.product.name + ' em ' + activeCategory.label}>
       <div className="offer-story-viewer__progress" role="progressbar" aria-label={(activeIndex + 1) + ' de ' + activeCategory.items.length + ': ' + activeItem.product.name} aria-valuemin="1" aria-valuemax={activeCategory.items.length} aria-valuenow={activeIndex + 1}>
         {activeCategory.items.map((item, index) => <span className={index < activeIndex ? 'is-complete' : index === activeIndex ? 'is-current' : ''} key={item.id}><i key={index === activeIndex ? progressRun : undefined} style={index === activeIndex ? {'--story-progress-start': progressStart, '--story-progress-duration': remaining.current + 'ms', animationPlayState: isPaused ? 'paused' : 'running'} : undefined}/></span>)}
       </div>
@@ -252,7 +276,7 @@ export default function OfferStories({campaign, items}) {
           {isBlackFriday ? <><span>{campaign.title?.replace(' Black Friday','') || 'Seleção'}</span><strong>Black Friday</strong>{campaignPeriod && <small>{campaignPeriod}</small>}</> : campaign.title}
           {isBlackFriday && <img src={blackFridaySparks} alt="" aria-hidden="true" />}
         </div>
-        <div className="offer-story-card__photo">{activeItem.product.image ? <img src={activeItem.product.image} alt={activeItem.product.name} /> : <span>Imagem em preparação</span>}</div>
+        <div className="offer-story-card__photo">{activeItem.product.image ? <img src={activeItem.product.imageSmall||activeItem.product.image} srcSet={activeItem.product.imageSmall?`${activeItem.product.imageSmall} 480w, ${activeItem.product.image} 1200w`:undefined} sizes="100vw" alt={activeItem.product.name} decoding="async" /> : <span>Imagem em preparação</span>}</div>
         <div className="offer-story-card__copy">
           <div className="offer-story-card__details">
             {activeItem.product.brand && <span>{activeItem.product.brand}</span>}
@@ -266,6 +290,6 @@ export default function OfferStories({campaign, items}) {
       <button className="offer-story-viewer__next" type="button" onPointerDown={startHold} onPointerUp={() => finishHold(1)} onPointerCancel={() => finishHold()} onClick={event => {if (event.detail === 0) move(1);}} aria-label="Próxima oferta"><ChevronRight /></button>
       {showGuidedTour && <GuidedTour onFinish={finishGuidedTour}/>}
       {isPaused && !showGuidedTour && <span className="offer-story-viewer__paused" role="status" aria-label="Story pausado">Story pausado</span>}
-    </div>}
+    </div>, document.body)}
   </>;
 }
