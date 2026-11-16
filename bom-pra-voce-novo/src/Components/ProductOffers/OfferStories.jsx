@@ -5,9 +5,8 @@ import {createProductStory} from './story';
 import ShareDownloadMenu from './ShareDownloadMenu';
 import { productCategories } from './model';
 import blackFridayBackground from '../../images/offer-themes/black-friday/explosao-neon-roxa-dourada.png';
-import blackFridaySparks from '../../images/offer-themes/black-friday/black-friday-raios-finos.webp';
 import blackFridayTag from '../../images/offer-themes/black-friday/black-friday-etiqueta-desconto-3d.png';
-import originalLogo from '../../images/Logo.png';
+import originalLogo from '../../images/logo_bom_pra_voce_vetorizada.svg';
 import produceCover from '../../images/offer-categories/stories-hortifruti.webp';
 import meatCover from '../../images/offer-categories/stories-acougue-carnes.webp';
 import groceryCover from '../../images/offer-categories/stories-mercearia.webp';
@@ -274,7 +273,6 @@ export default function OfferStories({campaign, items, onVisualReady}) {
         <div className="offer-story-card__brand"><img src={originalLogo} alt="Bom pra você Supermercado" /></div>
         <div className="offer-story-card__campaign">
           {isBlackFriday ? <><span>{campaign.title?.replace(' Black Friday','') || 'Seleção'}</span><strong>Black Friday</strong>{campaignPeriod && <small>{campaignPeriod}</small>}</> : campaign.title}
-          {isBlackFriday && <img src={blackFridaySparks} alt="" aria-hidden="true" />}
         </div>
         <div className="offer-story-card__photo">{activeItem.product.image ? <img src={activeItem.product.imageSmall||activeItem.product.image} srcSet={activeItem.product.imageSmall?`${activeItem.product.imageSmall} 480w, ${activeItem.product.image} 1200w`:undefined} sizes="100vw" alt={activeItem.product.name} decoding="async" /> : <span>Imagem em preparação</span>}</div>
         <div className="offer-story-card__copy">

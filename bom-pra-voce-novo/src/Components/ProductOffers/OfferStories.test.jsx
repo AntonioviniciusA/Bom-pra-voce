@@ -134,6 +134,6 @@ test('uses the Black Friday artwork, campaign dates and real product data',()=>{
   expect(dialog).toHaveClass('offer-story-viewer--black-friday');
   expect(screen.getByText('Black Friday')).toBeInTheDocument();
   expect(screen.getByText('De 23 a 29/11/2026')).toBeInTheDocument();
-  expect(screen.getByRole('img',{name:'Bom pra você Supermercado'})).toHaveAttribute('src', 'Logo.png');
+  expect(screen.getByRole('img',{name:'Bom pra você Supermercado'})).toHaveAttribute('src', 'logo_bom_pra_voce_vetorizada.svg');
   expect(dialog).toHaveTextContent('R$ 5,99');
 });
