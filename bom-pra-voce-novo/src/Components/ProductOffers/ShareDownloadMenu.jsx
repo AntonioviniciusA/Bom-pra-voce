@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {Download, FileText, LoaderCircle, Share2, X} from 'lucide-react';
+import {Copy, Download, FileText, LoaderCircle, Share2, X} from 'lucide-react';
 import {createCampaignFlyerPdf, downloadFile} from './flyerPdf';
 
 export default function ShareDownloadMenu({
@@ -97,6 +97,8 @@ export default function ShareDownloadMenu({
         <button ref={!canNativeShare && !getArtwork ? firstAction : undefined} type="button" disabled={!!busy || !items?.length} onClick={() => run('pdf', async () => {downloadFile(await createCampaignFlyerPdf(campaign, items)); setMessage('Panfleto completo baixado em PDF.');})}>
           <span><FileText aria-hidden="true"/></span><div><strong>Baixar panfleto completo</strong><small>PDF com {items?.length || 0} {items?.length === 1 ? 'produto' : 'produtos'}</small></div>{busy === 'pdf' && <LoaderCircle className="is-spinning" aria-hidden="true"/>}
         </button>
+        {canNativeShare && <button type="button" disabled={!!busy || !items?.length} onClick={() => run('share-pdf', async () => {const file=await createCampaignFlyerPdf(campaign,items);if(navigator.canShare?.({files:[file]})) await navigator.share({title:campaign.title,files:[file]});else {downloadFile(file);setMessage('Este dispositivo não compartilha PDFs; o arquivo foi baixado.');}})}><span><FileText aria-hidden="true"/></span><div><strong>Compartilhar PDF</strong><small>Enviar o encarte completo</small></div>{busy==='share-pdf'&&<LoaderCircle className="is-spinning" aria-hidden="true"/>}</button>}
+        {shareUrl && <button type="button" disabled={!!busy} onClick={() => run('copy', async () => {await navigator.clipboard.writeText(shareUrl);setMessage('Link copiado.');})}><span><Copy aria-hidden="true"/></span><div><strong>Copiar link</strong><small>Compartilhar campanha ou produto</small></div></button>}
       </div>
       {message && <p className="share-download__message" role="status">{message}</p>}
     </div>}

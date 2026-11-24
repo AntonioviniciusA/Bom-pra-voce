@@ -252,13 +252,9 @@ export default function OfferStories({campaign, items, onVisualReady}) {
           </button>;
         })}
       </div>
-      <header className="offer-stories__heading">
-        <Hand className="offer-stories__tap" aria-hidden="true"/>
-        <p>Arraste para o lado e descubra as ofertas</p>
-      </header>
     </div>
 
-    {activeItem && createPortal(<div className={'offer-story-viewer' + (isBlackFriday ? ' offer-story-viewer--black-friday' : '')} style={isBlackFriday ? {'--story-background': 'url(' + blackFridayBackground + ')'} : undefined} role="dialog" aria-modal="true" aria-label={'Oferta de ' + activeItem.product.name + ' em ' + activeCategory.label}>
+    {activeItem && createPortal(<div className={'offer-story-viewer' + (isBlackFriday ? ' offer-story-viewer--black-friday' : campaign.theme_key==='natal' ? ' offer-story-viewer--natal' : '')} style={isBlackFriday ? {'--story-background': 'url(' + blackFridayBackground + ')'} : undefined} role="dialog" aria-modal="true" aria-label={'Oferta de ' + activeItem.product.name + ' em ' + activeCategory.label}>
       <div className="offer-story-viewer__progress" role="progressbar" aria-label={(activeIndex + 1) + ' de ' + activeCategory.items.length + ': ' + activeItem.product.name} aria-valuemin="1" aria-valuemax={activeCategory.items.length} aria-valuenow={activeIndex + 1}>
         {activeCategory.items.map((item, index) => <span className={index < activeIndex ? 'is-complete' : index === activeIndex ? 'is-current' : ''} key={item.id}><i key={index === activeIndex ? progressRun : undefined} style={index === activeIndex ? {'--story-progress-start': progressStart, '--story-progress-duration': remaining.current + 'ms', animationPlayState: isPaused ? 'paused' : 'running'} : undefined}/></span>)}
       </div>

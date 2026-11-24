@@ -1,5 +1,6 @@
 import logoUrl from '../../images/Logo.png';
 import neonBackgroundUrl from '../../images/offer-themes/black-friday/explosao-neon-roxa-dourada.png';
+import christmasFrameUrl from '../../images/offer-themes/natal/moldura-natalina-original.png';
 import priceBrushUrl from '../../images/offer-themes/compartilhados/preco-pincel-v2.webp';
 import regularFontUrl from '../../fonts/BarlowCondensed-Bold.ttf';
 import heavyFontUrl from '../../fonts/BarlowCondensed-Black.ttf';
@@ -22,10 +23,33 @@ export function text(ctx,value,x,y,width,height,size=48){
 export async function createProductStory(campaign,item){
   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1920;
   const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Este navegador não permite gerar a imagem.');
-  const blackFriday=campaign.theme_key==='black-friday';
+  const blackFriday=campaign.theme_key==='black-friday', christmas=campaign.theme_key==='natal';
   await loadOfferFonts();
-  const [photo,logo,background,priceBrush]=await Promise.all([load(item.product.image),load(logoUrl),blackFriday?load(neonBackgroundUrl):null,blackFriday?load(priceBrushUrl):null]);
+  const [photo,logo,background,priceBrush]=await Promise.all([load(item.product.image),load(logoUrl),blackFriday?load(neonBackgroundUrl):christmas?load(christmasFrameUrl):null,blackFriday||christmas?load(priceBrushUrl):null]);
   try{
+    if(christmas){
+      ctx.drawImage(background,0,0,1080,1920);
+      ctx.fillStyle='#fff200';ctx.fillRect(290,115,500,120);contain(ctx,logo,310,125,460,100);
+      ctx.fillStyle='#fffbe5';ctx.font="bold 68px Georgia, serif";ctx.textAlign='center';ctx.textBaseline='top';
+      ctx.fillText(campaign.title,540,270,910);
+      const day=value=>value?.split('-').reverse().join('/');
+      ctx.font="900 34px 'Offer Condensed', Arial, sans-serif";
+      ctx.fillText(`DE ${day(campaign.startDate)} A ${day(campaign.endDate)}`,540,375,820);
+      ctx.fillStyle='rgba(255,255,255,.96)';ctx.beginPath();ctx.roundRect(108,455,864,1050,35);ctx.fill();
+      contain(ctx,photo,155,490,770,600);
+      ctx.fillStyle='#230052';text(ctx,item.product.name.toLocaleUpperCase('pt-BR'),165,1100,750,135,56);
+      const detail=[item.product.variant,item.product.content].filter(Boolean).join(' · ');
+      if(detail)text(ctx,detail,165,1230,750,65,28);
+      ctx.drawImage(priceBrush,155,1310,770,145);
+      ctx.fillStyle='#230052';ctx.font="900 80px 'Offer Condensed', Arial, sans-serif";ctx.textAlign='center';
+      ctx.fillText(`${(item.priceCents/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} / ${item.unit}`,540,1335,690);
+      ctx.fillStyle='#fff';ctx.font="700 28px 'Offer Condensed', Arial, sans-serif";
+      ctx.fillText('bompravocesupermercado.com.br',540,1610,850);
+      ctx.fillStyle='#fff';text(ctx,[...new Set([campaign.conditions,item.conditions].filter(Boolean))].join(' '),130,1690,820,90,26);
+      const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+      if(!blob)throw new Error('Não foi possível gerar a imagem.');
+      return new File([blob],`oferta-${String(item.product.code||item.product.id).replace(/[^a-z0-9_-]/gi,'_')}.png`,{type:'image/png'});
+    }
     if(blackFriday){
       ctx.fillStyle='#160019';ctx.fillRect(0,0,1080,1920);ctx.drawImage(background,0,0,1080,1920);
       ctx.fillStyle='rgba(18,0,25,.28)';ctx.fillRect(0,0,1080,1920);

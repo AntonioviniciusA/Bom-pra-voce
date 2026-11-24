@@ -218,6 +218,45 @@ body.offer-story-open{overflow:hidden}
   .share-download__panel header{padding:18px 18px 13px}
   .share-download__actions>button{min-height:70px}
 }
+
+@media (min-width:768px) and (max-width:1023px){
+  .product-offers__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:900px) and (max-width:1023px){
+  .product-offers__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:701px) and (max-width:767px){
+  .product-offers__heading{display:flex;flex-direction:column;padding:12px 18px;text-align:center}
+  .product-offers__categories{overflow-x:auto;grid-template-columns:repeat(5,minmax(140px,1fr))}
+}
+@media (max-width:767px){
+  .offer-story-viewer{display:grid}
+  .product-offers__mobile-feature{padding:clamp(8px,3vw,24px);padding-bottom:max(20px,env(safe-area-inset-bottom));display:flex;justify-content:center}
+  .product-offers__mobile-feature .product-offer{width:min(100%,370px)}
+  .product-offers__mobile-feature .product-offer__photo{height:clamp(170px,32vh,300px)}
+  .product-offers__open-stories{margin-top:12px;min-height:44px;border:0;border-radius:20px;background:#fff200;color:#230078;padding:8px 16px;font-weight:900}
+  .product-offers--public .product-offers__heading{padding-top:max(12px,env(safe-area-inset-top));isolation:isolate}
+  .product-offers--public .product-offers__inner{background-size:100% 100%}
+}
+@media (max-width:767px){
+  .product-offers--public[data-theme="natal"] .product-offers__inner{background:#35004c url('../../images/offer-themes/natal/moldura-natalina-original.png') center/100% 100% no-repeat}
+  .product-offers--public[data-theme="natal"] .product-offers__heading,
+  .product-offers--public[data-theme="natal"] .offer-stories{background:transparent}
+  .product-offers--public[data-theme="natal"] .offer-stories__rail{padding-inline:16px}
+  .product-offers--public[data-theme="natal"] .product-offers__mobile-feature{padding-bottom:max(80px,env(safe-area-inset-bottom))}
+}
+.offer-story-viewer--natal .offer-story-card{background:#35004c url('../../images/offer-themes/natal/moldura-natalina-original.png') center/100% 100% no-repeat}
+
+/* O acesso aos detalhes ocupa o canto oposto ao compartilhamento. */
+.product-offer .product-offer__details{margin:0}
+.product-offer .product-offer__details>summary{position:absolute;z-index:4;top:8px;left:8px;display:grid;place-items:center;width:44px;height:44px;min-height:44px;padding:8px;border:0;border-radius:10px;background:#fff;color:#000;box-shadow:0 2px 8px #23133122;list-style:none;cursor:pointer}
+.product-offer .product-offer__details>summary svg{width:27px;height:27px;stroke-width:2.8}
+.product-offer .product-offer__details>summary::-webkit-details-marker{display:none}
+.product-offer .product-offer__details[open]>summary svg{transform:none}
+.product-offer .product-offer__details>div{position:absolute;z-index:3;top:58px;left:8px;right:8px;max-height:calc(100% - 66px);overflow:auto;padding:12px 15px;border:1px solid #ded3e9;border-radius:12px;background:#fff;color:#230078;box-shadow:0 8px 22px #21083635;font:700 15px/1.35 Arial,sans-serif;overflow-wrap:anywhere}
+.product-offer .product-offer__details>div p{margin:5px 0}
+.product-offer .product-offer__details>summary:focus-visible{outline:3px solid #230078;outline-offset:2px}
+.product-offer .product-offer__price strong{color:#d00000}
 @media(prefers-reduced-motion:reduce){.share-download__panel .is-spinning{animation-duration:1.6s}}
 .product-story button{border:1px solid #502474;border-radius:8px;background:#fff;color:#502474;padding:8px 10px;font:600 14px/1.3 Arial,sans-serif;cursor:pointer}
 .product-story button:disabled{opacity:.5;cursor:default}

@@ -10,11 +10,20 @@ test('shows brand, both fragrances, package content and lot expiry without mixin
  expect(screen.getByText('Giovanna Baby')).toBeInTheDocument();
  expect(screen.getByText('Fragrâncias: Classic / Blue')).toBeInTheDocument();
  expect(screen.getByText('Embalagem: 150 ml')).toBeInTheDocument();
+ expect(screen.getByLabelText('Detalhes de Desodorante Aerossol').parentElement).not.toHaveAttribute('open');
  fireEvent.click(screen.getByText('Detalhes'));
  expect(screen.getByText('GTIN Classic: 7896044949510')).toBeInTheDocument();
  expect(screen.getByText('GTIN Blue: 00012345600012')).toBeInTheDocument();
  expect(screen.getByText('Vencimento do lote: 15/12/2026')).toBeInTheDocument();
  expect(screen.getByText('Oferta: De 01 a 31/10/2026')).toBeInTheDocument();
+});
+test('shows details as an accessible icon in the upper corner of the offer',()=>{
+ render(<ProductOffers campaign={campaign} preview/>);
+ const control=screen.getByLabelText('Detalhes de Produto A');
+ expect(control.tagName).toBe('SUMMARY');
+ expect(control.querySelector('svg')).toBeTruthy();
+ fireEvent.click(control);
+ expect(screen.getByText('Código interno: 001')).toBeInTheDocument();
 });
 test('shows eight products per page and resets pagination after a search',()=>{
  const items=Array.from({length:9},(_,index)=>({id:`i${index+1}`,priceCents:100,unit:'un',product:{id:`p${index+1}`,name:`Produto ${index+1}`,code:`00${index+1}`,category:'mercearia'}}));
@@ -31,7 +40,7 @@ test('shows eight products per page and resets pagination after a search',()=>{
 
 
 
-test('shows four products on mobile, navigates and adjusts when the viewport changes',()=>{
+test('paginates one product in the mobile preview and adjusts when the viewport changes',()=>{
  const original=window.matchMedia;
  let change;
  const media={matches:true,addEventListener:jest.fn((event,listener)=>{change=listener}),removeEventListener:jest.fn()};
@@ -40,20 +49,17 @@ test('shows four products on mobile, navigates and adjusts when the viewport cha
  let view;
  try{
   view=render(<ProductOffers campaign={{...campaign,items}} preview/>);
-  expect(screen.getAllByRole('article')).toHaveLength(4);
-  expect(screen.getByText('Página 1 de 3')).toBeInTheDocument();
-  expect(screen.queryByText('Oferta 5')).not.toBeInTheDocument();
+  expect(screen.getAllByRole('article')).toHaveLength(1);
+  expect(screen.getByText('Página 1 de 9')).toBeInTheDocument();
+  expect(screen.queryByText('Oferta 2')).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button',{name:'Próxima'}));
-  expect(screen.getByText('Oferta 5')).toBeInTheDocument();
-  expect(screen.getAllByRole('article')).toHaveLength(4);
-  fireEvent.click(screen.getByRole('button',{name:'Próxima'}));
-  expect(screen.getByText('Oferta 9')).toBeInTheDocument();
-  expect(screen.getByRole('button',{name:'Próxima'})).toBeDisabled();
+  expect(screen.getByText('Oferta 2')).toBeInTheDocument();
+  expect(screen.getAllByRole('article')).toHaveLength(1);
   act(()=>{media.matches=false;change();});
   expect(screen.getByText('Página 1 de 2')).toBeInTheDocument();
   expect(screen.getAllByRole('article')).toHaveLength(8);
   act(()=>{media.matches=true;change();});
-  expect(screen.getAllByRole('article')).toHaveLength(4);
+  expect(screen.getAllByRole('article')).toHaveLength(1);
   fireEvent.change(screen.getByRole('textbox',{name:'Buscar produto ou código'}),{target:{value:'009'}});
   expect(screen.getByText('Oferta 9')).toBeInTheDocument();
   expect(screen.getAllByRole('article')).toHaveLength(1);

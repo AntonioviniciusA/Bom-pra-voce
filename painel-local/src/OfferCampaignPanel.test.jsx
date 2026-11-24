@@ -93,6 +93,17 @@ test('shows campaigns and conflicts in the calendar',async()=>{
   expect(screen.getAllByText(/Conflito com/)).toHaveLength(2);
 });
 
+test('calendar offers a normal campaign or an explicit seasonal theme for December',async()=>{
+  drafts.loadWorkspace.mockResolvedValue({revision:0,catalog:[],campaigns:[{id:'dec',title:'Existente',theme_key:'padrao',startDate:'2026-12-01',endDate:'2026-12-02',conditions:'Condições',items:[]}]});
+  drafts.saveWorkspace.mockImplementation(async data=>({...data,revision:data.revision+1}));
+  render(<OfferCampaignPanel/>);
+  fireEvent.click(await screen.findByRole('button',{name:'Calendário'}));
+  expect(screen.getByRole('option',{name:'Oferta normal da loja'})).toBeTruthy();
+  expect(screen.getByRole('option',{name:/Natal \(sugestão do calendário\)/})).toBeTruthy();
+  fireEvent.click(screen.getByRole('button',{name:'Criar rascunho'}));
+  await waitFor(()=>expect(drafts.saveWorkspace).toHaveBeenCalledWith(expect.objectContaining({campaigns:expect.arrayContaining([expect.objectContaining({startDate:'2026-12-01',theme_key:'padrao',campaignType:'weekly'})])})));
+});
+
 test('uses one product GTIN without requiring a variant',async()=>{
   drafts.loadWorkspace.mockResolvedValue({revision:0,catalog:[],campaigns:[]});
   drafts.saveWorkspace.mockImplementation(async data=>({...data,revision:data.revision+1}));

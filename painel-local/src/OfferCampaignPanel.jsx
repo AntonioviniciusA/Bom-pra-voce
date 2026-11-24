@@ -88,7 +88,7 @@ const normalizeProductDraft = (product) => ({
 const blankCampaign = () => ({
   id: crypto.randomUUID(),
   title: "Nova campanha",
-  campaignType: "seasonal",
+  campaignType: "weekly",
   theme_key: "padrao",
   startDate: "",
   endDate: "",
@@ -506,6 +506,7 @@ function CampaignEditor({
 }
 
 function CampaignCalendar({ campaigns, onOpen, onNew }) {
+  const [themeChoice, setThemeChoice] = useState('padrao');
   const first =
     campaigns.find((c) => c.startDate)?.startDate?.slice(0, 7) ||
     new Date()
@@ -532,10 +533,11 @@ function CampaignCalendar({ campaigns, onOpen, onNew }) {
           <h1>Calendário de campanhas</h1>
           <p>Planejamento por datas · Horário de Brasília</p>
         </div>
-        <button className="offer-primary" onClick={() => onNew(`${month}-01`)}>
+        <button className="offer-primary" onClick={() => onNew(`${month}-01`,themeChoice)}>
           <Plus /> Criar rascunho
         </button>
       </header>
+      <div className="calendar-theme-choice"><label>Tema do novo rascunho <select value={themeChoice} onChange={event=>setThemeChoice(event.target.value)}><option value="padrao">Oferta normal da loja</option>{seasonalThemes.filter(theme=>theme.key!=='padrao'&&theme.month===Number(month.slice(5,7))).map(theme=><option key={theme.key} value={theme.key}>{theme.label} (sugestão do calendário)</option>)}</select></label><p>A data sugere temas, mas não ativa nem publica uma campanha. Você pode mudar o tema depois.</p></div>
       <div className="calendar-controls">
         <button aria-label="Mês anterior" onClick={() => shift(-1)}>
           <ArrowLeft />
@@ -1356,8 +1358,8 @@ export default function OfferCampaignPanel() {
     replace({ ...workspaceRef.current, campaigns });
     open(campaigns.find((c) => c.templateKey === "novembro-2026-esquenta").id);
   }
-  function addCampaign(startDate = "") {
-    const c = { ...blankCampaign(), startDate };
+  function addCampaign(startDate = "", themeKey = "padrao") {
+    const c = { ...blankCampaign(), startDate,theme_key:themeKey,campaignType:themeKey==='padrao'?'weekly':'seasonal' };
     replace({
       ...workspaceRef.current,
       campaigns: [...workspaceRef.current.campaigns, c],

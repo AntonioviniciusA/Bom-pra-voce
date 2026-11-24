@@ -55,6 +55,7 @@ import t17_miniatura from "../../images/offer-themes/black-friday/black-friday-m
 import t18_celular from "../../images/offer-themes/natal/natal-celular.webp";
 import t18_notebook from "../../images/offer-themes/natal/natal-notebook.webp";
 import t18_miniatura from "../../images/offer-themes/natal/natal-miniatura.webp";
+import natalStoryBackground from "../../images/offer-themes/natal/moldura-natalina-original.png";
 import t19_celular from "../../images/offer-themes/ano-novo/ano-novo-celular.webp";
 import t19_notebook from "../../images/offer-themes/ano-novo/ano-novo-notebook.webp";
 import t19_miniatura from "../../images/offer-themes/ano-novo/ano-novo-miniatura.webp";
@@ -82,7 +83,7 @@ export const seasonalThemes = [
   { key: "criancas", label: "Dia das Crianças", month: 10, institutional: false, mobile: t15_celular, desktop: t15_notebook, thumbnail: t15_miniatura },
   { key: "outubro-rosa", label: "Outubro Rosa", month: 10, institutional: true, mobile: t16_celular, desktop: t16_notebook, thumbnail: t16_miniatura },
   { key: "black-friday", label: "Black Friday", month: 11, institutional: false, mobile: t17_celular, desktop: t17_notebook, thumbnail: t17_miniatura },
-  { key: "natal", label: "Natal", month: 12, institutional: false, mobile: t18_celular, desktop: t18_notebook, thumbnail: t18_miniatura },
+  { key: "natal", label: "Natal", month: 12, institutional: false, mobile: t18_celular, desktop: t18_notebook, thumbnail: t18_miniatura, storyBackground: natalStoryBackground, shareVerticalBackground: natalStoryBackground },
   { key: "ano-novo", label: "Ano-Novo", month: 12, institutional: false, mobile: t19_celular, desktop: t19_notebook, thumbnail: t19_miniatura },
   { key: "aniversario-loja", label: "Aniversário da loja", month: 0, institutional: false, mobile: t20_celular, desktop: t20_notebook, thumbnail: t20_miniatura },
 ];

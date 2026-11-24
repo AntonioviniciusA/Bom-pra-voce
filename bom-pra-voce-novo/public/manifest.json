@@ -1,8 +1,20 @@
-{
-  "short_name": "Bom Pra Você",
-  "name": "Bom Pra Você Supermercado",
-  "start_url": "/",
-  "display": "browser",
-  "theme_color": "#facc15",
-  "background_color": "#ffffff"
+﻿{
+    "short_name":  "Bom Pra Você",
+    "name":  "Bom Pra Você Supermercado",
+    "start_url":  "/",
+    "display":  "browser",
+    "theme_color":  "#facc15",
+    "background_color":  "#ffffff",
+    "icons":  [
+                  {
+                      "type":  "image/png",
+                      "sizes":  "192x192",
+                      "src":  "/icon-192.png"
+                  },
+                  {
+                      "type":  "image/png",
+                      "sizes":  "512x512",
+                      "src":  "/icon-512.png"
+                  }
+              ]
 }
