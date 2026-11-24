@@ -1,0 +1,952 @@
+{
+  "arquivo": {
+    "nome": "PRODUDOS.xlsx",
+    "bytes": 4059051,
+    "sha256": "e7bba286b01cfa5cd73e47ad0fb1ca52c4e9e9a1907b9a4f0ebed103d8dc8d2e",
+    "abas": [
+      "Plan1"
+    ],
+    "dimensao_declarada": "A1:Z41748",
+    "formulas": 0,
+    "leitura": "somente leitura (zip/xml)"
+  },
+  "inventario": {
+    "linhas_registro": 41747,
+    "linhas_fisicas_xml": 41748,
+    "linhas_total_sem_cabecalho_xml": 41747,
+    "linhas_vazias": 0,
+    "linhas_todas_26_celulas_presentes": 41747,
+    "colunas": 26,
+    "cabecalhos": [
+      "CODIGO",
+      "CODIGO_BARRAS",
+      "DESCRICAO",
+      "GRUPO",
+      "NCM",
+      "PRECO_CUSTO",
+      "MARGEM_LUCRO",
+      "PRECO_VENDA",
+      "ESTOQUE_MINIMO",
+      "ESTOQUE_MAXIMO",
+      "ESTOQUE_ATUAL",
+      "UNIDADE",
+      "CONTROLA_ESTOQUE",
+      "CFOP",
+      "CSOSN",
+      "CST",
+      "ICMS",
+      "ATIVO",
+      "EXIBIR_TELA",
+      "SOLICITA_QUANTIDADE",
+      "PERMITIR_COMBINACAO",
+      "CEST",
+      "CST_PIS",
+      "PIS",
+      "CST_COFINS",
+      "COFINS"
+    ],
+    "exemplo_primeiros_registros": [
+      {
+        "excel_row": 2,
+        "CODIGO": "0000002187884",
+        "CODIGO_BARRAS": "0000002187884",
+        "DESCRICAO": "LUVA BOMPACK G",
+        "GRUPO": "Normal",
+        "NCM": "00000000",
+        "PRECO_CUSTO": "0",
+        "MARGEM_LUCRO": "0",
+        "PRECO_VENDA": "3.99",
+        "ESTOQUE_MINIMO": "0",
+        "ESTOQUE_MAXIMO": "0",
+        "ESTOQUE_ATUAL": "-33",
+        "UNIDADE": "UND",
+        "CONTROLA_ESTOQUE": "S",
+        "CFOP": "5102",
+        "CSOSN": "102",
+        "CST": "40",
+        "ICMS": "0",
+        "ATIVO": "S",
+        "EXIBIR_TELA": "S",
+        "SOLICITA_QUANTIDADE": "N",
+        "PERMITIR_COMBINACAO": "N",
+        "CEST": "",
+        "CST_PIS": "49",
+        "PIS": "0",
+        "CST_COFINS": "",
+        "COFINS": "0"
+      },
+      {
+        "excel_row": 3,
+        "CODIGO": "0020800600323",
+        "CODIGO_BARRAS": "0020800600323",
+        "DESCRICAO": "ABSORV INTERNO TAMPAX REGULAR",
+        "GRUPO": "Normal",
+        "NCM": "00000000",
+        "PRECO_CUSTO": "0",
+        "MARGEM_LUCRO": "0",
+        "PRECO_VENDA": "13.99",
+        "ESTOQUE_MINIMO": "0",
+        "ESTOQUE_MAXIMO": "0",
+        "ESTOQUE_ATUAL": "-1",
+        "UNIDADE": "UNID",
+        "CONTROLA_ESTOQUE": "S",
+        "CFOP": "5102",
+        "CSOSN": "102",
+        "CST": "40",
+        "ICMS": "0",
+        "ATIVO": "S",
+        "EXIBIR_TELA": "S",
+        "SOLICITA_QUANTIDADE": "N",
+        "PERMITIR_COMBINACAO": "N",
+        "CEST": "",
+        "CST_PIS": "49",
+        "PIS": "0",
+        "CST_COFINS": "",
+        "COFINS": "0"
+      },
+      {
+        "excel_row": 4,
+        "CODIGO": "0020800600330",
+        "CODIGO_BARRAS": "0020800600330",
+        "DESCRICAO": "ABSORV INTERNO TAMPAX SUPER",
+        "GRUPO": "Normal",
+        "NCM": "00000000",
+        "PRECO_CUSTO": "0",
+        "MARGEM_LUCRO": "0",
+        "PRECO_VENDA": "13.99",
+        "ESTOQUE_MINIMO": "0",
+        "ESTOQUE_MAXIMO": "0",
+        "ESTOQUE_ATUAL": "0",
+        "UNIDADE": "UNID",
+        "CONTROLA_ESTOQUE": "S",
+        "CFOP": "5102",
+        "CSOSN": "102",
+        "CST": "40",
+        "ICMS": "0",
+        "ATIVO": "S",
+        "EXIBIR_TELA": "S",
+        "SOLICITA_QUANTIDADE": "N",
+        "PERMITIR_COMBINACAO": "N",
+        "CEST": "",
+        "CST_PIS": "49",
+        "PIS": "0",
+        "CST_COFINS": "",
+        "COFINS": "0"
+      },
+      {
+        "excel_row": 5,
+        "CODIGO": "0040232727672",
+        "CODIGO_BARRAS": "0040232727672",
+        "DESCRICAO": "TEMPERO TOQUE MINEIRO 330G",
+        "GRUPO": "Normal",
+        "NCM": "00000000",
+        "PRECO_CUSTO": "0",
+        "MARGEM_LUCRO": "0",
+        "PRECO_VENDA": "2.99",
+        "ESTOQUE_MINIMO": "0",
+        "ESTOQUE_MAXIMO": "0",
+        "ESTOQUE_ATUAL": "0",
+        "UNIDADE": "UNID",
+        "CONTROLA_ESTOQUE": "S",
+        "CFOP": "5102",
+        "CSOSN": "102",
+        "CST": "40",
+        "ICMS": "0",
+        "ATIVO": "S",
+        "EXIBIR_TELA": "S",
+        "SOLICITA_QUANTIDADE": "N",
+        "PERMITIR_COMBINACAO": "N",
+        "CEST": "",
+        "CST_PIS": "49",
+        "PIS": "0",
+        "CST_COFINS": "",
+        "COFINS": "0"
+      }
+    ]
+  },
+  "campos": {
+    "CODIGO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 41736,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "0000002187884",
+        "0020800600323",
+        "0020800600330"
+      ]
+    },
+    "CODIGO_BARRAS": {
+      "preenchidos": 41009,
+      "vazios": 738,
+      "percentual_preenchido": 98.23,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 41004,
+      "tipos_xml": {
+        "s": 41010
+      },
+      "exemplos": [
+        "0000002187884",
+        "0020800600323",
+        "0020800600330"
+      ]
+    },
+    "DESCRICAO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 41508,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "LUVA BOMPACK G",
+        "ABSORV INTERNO TAMPAX REGULAR",
+        "ABSORV INTERNO TAMPAX SUPER"
+      ]
+    },
+    "GRUPO": {
+      "preenchidos": 41709,
+      "vazios": 38,
+      "percentual_preenchido": 99.91,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41710
+      },
+      "exemplos": [
+        "Normal",
+        "ACOUGUE"
+      ]
+    },
+    "NCM": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41409,
+      "distintos": 81,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "00000000",
+        "20079910",
+        "19059090"
+      ]
+    },
+    "PRECO_CUSTO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    },
+    "MARGEM_LUCRO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41746,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0",
+        "1.99"
+      ]
+    },
+    "PRECO_VENDA": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 8244,
+      "distintos": 894,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "3.99",
+        "13.99",
+        "2.99"
+      ]
+    },
+    "ESTOQUE_MINIMO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    },
+    "ESTOQUE_MAXIMO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    },
+    "ESTOQUE_ATUAL": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 35348,
+      "distintos": 471,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "-33",
+        "-1",
+        "0"
+      ]
+    },
+    "UNIDADE": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 9,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "UND",
+        "UNID",
+        "UN"
+      ]
+    },
+    "CONTROLA_ESTOQUE": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "S"
+      ]
+    },
+    "CFOP": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 3,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "5102",
+        "5405",
+        "5103"
+      ]
+    },
+    "CSOSN": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "102",
+        "500"
+      ]
+    },
+    "CST": {
+      "preenchidos": 40743,
+      "vazios": 1004,
+      "percentual_preenchido": 97.6,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 40744
+      },
+      "exemplos": [
+        "40"
+      ]
+    },
+    "ICMS": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    },
+    "ATIVO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "S",
+        "N"
+      ]
+    },
+    "EXIBIR_TELA": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "S",
+        "N"
+      ]
+    },
+    "SOLICITA_QUANTIDADE": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "N",
+        "S"
+      ]
+    },
+    "PERMITIR_COMBINACAO": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "N"
+      ]
+    },
+    "CEST": {
+      "preenchidos": 0,
+      "vazios": 41747,
+      "percentual_preenchido": 0.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 0,
+      "tipos_xml": {
+        "s": 1
+      },
+      "exemplos": []
+    },
+    "CST_PIS": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 2,
+      "tipos_xml": {
+        "s": 41748
+      },
+      "exemplos": [
+        "49",
+        "99"
+      ]
+    },
+    "PIS": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    },
+    "CST_COFINS": {
+      "preenchidos": 1,
+      "vazios": 41746,
+      "percentual_preenchido": 0.0,
+      "zeros_representacoes_comuns": 0,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 2
+      },
+      "exemplos": [
+        "99"
+      ]
+    },
+    "COFINS": {
+      "preenchidos": 41747,
+      "vazios": 0,
+      "percentual_preenchido": 100.0,
+      "zeros_representacoes_comuns": 41747,
+      "distintos": 1,
+      "tipos_xml": {
+        "s": 1,
+        "n": 41747
+      },
+      "exemplos": [
+        "0"
+      ]
+    }
+  },
+  "categoricos": {
+    "GRUPO": [
+      {
+        "valor": "Normal",
+        "registros": 41395
+      },
+      {
+        "valor": "ACOUGUE",
+        "registros": 314
+      }
+    ],
+    "UNIDADE": [
+      {
+        "valor": "UN",
+        "registros": 24261
+      },
+      {
+        "valor": "UNID",
+        "registros": 15883
+      },
+      {
+        "valor": "UND",
+        "registros": 1051
+      },
+      {
+        "valor": "KG",
+        "registros": 507
+      },
+      {
+        "valor": "TON",
+        "registros": 24
+      },
+      {
+        "valor": "PC",
+        "registros": 12
+      },
+      {
+        "valor": "CX",
+        "registros": 6
+      },
+      {
+        "valor": "PACOTE",
+        "registros": 2
+      },
+      {
+        "valor": "LT",
+        "registros": 1
+      }
+    ],
+    "CONTROLA_ESTOQUE": [
+      {
+        "valor": "S",
+        "registros": 41747
+      }
+    ],
+    "CFOP": [
+      {
+        "valor": "5102",
+        "registros": 41423
+      },
+      {
+        "valor": "5405",
+        "registros": 323
+      },
+      {
+        "valor": "5103",
+        "registros": 1
+      }
+    ],
+    "CSOSN": [
+      {
+        "valor": "102",
+        "registros": 41416
+      },
+      {
+        "valor": "500",
+        "registros": 331
+      }
+    ],
+    "CST": [
+      {
+        "valor": "40",
+        "registros": 40743
+      }
+    ],
+    "ICMS": [
+      {
+        "valor": "0",
+        "registros": 41747
+      }
+    ],
+    "ATIVO": [
+      {
+        "valor": "S",
+        "registros": 41746
+      },
+      {
+        "valor": "N",
+        "registros": 1
+      }
+    ],
+    "EXIBIR_TELA": [
+      {
+        "valor": "S",
+        "registros": 41746
+      },
+      {
+        "valor": "N",
+        "registros": 1
+      }
+    ],
+    "SOLICITA_QUANTIDADE": [
+      {
+        "valor": "N",
+        "registros": 41532
+      },
+      {
+        "valor": "S",
+        "registros": 215
+      }
+    ],
+    "PERMITIR_COMBINACAO": [
+      {
+        "valor": "N",
+        "registros": 41747
+      }
+    ],
+    "CST_PIS": [
+      {
+        "valor": "49",
+        "registros": 41746
+      },
+      {
+        "valor": "99",
+        "registros": 1
+      }
+    ],
+    "PIS": [
+      {
+        "valor": "0",
+        "registros": 41747
+      }
+    ],
+    "CST_COFINS": [
+      {
+        "valor": "99",
+        "registros": 1
+      }
+    ],
+    "COFINS": [
+      {
+        "valor": "0",
+        "registros": 41747
+      }
+    ],
+    "NCM": [
+      {
+        "valor": "00000000",
+        "registros": 41409
+      },
+      {
+        "valor": "19053200",
+        "registros": 19
+      },
+      {
+        "valor": "19041000",
+        "registros": 18
+      },
+      {
+        "valor": "19053100",
+        "registros": 17
+      },
+      {
+        "valor": "19023000",
+        "registros": 15
+      },
+      {
+        "valor": "34025000",
+        "registros": 14
+      },
+      {
+        "valor": "34011190",
+        "registros": 14
+      },
+      {
+        "valor": "82121020",
+        "registros": 12
+      },
+      {
+        "valor": "96190000",
+        "registros": 12
+      },
+      {
+        "valor": "21039021",
+        "registros": 11
+      },
+      {
+        "valor": "34029039",
+        "registros": 11
+      },
+      {
+        "valor": "20052000",
+        "registros": 9
+      },
+      {
+        "valor": "22029900",
+        "registros": 9
+      },
+      {
+        "valor": "20079910",
+        "registros": 8
+      },
+      {
+        "valor": "33072010",
+        "registros": 7
+      }
+    ],
+    "CEST": []
+  },
+  "duplicacoes_preliminares": {
+    "codigo": {
+      "chaves_duplicadas": 10,
+      "linhas_envolvidas": 21,
+      "exemplos": [
+        {
+          "valor": "8494",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "100100",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "34",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7891242720022",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7891962076669",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7896098909737",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7896213006051",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7898191190364",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7899706170857",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "800800",
+          "ocorrencias": 2
+        }
+      ]
+    },
+    "codigo_barras": {
+      "chaves_duplicadas": 5,
+      "linhas_envolvidas": 10,
+      "exemplos": [
+        {
+          "valor": "7891242720022",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7891962076669",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7896098909737",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7898191190364",
+          "ocorrencias": 2
+        },
+        {
+          "valor": "7899706170857",
+          "ocorrencias": 2
+        }
+      ]
+    },
+    "descricao_normalizada": {
+      "chaves_duplicadas": 354,
+      "linhas_envolvidas": 725,
+      "exemplos": [
+        {
+          "valor": "PO COMPACTO MATTE SAFIRA 10G",
+          "ocorrencias": 4
+        },
+        {
+          "valor": "AMAC FOFO 500ML",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "AMAC ROUPA DOWNY 500ML",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "BISC RECH LIANE 115G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "BISC WAFER MICOS 78G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "CREME DE TRAT SEDA 400G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "GELEIA LINEA 230G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "MARGARINA DELICIA 500G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "PALHA ITALIANA 50G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "SAB. PALMOLIVE 150G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "SABAO PO MINUANO 400G",
+          "ocorrencias": 3
+        },
+        {
+          "valor": "SORVETE AMOR AO POTE 1,5L",
+          "ocorrencias": 3
+        }
+      ]
+    }
+  },
+  "gtin_formato": {
+    "padrao_8_12_13_14_digitos": 40096,
+    "digito_verificador_confere": 39330,
+    "comprimento_nao_padrao": 874,
+    "digito_verificador_nao_confere": 766,
+    "nao_numerico": 39
+  },
+  "estoque_distribuicao": {
+    "negativo": 6399,
+    "zero": 35348
+  },
+  "estoque_por_status": {
+    "S|negativo": 6399,
+    "S|zero": 35347,
+    "N|zero": 1
+  },
+  "ncm_por_status": {
+    "S|incompleto_formato": 41408,
+    "S|regular_formato": 338,
+    "N|incompleto_formato": 1
+  },
+  "alertas_estruturais": {
+    "ncm_ausente_zero_ou_formato_invalido": 41409,
+    "cest_vazio": 41747,
+    "cst_cofins_vazio": 41746,
+    "preco_custo_ausente_ou_zero": 41747,
+    "preco_venda_ausente_ou_zero": 8244
+  },
+  "exemplos_alertas": {
+    "ncm_ausente_zero_ou_formato_invalido": [
+      [
+        2,
+        "0000002187884",
+        "LUVA BOMPACK G",
+        "00000000"
+      ],
+      [
+        3,
+        "0020800600323",
+        "ABSORV INTERNO TAMPAX REGULAR",
+        "00000000"
+      ],
+      [
+        4,
+        "0020800600330",
+        "ABSORV INTERNO TAMPAX SUPER",
+        "00000000"
+      ],
+      [
+        5,
+        "0040232727672",
+        "TEMPERO TOQUE MINEIRO 330G",
+        "00000000"
+      ],
+      [
+        6,
+        "0040232782459",
+        "SAL MIX GROSSO C LIMAO 650G",
+        "00000000"
+      ]
+    ]
+  },
+  "limitacoes": [
+    "Arquivo nao contem data da ultima venda, compras, movimentacoes, XML, apuracoes nem comprovantes",
+    "Codigo e codigo de barras podem ser internos, sem validacao EAN exigivel",
+    "CEST nao e obrigatorio para todo produto, conforme enquadramento",
+    "Dados de tributacao nao comprovam informacoes efetivamente emitidas em NF-e/NFC-e"
+  ]
+}
