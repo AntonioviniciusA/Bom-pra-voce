@@ -1,0 +1,103 @@
+{
+  "id": "setembro-amarelo",
+  "name": "Setembro Amarelo",
+  "version": 1,
+  "kind": "institutional",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 614468,
+      "sha256": "1eed3160a530fa8ed9b15020e9a61bb9c56fe3753968a31aa0737b3d0a7ec12a",
+      "alpha": true,
+      "transparentFraction": 0.8117
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 4698,
+      "sha256": "ce3bfd3fe1c2d650e00fab6b7f7e973331db56b75cca0461af92ca09b26f11f2",
+      "alpha": true,
+      "transparentFraction": 0.7933
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8156,
+      "sha256": "bc97fed3d8a64357cdc04dde4874f9a213fe3ccc2f787dab20c723060c0c1dc1",
+      "alpha": true,
+      "transparentFraction": 0.803
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 18354,
+      "sha256": "72cce2a437e4795a3eb88edcf73d35f059308a2baea61c743124ded20e84063d",
+      "alpha": true,
+      "transparentFraction": 0.8108
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/setembro-amarelo/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 24856,
+      "sha256": "9e5cd9728664e36d286ea0c09e25077447cf6d20b7940b634de00716bb2a9ee4",
+      "alpha": true,
+      "transparentFraction": 0.8117
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 40,
+      "maxInstances": 1,
+      "placement": "separate-institutional-note"
+    },
+    "celular": {
+      "displayPx": 32,
+      "maxInstances": 1,
+      "placement": "separate-institutional-note"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 830,
+        "y": 270,
+        "width": 150,
+        "height": 150
+      },
+      "rule": "independent-institutional-piece-no-prices"
+    },
+    "intensity": [
+      "discreta"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

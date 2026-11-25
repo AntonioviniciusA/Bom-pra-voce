@@ -12,10 +12,10 @@ Novos arquivos em src/images/Setores: bebidas-galeria-2.jpg, hortifruti-galeria-
 
 ## Avaliação do fluxo
 
-1. **Escolher setor:** capas ilustradas coerentes com a referência fornecida, título sobre fundo escuro e arte específica de laticínios. Evidência: [desktop](validacao/setores-1440.png) e [celular](validacao/setores-390.png).
-2. **Abrir e trocar foto:** setas agora percorrem fotos do mesmo setor, miniatura selecionada recebe borda, contador indica posição. Evidência: [galeria de bebidas](validacao/modal-1440-0.png) e [balcão no celular](validacao/modal-390-2.png).
-3. **Fotos verticais:** preservado enquadramento inteiro, com espaço neutro lateral em vez de cortar produtos. Evidência: [hortifrúti](validacao/modal-390-1.png). Imagens verticais ficam menores; nova foto horizontal seria uma melhoria futura, sem bloquear uso das atuais.
-4. **Padaria:** faixa legível, fundo suavizado, aviso de reforma e indicação de que a segunda opção é um recorte. Evidência: [padaria](validacao/modal-390-4.png).
+1. **Escolher setor:** capas ilustradas coerentes com a referência fornecida, título sobre fundo escuro e arte específica de laticínios. Evidência: [desktop](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-1440.png) e [celular](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/setores-390.png).
+2. **Abrir e trocar foto:** setas agora percorrem fotos do mesmo setor, miniatura selecionada recebe borda, contador indica posição. Evidência: [galeria de bebidas](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-1440-0.png) e [balcão no celular](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-2.png).
+3. **Fotos verticais:** preservado enquadramento inteiro, com espaço neutro lateral em vez de cortar produtos. Evidência: [hortifrúti](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-1.png). Imagens verticais ficam menores; nova foto horizontal seria uma melhoria futura, sem bloquear uso das atuais.
+4. **Padaria:** faixa legível, fundo suavizado, aviso de reforma e indicação de que a segunda opção é um recorte. Evidência: [padaria](../../bom-pra-voce-novo/src/images/library/docs/fotos-setores/validacao/modal-390-4.png).
 5. **Fechar e navegar por teclado:** Escape fecha; foco retorna ao card; Tab fica dentro do modal. Controles possuem nomes acessíveis. Não foi feita auditoria completa com leitor de tela.
 
 Achado corrigido durante a revisão: ícones eram escolhidos pela posição da categoria e mostravam símbolos sem relação com seu conteúdo. Passaram a representar o setor. A grade não apresentou overflow horizontal em 320, 390, 768 ou 1440 px. No celular, cinco cards deixam um item na última linha; mantida largura consistente em vez de ampliar artificialmente a padaria.

@@ -59,7 +59,7 @@ Foi solicitada confirmação de endereço, horários, contato e pagamentos. Sem 
 - Contrastes calculados por luminância sRGB: texto `#22251d` sobre amarelo `#facc15` **10,15:1**; branco sobre `#22251d` **15,55:1**; secundário `#54594d` sobre `#faf9f4` **6,84:1**; foco `#245caa` sobre branco **6,59:1**; erro `#a21d1d` sobre branco **7,69:1**.
 - Não executados: leitura por tecnologia assistiva real, zoom de 200%, teste físico móvel, Lighthouse, integração remota, submissão de currículo real e publicação Cloudflare. Esses limites ficam explícitos.
 
-Evidências: [desktop de produção](evidencias-implementacao-2026-10-01/04-producao-desktop.png), [celular](evidencias-implementacao-2026-10-01/02-mobile.png), [currículo bloqueado](evidencias-implementacao-2026-10-01/03-curriculos-bloqueados.png), [FAQ](evidencias-implementacao-2026-10-01/05-faq-producao.png), [larguras verificadas](evidencias-implementacao-2026-10-01/responsividade.json) e [console](evidencias-implementacao-2026-10-01/console.json).
+Evidências: [desktop de produção](../bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/04-producao-desktop.png), [celular](../bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/02-mobile.png), [currículo bloqueado](../bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/03-curriculos-bloqueados.png), [FAQ](../bom-pra-voce-novo/src/images/library/docs/evidencias-implementacao-2026-10-01/05-faq-producao.png), [larguras verificadas](evidencias-implementacao-2026-10-01/responsividade.json) e [console](evidencias-implementacao-2026-10-01/console.json).
 
 ## Como executar e concluir a integração
 

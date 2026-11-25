@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-25",
+  "tool": "image_gen built-in",
+  "sourceDirectory": "C:/Users/anton/.codex/generated_images/01a17331-076c-7640-a538-453ecea92efe",
+  "themes": [
+    {
+      "id": "padrao",
+      "name": "Padrão Bom pra você",
+      "source": "exec-0137a6e6-1b61-4634-9401-87c1c07d827b.png",
+      "prompt": "Decorative purple #4913b8 and yellow #facc15 curled paper strips, two confetti marks, tactile paper texture; isolated transparent background. No text, logo, products or prices.",
+      "prompt_note": "Resumo do prompt original registrado na conversa."
+    },
+    {
+      "id": "verao",
+      "name": "Verão",
+      "source": "exec-8d004fc7-4a01-49c9-9cca-bd2779d5a486.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: A small golden yellow paper sun with five short rays and two flowing turquoise paper waves, purple accent. No beach scene."
+    },
+    {
+      "id": "volta-a-rotina",
+      "name": "Volta à rotina",
+      "source": "exec-e7d506a9-7125-43e3-9aed-648122757f9c.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Small layered cream graph-paper scraps, two yellow blank tabs and one purple paper curl. No writing or check marks."
+    },
+    {
+      "id": "carnaval",
+      "name": "Carnaval",
+      "source": "exec-12fc5eb5-1ce4-40a1-98a2-dbe34af0d1d8.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Three curling paper streamers purple yellow and magenta with a few tiny confetti pieces. Festive but compact."
+    },
+    {
+      "id": "volta-as-aulas",
+      "name": "Volta às aulas",
+      "source": "exec-1cb650de-78aa-4805-8e41-c320d6f076fe.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: A small blank cream notebook-paper corner with purple and yellow paper pencil silhouettes and a small blue tab. No writing."
+    },
+    {
+      "id": "consumidor",
+      "name": "Mês do consumidor",
+      "source": "exec-5b880eeb-3425-4938-a606-ab061bdd3f71.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Two overlapping blank cut-paper labels, purple and warm yellow, and a short folded purple ribbon. Absolutely no symbols or words."
+    },
+    {
+      "id": "pascoa",
+      "name": "Páscoa",
+      "source": "exec-43c96ad1-07c5-473e-99e3-44faf4e7fd4d.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Three small decorative paper eggs in lavender yellow and purple with minimal cream paper leaves. No food, chocolate, rabbit or product."
+    },
+    {
+      "id": "maes",
+      "name": "Dia das Mães",
+      "source": "exec-076ec7e0-2f22-4989-b9a1-4de3ce47f509.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Delicate small coral and lavender paper flowers with plum paper foliage and a warm yellow detail. No people or household objects."
+    },
+    {
+      "id": "festa-junina",
+      "name": "Festa junina",
+      "source": "exec-2aad66a8-c4bf-48ef-80a2-0e6ef019525c.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Short curved string of five purple yellow orange paper bunting flags, small kraft folded corner and restrained gingham ribbon. No text."
+    },
+    {
+      "id": "namorados",
+      "name": "Dia dos Namorados",
+      "source": "exec-bde0a66d-ced7-445e-8d7c-61ef6e770f79.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Elegant narrow burgundy ribbon loop and two small purple and warm yellow cut-paper hearts. No people."
+    },
+    {
+      "id": "ferias",
+      "name": "Férias",
+      "source": "exec-9ca260c8-3ff0-471d-9f0f-ce0851ab2565.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Playful folded purple yellow and soft blue paper shapes, tiny blank ticket-shaped paper scrap. No text, no objects or people."
+    },
+    {
+      "id": "inverno",
+      "name": "Inverno",
+      "source": "exec-923c92cc-196a-4df7-8b12-c61f898b74ce.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Small plum and amber layered paper folds with a cream tactile knitted fabric corner. Cozy abstract winter, no snow, snowflakes, food or cups."
+    },
+    {
+      "id": "pais",
+      "name": "Dia dos Pais",
+      "source": "exec-04f5dc4e-c666-4a91-8d88-8cc7d2f9b62f.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Elegant kraft folded paper strips, deep purple ribbon and restrained warm golden paper accent. Abstract celebratory, no tools, alcohol, ties or people."
+    },
+    {
+      "id": "primavera",
+      "name": "Primavera",
+      "source": "exec-b05c6a3f-1932-4a01-9859-0cf84bcb87ac.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Three small lavender and yellow cut-paper flowers with green paper leaves and one purple accent. Airy and light."
+    },
+    {
+      "id": "setembro-amarelo",
+      "name": "Setembro Amarelo",
+      "source": "exec-878c7b8d-376a-4280-b96e-3335417f3903.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: One small elegant yellow awareness ribbon made of folded matte paper, isolated, understated institutional tone. No confetti, no tags, no commercial symbols, no text."
+    },
+    {
+      "id": "criancas",
+      "name": "Dia das Crianças",
+      "source": "exec-92c7c3a1-f0f8-4e64-9ebe-e048ca695e97.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Rounded purple yellow and sky blue paper shapes with three small paper stars. Friendly restrained composition directed to families, no mascots, toys, people or products."
+    },
+    {
+      "id": "outubro-rosa",
+      "name": "Outubro Rosa",
+      "source": "exec-5902c846-b951-4776-945c-ae1e4c06fad5.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: One small elegant soft pink awareness ribbon made of folded matte paper, isolated, understated institutional tone. No confetti, no tags, no commercial symbols, no text."
+    },
+    {
+      "id": "black-friday",
+      "name": "Black Friday",
+      "source": "exec-c848e036-b949-468e-b6f7-35b5b4cddf2c.png",
+      "prompt": "Minimal angular folded-paper corner, near-black plum #21102e and yellow #facc15, isolated transparent background. No text, logo, products or prices.",
+      "prompt_note": "Resumo do prompt original registrado na conversa."
+    },
+    {
+      "id": "natal",
+      "name": "Natal",
+      "source": "exec-48b262cd-3ff2-4798-809f-ef6af0285918.png",
+      "prompt": "Christmas decorative corner: evergreen sprigs, burgundy ribbon, two golden ornaments and purple paper accent. Transparent background; no text, logo, products or prices.",
+      "prompt_note": "Resumo do prompt original registrado na conversa."
+    },
+    {
+      "id": "ano-novo",
+      "name": "Ano-Novo",
+      "source": "exec-8ccb179b-d90a-412d-b8fe-44a85ef357ef.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Three small golden yellow cut-paper stars with narrow white and purple curled paper ribbons. Elegant festive, no fireworks, dates, alcohol or clocks."
+    },
+    {
+      "id": "aniversario-loja",
+      "name": "Aniversário da loja",
+      "source": "exec-79b6ed74-6ed5-468c-8858-32de86faa307.png",
+      "prompt": "Use case: ads-marketing. Create ONE isolated decorative corner asset for the Bom pra você supermarket seasonal theme. True transparent alpha background, no checkerboard. Cohesive premium cut-paper/papercraft style, tactile matte paper texture, restrained realistic soft shadows. Compact asymmetric diagonal grouping contained in central 75 percent of a square canvas with transparent padding on ALL sides; no element cut off. Must remain clear at 120px display. Brand purple #4913b8 and warm yellow #facc15 with theme-specific accents. No words, letters, numbers, logo, watermark, price, discount, product, packaging, full page, frame or banner. Decoration only, to place outside content in a responsive grid or Story. Subject: Two small paper-crafted balloons in purple and yellow with short curling paper ribbons. Compact celebratory silhouette, no age numbers, text or people."
+    }
+  ]
+}

@@ -1,36 +1,47 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Search, X } from "lucide-react";
+import { BadgePercent, CircleHelp, CreditCard, Info, MapPin, Menu, ShoppingCart, Store, UsersRound, X } from "lucide-react";
 import Logo from "../Logo/Logo";
 import { navigation } from "../../Data/navigation";
+import LogoImage from "../../images/logo_bom_pra_voce_vetorizada.svg";
+import GroceryBasketImage from "../../images/navigation/mobile-menu-grocery-basket.png";
 import "./NavBar.css";
 
-const searchItems = [
-  ...navigation,
-  { href: "/#pagamentos", label: "Pagamentos" },
-];
+const headerNavigation = navigation
+  .filter(item => item.href !== "/#home")
+  .sort((first, second) => {
+    const order = ["/#promocoes", "/#sobre", "/#duvidas", "/nossa-loja", "/trabalhe-conosco", "/formas-de-pagamento"];
+    return order.indexOf(first.href) - order.indexOf(second.href);
+  });
+const HEADER_SCROLL_ENTER = 48;
+const HEADER_SCROLL_EXIT = 12;
+const quickAccessIcons = {
+  "/#promocoes": BadgePercent,
+  "/#sobre": Info,
+  "/#duvidas": CircleHelp,
+  "/nossa-loja": Store,
+  "/trabalhe-conosco": UsersRound,
+  "/formas-de-pagamento": CreditCard,
+};
 
-function normalizeSearch(value) {
-  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+export function resolveHeaderScrolled(scrollY, wasScrolled) {
+  return wasScrolled
+    ? scrollY > HEADER_SCROLL_EXIT
+    : scrollY > HEADER_SCROLL_ENTER;
 }
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 24);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > HEADER_SCROLL_ENTER);
   const [activeSection, setActiveSection] = useState(() => window.location.hash.slice(1) || "home");
-  const [query, setQuery] = useState("");
   const header = useRef(null);
   const menuButton = useRef(null);
-  const searchButton = useRef(null);
   const location = useLocation();
-  const normalizedQuery = normalizeSearch(query.trim());
-  const results = searchItems.filter(item =>
-    normalizeSearch(item.label).includes(normalizedQuery)
-  );
 
   useEffect(() => {
-    const updateHeader = () => setScrolled(window.scrollY > 24);
+    const updateHeader = () => {
+      setScrolled(current => resolveHeaderScrolled(window.scrollY, current));
+    };
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
     return () => window.removeEventListener("scroll", updateHeader);
@@ -38,7 +49,7 @@ export default function NavBar() {
 
   useEffect(() => {
     if (location.pathname !== "/") return undefined;
-    const ids = navigation.map(item => item.href.split("#")[1]);
+    const ids = headerNavigation.map(item => item.href.split("#")[1]);
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
     const updateActiveSection = () => {
       // Considera a seção ativa quando seu início alcança a área principal
@@ -61,7 +72,6 @@ export default function NavBar() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setSearchOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -73,22 +83,41 @@ export default function NavBar() {
     return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   function closeOnEscape(event) {
     if (event.key !== "Escape") return;
-    if (searchOpen) {
-      setSearchOpen(false);
-      searchButton.current?.focus();
-    } else if (menuOpen) {
+    if (menuOpen) {
       setMenuOpen(false);
       menuButton.current?.focus();
     }
   }
 
+  function isItemActive(item) {
+    const [itemPath, itemHash] = item.href.split("#");
+    if (itemHash) {
+      return location.pathname === itemPath && activeSection === itemHash;
+    }
+    return location.pathname === itemPath;
+  }
+
   return (
-    <header ref={header} className={scrolled ? "site-header is-scrolled" : "site-header"} onKeyDown={closeOnEscape}>
+    <header
+      ref={header}
+      className={`${scrolled ? "site-header is-scrolled" : "site-header"}${menuOpen ? " has-open-menu" : ""}`}
+      onKeyDown={closeOnEscape}
+    >
       <div className="shell header-row">
         <Link to="/#home" className="brand-link" aria-label="Bom Pra Você — início">
           <Logo />
+          <ShoppingCart className="brand-cart-mark" aria-hidden="true" />
         </Link>
 
         <button
@@ -97,11 +126,10 @@ export default function NavBar() {
           className="menu-toggle"
           aria-expanded={menuOpen}
           aria-controls="main-navigation"
-          aria-label="Menu"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setMenuOpen(value => !value)}
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          <span>{menuOpen ? "Fechar" : "Menu"}</span>
         </button>
 
         <nav
@@ -109,60 +137,51 @@ export default function NavBar() {
           aria-label="Principal"
           className={menuOpen ? "site-nav is-open" : "site-nav"}
         >
-          {navigation.map(item => (
-            <Link
-              key={item.href}
-              to={item.href}
-              aria-current={
-                (location.pathname === "/" && activeSection === item.href.split("#")[1]) ||
-                (location.pathname === "/trabalhe-conosco" && item.href === "/#trabalhe-conosco")
-                  ? "location"
-                  : undefined
-              }
-              onClick={() => setMenuOpen(false)}
+          <p className="quick-access-title">Acesso rápido</p>
+          <div className="quick-access-grid">
+            {headerNavigation.map(item => {
+              const Icon = quickAccessIcons[item.href] || MapPin;
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  aria-current={isItemActive(item) ? "location" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <Icon aria-hidden="true" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mobile-menu-detail" aria-hidden="true">
+            <ShoppingCart className="mobile-menu-detail__cart" />
+            <svg
+              className="mobile-menu-detail__ribbon"
+              viewBox="0 0 360 170"
+              fill="none"
+              preserveAspectRatio="none"
+              focusable="false"
             >
-              {item.label}
-            </Link>
-          ))}
-          <button
-            ref={searchButton}
-            className="nav-search"
-            type="button"
-            aria-label={searchOpen ? "Fechar busca" : "Buscar no site"}
-            aria-expanded={searchOpen}
-            aria-controls="site-search"
-            onClick={() => setSearchOpen(value => !value)}
-          >
-            {searchOpen ? <X aria-hidden="true" /> : <Search aria-hidden="true" />}
-          </button>
+              <path
+                className="mobile-menu-detail__ribbon-outline"
+                d="M12 95C38 79 61 78 84 91C107 105 126 113 161 111C210 108 256 82 341 77C351 77 355 86 350 96C341 112 323 121 299 123C270 125 238 119 208 116C173 112 142 114 115 125C86 136 57 137 33 127C17 120 9 108 12 95ZM163 109C143 91 139 71 151 61C163 51 178 66 183 99C184 71 196 52 210 59C226 67 211 91 187 109M180 112C168 126 163 142 166 158M185 112C198 129 204 143 202 158"
+              />
+              <path
+                className="mobile-menu-detail__ribbon-line"
+                d="M12 95C38 79 61 78 84 91C107 105 126 113 161 111C210 108 256 82 341 77C351 77 355 86 350 96C341 112 323 121 299 123C270 125 238 119 208 116C173 112 142 114 115 125C86 136 57 137 33 127C17 120 9 108 12 95ZM163 109C143 91 139 71 151 61C163 51 178 66 183 99C184 71 196 52 210 59C226 67 211 91 187 109M180 112C168 126 163 142 166 158M185 112C198 129 204 143 202 158"
+              />
+            </svg>
+            <span className="mobile-menu-detail__basket">
+              <img className="mobile-menu-detail__basket-image" src={GroceryBasketImage} alt="" />
+              <span className="mobile-menu-detail__brand-badge">
+                <img src={LogoImage} alt="" />
+              </span>
+            </span>
+          </div>
         </nav>
       </div>
 
-      {searchOpen && (
-        <div id="site-search" className="site-search">
-          <label htmlFor="site-search-input">O que você procura?</label>
-          <div className="site-search-field">
-            <Search aria-hidden="true" />
-            <input
-              autoFocus
-              id="site-search-input"
-              type="search"
-              value={query}
-              onChange={event => setQuery(event.target.value)}
-              placeholder="Ofertas, horários, pagamentos…"
-            />
-          </div>
-          <ul aria-label={normalizedQuery ? "Resultados da busca" : "Atalhos sugeridos"}>
-            {results.map(item => (
-              <li key={item.href}>
-                <Link to={item.href} onClick={() => setSearchOpen(false)}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-          {normalizedQuery && results.length === 0 && <p className="site-search-empty">Nenhuma seção encontrada.</p>}
-          <p className="small">Para produtos e preços, consulte as ofertas.</p>
-        </div>
-      )}
     </header>
   );
 }

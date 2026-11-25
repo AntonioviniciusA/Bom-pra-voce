@@ -1,0 +1,104 @@
+{
+  "id": "volta-as-aulas",
+  "name": "Volta às aulas",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1072632,
+      "sha256": "9736730c27e70573ed3adb81adede40b0e48e77c516040c887ab138b88337f26",
+      "alpha": true,
+      "transparentFraction": 0.6544
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 7076,
+      "sha256": "eb7cd171f1bbeb7ea034bd5c2cc997d3cc1581673c99fb5b6475eefc7add7ae4",
+      "alpha": true,
+      "transparentFraction": 0.6352
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12668,
+      "sha256": "ab2a456cdf2260a9c5c93271dd4fec40ce12e635956836c3264f1fb04d998bb4",
+      "alpha": true,
+      "transparentFraction": 0.6449
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 30962,
+      "sha256": "af8180a8e6e4d3683ed1b0e60c60329998a9a2dd40983e052e8eb3317f6660ba",
+      "alpha": true,
+      "transparentFraction": 0.6535
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/volta-as-aulas/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 43042,
+      "sha256": "a290b69af4825b0664d301a4e252215a0737b604b64324c6acdb33a621e132d0",
+      "alpha": true,
+      "transparentFraction": 0.6543
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

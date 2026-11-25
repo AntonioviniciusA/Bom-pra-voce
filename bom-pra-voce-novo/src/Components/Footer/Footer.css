@@ -1,0 +1,74 @@
+.site-footer.footer-reference {
+  background: #ffe500;
+  color: #000;
+  padding-top: 36px;
+  border-radius: 0;
+  position: relative;
+  isolation: isolate;
+}
+.site-footer.footer-reference::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #ffd400;
+  clip-path: polygon(0 62%, 30% 80%, 74% 80%, 100% 62%, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.site-footer.footer-reference .shell { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.site-footer.footer-reference .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1.3fr 1.4fr; gap: 0; }
+.site-footer.footer-reference .footer-grid > * { min-width: 0; padding: 0 32px; }
+.site-footer.footer-reference .footer-grid > :first-child { padding-left: 0; }
+.site-footer.footer-reference .footer-grid > :last-child { padding-right: 0; }
+.site-footer.footer-reference .footer-grid > * + * { border-left: 1px solid #877800; }
+.site-footer.footer-reference p { color: #000; }
+.site-footer.footer-reference a { color: inherit; }
+.site-footer.footer-reference .brand-logo { width: 270px; max-width: 100%; height: auto; margin: 12px 0 18px; }
+.site-footer.footer-reference .footer-intro p { margin: 0; line-height: 1.4; font-size: 16px; }
+.site-footer.footer-reference .footer-cart { width: 100px; height: 76px; margin-top: 26px; color: #000; }
+.site-footer.footer-reference .footer-grid h2 { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; margin: 0 0 14px; padding: 5px 18px; border-radius: 999px; background: #000; color: #fff; font-size: 17px; font-weight: 750; line-height: 1.2; letter-spacing: 0; }
+.site-footer.footer-reference .footer-grid h2 svg { width: 24px; height: 24px; flex: 0 0 24px; color: #fff; }
+.site-footer.footer-reference nav a { padding: 2px 0; line-height: 1.4; font-weight: 750; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #968500; }
+.site-footer.footer-reference .footer-careers p { margin: 0 0 8px; line-height: 1.4; }
+.site-footer.footer-reference .footer-careers > a { display: inline-block; margin-bottom: 8px; }
+.site-footer.footer-reference .footer-careers a { font-weight: 750; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #968500; }
+.site-footer.footer-reference .privacy-settings { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; margin-top: 22px; padding: 6px 10px; border: 2px solid #000; border-radius: 10px; background: transparent; color: #000; font-size: 13px; font-weight: 750; text-decoration: none; cursor: pointer; }
+.site-footer.footer-reference .privacy-settings svg { width: 28px; height: 28px; flex-shrink: 0; }
+.site-footer.footer-reference .privacy-settings:hover { background: #fff3a0; }
+.site-footer.footer-reference .footer-visit p { display: flex; gap: 12px; align-items: flex-start; margin: 0 0 12px; line-height: 1.3; }
+.site-footer.footer-reference .footer-visit p svg { width: 28px; height: 28px; flex: 0 0 28px; color: #000; }
+.site-footer.footer-reference .footer-visit .footer-holiday { display: block; padding-left: 40px; font-size: 12px; }
+.site-footer.footer-reference .footer-legal { margin-top: 36px; background: #000; color: #fff; }
+.site-footer.footer-reference .footer-bottom { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 28px; margin-top: 0; padding-block: 24px; border: 0; }
+.site-footer.footer-reference .footer-copyright { flex-shrink: 0; margin: 0; color: #fff; font-size: 13px; font-weight: 750; }
+.site-footer.footer-reference .footer-contact { display: flex; position: relative; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; margin: 0; padding: 0 0 0 58px; border: 0; border-left: 1px solid #ffe500; }
+.site-footer.footer-reference .footer-contact h2, .site-footer.footer-reference .footer-company dt { margin: 0 0 4px; color: #ffe500; font-size: 12px; font-weight: 750; text-transform: uppercase; letter-spacing: 0; }
+.site-footer.footer-reference .footer-contact a { display: flex; align-items: center; gap: 8px; margin: 0; color: #fff; font-size: 13px; overflow-wrap: anywhere; }
+.site-footer.footer-reference .footer-contact svg { position: absolute; left: 24px; width: 24px; height: 24px; color: #ffe500; }
+.site-footer.footer-reference .footer-company { display: flex; flex: 1; flex-wrap: nowrap; justify-content: space-between; gap: 28px; margin: 0; }
+.site-footer.footer-reference .footer-company > div { padding-left: 28px; border-left: 1px solid #ffe500; }
+.site-footer.footer-reference .footer-company dd { margin: 0; color: #fff; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.site-footer.footer-reference .footer-grid :focus-visible { outline-color: #000; }
+@media (max-width: 1100px) {
+  .site-footer.footer-reference .footer-grid > * { padding-inline: 20px; }
+  .site-footer.footer-reference .footer-bottom { flex-wrap: wrap; justify-content: flex-start; }
+  .site-footer.footer-reference .footer-company { flex-basis: 100%; justify-content: flex-start; }
+  .site-footer.footer-reference .footer-company > :first-child { border: 0; padding-left: 0; }
+}
+@media (max-width: 900px) {
+  .site-footer.footer-reference .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
+  .site-footer.footer-reference .footer-grid > :nth-child(odd) { border-left: 0; padding-left: 0; }
+  .site-footer.footer-reference .footer-grid > :nth-child(even) { padding-right: 0; }
+}
+@media (max-width: 560px) {
+  .site-footer.footer-reference .shell { width: calc(100% - 40px); }
+  .site-footer.footer-reference .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .site-footer.footer-reference .footer-grid > * { padding: 0; border-left: 0; }
+  .site-footer.footer-reference .footer-grid > * + * { border-left: 0; border-top: 1px solid #877800; padding-top: 24px; }
+  .site-footer.footer-reference .footer-cart { margin-top: 16px; }
+  .site-footer.footer-reference .privacy-settings { width: fit-content; }
+  .site-footer.footer-reference .footer-bottom, .site-footer.footer-reference .footer-company { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .site-footer.footer-reference .footer-contact { border-left: 0; padding-left: 36px; }
+  .site-footer.footer-reference .footer-contact svg { left: 0; }
+  .site-footer.footer-reference .footer-company > div { padding-left: 0; border-left: 0; }
+}

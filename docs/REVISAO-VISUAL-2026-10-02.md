@@ -25,6 +25,6 @@ Permanecem as pendências de dados comerciais, backend e privacidade registradas
 - Conferidas larguras de 360, 390, 768, 1024 e 1440 pixels, sem transbordamento horizontal na versão final. A conferência inicial identificou excesso de largura em 360 pixels, corrigido antes da entrega.
 - Menu móvel abre, navega até Pagamentos, fecha e transfere o foco para a seção. Console observado sem erros ou avisos da página.
 - Ferramentas de build ainda avisam sobre a base Browserslist antiga e depreciação de fs.F_OK; não impediram a compilação.
-- Evidências: [desktop](evidencias-revisao-visual-2026-10-03/desktop.png), [celular](evidencias-revisao-visual-2026-10-03/mobile.png), [larguras](evidencias-revisao-visual-2026-10-03/responsividade.json) e [console](evidencias-revisao-visual-2026-10-03/console.json). Capturas de página inteira podem não incluir imagens com carregamento adiado ainda fora da área visitada.
+- Evidências: [desktop](../bom-pra-voce-novo/src/images/library/docs/evidencias-revisao-visual-2026-10-03/desktop.png), [celular](../bom-pra-voce-novo/src/images/library/docs/evidencias-revisao-visual-2026-10-03/mobile.png), [larguras](evidencias-revisao-visual-2026-10-03/responsividade.json) e [console](evidencias-revisao-visual-2026-10-03/console.json). Capturas de página inteira podem não incluir imagens com carregamento adiado ainda fora da área visitada.
 
 Prévia local em http://127.0.0.1:4173/. Esta validação confirma a apresentação local; não representa publicação ou operação do recebimento de currículos.

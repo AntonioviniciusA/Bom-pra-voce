@@ -1,5 +1,8 @@
+import {prepareCampaignImages} from './productImages';
 import { createClient } from "@supabase/supabase-js";
 import { apiConfig, AdminApiError } from "./config";
+import {logPanelError} from './diagnostics';
+import {validateProductCampaign} from '../../../supabase/functions/_shared/productCampaign.ts';
 
 let client;
 function supabase() {
@@ -11,17 +14,26 @@ function supabase() {
   return client;
 }
 
-function authError(error, fallback) {
-  if (error?.name === "AuthRetryableFetchError" || (error?.status === 0 && error?.message === "Failed to fetch")) {
-    return new AdminApiError("NETWORK", "Não foi possível conectar ao Supabase. Verifique a conexão com a internet e tente entrar novamente.");
+function authError(error, fallback, operation='auth') {
+  let mapped;
+  if (error?.status >= 500) {
+    mapped = new AdminApiError("SERVER", "O servidor de autenticação falhou ao concluir o acesso. Aguarde um momento e tente novamente.", error.status);
+  } else if (error?.name === "AuthRetryableFetchError" || (error?.status === 0 && error?.message === "Failed to fetch")) {
+    mapped = new AdminApiError("NETWORK", "A conexão com a autenticação falhou. Confira sua internet e tente novamente.");
+  } else if (error?.code === 'invalid_credentials') {
+    mapped = new AdminApiError("AUTH", "E-mail ou senha incorretos. Confira os dados e tente novamente.", error.status || 0);
   }
   const messages = {
     mfa_totp_enroll_not_enabled: "A ativação por autenticador está desabilitada no projeto Supabase. Habilite TOTP nas configurações de autenticação.",
     mfa_verification_failed: "Código inválido ou expirado. Verifique o horário automático do celular e use o código atual.",
     mfa_factor_name_conflict: "Já existe um autenticador com esse nome. Saia e entre novamente para atualizar a lista.",
   };
-  if (messages[error?.code]) return new AdminApiError("AUTH", messages[error.code], error.status || 0);
-  return new AdminApiError("AUTH", error?.message || fallback, error?.status || 0);
+  if (!mapped && messages[error?.code]) mapped = new AdminApiError("AUTH", messages[error.code], error.status || 0);
+  if (!mapped) mapped = new AdminApiError("AUTH", fallback, error?.status || 0);
+  mapped.remoteCode = error?.code;
+  mapped.cause = error;
+  logPanelError(operation,mapped);
+  return mapped;
 }
 
 async function mfaState() {
@@ -29,8 +41,8 @@ async function mfaState() {
   const [{ data: assurance, error: assuranceError }, { data: factors, error: factorsError }] = await Promise.all([
     auth.mfa.getAuthenticatorAssuranceLevel(), auth.mfa.listFactors()
   ]);
-  if (assuranceError) throw authError(assuranceError, "Não foi possível verificar o segundo fator.");
-  if (factorsError) throw authError(factorsError, "Não foi possível listar os autenticadores.");
+  if (assuranceError) throw authError(assuranceError, "Não foi possível verificar o segundo fator.", 'mfa-assurance');
+  if (factorsError) throw authError(factorsError, "Não foi possível listar os autenticadores.", 'mfa-factors');
   const verifiedFactors = (factors?.totp || []).filter(factor => factor.status === "verified");
   if (assurance?.currentLevel === "aal2") return { step: "ready", factors: verifiedFactors };
   return { step: verifiedFactors.length ? "challenge" : "enroll", factors: verifiedFactors };
@@ -38,28 +50,28 @@ async function mfaState() {
 
 export async function getAuthState() {
   const { data, error } = await supabase().auth.getSession();
-  if (error) throw authError(error, "Não foi possível recuperar a sessão.");
+  if (error) throw authError(error, "Não foi possível recuperar a sessão.", 'session-restore');
   if (!data.session) return { step: "login", factors: [] };
   return mfaState();
 }
 
 export async function clearAdminToken() {
   const { error } = await supabase().auth.signOut({ scope: "local" });
-  if (error) throw authError(error, "Não foi possível sair.");
+  if (error) throw authError(error, "Não foi possível sair.", 'sign-out');
 }
 
 export async function enrollMfa() {
   // Remove only abandoned enrollments created by this panel, never verified factors.
   const { data: factors, error: listError } = await supabase().auth.mfa.listFactors();
-  if (listError) throw authError(listError, "Não foi possível consultar os autenticadores.");
+  if (listError) throw authError(listError, "Não foi possível consultar os autenticadores.", 'mfa-factors');
   for (const factor of factors.all || []) {
     if (factor.factor_type === "totp" && factor.status === "unverified" && factor.friendly_name === "Painel local Bom Pra Você") {
       const { error } = await supabase().auth.mfa.unenroll({ factorId: factor.id });
-      if (error) throw authError(error, "Não foi possível reiniciar a configuração pendente.");
+      if (error) throw authError(error, "Não foi possível reiniciar a configuração pendente.", 'mfa-unenroll');
     }
   }
   const { data, error } = await supabase().auth.mfa.enroll({ factorType: "totp", friendlyName: "Painel local Bom Pra Você" });
-  if (error) throw authError(error, "Não foi possível iniciar a ativação do segundo fator.");
+  if (error) throw authError(error, "Não foi possível iniciar a ativação do segundo fator.", 'mfa-enroll');
   const qr = data.totp.qr_code;
   const svg = qr.includes("<svg") ? qr.slice(qr.indexOf("<svg")) : null;
   return { factorId: data.id, qrCode: svg ? `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}` : qr, secret: data.totp.secret };
@@ -67,38 +79,139 @@ export async function enrollMfa() {
 
 export async function verifyMfa(factorId, code) {
   const { error } = await supabase().auth.mfa.challengeAndVerify({ factorId, code });
-  if (error) throw authError(error, "Código inválido ou expirado.");
+  if (error) throw authError(error, "Código inválido ou expirado.", 'mfa-verify');
   const state = await mfaState();
   if (state.step !== "ready") throw new AdminApiError("AUTH", "O segundo fator não elevou a sessão para AAL2.");
   return state;
 }
 
+export async function authorizeAssistant(code) {
+  const auth = supabase().auth;
+  const { data: factors, error: factorsError } = await auth.mfa.listFactors();
+  if (factorsError) throw authError(factorsError, "Não foi possível consultar o autenticador.", "assistant-mfa-factors");
+  const factor = (factors?.totp || []).find((item) => item.status === "verified");
+  if (!factor) throw new AdminApiError("AUTH", "Configure o autenticador do celular antes de ativar o modo assistido.");
+  const { error } = await auth.mfa.challengeAndVerify({ factorId: factor.id, code });
+  if (error) throw authError(error, "Código inválido ou expirado.", "assistant-mfa-verify");
+  const { data, error: sessionError } = await auth.getSession();
+  if (sessionError || !data.session?.access_token) throw authError(sessionError, "Não foi possível confirmar a sessão protegida.", "assistant-session");
+  return data.session.access_token;
+}
+
 async function request(path, options = {}) {
+  const {onSending,...fetchOptions}=options;
   const config = apiConfig();
   if (!config.ready) throw new AdminApiError("UNAVAILABLE", "Configure a conexão do Supabase para usar o painel.");
   const { data, error } = await supabase().auth.getSession();
-  if (error || !data.session?.access_token) throw new AdminApiError("AUTH", "Sua sessão expirou. Entre novamente.");
-  const response = await fetch(`${config.url}${path}`, {
-    ...options,
-    headers: { apikey: config.key, Authorization: `Bearer ${data.session.access_token}`, ...options.headers },
-  });
+  if (error || !data.session?.access_token) {const problem=new AdminApiError("AUTH", "Sua sessão expirou. Entre novamente.");logPanelError('session-required',problem);throw problem;}
+  let response;
+  try { onSending?.();response = await fetch(`${config.url}${path}`, {
+    ...fetchOptions,
+    headers: { apikey: config.key, Authorization: `Bearer ${data.session.access_token}`, ...fetchOptions.headers },
+  }); } catch (cause) {if(fetchOptions.signal?.aborted)throw fetchOptions.signal.reason;const problem=new AdminApiError('NETWORK','Não foi possível conectar ao serviço. Confira a internet e tente novamente.');problem.cause=cause;logPanelError('api-request',problem);throw problem;}
   if (!response.ok) {
     let message = "Não foi possível concluir a operação.";
-    try { message = (await response.json())?.message || message; } catch {}
-    throw new AdminApiError(response.status === 401 ? "AUTH" : "REQUEST", message, response.status);
+    let remoteCode;
+    try { const body=await response.json();message=body?.message || message;remoteCode=body?.code || body?.error; } catch {}
+    const guidance={401:'Sua sessão expirou. Entre novamente.',403:'Sua conta não tem permissão para esta operação.',409:'Os dados mudaram no servidor. Confira o estado atual antes de tentar novamente.',429:'Muitas tentativas em pouco tempo. Aguarde e tente novamente.'};
+    const friendly=response.status>=500?'O serviço falhou. Tente novamente em instantes.':guidance[response.status]||message;
+    const problem=new AdminApiError(response.status === 401 ? "AUTH" : "REQUEST", friendly, response.status);
+    problem.remoteCode=remoteCode;problem.requestId=response.headers?.get?.('x-request-id')||undefined;
+    logPanelError('api-request',problem);throw problem;
   }
   return response;
 }
 
+// Include response-body consumption in the deadline: HTTP 200 headers alone
+// do not confirm that a campaign revision was received by the panel.
+async function requestJson(path, options) {
+  const controller = new AbortController();
+  let timer;
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      const error = new AdminApiError('TIMEOUT', 'O serviço não concluiu a resposta em 60 segundos. Confira o estado no site antes de tentar novamente.');
+      reject(error);
+      controller.abort(error);
+    }, 60000);
+  });
+  try {
+    return await Promise.race([
+      request(path, {...options, signal: controller.signal}).then(response => response.json()),
+      deadline,
+    ]);
+  } finally { clearTimeout(timer); }
+}
+
+const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;
+const publicCampaignSnapshot=snapshot=>{
+ const {id:_id,revision:_revision,state:_state,...campaign}=snapshot||{};
+ return canonical({...campaign,items:(campaign.items||[]).map(item=>({...item,product:Object.fromEntries(Object.entries(item.product||{}).filter(([key])=>!['imageSource','imageAuthorized','imageApproved','noGtinReason'].includes(key)))}))});
+};
+export const samePublishedCampaign=(left,right)=>Boolean(left&&right)&&JSON.stringify(publicCampaignSnapshot(left))===JSON.stringify(publicCampaignSnapshot(right));
+
+export async function productCampaignRequest(action, campaign, expectedRevision=0, onProgress, remoteSnapshot) {
+  if(action==='publish'){
+    onProgress?.('Validando a lista final de produtos…',8);
+    try{campaign={id:campaign.id,...validateProductCampaign(campaign,apiConfig().url)};}
+    catch(cause){const problem=new AdminApiError('INVALID_LOCAL_CAMPAIGN',cause?.message||'A lista final contém dados incompatíveis com a publicação.');problem.cause=cause;throw problem;}
+    campaign=await prepareCampaignImages(campaign,async payload=>{
+    const binary=payload instanceof Blob;
+    return requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
+    },onProgress);
+    if(samePublishedCampaign(campaign,remoteSnapshot)){
+      onProgress?.('Nenhuma alteração pública para enviar.',100);
+      return {id:campaign.id,revision:expectedRevision,state:'published',unchanged:true};
+    }
+  }
+  if(action==='publish')onProgress?.('Montando os dados da campanha…',82);
+  let body;
+  try{body=JSON.stringify({action,campaign_id:campaign?.id,expected_revision:expectedRevision,campaign});}
+  catch(cause){const problem=new AdminApiError('INVALID_LOCAL_PAYLOAD','O painel não conseguiu preparar os dados da campanha. Feche e abra o painel antes de tentar novamente.');problem.cause=cause;throw problem;}
+  const result=await requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body,onSending:action==='publish'?()=>onProgress?.('Pedido enviado. Aguardando confirmação do site…',90):undefined});
+  if(action==='publish'){
+    if(result?.id!==campaign.id || result?.state!=='published' || !Number.isSafeInteger(result?.revision) || result.revision<=expectedRevision)
+      throw new AdminApiError('INVALID_PUBLICATION_RESPONSE','O serviço respondeu, mas não confirmou a revisão da campanha. Confira o estado no site antes de tentar novamente.');
+    onProgress?.('Publicação confirmada pelo site.',100);
+  }
+  return result;
+}
+
+export function changedProductFields(base={},product={}){
+  const patch={revision:product.revision};
+  const localImageMetadata=new Set(['imageWidth','imageHeight','imageOptimizationVersion']);
+  for(const key of new Set([...Object.keys(base),...Object.keys(product)])){
+    if(['id','revision','remoteRevision'].includes(key)||localImageMetadata.has(key))continue;
+    if(JSON.stringify(base[key])!==JSON.stringify(product[key]))patch[key]=product[key];
+  }
+  return patch;
+}
+
+export async function productCatalogRequest(action, product, expectedRevision=0, onProgress, baseProduct) {
+  if(action==='product_list'){
+    const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action})});
+    return response.json();
+  }
+  let patch=action==='product_patch'?changedProductFields(baseProduct,product):null;
+  const needsImageUpload=action!=='product_patch'||typeof patch.image==='string'&&patch.image.startsWith('data:');
+  const prepared=needsImageUpload?await prepareCampaignImages({items:[{id:product.id,priceCents:1,unit:'un',expiresOn:'2099-12-31',product}]},async payload=>{
+    const binary=payload instanceof Blob;
+    return requestJson('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':binary?payload.type:'application/json'},body:binary?payload:JSON.stringify(payload)});
+  },onProgress):null;
+  if(action==='product_patch'&&prepared)patch={...patch,image:prepared.items[0].product.image,imageSmall:prepared.items[0].product.imageSmall};
+  const body=action==='product_patch'?{action,campaign_id:product.id,expected_revision:expectedRevision,patch}:{action:'product_save',campaign_id:product.id,expected_revision:expectedRevision,product:prepared.items[0].product};
+  const response=await request('/functions/v1/product-showcase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  return response.json();
+}
+
 export async function signIn(email, password) {
   const { data, error } = await supabase().auth.signInWithPassword({ email, password });
-  if (error || !data.session) throw authError(error, "E-mail ou senha inválidos.");
+  if (error || !data.session) throw authError(error, "Não foi possível iniciar a sessão.", 'sign-in');
   return mfaState();
 }
 
 export async function updatePassword(password) {
   const { data, error } = await supabase().auth.updateUser({ password });
-  if (error) throw authError(error, "Não foi possível trocar a senha.");
+  if (error) throw authError(error, "Não foi possível trocar a senha.", 'password-update');
   return data;
 }
 

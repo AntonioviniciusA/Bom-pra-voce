@@ -1,0 +1,104 @@
+{
+  "id": "namorados",
+  "name": "Dia dos Namorados",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 713140,
+      "sha256": "cfa792ab57a7a978a7dcc30e7822c1fc9ab63ec8e40accd3e653960784576527",
+      "alpha": true,
+      "transparentFraction": 0.8159
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 6002,
+      "sha256": "ccd90a9bb126b8839a909e08c28cdde621c5329d370ad787c97cf00f0eac31ae",
+      "alpha": true,
+      "transparentFraction": 0.7847
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10664,
+      "sha256": "b9439764e781199e01fcfe3584399fa191d0b442095116dc91f85529d25fc94d",
+      "alpha": true,
+      "transparentFraction": 0.7986
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 25302,
+      "sha256": "7e15f9f543396e7658b8a21f04a58134a61a88d5e95038b95007d39b7c148e4a",
+      "alpha": true,
+      "transparentFraction": 0.812
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/namorados/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 35476,
+      "sha256": "3a5e99f035e1cb1acbafd0e13e803193665dc9d6ca581d0136c9fa581ab286fb",
+      "alpha": true,
+      "transparentFraction": 0.8139
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

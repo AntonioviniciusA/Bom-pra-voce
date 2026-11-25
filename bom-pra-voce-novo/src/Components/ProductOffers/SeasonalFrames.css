@@ -1,0 +1,78 @@
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__theme-art{display:none}
+.product-offers[data-theme="black-friday"]{--season-frame:url('../../images/offer-themes/black-friday/black-friday-papel-v2.webp')}
+.product-offers[data-theme="natal"]{--season-frame:url('../../images/offer-themes/natal/natal-papel-v2.webp')}
+.product-offers[data-theme="ano-novo"]{--season-frame:url('../../images/offer-themes/ano-novo/ano-novo-papel-v2.webp')}
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__heading{background:#230078 var(--season-frame) center/cover no-repeat}
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__footer{background:#230078 var(--season-frame) center/cover no-repeat;color:white;min-height:130px}
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__invitation strong{color:#fff000}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2{color:white;text-shadow:2px 2px #4800bd;font-size:58px}
+.season-title-lead{display:block;font-size:.63em;line-height:.95}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2 em{color:#fff000;white-space:nowrap}
+.product-offers[data-theme="natal"] .product-offers__headline h2{font-family:Georgia,serif;font-size:58px;color:#fff8dd;text-shadow:2px 3px #a73300;line-height:1.05}
+.product-offers[data-theme="natal"] .product-offers__headline h2 em{color:#ffdc45}
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"]) .product-offers__headline p{position:relative;isolation:isolate;display:table;color:white;padding:6px 20px;font-size:24px}
+.product-offers:is([data-theme="black-friday"],[data-theme="natal"]) .product-offers__headline p:before{content:"";position:absolute;inset:0;z-index:-1;background:url('../../images/offer-themes/compartilhados/data-pincel-rosa-v2.webp') center/100% 100% no-repeat;filter:hue-rotate(290deg)}
+.product-offers[data-theme="natal"] .product-offers__headline p:before{filter:hue-rotate(35deg)}
+.product-offers[data-theme="ano-novo"] .product-offers__headline h2{font-size:56px;text-align:center;text-shadow:none}
+.season-title-ribbon{display:block;background:url('../../images/offer-themes/compartilhados/faixa-branca-v2.webp') center/100% 100% no-repeat;padding:12px 25px 16px;color:#230078}
+.product-offers[data-theme="ano-novo"] .product-offers__headline h2 em{display:block;color:#fff000;margin-top:-8px}
+.product-offers[data-theme="ano-novo"] .product-offers__headline p{display:table;margin:0 auto;padding:6px 20px;color:#230078;font-size:24px;background:url('../../images/offer-themes/compartilhados/preco-pincel-v2.webp') center/100% 100% no-repeat}
+@media(max-width:1100px) and (min-width:701px){.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__headline h2{font-size:40px}}
+@media(max-width:700px){.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__headline h2{font-size:38px}.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__headline p{font-size:21px;margin:auto}.product-offers:is([data-theme="black-friday"],[data-theme="natal"],[data-theme="ano-novo"]) .product-offers__footer{min-height:80px}.season-title-ribbon{padding:10px 20px 14px}}
+.product-offers__megaphone{width:96px;height:96px;fill:#fff000;stroke:#230078;stroke-width:1.3;transform:rotate(-15deg)}
+@media(min-width:1101px){.product-offers__heading{grid-template-columns:420px minmax(0,1fr) 230px;min-height:180px}.product-offers__logo{max-width:420px}.product-offers__headline h2{font-size:80px}.product-offer__photo{height:340px}.product-offer h3{font-size:32px}.product-offer__body>p{font-size:26px;min-height:29px}.product-offer__price{height:105px}.product-offer__price strong{font-size:100px}.product-offer summary{min-height:44px;font-size:24px}.product-offers__invitation p{font-size:30px}.product-offers__invitation strong{font-size:64px}.product-offers__share-all{font-size:27px!important}.product-offers[data-theme="black-friday"] .product-offers__headline h2{font-size:84px}.product-offers[data-theme="natal"] .product-offers__headline h2{font-size:68px}.product-offers[data-theme="ano-novo"] .product-offers__headline h2{font-size:68px}.product-offers__footer{min-height:160px}.product-offers__awareness strong{font-size:36px}.product-offers__awareness img{width:110px;height:110px}}
+@media(min-width:701px){.product-offers__footer:has(.product-offers__megaphone){grid-template-columns:100px 1fr auto}}
+@media(max-width:700px){.product-offers__megaphone{width:38px;height:46px}.product-offers__footer:has(.product-offers__megaphone){grid-template-columns:40px 1fr 30px}}
+
+/* Black Friday: reference board 18. Shared site/panel composition. */
+.product-offers[data-theme="black-friday"] .product-offer__price{color:#4100a6}
+.product-offers[data-theme="black-friday"] .product-offer__body{color:#1d0755}
+.product-offers[data-theme="black-friday"] .product-offers__categories button,
+.product-offers[data-theme="black-friday"] .product-offers__share-all,
+.product-offers[data-theme="black-friday"] .product-offer summary{font-family:Offer Condensed,sans-serif;font-weight:700}
+.product-offers[data-theme="black-friday"] .product-offers__heading{grid-template-columns:36% minmax(0,1fr);gap:28px;padding:10px 26px;min-height:194px}
+.product-offers[data-theme="black-friday"] .product-offers__logo{max-width:none;width:100%;height:auto}
+.product-offers[data-theme="black-friday"] .product-offers__headline{position:relative;isolation:isolate;padding:0 0 0 24px;min-width:0}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2{position:relative;font-size:clamp(58px,7.5vw,104px);line-height:.9;letter-spacing:-.035em;margin:0 0 10px;transform:rotate(-5deg);text-shadow:1px 2px #33006b;animation:none}
+.product-offers[data-theme="black-friday"] .season-title-lead{font-size:.45em;line-height:1.05;letter-spacing:-.02em}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2 em{display:inline-flex;align-items:center;gap:14px;transform:scaleX(1.1);transform-origin:left center;text-shadow:1px 1px #d5a600,2px 3px #4800a8}
+.product-offers[data-theme="black-friday"] .product-offers__headline p{font-size:clamp(20px,2.1vw,30px);margin:0;padding:7px 24px;max-width:66%;text-align:center;white-space:nowrap}
+.product-offers[data-theme="black-friday"] .product-offers__search{position:absolute;right:26px;bottom:17px;width:24%;margin:0;min-height:44px}
+.black-friday-ornaments{position:absolute;inset:0;pointer-events:none;user-select:none}
+.black-friday-cart{position:static;flex-shrink:0;width:58px;height:58px;color:#fff000;filter:drop-shadow(1px 2px 0 #6900c0);animation:bf-cart-float 6s ease-in-out infinite}
+.black-friday-sparks{position:absolute;left:-20px;top:23px;width:42px;height:75px;object-fit:contain;animation:bf-sparks-float 7s ease-in-out infinite}
+@keyframes bf-cart-float{0%,100%{transform:translateY(0) rotate(12deg)}50%{transform:translateY(-3px) rotate(14deg)}}
+@keyframes bf-sparks-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.product-offers[data-theme="black-friday"] .product-offers__categories{background:#290062}
+.product-offers[data-theme="black-friday"] .product-offers__footer{min-height:140px}
+@media(min-width:701px) and (max-width:1000px){
+.product-offers[data-theme="black-friday"] .product-offers__heading{grid-template-columns:34% minmax(0,1fr);gap:18px;padding:18px;min-height:176px}
+.product-offers[data-theme="black-friday"] .product-offers__headline{padding:0 0 0 14px}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2{font-size:clamp(44px,7.3vw,73px)}
+.product-offers[data-theme="black-friday"] .product-offers__headline p{font-size:20px;padding:6px 15px}
+.product-offers[data-theme="black-friday"] .product-offers__search{width:24%;right:18px;bottom:14px;min-height:38px;padding:7px 10px}
+.black-friday-cart{width:40px;height:40px;top:12px}.black-friday-sparks{width:26px;height:50px;left:-14px;top:18px}
+}
+@media(max-width:700px){
+.product-offers[data-theme="black-friday"] .product-offers__heading{display:flex;gap:6px;min-height:0;padding:10px 12px 12px}
+.product-offers[data-theme="black-friday"] .product-offers__logo{width:242px;max-width:74%;height:auto}
+.product-offers[data-theme="black-friday"] .product-offers__headline{width:100%;max-width:390px;padding:0 0 0 28px;text-align:left}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2{font-size:clamp(43px,15vw,64px);margin:0 0 5px}
+.product-offers[data-theme="black-friday"] .product-offers__headline p{font-size:22px;max-width:none;width:max-content;margin:0 auto;padding:5px 18px}
+.product-offers[data-theme="black-friday"] .product-offers__search{position:relative;right:auto;bottom:auto;width:100%;margin:4px 0 0;min-height:36px}
+.black-friday-cart{width:35px;height:35px;right:0;top:22px}.black-friday-sparks{left:0;top:22px;width:25px;height:46px}
+.product-offers[data-theme="black-friday"] .product-offers__footer{min-height:80px}
+}
+@media(prefers-reduced-motion:reduce){.black-friday-cart,.black-friday-sparks{animation:none}}
+/* Requested campaign scale; shared with the local panel preview. */
+.product-offers[data-theme="black-friday"] .product-offers__inner{zoom:.8;max-width:1707.5px}
+.product-offers[data-theme="black-friday"] .product-offers__categories{gap:20px;padding:18px 20px}
+.product-offers[data-theme="black-friday"] .product-offers__grid{gap:24px;padding:20px}
+.product-offers[data-theme="black-friday"] .product-offers__headline h2{transform-origin:left bottom;margin-bottom:16px}
+@media(min-width:701px){
+ .product-offers[data-theme="black-friday"] .product-offers__logo{width:80%;justify-self:center}
+}
+@media(max-width:700px){
+ .product-offers[data-theme="black-friday"] .product-offers__categories{gap:12px;padding:10px}
+ .product-offers[data-theme="black-friday"] .product-offers__grid{gap:14px;padding:12px}
+}

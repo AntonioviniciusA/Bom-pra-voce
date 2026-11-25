@@ -1,0 +1,18 @@
+.store-page {
+  --store-page-surface: #ffffff;
+  --store-page-icon-circle: var(--brand-yellow, #ffe500);
+
+  background: var(--store-page-surface);
+}
+
+.store-page > .sectors-showcase,
+.store-page > .store-visit,
+.store-page #setores .sector-card-trigger,
+.store-page #setores .sector-card-copy,
+.store-page .visit-card {
+  background: var(--store-page-surface);
+}
+
+.store-page .visit-icon {
+  background: var(--store-page-icon-circle);
+}

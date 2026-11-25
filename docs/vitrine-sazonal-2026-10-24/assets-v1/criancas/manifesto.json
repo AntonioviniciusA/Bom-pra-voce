@@ -1,0 +1,104 @@
+{
+  "id": "criancas",
+  "name": "Dia das Crianças",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 977829,
+      "sha256": "709caf49e08346454d74a6bb90ddbe954af099a294000827bbdf384683ccd9cf",
+      "alpha": true,
+      "transparentFraction": 0.6731
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 8812,
+      "sha256": "880754b5aff16d2a69d2eff5c1f2b0d74db4c37d8245128730bb02704124cfbd",
+      "alpha": true,
+      "transparentFraction": 0.6435
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15556,
+      "sha256": "29288c933c663da10611b869e9e05d4c2f57a0de6e780ea856870c210ffe6545",
+      "alpha": true,
+      "transparentFraction": 0.6577
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 36520,
+      "sha256": "1253c3075f4273bc20a736fbd7f6186fe1d0b9fcc84b94139694674312957fd8",
+      "alpha": true,
+      "transparentFraction": 0.6708
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/criancas/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 49058,
+      "sha256": "95b2eaa5a8cec3e32a157b594452f44e8e79d21656f1aef73dd35a3f0cf61fd8",
+      "alpha": true,
+      "transparentFraction": 0.6723
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

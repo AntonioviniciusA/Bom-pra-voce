@@ -1,0 +1,104 @@
+{
+  "id": "festa-junina",
+  "name": "Festa junina",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 945345,
+      "sha256": "3628da4f4af75f9acf7e513326c1542790bcafd6662017366e7b761dced3ed13",
+      "alpha": true,
+      "transparentFraction": 0.7417
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 7908,
+      "sha256": "1c6cca1466019cc69cd03fa135317a723818faed65b6e8102e7409eb6ce78e2f",
+      "alpha": true,
+      "transparentFraction": 0.7382
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15418,
+      "sha256": "9c2b0943bb93bf81722c42809342cc083adb15feaf4de8bee0777b91b945e243",
+      "alpha": true,
+      "transparentFraction": 0.7354
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 39898,
+      "sha256": "a434b5a3e2f1ba5b80442f12a3c153eaaf8cfe5e2b31b6bc6995a494b943656b",
+      "alpha": true,
+      "transparentFraction": 0.7422
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/festa-junina/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 56116,
+      "sha256": "e718cd2066ac184018343c7025fdbb059fc1fa9293298eca4d59a46eb3838547",
+      "alpha": true,
+      "transparentFraction": 0.742
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

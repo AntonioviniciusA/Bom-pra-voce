@@ -1,0 +1,104 @@
+{
+  "id": "pais",
+  "name": "Dia dos Pais",
+  "version": 1,
+  "kind": "commercial",
+  "editorialApproval": "pending-user-review",
+  "technicalStatus": "prepared",
+  "files": {
+    "original": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/original.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 918616,
+      "sha256": "2cd203caacf1382de8bf4ad68ef7e6063d6ddc11343fc5667a977a189d0fc91a",
+      "alpha": true,
+      "transparentFraction": 0.7451
+    },
+    "miniatura": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/miniatura.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 7700,
+      "sha256": "88501289ebb62b54b64988fe7c823dce946d269b982174a3530f24596b595310",
+      "alpha": true,
+      "transparentFraction": 0.7115
+    },
+    "celular": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/celular.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13356,
+      "sha256": "c0d8eeba29b78d1e72451d162930587bca362d3bfae3bb9218f18047693dc708",
+      "alpha": true,
+      "transparentFraction": 0.7272
+    },
+    "notebook": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/notebook.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 31820,
+      "sha256": "4d96b4e5aa7f4874338be6b229c7667e1dd93063bfc0a2d9c0f614bdf7785ecd",
+      "alpha": true,
+      "transparentFraction": 0.7415
+    },
+    "story": {
+      "file": "../../../../bom-pra-voce-novo/src/images/offer-themes/pais/originais/story.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 44284,
+      "sha256": "4634fe8ee64214e5a6b11bd899d09a5a1584f1b4724fb2baaa37d259a7e6cc90",
+      "alpha": true,
+      "transparentFraction": 0.7436
+    }
+  },
+  "palette": {
+    "ink": "#21102e",
+    "paper": "#fffdf0",
+    "purple": "#4913b8",
+    "yellow": "#facc15",
+    "surface": "#fffdf0"
+  },
+  "contrast": {
+    "inkOnPaper": 17.45,
+    "purpleOnYellow": 6.63,
+    "whiteOnPurple": 10.15
+  },
+  "layout": {
+    "notebook": {
+      "displayPx": 144,
+      "maxInstances": 2,
+      "placement": "outside-content-corners"
+    },
+    "celular": {
+      "displayPx": 64,
+      "maxInstances": 1,
+      "placement": "reserved-margin"
+    },
+    "story": {
+      "canvas": [
+        1080,
+        1920
+      ],
+      "essentialSafeArea": {
+        "x": 60,
+        "y": 250,
+        "width": 960,
+        "height": 1420
+      },
+      "decorationBox": {
+        "x": 820,
+        "y": 0,
+        "width": 240,
+        "height": 240
+      },
+      "rule": "outside-essential-safe-area"
+    },
+    "intensity": [
+      "discreta",
+      "marcante"
+    ],
+    "pointerEvents": "none",
+    "decorativeAlt": ""
+  }
+}

@@ -19,10 +19,12 @@
   },
   "scripts": {
     "preview": "node scripts/preview.cjs",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node scripts/start-compatible.cjs start",
+    "build": "node scripts/start-compatible.cjs build && node scripts/static-pages.cjs",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prestart": "node scripts/sync-public-images.cjs",
+    "prebuild": "node scripts/sync-public-images.cjs"
   },
   "eslintConfig": {
     "extends": [

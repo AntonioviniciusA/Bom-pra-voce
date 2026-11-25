@@ -16,7 +16,7 @@ test("renders flyer images and navigates the carousel", () => {
   usePromotions.mockReturnValue({ status: "ready", campaigns: [campaign("one", "Primeiro"), campaign("two", "Segundo")], reload: jest.fn() });
   render(<Tabloide />);
   expect(screen.getByRole("img", { name: "Panfleto Primeiro" })).toBeInTheDocument();
-  fireEvent.click(screen.getByRole("tab", { name: "Utilidades e bebê" }));
+  fireEvent.click(screen.getByRole("button", { name: "Utilidades e bebê" }));
   expect(screen.getByRole("img", { name: "Panfleto Segundo" })).toBeInTheDocument();
   fireEvent.keyDown(screen.getByRole("region", { name: "Panfletos vigentes" }), { key: "ArrowLeft" });
   expect(screen.getByRole("img", { name: "Panfleto Primeiro" })).toBeInTheDocument();
@@ -27,11 +27,11 @@ test("uses the configured campaign title, HUD name, icon and theme", () => {
   render(<Tabloide />);
   expect(screen.getByRole("heading", { name: "Semana de economia" })).toBeInTheDocument();
   expect(screen.getByRole("region", { name: "Panfletos vigentes" })).toHaveAttribute("data-theme", "green");
-  expect(screen.getByRole("tab", { name: "Seleção especial" }).querySelector(".lucide-star")).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Seleção especial" }).querySelector(".lucide-star")).toBeTruthy();
 });
 
 test("shows the configured HUD even when only one campaign is active", () => {
   usePromotions.mockReturnValue({ status: "ready", campaigns: [{ ...campaign("one", "Oferta"), hud_label: "Seleção única" }], reload: jest.fn() });
   render(<Tabloide />);
-  expect(screen.getByRole("tab", { name: "Seleção única" })).toHaveAttribute("aria-selected", "true");
+  expect(screen.getByRole("button", { name: "Seleção única" })).toHaveAttribute("aria-pressed", "true");
 });

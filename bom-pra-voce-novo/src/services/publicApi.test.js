@@ -36,3 +36,35 @@ test("a timeout ends the request instead of leaving an endless spinner", async (
   jest.advanceTimersByTime(25000);
   await assertion;
 });
+
+test("upload reports real bytes and waits for server response after 100%", async () => {
+  const original = global.XMLHttpRequest;
+  const xhr = { upload: {}, open: jest.fn(), setRequestHeader: jest.fn(), send: jest.fn() };
+  global.XMLHttpRequest = jest.fn(() => xhr);
+  try {
+    const onProgress = jest.fn();
+    const resolved = jest.fn();
+    const pending = callPublicFunction("application-submit", { body: new FormData(), onUploadProgress: onProgress }).then(resolved);
+    xhr.upload.onprogress({ lengthComputable: true, loaded: 25, total: 100 });
+    expect(onProgress).toHaveBeenLastCalledWith({ phase: "uploading", percent: 25 });
+    xhr.upload.onload();
+    await Promise.resolve();
+    expect(resolved).not.toHaveBeenCalled();
+    expect(onProgress).toHaveBeenLastCalledWith({ phase: "confirming", percent: 100 });
+    xhr.status = 200;
+    xhr.responseText = JSON.stringify({ status: "received" });
+    xhr.onload();
+    await pending;
+    expect(resolved).toHaveBeenCalledWith({ status: "received" });
+  } finally { global.XMLHttpRequest = original; }
+});
+test.each(["onerror", "ontimeout"])("upload %s never confirms receipt", async event => {
+  const original = global.XMLHttpRequest;
+  const xhr = { upload: {}, open: jest.fn(), setRequestHeader: jest.fn(), send: jest.fn() };
+  global.XMLHttpRequest = jest.fn(() => xhr);
+  try {
+    const pending = callPublicFunction("application-submit", { body: new FormData(), onUploadProgress: jest.fn() });
+    xhr[event]();
+    await expect(pending).rejects.toMatchObject({ code: "NETWORK" });
+  } finally { global.XMLHttpRequest = original; }
+});

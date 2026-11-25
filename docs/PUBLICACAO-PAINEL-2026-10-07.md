@@ -39,7 +39,7 @@ O nome inicial do arquivo de migração local terminava no timestamp `2026100623
 - `public-promotions?meta=1` recebeu HTTP 200. A consulta de ofertas vigentes retornou zero campanhas; não foram alteradas datas comerciais para fabricar ofertas vigentes.
 - `application-init` com chave idempotente válida e sem desafio recebeu HTTP 400 `CHALLENGE_REQUIRED`. Isso demonstra que o backend está habilitado e rejeita a ausência do desafio; não comprova envio legítimo completo.
 - HTML do novo build obtido com autenticação Vercel; bundle `main.f83d240b.js` conferido com `hud_label`, `icon_key`, `theme_key` e `data-theme`.
-- Depois da promoção, o endereço público respondeu HTTP 200 com esse mesmo bundle. Navegador real carregou início e `/trabalhe-conosco` sem erros JavaScript. Capturas: `painel-local/artifacts/live-site-desktop.png` e `painel-local/artifacts/live-careers-mobile.png`.
+- Depois da promoção, o endereço público respondeu HTTP 200 com esse mesmo bundle. Navegador real carregou início e `/trabalhe-conosco` sem erros JavaScript. Capturas: `bom-pra-voce-novo/src/images/library/painel-local/artifacts/live-site-desktop.png` e `bom-pra-voce-novo/src/images/library/painel-local/artifacts/live-careers-mobile.png`.
 - Revisão visual local em 1440 e 390 pixels com dados fictícios: editor e dados da candidatura sem erro de página nem rolagem horizontal.
 
 ## Recebimento público: estado e pendências
@@ -78,7 +78,7 @@ O arquivo permanece em `pending`, aguardando inspeção. O envio e o armazenamen
 - O histórico remoto já não registrava as migrações locais `20261004234500_rename_application_city_to_address` e `20261005174319_promotion_cache_version`, embora o schema e as funções correspondentes estivessem presentes e tenham sido consultados. Essa divergência é anterior à publicação e não foi corrigida alterando o histórico manualmente. Antes de um futuro `db push`, reconciliar essas entradas para evitar reaplicar a renomeação de `city`.
 - Os advisors de segurança apontaram dez avisos informativos de RLS sem policies no schema privado `bpv`, cujo acesso direto de clientes está revogado, e um aviso de proteção contra senhas vazadas desabilitada. Não foram ampliados grants nem alterada essa configuração de Auth.
 - A primeira tentativa da continuação foi interrompida por limite de uso da revisão automática de aprovação. Em 07/10 a execução foi retomada, os testes passaram e as funções foram republicadas.
-- Para abrir o aplicativo atualizado: `cd painel-local` e `npm start`. O painel já tem arquivo local ignorado pelo Git com somente URL e chave pública do mesmo projeto Supabase.
+- Para abrir o aplicativo atualizado, execute `npm start` na pasta `painel-local`. O painel já tem arquivo local ignorado pelo Git com somente URL e chave pública do mesmo projeto Supabase.
 
 ## Reversão
 

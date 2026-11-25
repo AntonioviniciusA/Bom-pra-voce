@@ -1,5 +1,7 @@
 # Painel local Bom Pra Você
 
+> **Novo escopo — 29/10/2026:** a reformulação será dedicada somente à nova vitrine: Campanhas, Calendário e Produtos; tema pronto no site, seleção do catálogo, cadastro durante inclusão, preço e vencimento da embalagem/lote, início/fim e no máximo uma campanha ativa. Panfletos antigos, editor de aparência, Currículos e Instagram/Publicações saem do escopo futuro. Consulte a [especificação que prevalece sobre os fluxos antigos abaixo](../docs/ESCOPO-PAINEL-CAMPANHAS-2026-10-29.md). Esta atualização é documental; nenhuma função foi removida do aplicativo nesta etapa. Os trechos antigos abaixo registram a operação existente, não requisitos da reformulação.
+
 Aplicativo administrativo separado do site público e executado em Electron.
 
 ## Configuração
@@ -8,11 +10,19 @@ Aplicativo administrativo separado do site público e executado em Electron.
 2. Preencha a URL e a chave publicável do projeto Supabase. Não use `service_role`.
 3. Execute `npm install`.
 
-## Execução
+## Vitrine de novembro de 2026
 
-- Desenvolvimento: `npm run dev`
-- Compilar e abrir no Electron: `npm start`
-- Apenas compilar a interface: `npm run build`
+Abra o painel com `npm start` na pasta `painel-local`. Em **Ofertas → Vitrine de produtos**, use **Preparar novembro** para obter Esquenta (1–22/11) e Semana Black Friday (23–29/11). O botão preserva rascunhos existentes. Alterações de campanha são salvas automaticamente neste computador; ao cadastrar um produto, a confirmação só aparece depois que a gravação local termina. O indicador no topo diferencia salvamento em andamento, sucesso e falha. Salvar localmente não publica no site nem sincroniza outros computadores. [Guia de cadastro e publicação](../docs/vitrine-novembro-2026.md).
+
+## Abrir o painel
+
+Na pasta `painel-local`, execute `npm start`. O comando compila a interface e abre o aplicativo. Mantenha o terminal aberto enquanto usa o painel.
+
+Para operação automatizada local, consulte o [guia permanente do modo assistido](../docs/MODO-ASSISTIDO-OPERACAO.md). Ele registra localização, comandos, critérios de confirmação, preservação de rascunhos e recuperação segura para evitar repetir a investigação em cada sessão.
+
+## Erros e diagnóstico
+
+Ao executar `npm start`, falhas do painel aparecem no mesmo terminal com o prefixo `[BPV]`. Cada registro informa horário, operação, categoria, código e status HTTP; quando disponível, inclui o identificador da requisição. Senhas, códigos do autenticador, tokens, dados de candidatos e conteúdo das campanhas não são enviados ao console. A tela mostra uma orientação curta: falha de conexão, credenciais recusadas, sessão expirada, falta de permissão, conflito de edição ou falha do servidor. Deixe o terminal aberto durante a tentativa e copie somente as linhas `[BPV]` para investigar um erro.
 
 ## Instalador Windows
 
@@ -68,3 +78,8 @@ A miniatura ajusta a escala pela largura e pela altura total da seção: no edit
 
 ## Barra lateral
 O botão Abrir/Fechar menu recolhe a navegação e libera espaço para o editor. Após 10 segundos com o mouse fora da barra, ela fecha automaticamente. Voltar com o mouse reinicia a contagem; foco de teclado dentro da navegação pausa o fechamento. Escape fecha e devolve o foco ao botão de abertura. O formulário em edição permanece montado.
+
+
+## Vitrine de produtos
+
+Consulte o [guia atual da vitrine e painel](../docs/vitrine-painel.md) para cadastro, revisão de fotos, publicação, retirada, contratos e resultados de validação.
